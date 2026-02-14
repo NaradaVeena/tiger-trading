@@ -1,0 +1,743 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐯 Tiger Portfolio — AI Infrastructure Trading Terminal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --bg-quaternary: #30363d;
+            --text-primary: #f0f6ff;
+            --text-secondary: #c9d1d9;
+            --text-muted: #8b949e;
+            --border: #30363d;
+            --green: #238636;
+            --red: #da3633;
+            --blue: #1f6feb;
+            --amber: #d29922;
+            --purple: #8b5cf6;
+            --terminal-font: 'JetBrains Mono', 'Courier New', monospace;
+            --ui-font: 'Inter', -apple-system, sans-serif;
+        }
+
+        body {
+            font-family: var(--ui-font);
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            line-height: 1.4;
+            overflow-x: auto;
+        }
+
+        /* Top Terminal Bar */
+        .terminal-bar {
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border);
+            padding: 8px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            font-family: var(--terminal-font);
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .terminal-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .terminal-status {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            min-width: max-content;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-value {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        .status-change.positive {
+            color: var(--green);
+        }
+
+        .status-change.negative {
+            color: var(--red);
+        }
+
+        .nav-links {
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 8px;
+            font-weight: 400;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a.active {
+            color: var(--text-primary);
+            background: rgba(48, 54, 61, 0.6);
+        }
+
+        /* Alert Banner */
+        .alert-banner {
+            background: rgba(210, 153, 34, 0.15);
+            border: 1px solid var(--amber);
+            color: var(--amber);
+            padding: 12px 20px;
+            margin: 0 16px 16px;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        /* Portfolio Summary Grid */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 1px;
+            background: var(--border);
+            margin-bottom: 16px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .summary-metric {
+            background: var(--bg-secondary);
+            padding: 12px 16px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .summary-metric .label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+        }
+
+        .summary-metric .value {
+            font-family: var(--terminal-font);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .summary-metric .change {
+            font-family: var(--terminal-font);
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Terminal Panels */
+        .terminal-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            background: var(--bg-tertiary);
+            padding: 12px 20px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .panel-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .panel-subtitle {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Tables */
+        .table-wrapper {
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--border) transparent;
+        }
+
+        .table-wrapper::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .table-wrapper::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        .table-wrapper::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        .terminal-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+            min-width: 800px;
+        }
+
+        .terminal-table th {
+            background: var(--bg-quaternary);
+            padding: 10px 12px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: left;
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .terminal-table th:hover {
+            background: #3d444d;
+        }
+
+        .terminal-table td {
+            padding: 8px 12px;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+            font-family: var(--terminal-font);
+            font-size: 12px;
+        }
+
+        .terminal-table tr:hover {
+            background: rgba(56, 139, 253, 0.05);
+        }
+
+        .terminal-table tr.gain-row {
+            background: rgba(35, 134, 54, 0.05);
+        }
+
+        .terminal-table tr.loss-row {
+            background: rgba(218, 54, 51, 0.05);
+        }
+
+        /* Typography */
+        .ticker {
+            font-family: var(--terminal-font);
+            font-weight: 600;
+            color: var(--blue);
+            cursor: pointer;
+        }
+
+        .ticker:hover {
+            text-decoration: underline;
+        }
+
+        .currency {
+            font-family: var(--terminal-font);
+            font-weight: 500;
+        }
+
+        .positive {
+            color: var(--green);
+        }
+
+        .negative {
+            color: var(--red);
+        }
+
+        .neutral {
+            color: var(--text-muted);
+        }
+
+        /* Status Badges */
+        .status-badge {
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-proforma {
+            background: rgba(218, 54, 51, 0.2);
+            color: var(--red);
+        }
+
+        .status-locked {
+            background: rgba(35, 134, 54, 0.2);
+            color: var(--green);
+        }
+
+        .status-cancelled {
+            background: rgba(139, 148, 158, 0.2);
+            color: var(--text-muted);
+        }
+
+        .status-active {
+            background: rgba(35, 134, 54, 0.2);
+            color: var(--green);
+        }
+
+        .status-weakened {
+            background: rgba(210, 153, 34, 0.2);
+            color: var(--amber);
+        }
+
+        .status-invalidated {
+            background: rgba(218, 54, 51, 0.2);
+            color: var(--red);
+        }
+
+        .category-core {
+            background: rgba(31, 111, 235, 0.2);
+            color: var(--blue);
+        }
+
+        .category-growth {
+            background: rgba(35, 134, 54, 0.2);
+            color: var(--green);
+        }
+
+        .category-watch {
+            background: rgba(210, 153, 34, 0.2);
+            color: var(--amber);
+        }
+
+        /* Empty State */
+        .empty-state {
+            padding: 24px;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        /* Journal */
+        .journal-entry {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .journal-entry:last-child {
+            border-bottom: none;
+        }
+
+        .journal-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .journal-content {
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .journal-category {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 3px;
+            background: rgba(139, 107, 246, 0.2);
+            color: var(--purple);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        /* Performance Chart */
+        .chart-container {
+            padding: 20px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chart-placeholder {
+            color: var(--text-muted);
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* Footer */
+        .terminal-footer {
+            margin-top: 32px;
+            padding: 16px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 1200px) {
+            .summary-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 8px;
+            }
+
+            .terminal-bar {
+                padding: 8px 12px;
+                font-size: 12px;
+            }
+
+            .terminal-status {
+                gap: 12px;
+            }
+
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .terminal-table th,
+            .terminal-table td {
+                padding: 6px 8px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* Accordion for mobile thesis expansion */
+        .thesis-row {
+            cursor: pointer;
+        }
+
+        .thesis-expanded .thesis-full {
+            display: block;
+            white-space: pre-wrap;
+            max-width: none;
+            padding-top: 8px;
+            border-top: 1px solid var(--border);
+            margin-top: 8px;
+            font-size: 11px;
+            line-height: 1.4;
+        }
+
+        .thesis-truncated {
+            max-width: 300px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .thesis-full {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Terminal Status Bar -->
+    <div class="terminal-bar">
+        <div class="terminal-status">
+            <div class="status-item">
+                <span>🐯 Tiger Portfolio</span>
+            </div>
+            <div class="status-item">
+                <span class="status-value">$100K</span>
+            </div>
+            <div class="status-item">
+                <span class="status-change positive">
+                    +$0.00 (0.00%)
+                </span>
+            </div>
+            <div class="status-item">
+                <span>Cash: <span class="status-value">$100K</span></span>
+            </div>
+            <div class="status-item">
+                <span>Heat: <span class="status-value">0.00%</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="/aiportfolio/" class="active">📊 Dashboard</a>
+                <a href="/aiportfolio-process/">📋 Rules</a>
+                <a href="/">🔬 Research</a>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="container">
+        <!-- Portfolio Summary Grid -->
+        <div class="summary-grid">
+            <div class="summary-metric">
+                <div class="label">Starting Capital</div>
+                <div class="value">$100K</div>
+            </div>
+            <div class="summary-metric">
+                <div class="label">Current Value</div>
+                <div class="value">$100K</div>
+            </div>
+            <div class="summary-metric">
+                <div class="label">Cash</div>
+                <div class="value">$100K</div>
+            </div>
+            <div class="summary-metric">
+                <div class="label">Invested</div>
+                <div class="value">$0.00</div>
+            </div>
+            <div class="summary-metric">
+                <div class="label">Unrealized P&L</div>
+                <div class="value positive">
+                    +$0.00
+                </div>
+            </div>
+            <div class="summary-metric">
+                <div class="label">Realized P&L</div>
+                <div class="value positive">
+                    +$0.00
+                </div>
+            </div>
+            <div class="summary-metric">
+                <div class="label"># Positions</div>
+                <div class="value">0</div>
+            </div>
+            <div class="summary-metric">
+                <div class="label">Heat %</div>
+                <div class="value">0.00%</div>
+            </div>
+        </div>
+
+        <!-- Current Positions -->
+        <div class="terminal-panel">
+            <div class="panel-header">
+                <div class="panel-title">📊 Current Positions</div>
+            </div>
+            
+            <div class="empty-state">No open positions. $100,000.00 ready to deploy.</div>
+            
+        </div>
+
+        
+
+        <!-- Thesis Tracker -->
+        <div class="terminal-panel">
+            <div class="panel-header">
+                <div class="panel-title">💡 Thesis Tracker</div>
+            </div>
+            
+            <div class="table-wrapper">
+                <table class="terminal-table">
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th>Company</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Key Thesis</th>
+                            <th>Updated</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr class="thesis-row" onclick="toggleThesis(this)">
+                            <td><a href="https://www.tradingview.com/chart/?symbol=ALAB" target="_blank" class="ticker">ALAB</a></td>
+                            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">Astera Labs</td>
+                            <td><span class="status-badge category-core">CORE</span></td>
+                            <td><span class="status-badge status-active">ACTIVE</span></td>
+                            <td>
+                                <div class="thesis-truncated" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;">PCIe/CXL/Ethernet connectivity leader. 115% rev growth, 74% GM, Amazon 466M warrant. Post-earnings selloff (Feb 10) created accumulation zone. RSI 39, thick volume support at 125-150.</div>
+                                <div class="thesis-full">PCIe/CXL/Ethernet connectivity leader. 115% rev growth, 74% GM, Amazon 466M warrant. Post-earnings selloff (Feb 10) created accumulation zone. RSI 39, thick volume support at 125-150.</div>
+                            </td>
+                            <td>Feb 14, 2026</td>
+                        </tr>
+                        
+                        <tr class="thesis-row" onclick="toggleThesis(this)">
+                            <td><a href="https://www.tradingview.com/chart/?symbol=COHR" target="_blank" class="ticker">COHR</a></td>
+                            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">Coherent Corp</td>
+                            <td><span class="status-badge category-watch">WATCH</span></td>
+                            <td><span class="status-badge status-weakened">WEAKENED</span></td>
+                            <td>
+                                <div class="thesis-truncated" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;">4x book-to-bill, InP vertical integration. Chart has thin structure above $121.</div>
+                                <div class="thesis-full">4x book-to-bill, InP vertical integration. Chart has thin structure above $121.</div>
+                            </td>
+                            <td>Feb 14, 2026</td>
+                        </tr>
+                        
+                        <tr class="thesis-row" onclick="toggleThesis(this)">
+                            <td><a href="https://www.tradingview.com/chart/?symbol=CRDO" target="_blank" class="ticker">CRDO</a></td>
+                            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">Credo Technology</td>
+                            <td><span class="status-badge category-growth">GROWTH</span></td>
+                            <td><span class="status-badge status-active">ACTIVE</span></td>
+                            <td>
+                                <div class="thesis-truncated" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;">88% AEC market share, 173% FY26 rev growth. Sitting on 200d SMA at $122.</div>
+                                <div class="thesis-full">88% AEC market share, 173% FY26 rev growth. Sitting on 200d SMA at $122.</div>
+                            </td>
+                            <td>Feb 14, 2026</td>
+                        </tr>
+                        
+                        <tr class="thesis-row" onclick="toggleThesis(this)">
+                            <td><a href="https://www.tradingview.com/chart/?symbol=FN" target="_blank" class="ticker">FN</a></td>
+                            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">Fabrinet</td>
+                            <td><span class="status-badge category-core">CORE</span></td>
+                            <td><span class="status-badge status-active">ACTIVE</span></td>
+                            <td>
+                                <div class="thesis-truncated" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;">Sole manufacturer 1.6T optical transceivers for NVIDIA Blackwell. 100% market share. Asset-light model.</div>
+                                <div class="thesis-full">Sole manufacturer 1.6T optical transceivers for NVIDIA Blackwell. 100% market share. Asset-light model.</div>
+                            </td>
+                            <td>Feb 14, 2026</td>
+                        </tr>
+                        
+                        <tr class="thesis-row" onclick="toggleThesis(this)">
+                            <td><a href="https://www.tradingview.com/chart/?symbol=NVT" target="_blank" class="ticker">NVT</a></td>
+                            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">nVent Electric</td>
+                            <td><span class="status-badge category-core">CORE</span></td>
+                            <td><span class="status-badge status-active">ACTIVE</span></td>
+                            <td>
+                                <div class="thesis-truncated" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;">NVIDIA liquid cooling partner. 28x fwd P/E, $2.3B backlog (3x YoY), 30% rev growth. Testing $115-121 resistance.</div>
+                                <div class="thesis-full">NVIDIA liquid cooling partner. 28x fwd P/E, $2.3B backlog (3x YoY), 30% rev growth. Testing $115-121 resistance.</div>
+                            </td>
+                            <td>Feb 14, 2026</td>
+                        </tr>
+                        
+                        <tr class="thesis-row" onclick="toggleThesis(this)">
+                            <td><a href="https://www.tradingview.com/chart/?symbol=PWR" target="_blank" class="ticker">PWR</a></td>
+                            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">Quanta Services</td>
+                            <td><span class="status-badge category-watch">WATCH</span></td>
+                            <td><span class="status-badge status-weakened">WEAKENED</span></td>
+                            <td>
+                                <div class="thesis-truncated" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;">Largest electrical contractor, 68K workers, $39.2B backlog. Near ATH, 76x P/E.</div>
+                                <div class="thesis-full">Largest electrical contractor, 68K workers, $39.2B backlog. Near ATH, 76x P/E.</div>
+                            </td>
+                            <td>Feb 14, 2026</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+
+        
+
+        
+        <div class="terminal-panel">
+            <div class="panel-header">
+                <div class="panel-title">📈 Portfolio Performance</div>
+            </div>
+            <div class="chart-container">
+                <div class="chart-placeholder">Performance tracking begins with first trade</div>
+            </div>
+        </div>
+        
+
+        <!-- Trading Journal -->
+        <div class="terminal-panel">
+            <div class="panel-header">
+                <div class="panel-title">📝 Trading Journal</div>
+            </div>
+            
+            <div class="journal-entry">
+                <div class="journal-meta">
+                    <span>Feb 14, 2026, 05:37 AM</span>
+                    <span class="journal-category">MARKET</span>
+                    
+                </div>
+                <div class="journal-content">Portfolio created. $100K starting capital. Tiger cub approach: concentrated, high-conviction AI infrastructure plays. Phase 1 entries planned for Tuesday Feb 17. ALAB is top pick post-earnings washout.</div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="terminal-footer">
+        <div>🐯 Tiger Portfolio Management System</div>
+        <div>Generated Feb 14, 2026, 01:08 AM • <a href="/aiportfolio-process/" style="color: var(--text-muted);">Rules & Process</a></div>
+        <div style="margin-top: 8px; font-size: 11px;">
+            For educational purposes only • Not investment advice
+        </div>
+    </div>
+
+    <script>
+        // Table sorting functionality
+        function sortTable(header, column) {
+            const table = header.closest('table');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            const isNumeric = header.style.textAlign === 'right' || column >= 2;
+            
+            rows.sort((a, b) => {
+                const aVal = a.children[column].textContent.trim();
+                const bVal = b.children[column].textContent.trim();
+                
+                if (isNumeric) {
+                    const aNum = parseFloat(aVal.replace(/[^-0-9.]/g, '')) || 0;
+                    const bNum = parseFloat(bVal.replace(/[^-0-9.]/g, '')) || 0;
+                    return bNum - aNum; // Descending
+                } else {
+                    return aVal.localeCompare(bVal);
+                }
+            });
+            
+            rows.forEach(row => tbody.appendChild(row));
+        }
+
+        // Thesis accordion for mobile
+        function toggleThesis(row) {
+            if (window.innerWidth > 768) return; // Only on mobile
+            
+            row.classList.toggle('thesis-expanded');
+        }
+
+        // Performance chart
+        
+    </script>
+</body>
+</html>
+  

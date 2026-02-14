@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐯 Tiger Portfolio — Trading Rules & Process</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0d1117; --bg2: #161b22; --bg3: #21262d;
+            --border: #30363d; --text: #f0f6fc; --text2: #8b949e; --text3: #6e7681;
+            --green: #238636; --green-text: #3fb950; --yellow: #d29922; --red: #da3633; --red-text: #f85149;
+            --blue: #2f81f7; --purple: #bc8cff;
+        }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        a { color: var(--blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        
+        .nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px 16px; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 16px; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; }
+        .nav-brand { font-weight: 700; font-size: 1rem; }
+        .nav a.link { color: var(--text2); font-size: 0.82rem; padding: 4px 8px; border-radius: 4px; }
+        .nav a.link:hover { color: var(--text); text-decoration: none; }
+        .nav a.link.active { color: var(--text); background: var(--bg3); }
+        
+        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+        
+        h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
+        .subtitle { color: var(--text2); font-size: 1rem; margin-bottom: 2rem; }
+        
+        h2 { font-size: 1.3rem; font-weight: 600; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); color: var(--blue); }
+        h3 { font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.75rem; color: var(--text); }
+        
+        .rule-section { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
+        
+        ol, ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.5rem; font-size: 0.92rem; }
+        li strong { color: var(--text); }
+        
+        .principle { display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; background: var(--bg3); border-radius: 6px; margin-bottom: 8px; }
+        .principle-icon { font-size: 1.2rem; min-width: 28px; text-align: center; }
+        .principle-text { font-size: 0.92rem; }
+        .principle-text strong { color: var(--green-text); }
+        
+        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin: 1rem 0; }
+        th { text-align: left; padding: 10px 12px; background: var(--bg3); color: var(--text2); font-weight: 600; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border); }
+        td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+        tr:hover td { background: var(--bg2); }
+        .ticker { font-family: 'SF Mono', 'Fira Code', monospace; font-weight: 700; }
+        .go { color: var(--green-text); }
+        .wait { color: var(--yellow); }
+        .stop { color: var(--red-text); }
+        
+        .workflow-box { background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+        .workflow-box h4 { color: var(--purple); margin-bottom: 0.75rem; font-size: 0.95rem; }
+        .workflow-step { display: flex; gap: 10px; margin-bottom: 6px; font-size: 0.88rem; }
+        .step-num { color: var(--blue); font-weight: 700; min-width: 20px; }
+        
+        .lesson { background: var(--bg); border-left: 3px solid var(--yellow); padding: 10px 16px; margin-bottom: 8px; border-radius: 0 6px 6px 0; }
+        .lesson-date { font-size: 0.75rem; color: var(--text3); font-family: monospace; }
+        .lesson-text { font-size: 0.88rem; }
+        
+        .links-bar { display: flex; gap: 16px; flex-wrap: wrap; margin: 1.5rem 0; }
+        .link-btn { display: inline-block; padding: 8px 16px; background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; font-size: 0.85rem; color: var(--text); transition: border-color 0.2s; }
+        .link-btn:hover { border-color: var(--blue); text-decoration: none; }
+        
+        .footer { text-align: center; color: var(--text3); font-size: 0.78rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+        
+        @media (max-width: 768px) {
+            .container { padding: 1rem; }
+            h1 { font-size: 1.5rem; }
+            .nav { flex-wrap: wrap; gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <span class="nav-brand">🐯 Tiger Portfolio</span>
+        <a href="/aiportfolio/" class="link">📊 Dashboard</a>
+        <a href="/aiportfolio-process/" class="link active">📋 Rules</a>
+        <a href="/" class="link">🔬 Research</a>
+    </nav>
+
+    <div class="container">
+        <h1>🐯 Trading Rules & Process</h1>
+        <p class="subtitle">Systematic rules governing the Tiger Portfolio. Every trade must comply. No exceptions.</p>
+
+        <div class="links-bar">
+            <a href="/aiportfolio/" class="link-btn">📊 Live Dashboard</a>
+            <a href="/" class="link-btn">🔬 Research Portal</a>
+        </div>
+
+        <!-- Core Philosophy -->
+        <h2>🧠 Core Philosophy</h2>
+        <div class="rule-section">
+            <div class="principle">
+                <span class="principle-icon">🐯</span>
+                <span class="principle-text"><strong>Tiger cub approach:</strong> Concentrated, high-conviction, patient. 8-12 positions max.</span>
+            </div>
+            <div class="principle">
+                <span class="principle-icon">🔧</span>
+                <span class="principle-text"><strong>Hardware moats only:</strong> Physical assets that take years to replicate. No pure software plays.</span>
+            </div>
+            <div class="principle">
+                <span class="principle-icon">🐋</span>
+                <span class="principle-text"><strong>Don't be whale exit liquidity:</strong> Buy into volume nodes, not thin air. If VP is thin below, you're the exit.</span>
+            </div>
+            <div class="principle">
+                <span class="principle-icon">💵</span>
+                <span class="principle-text"><strong>Cash is a position:</strong> No rush to deploy. Cash IS the hedge until 70%+ invested.</span>
+            </div>
+        </div>
+
+        <!-- Position Sizing -->
+        <h2>📐 Position Sizing</h2>
+        <div class="rule-section">
+            <ol>
+                <li><strong>Max single position:</strong> 25% of portfolio</li>
+                <li><strong>Core positions:</strong> 15-25% each (highest conviction + best chart)</li>
+                <li><strong>Starter positions:</strong> 3-5% (strong thesis, chart needs work)</li>
+                <li><strong>Watch list:</strong> $0 until chart confirms entry</li>
+                <li><strong>Scale in:</strong> Never deploy full size at once. 50% initial, add on confirmation.</li>
+            </ol>
+        </div>
+
+        <!-- Entry Rules -->
+        <h2>🟢 Entry Rules</h2>
+        <div class="rule-section">
+            <ol>
+                <li><strong>Volume profile check:</strong> Only buy into thick volume nodes. Thin VP below = you're someone else's exit liquidity.</li>
+                <li><strong>RSI filter:</strong> Prefer RSI &lt; 50. Never chase RSI &gt; 70 unless breakout on massive volume.</li>
+                <li><strong>No buying at channel tops:</strong> Upper trendline/channel resistance = wait for pullback.</li>
+                <li><strong>Breakout confirmation:</strong> Don't front-run resistance. Wait for break + retest + hold on volume.</li>
+                <li><strong>Post-earnings washout = opportunity:</strong> Beat + sell = sentiment reset, not fundamental problem.</li>
+                <li><strong>Divergence = caution:</strong> Bearish RSI divergence means reduce size. Don't ignore the signal.</li>
+            </ol>
+        </div>
+
+        <!-- LEAPS Rules -->
+        <h2>📈 LEAPS Rules</h2>
+        <div class="rule-section">
+            <ol>
+                <li><strong>Only on oversold names:</strong> LEAPS on extended charts = paying theta to lose.</li>
+                <li><strong>Delta &gt; 0.40:</strong> No far OTM lottery tickets.</li>
+                <li><strong>Minimum 18 months to expiry:</strong> Time is the asset.</li>
+                <li><strong>Max 10% of portfolio:</strong> Leverage is a tool, not a strategy.</li>
+            </ol>
+        </div>
+
+        <!-- Exit Rules -->
+        <h2>🔴 Exit Rules</h2>
+        <div class="rule-section">
+            <ol>
+                <li><strong>Thesis invalidation = exit:</strong> If the reason you bought breaks, sell. No hoping.</li>
+                <li><strong>Stop-loss by thesis, not price:</strong> Each position has documented invalidation triggers.</li>
+                <li><strong>Trim on extension:</strong> Position up 50%+ with RSI &gt; 70 → trim 20-30%.</li>
+                <li><strong>Let winners run:</strong> Don't sell just because it's green. Winners get bigger.</li>
+                <li><strong>Cut losers fast:</strong> Down 15%+ and thesis weakening → cut. Don't average down into broken thesis.</li>
+            </ol>
+        </div>
+
+        <!-- Hedge Rules -->
+        <h2>🛡️ Hedge Rules</h2>
+        <div class="rule-section">
+            <ol>
+                <li><strong>No hedges while cash &gt; 30%:</strong> Cash IS the hedge. Don't pay theta on SPY puts with $70K in cash.</li>
+                <li><strong>Deploy hedges at 70%+ invested:</strong> Index puts or short book plays when most capital deployed.</li>
+                <li><strong>Short book = directional puts:</strong> No short selling stocks. Buy puts on disruption losers.</li>
+            </ol>
+        </div>
+
+        <!-- Daily Workflow -->
+        <h2>⏰ Daily Workflow</h2>
+
+        <div class="workflow-box">
+            <h4>11:00 AM EST — Proforma Review</h4>
+            <div class="workflow-step"><span class="step-num">1.</span> Check pre-market/morning action on all tracked tickers</div>
+            <div class="workflow-step"><span class="step-num">2.</span> Check overnight news, analyst upgrades/downgrades, sector moves</div>
+            <div class="workflow-step"><span class="step-num">3.</span> Review ALL rules above before proposing any trade</div>
+            <div class="workflow-step"><span class="step-num">4.</span> Propose proforma trades with full reasoning</div>
+            <div class="workflow-step"><span class="step-num">5.</span> Post proformas to Horsey group + update <a href="/aiportfolio/">dashboard</a></div>
+            <div class="workflow-step"><span class="step-num">6.</span> <strong>Wait for feedback before 2 PM lock</strong></div>
+        </div>
+
+        <div class="workflow-box">
+            <h4>2:00 PM EST — Trade Lock</h4>
+            <div class="workflow-step"><span class="step-num">1.</span> Review any feedback on proformas</div>
+            <div class="workflow-step"><span class="step-num">2.</span> Lock approved trades (buy at ask, sell at bid)</div>
+            <div class="workflow-step"><span class="step-num">3.</span> Cancel/modify trades based on feedback</div>
+            <div class="workflow-step"><span class="step-num">4.</span> Update all position prices from market</div>
+            <div class="workflow-step"><span class="step-num">5.</span> Take daily portfolio snapshot</div>
+            <div class="workflow-step"><span class="step-num">6.</span> Journal entry + thesis check</div>
+            <div class="workflow-step"><span class="step-num">7.</span> Regenerate <a href="/aiportfolio/">dashboard</a></div>
+            <div class="workflow-step"><span class="step-num">8.</span> Post summary to Horsey group</div>
+        </div>
+
+        <div class="workflow-box">
+            <h4>Friday Close — Weekly Review</h4>
+            <div class="workflow-step"><span class="step-num">1.</span> Full thesis review on every position</div>
+            <div class="workflow-step"><span class="step-num">2.</span> Grade each: performing / underperforming / thesis at risk</div>
+            <div class="workflow-step"><span class="step-num">3.</span> Plan next week's potential actions</div>
+            <div class="workflow-step"><span class="step-num">4.</span> Update rules if lessons learned</div>
+        </div>
+
+        <!-- Key Levels -->
+        <h2>🎯 Key Levels & Triggers</h2>
+        <div class="rule-section">
+            <table>
+                <thead>
+                    <tr><th>Ticker</th><th>Current</th><th>Entry Zone</th><th>Add Above</th><th>Exit Below</th><th>Status</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="ticker">ALAB</td><td>$130</td><td class="go">$120-135 ✅</td><td>$150</td><td>$100</td><td class="go">BUY</td></tr>
+                    <tr><td class="ticker">NVT</td><td>$113</td><td>$100-115</td><td>$121 (volume)</td><td>$86</td><td class="wait">STARTER</td></tr>
+                    <tr><td class="ticker">FN</td><td>$496</td><td>$440-470</td><td>$531</td><td>$400</td><td class="wait">STARTER</td></tr>
+                    <tr><td class="ticker">CRDO</td><td>$121</td><td>$100-125</td><td>$130</td><td>$95</td><td class="wait">STARTER</td></tr>
+                    <tr><td class="ticker">COHR</td><td>$217</td><td>$150-200</td><td>—</td><td>—</td><td class="stop">WAIT</td></tr>
+                    <tr><td class="ticker">PWR</td><td>$524</td><td>$430-470</td><td>—</td><td>—</td><td class="stop">WAIT</td></tr>
+                </tbody>
+            </table>
+            <p style="font-size:0.78rem;color:var(--text3);margin-top:8px;">Last updated: February 14, 2026. Levels refresh at each daily review.</p>
+        </div>
+
+        <!-- Lessons Learned -->
+        <h2>📝 Lessons Learned</h2>
+        <div class="rule-section">
+            <div class="lesson">
+                <div class="lesson-date">2026-02-13</div>
+                <div class="lesson-text">Don't do math in prose. Let the database handle arithmetic. Seriously.</div>
+            </div>
+            <div class="lesson">
+                <div class="lesson-date">2026-02-13</div>
+                <div class="lesson-text">LEAPS on extended charts is worse than stock — paying premium for time decay while waiting for a pullback you could just buy.</div>
+            </div>
+            <div class="lesson">
+                <div class="lesson-date">2026-02-13</div>
+                <div class="lesson-text">Volume profile is the single best tool for avoiding whale traps. If VP is thin below current price, you ARE the liquidity.</div>
+            </div>
+        </div>
+
+        <!-- Anti-Sycophancy -->
+        <h2>🚫 Anti-Sycophancy Rules</h2>
+        <div class="rule-section">
+            <ol>
+                <li><strong>Don't validate every trade:</strong> Just give data.</li>
+                <li><strong>If the chart says wait, say wait:</strong> Don't find reasons to buy because fundamentals are exciting.</li>
+                <li><strong>Acknowledge mistakes:</strong> Wrong calls get documented, not buried.</li>
+                <li><strong>No fortune cookie wisdom:</strong> Data and levels, not platitudes.</li>
+            </ol>
+        </div>
+
+        <div class="footer">
+            <p>🐯 Tiger Portfolio — AI Infrastructure | <a href="/aiportfolio/">Dashboard</a> | <a href="/">Research</a></p>
+            <p style="margin-top:8px;">Rules are living documentation. Updated as lessons are learned.</p>
+            <p style="margin-top:4px;">⚠️ Paper trades for educational purposes. Not investment advice.</p>
+        </div>
+    </div>
+</body>
+</html>

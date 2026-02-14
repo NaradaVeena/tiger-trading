@@ -1,0 +1,14 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Database (contains live portfolio data - regenerate from trades)
+# Uncomment below to exclude DB from repo:
+# portfolio/data/portfolio.db
+
+# Generated charts (can regenerate)
+charts/
+
+# OS files
+.DS_Store
+Thumbs.db
