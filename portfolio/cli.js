@@ -88,7 +88,20 @@ async function status() {
   console.log(`Cash: ${formatCurrency(cash)}`);
   console.log(`Invested: ${formatCurrency(totalInvested)}`);
   console.log(`Positions: ${positions.length}`);
-  console.log(`Portfolio Heat: ${formatPercent(totalInvested / totalValue)}\n`);
+  console.log(`Portfolio Heat: ${formatPercent(totalInvested / totalValue)}`);
+  
+  // Show benchmark comparison
+  const benchmarkTicker = getConfig('benchmark_ticker');
+  const benchmarkInceptionPrice = parseFloat(getConfig('benchmark_inception_price') || '0');
+  if (benchmarkTicker && benchmarkInceptionPrice > 0) {
+    const latestBenchmark = db.prepare('SELECT * FROM benchmark WHERE ticker = ? ORDER BY date DESC LIMIT 1').get(benchmarkTicker);
+    if (latestBenchmark) {
+      const alpha = totalPnLPct - latestBenchmark.return_pct;
+      console.log(`\nBenchmark: ${benchmarkTicker} ${formatCurrency(latestBenchmark.price)} (${latestBenchmark.return_pct >= 0 ? '+' : ''}${formatPercent(latestBenchmark.return_pct)})`);
+      console.log(`Alpha: ${alpha >= 0 ? '+' : ''}${formatPercent(alpha)}`);
+    }
+  }
+  console.log('');
   
   if (positions.length > 0) {
     console.log('Current Positions:');
@@ -429,9 +442,12 @@ function showPnL() {
   }
 }
 
-function takeSnapshot() {
+async function takeSnapshot() {
   const positions = db.prepare("SELECT * FROM positions WHERE status = 'open'").all();
   const cash = parseFloat(getConfig('cash'));
+  const startingCapital = parseFloat(getConfig('starting_capital'));
+  const benchmarkInceptionPrice = parseFloat(getConfig('benchmark_inception_price') || '0');
+  const benchmarkTicker = getConfig('benchmark_ticker') || 'SMH';
   
   let totalInvested = 0;
   let totalUnrealizedPnL = 0;
@@ -442,10 +458,36 @@ function takeSnapshot() {
   });
   
   const totalValue = cash + totalInvested;
+  const portfolioReturnPct = (totalValue - startingCapital) / startingCapital;
+  
+  // Get benchmark price
+  let benchmarkPrice = 0;
+  let benchmarkReturnPct = 0;
+  
+  if (benchmarkInceptionPrice > 0) {
+    try {
+      const quote = await getQuote(benchmarkTicker);
+      if (quote) {
+        benchmarkPrice = quote.price;
+        benchmarkReturnPct = (benchmarkPrice - benchmarkInceptionPrice) / benchmarkInceptionPrice;
+        
+        // Store benchmark data point
+        db.prepare(`
+          INSERT OR REPLACE INTO benchmark (date, ticker, price, return_pct)
+          VALUES (?, ?, ?, ?)
+        `).run(getCurrentDate(), benchmarkTicker, benchmarkPrice, benchmarkReturnPct);
+      }
+    } catch (e) {
+      console.log(`⚠️ Could not fetch ${benchmarkTicker} price: ${e.message}`);
+    }
+  }
+  
+  // Delete existing snapshot for today (upsert behavior)
+  db.prepare('DELETE FROM snapshots WHERE date = ?').run(getCurrentDate());
   
   const stmt = db.prepare(`
-    INSERT INTO snapshots (date, total_value, cash, invested, unrealized_pnl, positions_json, created_at)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO snapshots (date, total_value, cash, invested, unrealized_pnl, positions_json, benchmark_price, benchmark_return_pct, portfolio_return_pct, created_at)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
   
   stmt.run(
@@ -455,11 +497,19 @@ function takeSnapshot() {
     totalInvested,
     totalUnrealizedPnL,
     JSON.stringify(positions),
+    benchmarkPrice,
+    benchmarkReturnPct,
+    portfolioReturnPct,
     getCurrentDateTime()
   );
   
   console.log(`✅ Portfolio snapshot taken for ${getCurrentDate()}`);
-  console.log(`Total Value: ${formatCurrency(totalValue)}`);
+  console.log(`Total Value: ${formatCurrency(totalValue)} (${formatPercent(portfolioReturnPct)})`);
+  if (benchmarkPrice > 0) {
+    console.log(`${benchmarkTicker}: ${formatCurrency(benchmarkPrice)} (${formatPercent(benchmarkReturnPct)})`);
+    const alpha = portfolioReturnPct - benchmarkReturnPct;
+    console.log(`Alpha vs ${benchmarkTicker}: ${alpha >= 0 ? '+' : ''}${formatPercent(alpha)}`);
+  }
 }
 
 async function dailyReview() {

@@ -503,6 +503,12 @@
             <div class="status-item">
                 <span>Heat: <span class="status-value">0.00%</span></span>
             </div>
+            <div class="status-item">
+                <span>SMH: <span class="status-change positive">+0.00%</span></span>
+            </div>
+            <div class="status-item">
+                <span>α: <span class="status-change positive">+0.00%</span></span>
+            </div>
             <div class="nav-links">
                 <a href="/aiportfolio/" class="active">📊 Dashboard</a>
                 <a href="/aiportfolio-process/">📋 Rules</a>
@@ -545,12 +551,18 @@
                 </div>
             </div>
             <div class="summary-metric">
-                <div class="label"># Positions</div>
-                <div class="value">0</div>
+                <div class="label">SMH Return</div>
+                <div class="value positive">
+                    +0.00%
+                </div>
+                <div class="change neutral">$407.72</div>
             </div>
             <div class="summary-metric">
-                <div class="label">Heat %</div>
-                <div class="value">0.00%</div>
+                <div class="label">Alpha (α)</div>
+                <div class="value positive">
+                    +0.00%
+                </div>
+                <div class="change neutral">vs SMH</div>
             </div>
         </div>
 
@@ -669,10 +681,11 @@
         
         <div class="terminal-panel">
             <div class="panel-header">
-                <div class="panel-title">📈 Portfolio Performance</div>
+                <div class="panel-title">📈 Tiger vs SMH — Performance</div>
+                <div class="panel-subtitle">Returns since inception (Feb 13, 2026)</div>
             </div>
             <div class="chart-container">
-                <div class="chart-placeholder">Performance tracking begins with first trade</div>
+                <div class="chart-placeholder">Performance tracking begins with first trade • SMH benchmark from $407.72</div>
             </div>
         </div>
         
@@ -697,7 +710,7 @@
 
     <div class="terminal-footer">
         <div>🐯 Tiger Portfolio Management System</div>
-        <div>Generated Feb 14, 2026, 01:08 AM • <a href="/aiportfolio-process/" style="color: var(--text-muted);">Rules & Process</a></div>
+        <div>Generated Feb 14, 2026, 12:43 PM • <a href="/aiportfolio-process/" style="color: var(--text-muted);">Rules & Process</a></div>
         <div style="margin-top: 8px; font-size: 11px;">
             For educational purposes only • Not investment advice
         </div>
@@ -735,7 +748,7 @@
             row.classList.toggle('thesis-expanded');
         }
 
-        // Performance chart
+        // Performance chart (% returns comparison)
         
     </script>
 </body>

@@ -72,6 +72,11 @@ function generateHTML() {
   // Get snapshots for chart
   const snapshots = db.prepare('SELECT * FROM snapshots ORDER BY date ASC').all();
   
+  // Get benchmark data
+  const benchmarkTicker = db.prepare("SELECT value FROM config WHERE key = 'benchmark_ticker'").get()?.value || 'SMH';
+  const benchmarkInceptionPrice = parseFloat(db.prepare("SELECT value FROM config WHERE key = 'benchmark_inception_price'").get()?.value || '0');
+  const latestBenchmark = db.prepare('SELECT * FROM benchmark WHERE ticker = ? ORDER BY date DESC LIMIT 1').get(benchmarkTicker);
+  
   // Calculate totals
   let totalInvested = 0;
   let totalUnrealizedPnL = 0;
@@ -94,13 +99,19 @@ function generateHTML() {
   const totalPnLPct = totalPnL / startingCapital;
   const portfolioHeat = totalInvested / totalValue;
   
+  // Benchmark calculations
+  const benchmarkReturn = latestBenchmark ? latestBenchmark.return_pct : 0;
+  const alpha = totalPnLPct - benchmarkReturn;
+  
   db.close();
   
-  // Generate chart data
+  // Generate chart data (normalized to % returns for comparison)
   const chartData = snapshots.map((snapshot, index) => {
     return {
       x: index,
       y: snapshot.total_value,
+      portfolioReturn: (snapshot.portfolio_return_pct || 0) * 100,
+      benchmarkReturn: (snapshot.benchmark_return_pct || 0) * 100,
       date: formatDate(snapshot.date)
     };
   });
@@ -610,6 +621,12 @@ function generateHTML() {
             <div class="status-item">
                 <span>Heat: <span class="status-value">${formatPercent(portfolioHeat)}</span></span>
             </div>
+            <div class="status-item">
+                <span>${benchmarkTicker}: <span class="status-change ${benchmarkReturn >= 0 ? 'positive' : 'negative'}">${benchmarkReturn >= 0 ? '+' : ''}${formatPercent(benchmarkReturn)}</span></span>
+            </div>
+            <div class="status-item">
+                <span>α: <span class="status-change ${alpha >= 0 ? 'positive' : 'negative'}">${alpha >= 0 ? '+' : ''}${formatPercent(alpha)}</span></span>
+            </div>
             <div class="nav-links">
                 <a href="/aiportfolio/" class="active">📊 Dashboard</a>
                 <a href="/aiportfolio-process/">📋 Rules</a>
@@ -656,12 +673,18 @@ function generateHTML() {
                 </div>
             </div>
             <div class="summary-metric">
-                <div class="label"># Positions</div>
-                <div class="value">${positions.length}</div>
+                <div class="label">${benchmarkTicker} Return</div>
+                <div class="value ${benchmarkReturn >= 0 ? 'positive' : 'negative'}">
+                    ${benchmarkReturn >= 0 ? '+' : ''}${formatPercent(benchmarkReturn)}
+                </div>
+                <div class="change neutral">${latestBenchmark ? formatCurrency(latestBenchmark.price) : '—'}</div>
             </div>
             <div class="summary-metric">
-                <div class="label">Heat %</div>
-                <div class="value">${formatPercent(portfolioHeat)}</div>
+                <div class="label">Alpha (α)</div>
+                <div class="value ${alpha >= 0 ? 'positive' : 'negative'}">
+                    ${alpha >= 0 ? '+' : ''}${formatPercent(alpha)}
+                </div>
+                <div class="change neutral">vs ${benchmarkTicker}</div>
             </div>
         </div>
 
@@ -842,19 +865,25 @@ function generateHTML() {
         <!-- Performance Chart -->
         <div class="terminal-panel">
             <div class="panel-header">
-                <div class="panel-title">📈 Portfolio Performance</div>
+                <div class="panel-title">📈 Tiger vs ${benchmarkTicker} — Performance</div>
+                <div class="panel-subtitle">Returns since inception (${formatDate(createdDate)})</div>
             </div>
             <div class="chart-container">
                 <canvas id="performanceChart" style="width: 100%; height: 200px;"></canvas>
+            </div>
+            <div style="padding: 0 20px 12px; display: flex; gap: 20px; font-size: 12px;">
+                <span style="color: #f97316;">━━ Tiger Portfolio</span>
+                <span style="color: #6366f1;">━━ ${benchmarkTicker}</span>
             </div>
         </div>
         ` : `
         <div class="terminal-panel">
             <div class="panel-header">
-                <div class="panel-title">📈 Portfolio Performance</div>
+                <div class="panel-title">📈 Tiger vs ${benchmarkTicker} — Performance</div>
+                <div class="panel-subtitle">Returns since inception (${formatDate(createdDate)})</div>
             </div>
             <div class="chart-container">
-                <div class="chart-placeholder">Performance tracking begins with first trade</div>
+                <div class="chart-placeholder">Performance tracking begins with first trade • ${benchmarkTicker} benchmark from ${formatCurrency(benchmarkInceptionPrice)}</div>
             </div>
         </div>
         `}
@@ -919,14 +948,13 @@ function generateHTML() {
             row.classList.toggle('thesis-expanded');
         }
 
-        // Performance chart
+        // Performance chart (% returns comparison)
         ${snapshots.length > 1 ? `
         const canvas = document.getElementById('performanceChart');
         if (canvas) {
             const ctx = canvas.getContext('2d');
             const data = ${JSON.stringify(chartData)};
             
-            // Set canvas size
             const rect = canvas.getBoundingClientRect();
             canvas.width = rect.width * window.devicePixelRatio;
             canvas.height = rect.height * window.devicePixelRatio;
@@ -934,53 +962,92 @@ function generateHTML() {
             
             const width = rect.width;
             const height = rect.height;
-            const padding = 40;
+            const padding = 50;
             
-            const minValue = Math.min(...data.map(d => d.y)) * 0.995;
-            const maxValue = Math.max(...data.map(d => d.y)) * 1.005;
-            const valueRange = maxValue - minValue;
+            // Get min/max across both series
+            const allReturns = data.flatMap(d => [d.portfolioReturn, d.benchmarkReturn]);
+            const minReturn = Math.min(...allReturns, 0) - 1;
+            const maxReturn = Math.max(...allReturns, 0) + 1;
+            const returnRange = maxReturn - minReturn;
+            
+            function yPos(val) {
+                return padding + ((height - 2 * padding) * (maxReturn - val) / returnRange);
+            }
+            
+            function xPos(i) {
+                return padding + ((width - 2 * padding) * i / Math.max(data.length - 1, 1));
+            }
             
             // Draw grid
             ctx.strokeStyle = '#30363d';
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 0.5;
+            ctx.font = '10px JetBrains Mono, monospace';
+            ctx.fillStyle = '#8b949e';
             
-            // Horizontal grid lines
-            for (let i = 0; i <= 4; i++) {
-                const y = padding + (height - 2 * padding) * (i / 4);
+            // Zero line
+            const zeroY = yPos(0);
+            ctx.strokeStyle = '#484f58';
+            ctx.lineWidth = 1;
+            ctx.setLineDash([4, 4]);
+            ctx.beginPath();
+            ctx.moveTo(padding, zeroY);
+            ctx.lineTo(width - padding, zeroY);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillText('0%', 4, zeroY + 4);
+            
+            // Grid lines
+            ctx.strokeStyle = '#21262d';
+            ctx.lineWidth = 0.5;
+            const step = returnRange > 20 ? 5 : returnRange > 10 ? 2 : 1;
+            for (let v = Math.ceil(minReturn / step) * step; v <= maxReturn; v += step) {
+                if (v === 0) continue;
+                const y = yPos(v);
                 ctx.beginPath();
                 ctx.moveTo(padding, y);
                 ctx.lineTo(width - padding, y);
                 ctx.stroke();
+                ctx.fillText(v.toFixed(0) + '%', 4, y + 4);
             }
             
-            // Draw line
-            ctx.strokeStyle = '${totalPnL >= 0 ? '#238636' : '#da3633'}';
-            ctx.lineWidth = 2;
+            // Draw Tiger portfolio line (orange)
+            ctx.strokeStyle = '#f97316';
+            ctx.lineWidth = 2.5;
             ctx.beginPath();
-            
             data.forEach((point, i) => {
-                const x = padding + ((width - 2 * padding) * i / (data.length - 1));
-                const y = padding + ((height - 2 * padding) * (maxValue - point.y) / valueRange);
-                
-                if (i === 0) {
-                    ctx.moveTo(x, y);
-                } else {
-                    ctx.lineTo(x, y);
-                }
+                const x = xPos(i);
+                const y = yPos(point.portfolioReturn);
+                if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
             });
-            
             ctx.stroke();
             
-            // Draw points
-            ctx.fillStyle = '${totalPnL >= 0 ? '#238636' : '#da3633'}';
+            // Draw benchmark line (indigo)
+            ctx.strokeStyle = '#6366f1';
+            ctx.lineWidth = 2;
+            ctx.setLineDash([6, 3]);
+            ctx.beginPath();
             data.forEach((point, i) => {
-                const x = padding + ((width - 2 * padding) * i / (data.length - 1));
-                const y = padding + ((height - 2 * padding) * (maxValue - point.y) / valueRange);
-                
-                ctx.beginPath();
-                ctx.arc(x, y, 3, 0, 2 * Math.PI);
-                ctx.fill();
+                const x = xPos(i);
+                const y = yPos(point.benchmarkReturn);
+                if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
             });
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            // Draw date labels
+            ctx.fillStyle = '#8b949e';
+            if (data.length <= 10) {
+                data.forEach((point, i) => {
+                    ctx.fillText(point.date, xPos(i) - 15, height - 8);
+                });
+            } else {
+                const labelStep = Math.ceil(data.length / 8);
+                data.forEach((point, i) => {
+                    if (i % labelStep === 0 || i === data.length - 1) {
+                        ctx.fillText(point.date, xPos(i) - 15, height - 8);
+                    }
+                });
+            }
         }
         ` : ''}
     </script>

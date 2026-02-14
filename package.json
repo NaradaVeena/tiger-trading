@@ -4,6 +4,7 @@
   "description": "AI-powered investment research & portfolio management",
   "private": true,
   "dependencies": {
+    "better-sqlite3": "^12.6.2",
     "canvas": "^3.2.1",
     "sharp": "^0.34.5",
     "technicalindicators": "^3.1.0",
