@@ -1,0 +1,12 @@
+{
+  "name": "tiger-trading",
+  "version": "1.0.0",
+  "description": "AI-powered investment research & portfolio management",
+  "private": true,
+  "dependencies": {
+    "canvas": "^3.2.1",
+    "sharp": "^0.34.5",
+    "technicalindicators": "^3.1.0",
+    "yahoo-finance2": "^3.13.0"
+  }
+}
