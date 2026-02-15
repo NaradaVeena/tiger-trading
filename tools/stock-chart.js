@@ -155,6 +155,69 @@ function drawLine(ctx, xScale, yScale, values, color, lineWidth, dash) {
   ctx.setLineDash([]);
 }
 
+function calcVolumeProfile(data, numBins = 60) {
+  const prices = data.flatMap(d => [d.high, d.low]);
+  const priceMin = Math.min(...prices);
+  const priceMax = Math.max(...prices);
+  const binSize = (priceMax - priceMin) / numBins;
+  const bins = Array(numBins).fill(0);
+
+  // For each candle, distribute volume across bins
+  data.forEach(d => {
+    if (!d.volume || d.volume === 0) return;
+    const vol = d.volume;
+    const lo = d.low, hi = d.high, cl = d.close;
+
+    // Find bins this candle spans
+    const binLo = Math.max(0, Math.floor((lo - priceMin) / binSize));
+    const binHi = Math.min(numBins - 1, Math.floor((hi - priceMin) / binSize));
+    const closeBin = Math.min(numBins - 1, Math.max(0, Math.floor((cl - priceMin) / binSize)));
+    const binsInRange = binHi - binLo + 1;
+
+    // Weight toward close: 60% to close bin, 40% uniform
+    const closeWeight = 0.6 * vol;
+    const uniformWeight = 0.4 * vol / binsInRange;
+
+    for (let b = binLo; b <= binHi; b++) {
+      bins[b] += uniformWeight;
+    }
+    bins[closeBin] += closeWeight;
+  });
+
+  // POC: bin with highest volume
+  let pocIdx = 0;
+  for (let i = 1; i < numBins; i++) {
+    if (bins[i] > bins[pocIdx]) pocIdx = i;
+  }
+  const pocPrice = priceMin + (pocIdx + 0.5) * binSize;
+
+  // Value Area (70%): expand from POC outward
+  const totalVol = bins.reduce((a, b) => a + b, 0);
+  const targetVol = totalVol * 0.70;
+  let vaVol = bins[pocIdx];
+  let vaLo = pocIdx, vaHi = pocIdx;
+
+  while (vaVol < targetVol && (vaLo > 0 || vaHi < numBins - 1)) {
+    const downVol = vaLo > 0 ? bins[vaLo - 1] : -1;
+    const upVol = vaHi < numBins - 1 ? bins[vaHi + 1] : -1;
+    if (downVol >= upVol) { vaLo--; vaVol += bins[vaLo]; }
+    else { vaHi++; vaVol += bins[vaHi]; }
+  }
+
+  const vahPrice = priceMin + (vaHi + 1) * binSize;
+  const valPrice = priceMin + vaLo * binSize;
+
+  // HVN/LVN
+  const avgBinVol = totalVol / numBins;
+
+  return {
+    bins, binSize, priceMin, priceMax, numBins,
+    poc: pocPrice, pocIdx,
+    vah: vahPrice, val: valPrice, vaLo, vaHi,
+    avgBinVol,
+  };
+}
+
 function drawChart(data, vwap, sma20, ema9, ema21, trendlines, rsi, macd) {
   const width = 1200;
   const height = 1000;
@@ -261,6 +324,61 @@ function drawChart(data, vwap, sma20, ema9, ema21, trendlines, rsi, macd) {
     ctx.stroke();
     ctx.setLineDash([]);
   });
+
+  // ====================== VOLUME PROFILE ======================
+  const vp = calcVolumeProfile(data);
+  const vpMaxVol = Math.max(...vp.bins);
+  const vpWidth = (width - margin.left - margin.right) * 0.20; // 20% of chart width
+  const vpRight = width - margin.right;
+  const vpLeft = vpRight - vpWidth;
+
+  // Value Area shading (VAL to VAH)
+  const vaTopY = yScale(vp.vah);
+  const vaBotY = yScale(vp.val);
+  ctx.fillStyle = 'rgba(138, 100, 220, 0.08)';
+  ctx.fillRect(margin.left, vaTopY, width - margin.left - margin.right, vaBotY - vaTopY);
+
+  // Draw VP bins as horizontal bars from right edge
+  for (let i = 0; i < vp.numBins; i++) {
+    const binVol = vp.bins[i];
+    if (binVol === 0) continue;
+    const binBottom = vp.priceMin + i * vp.binSize;
+    const binTop = binBottom + vp.binSize;
+    const y1 = yScale(binTop);
+    const y2 = yScale(binBottom);
+    const barW = (binVol / vpMaxVol) * vpWidth;
+
+    const isPoc = i === vp.pocIdx;
+    const inVA = i >= vp.vaLo && i <= vp.vaHi;
+
+    if (isPoc) {
+      ctx.fillStyle = 'rgba(255, 235, 59, 0.75)'; // bright yellow for POC
+    } else if (inVA) {
+      ctx.fillStyle = 'rgba(120, 80, 220, 0.35)'; // purple for value area
+    } else {
+      ctx.fillStyle = 'rgba(80, 120, 200, 0.25)'; // blue for outside VA
+    }
+
+    ctx.fillRect(vpRight - barW, y1, barW, Math.max(1, y2 - y1 - 0.5));
+  }
+
+  // POC horizontal dashed line
+  ctx.strokeStyle = 'rgba(255, 235, 59, 0.5)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 4]);
+  ctx.beginPath();
+  ctx.moveTo(margin.left, yScale(vp.poc));
+  ctx.lineTo(width - margin.right, yScale(vp.poc));
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // VP labels on right side
+  ctx.font = '9px monospace'; ctx.textAlign = 'left';
+  ctx.fillStyle = '#ffeb3b';
+  ctx.fillText(`POC ${vp.poc.toFixed(2)}`, vpRight + 2, yScale(vp.poc) + 3);
+  ctx.fillStyle = '#a080e0';
+  ctx.fillText(`VAH ${vp.vah.toFixed(2)}`, vpRight + 2, yScale(vp.vah) + 3);
+  ctx.fillText(`VAL ${vp.val.toFixed(2)}`, vpRight + 2, yScale(vp.val) + 3);
 
   // --- Current price line ---
   const lastPrice = data[data.length - 1].close;
@@ -467,6 +585,10 @@ async function main() {
     if (ema21[ema21.length - 1]) console.log(`EMA21: $${ema21[ema21.length - 1].toFixed(2)}`);
     if (lastRSI) console.log(`RSI(14): ${lastRSI.toFixed(1)}`);
     if (lastMACD) console.log(`MACD: ${lastMACD.MACD.toFixed(3)} | Signal: ${lastMACD.signal.toFixed(3)} | Hist: ${lastMACD.histogram.toFixed(3)}`);
+    const vp = calcVolumeProfile(data);
+    console.log(`VP POC: $${vp.poc.toFixed(2)}`);
+    console.log(`VP VAH: $${vp.vah.toFixed(2)}`);
+    console.log(`VP VAL: $${vp.val.toFixed(2)}`);
     console.log(`Trendlines: ${trendlines.length} found`);
     console.log(`\nChart saved: ${filepath}`);
     
