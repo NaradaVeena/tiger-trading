@@ -328,15 +328,22 @@ function drawChart(data, vwap, sma20, ema9, ema21, trendlines, rsi, macd) {
   // ====================== VOLUME PROFILE ======================
   const vp = calcVolumeProfile(data);
   const vpMaxVol = Math.max(...vp.bins);
-  const vpWidth = (width - margin.left - margin.right) * 0.20; // 20% of chart width
+  const vpWidth = (width - margin.left - margin.right) * 0.30; // 30% of chart width (wider for readability)
   const vpRight = width - margin.right;
   const vpLeft = vpRight - vpWidth;
 
-  // Value Area shading (VAL to VAH)
+  // Value Area shading (VAL to VAH) — more visible
   const vaTopY = yScale(vp.vah);
   const vaBotY = yScale(vp.val);
-  ctx.fillStyle = 'rgba(138, 100, 220, 0.08)';
+  ctx.fillStyle = 'rgba(138, 100, 220, 0.15)';
   ctx.fillRect(margin.left, vaTopY, width - margin.left - margin.right, vaBotY - vaTopY);
+  // VA border lines
+  ctx.strokeStyle = 'rgba(138, 100, 220, 0.4)';
+  ctx.lineWidth = 0.5;
+  ctx.setLineDash([2, 4]);
+  ctx.beginPath(); ctx.moveTo(margin.left, vaTopY); ctx.lineTo(vpLeft, vaTopY); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(margin.left, vaBotY); ctx.lineTo(vpLeft, vaBotY); ctx.stroke();
+  ctx.setLineDash([]);
 
   // Draw VP bins as horizontal bars from right edge
   for (let i = 0; i < vp.numBins; i++) {
@@ -347,38 +354,69 @@ function drawChart(data, vwap, sma20, ema9, ema21, trendlines, rsi, macd) {
     const y1 = yScale(binTop);
     const y2 = yScale(binBottom);
     const barW = (binVol / vpMaxVol) * vpWidth;
+    const barH = Math.max(2, y2 - y1 - 1); // minimum 2px height for visibility
 
     const isPoc = i === vp.pocIdx;
     const inVA = i >= vp.vaLo && i <= vp.vaHi;
 
     if (isPoc) {
-      ctx.fillStyle = 'rgba(255, 235, 59, 0.75)'; // bright yellow for POC
+      ctx.fillStyle = 'rgba(255, 235, 59, 0.85)'; // bright yellow for POC
     } else if (inVA) {
-      ctx.fillStyle = 'rgba(120, 80, 220, 0.35)'; // purple for value area
+      ctx.fillStyle = 'rgba(120, 80, 220, 0.50)'; // purple for value area (more opaque)
     } else {
-      ctx.fillStyle = 'rgba(80, 120, 200, 0.25)'; // blue for outside VA
+      ctx.fillStyle = 'rgba(80, 120, 200, 0.35)'; // blue for outside VA (more opaque)
     }
 
-    ctx.fillRect(vpRight - barW, y1, barW, Math.max(1, y2 - y1 - 0.5));
+    ctx.fillRect(vpRight - barW, y1, barW, barH);
+    
+    // Subtle outline on bars for definition
+    if (barW > 3) {
+      ctx.strokeStyle = isPoc ? 'rgba(255, 235, 59, 0.4)' : 'rgba(255, 255, 255, 0.08)';
+      ctx.lineWidth = 0.5;
+      ctx.strokeRect(vpRight - barW, y1, barW, barH);
+    }
   }
 
-  // POC horizontal dashed line
-  ctx.strokeStyle = 'rgba(255, 235, 59, 0.5)';
-  ctx.lineWidth = 1;
-  ctx.setLineDash([4, 4]);
+  // POC horizontal dashed line — full width, more visible
+  ctx.strokeStyle = 'rgba(255, 235, 59, 0.6)';
+  ctx.lineWidth = 1.5;
+  ctx.setLineDash([6, 4]);
   ctx.beginPath();
   ctx.moveTo(margin.left, yScale(vp.poc));
-  ctx.lineTo(width - margin.right, yScale(vp.poc));
+  ctx.lineTo(vpLeft, yScale(vp.poc));
   ctx.stroke();
   ctx.setLineDash([]);
 
-  // VP labels on right side
-  ctx.font = '9px monospace'; ctx.textAlign = 'left';
-  ctx.fillStyle = '#ffeb3b';
-  ctx.fillText(`POC ${vp.poc.toFixed(2)}`, vpRight + 2, yScale(vp.poc) + 3);
-  ctx.fillStyle = '#a080e0';
-  ctx.fillText(`VAH ${vp.vah.toFixed(2)}`, vpRight + 2, yScale(vp.vah) + 3);
-  ctx.fillText(`VAL ${vp.val.toFixed(2)}`, vpRight + 2, yScale(vp.val) + 3);
+  // VP labels on right side — larger font, smart positioning to avoid overlap
+  const labelFontSize = 11;
+  ctx.font = `bold ${labelFontSize}px monospace`;
+  ctx.textAlign = 'left';
+  
+  // Calculate label positions and prevent overlap
+  const labelPositions = [
+    { text: `POC ${vp.poc.toFixed(2)}`, y: yScale(vp.poc), color: '#ffeb3b' },
+    { text: `VAH ${vp.vah.toFixed(2)}`, y: yScale(vp.vah), color: '#c0a0f0' },
+    { text: `VAL ${vp.val.toFixed(2)}`, y: yScale(vp.val), color: '#c0a0f0' }
+  ];
+  
+  // Sort by Y position and push apart if overlapping
+  labelPositions.sort((a, b) => a.y - b.y);
+  const minGap = labelFontSize + 4;
+  for (let i = 1; i < labelPositions.length; i++) {
+    if (labelPositions[i].y - labelPositions[i-1].y < minGap) {
+      labelPositions[i].y = labelPositions[i-1].y + minGap;
+    }
+  }
+  
+  labelPositions.forEach(lbl => {
+    // Background pill for readability
+    const metrics = ctx.measureText(lbl.text);
+    ctx.fillStyle = 'rgba(13, 17, 23, 0.85)';
+    ctx.fillRect(vpRight + 1, lbl.y - labelFontSize + 2, metrics.width + 6, labelFontSize + 4);
+    // Text
+    ctx.fillStyle = lbl.color;
+    ctx.fillText(lbl.text, vpRight + 4, lbl.y + 3);
+  });
 
   // --- Current price line ---
   const lastPrice = data[data.length - 1].close;
