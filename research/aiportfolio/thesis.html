@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐯 Tiger Portfolio — Thesis Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --bg-quaternary: #30363d;
+            --text-primary: #f0f6ff;
+            --text-secondary: #c9d1d9;
+            --text-muted: #8b949e;
+            --border: #30363d;
+            --green: #238636;
+            --green-bright: #3fb950;
+            --red: #da3633;
+            --red-bright: #f85149;
+            --blue: #1f6feb;
+            --amber: #d29922;
+            --purple: #8b5cf6;
+            --terminal-font: 'JetBrains Mono', 'Courier New', monospace;
+            --ui-font: 'Inter', -apple-system, sans-serif;
+        }
+
+        body {
+            font-family: var(--ui-font);
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── Navigation Bar ── */
+        .nav-bar {
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-family: var(--terminal-font);
+            font-size: 13px;
+        }
+
+        .nav-brand {
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.15s;
+        }
+
+        .nav-links a:hover { color: var(--text-primary); background: rgba(48,54,61,0.4); }
+        .nav-links a.active { color: var(--text-primary); background: rgba(48,54,61,0.7); }
+
+        /* ── Container ── */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px 20px 80px;
+        }
+
+        /* ── Page Header ── */
+        .page-header {
+            margin-bottom: 32px;
+        }
+
+        .page-header h1 {
+            font-family: var(--terminal-font);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        /* ── Table of Contents ── */
+        .toc {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 32px;
+        }
+
+        .toc-title {
+            font-family: var(--terminal-font);
+            font-size: 12px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 10px;
+        }
+
+        .toc-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.15s;
+            border: 1px solid transparent;
+        }
+
+        .toc-item:hover {
+            border-color: var(--border);
+            background: var(--bg-quaternary);
+        }
+
+        .toc-ticker {
+            font-family: var(--terminal-font);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .toc-name {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .toc-badge {
+            margin-left: auto;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-core { background: rgba(35,134,54,0.2); color: var(--green-bright); }
+        .badge-growth { background: rgba(31,111,235,0.2); color: #58a6ff; }
+        .badge-watch { background: rgba(210,153,34,0.2); color: var(--amber); }
+
+        /* ── Ticker Section ── */
+        .ticker-section {
+            margin-bottom: 48px;
+            scroll-margin-top: 60px;
+        }
+
+        .ticker-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .ticker-symbol {
+            font-family: var(--terminal-font);
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .ticker-company {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .ticker-badges {
+            display: flex;
+            gap: 8px;
+            margin-left: auto;
+        }
+
+        .badge {
+            font-family: var(--terminal-font);
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 12px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .badge-active { background: rgba(35,134,54,0.2); color: var(--green-bright); border: 1px solid rgba(35,134,54,0.4); }
+        .badge-weakened { background: rgba(218,54,51,0.15); color: var(--red-bright); border: 1px solid rgba(218,54,51,0.3); }
+
+        /* ── Content Panels ── */
+        .panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+
+        .panel-header {
+            font-family: var(--terminal-font);
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 14px 20px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-tertiary);
+        }
+
+        .panel-body {
+            padding: 18px 20px;
+        }
+
+        .panel-body p {
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .panel-body p:last-child { margin-bottom: 0; }
+
+        /* ── Key Metrics Grid ── */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1px;
+            background: var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .metric-cell {
+            background: var(--bg-secondary);
+            padding: 14px 16px;
+        }
+
+        .metric-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .metric-value {
+            font-family: var(--terminal-font);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .metric-value.green { color: var(--green-bright); }
+        .metric-value.amber { color: var(--amber); }
+        .metric-value.red { color: var(--red-bright); }
+
+        /* ── Bull / Bear Side-by-Side ── */
+        .bull-bear {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .bull-panel, .bear-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .bull-panel .panel-header { border-left: 3px solid var(--green-bright); }
+        .bear-panel .panel-header { border-left: 3px solid var(--red-bright); }
+
+        .case-list {
+            list-style: none;
+            padding: 16px 20px;
+        }
+
+        .case-list li {
+            padding: 8px 0;
+            font-size: 14px;
+            line-height: 1.6;
+            border-bottom: 1px solid rgba(48,54,61,0.5);
+            display: flex;
+            gap: 8px;
+        }
+
+        .case-list li:last-child { border-bottom: none; }
+
+        .case-list li::before {
+            content: '›';
+            font-family: var(--terminal-font);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .bull-panel .case-list li::before { color: var(--green-bright); }
+        .bear-panel .case-list li::before { color: var(--red-bright); }
+
+        /* ── Invalidation Box ── */
+        .invalidation-box {
+            background: rgba(218,54,51,0.08);
+            border: 1px solid rgba(218,54,51,0.25);
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+        }
+
+        .invalidation-box .panel-header {
+            background: none;
+            border-bottom: none;
+            padding: 0 0 12px 0;
+            color: var(--red-bright);
+        }
+
+        .invalidation-list {
+            list-style: none;
+        }
+
+        .invalidation-list li {
+            padding: 6px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            color: var(--text-secondary);
+        }
+
+        .invalidation-list li::before {
+            content: '✕';
+            color: var(--red-bright);
+            font-family: var(--terminal-font);
+            font-weight: 700;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        /* ── DD Findings ── */
+        .dd-list {
+            list-style: none;
+        }
+
+        .dd-list li {
+            padding: 8px 0;
+            font-size: 14px;
+            line-height: 1.6;
+            border-bottom: 1px solid rgba(48,54,61,0.4);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dd-list li:last-child { border-bottom: none; }
+
+        .dd-list li::before {
+            content: '→';
+            color: var(--blue);
+            font-family: var(--terminal-font);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* ── Thesis Evolution Log ── */
+        .evolution-log {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .evolution-log::before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .log-entry {
+            position: relative;
+            padding: 12px 0;
+        }
+
+        .log-entry::before {
+            content: '';
+            position: absolute;
+            left: -19px;
+            top: 18px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--blue);
+            border: 2px solid var(--bg-secondary);
+        }
+
+        .log-date {
+            font-family: var(--terminal-font);
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .log-text {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* ── Management Panel ── */
+        .mgmt-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .mgmt-card {
+            background: var(--bg-tertiary);
+            border-radius: 6px;
+            padding: 14px 16px;
+        }
+
+        .mgmt-role {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .mgmt-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .mgmt-detail {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* ── Moat Tags ── */
+        .moat-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .moat-tag {
+            background: rgba(31,111,235,0.12);
+            border: 1px solid rgba(31,111,235,0.3);
+            color: #58a6ff;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 12px;
+            font-weight: 600;
+            font-family: var(--terminal-font);
+        }
+
+        .moat-detail {
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .nav-bar { flex-wrap: wrap; gap: 8px; padding: 8px 12px; }
+            .nav-links { margin-left: 0; }
+            .container { padding: 16px 12px 60px; }
+            .toc-grid { grid-template-columns: 1fr; }
+            .bull-bear { grid-template-columns: 1fr; }
+            .ticker-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .ticker-badges { margin-left: 0; }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .ticker-symbol { font-size: 22px; }
+            .mgmt-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .metrics-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ── Back to Top ── */
+        .back-top {
+            display: inline-block;
+            font-family: var(--terminal-font);
+            font-size: 12px;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-top: 8px;
+            padding: 4px 0;
+        }
+
+        .back-top:hover { color: var(--text-primary); }
+
+        /* ── Divider ── */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 48px 0 0;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav-bar">
+    <span class="nav-brand">🐯 TIGER PORTFOLIO</span>
+    <div class="nav-links">
+        <a href="/aiportfolio/">Dashboard</a>
+        <a href="/aiportfolio-process/">Process</a>
+        <a href="/aiportfolio/thesis.html" class="active">Thesis Tracker</a>
+    </div>
+</nav>
+
+<div class="container">
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>📋 Thesis Tracker</h1>
+        <p>Investment theses, due diligence findings, and evolution logs for each position in the Tiger Portfolio.</p>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc" id="top">
+        <div class="toc-title">⌘ Positions</div>
+        <div class="toc-grid">
+            <a class="toc-item" href="#alab">
+                <div>
+                    <div class="toc-ticker">ALAB</div>
+                    <div class="toc-name">Astera Labs</div>
+                </div>
+                <span class="toc-badge badge-core">Core</span>
+            </a>
+            <a class="toc-item" href="#crdo">
+                <div>
+                    <div class="toc-ticker">CRDO</div>
+                    <div class="toc-name">Credo Technology</div>
+                </div>
+                <span class="toc-badge badge-growth">Growth</span>
+            </a>
+            <a class="toc-item" href="#fn">
+                <div>
+                    <div class="toc-ticker">FN</div>
+                    <div class="toc-name">Fabrinet</div>
+                </div>
+                <span class="toc-badge badge-core">Core</span>
+            </a>
+            <a class="toc-item" href="#nvt">
+                <div>
+                    <div class="toc-ticker">NVT</div>
+                    <div class="toc-name">nVent Electric</div>
+                </div>
+                <span class="toc-badge badge-core">Core</span>
+            </a>
+            <a class="toc-item" href="#cohr">
+                <div>
+                    <div class="toc-ticker">COHR</div>
+                    <div class="toc-name">Coherent Corp</div>
+                </div>
+                <span class="toc-badge badge-watch">Watch</span>
+            </a>
+            <a class="toc-item" href="#pwr">
+                <div>
+                    <div class="toc-ticker">PWR</div>
+                    <div class="toc-name">Quanta Services</div>
+                </div>
+                <span class="toc-badge badge-watch">Watch</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- ALAB — Astera Labs                                            -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section class="ticker-section" id="alab">
+        <div class="ticker-header">
+            <span class="ticker-symbol">ALAB</span>
+            <span class="ticker-company">Astera Labs, Inc.</span>
+            <div class="ticker-badges">
+                <span class="badge badge-core">Core</span>
+                <span class="badge badge-active">● Active</span>
+            </div>
+        </div>
+
+        <!-- Core Thesis -->
+        <div class="panel">
+            <div class="panel-header">Core Thesis</div>
+            <div class="panel-body">
+                <p>Astera Labs is building the connectivity platform layer for AI data centers. Their product portfolio spans PCIe retimers (Aries), CXL memory controllers (Leo), smart fabric switches (Scorpio), and optical engines — covering the full spectrum of data movement bottlenecks inside GPU clusters. This multi-product breadth is rare for a company this young and gives them multiple shots on goal as AI infrastructure scales.</p>
+                <p>The Amazon relationship is the centerpiece: a $6.5B warrant deal (3.26M shares at $142.82, performance-vested, expires 2033) signals deep strategic commitment, not a transactional supplier arrangement. Microsoft is confirmed for CXL memory deployment. In 2026, Scorpio smart fabric switches are expected to expand from 1 to 3+ hyperscaler customers — a critical inflection for product diversification.</p>
+                <p>The stock has declined 49% from its ATH of $262.90, driven by valuation compression rather than fundamental deterioration. Revenue growth remains strong at +92% YoY with 75.7% gross margins. The risk is customer concentration (top 3 = ~80% of revenue) and a rich valuation even post-selloff, but the depth of hyperscaler commitment and multi-product expansion provide a credible path to sustained growth.</p>
+            </div>
+        </div>
+
+        <!-- Key Metrics -->
+        <div class="panel">
+            <div class="panel-header">Key Metrics</div>
+            <div class="panel-body" style="padding: 0;">
+                <div class="metrics-grid">
+                    <div class="metric-cell">
+                        <div class="metric-label">Revenue Growth (YoY)</div>
+                        <div class="metric-value green">+92%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Gross Margin</div>
+                        <div class="metric-value">75.7%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Customer Concentration</div>
+                        <div class="metric-value amber">Top 3 = ~80%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">From ATH</div>
+                        <div class="metric-value red">-49%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Key Product</div>
+                        <div class="metric-value">Scorpio Switches</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Amazon Warrant</div>
+                        <div class="metric-value">$6.5B deal</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Moat Analysis -->
+        <div class="panel">
+            <div class="panel-header">Moat Analysis</div>
+            <div class="panel-body">
+                <div class="moat-items">
+                    <span class="moat-tag">Multi-Product Platform</span>
+                    <span class="moat-tag">CXL First-Mover</span>
+                    <span class="moat-tag">Strategic Warrants</span>
+                    <span class="moat-tag">Design Wins</span>
+                </div>
+                <p class="moat-detail">Astera's moat lies in the breadth of their connectivity platform — PCIe, CXL, fabric switches, and optical engines — designed to work together inside AI clusters. CXL is a nascent standard where Astera has first-mover advantage with Leo controllers already deployed at Microsoft. The Amazon warrant structure creates deep financial alignment that competitors can't easily replicate. Design wins at hyperscale are sticky: once embedded in a rack architecture, switching costs are high due to qualification cycles and system interdependencies.</p>
+            </div>
+        </div>
+
+        <!-- Management -->
+        <div class="panel">
+            <div class="panel-header">Management</div>
+            <div class="panel-body">
+                <div class="mgmt-grid">
+                    <div class="mgmt-card">
+                        <div class="mgmt-role">CEO & Co-Founder</div>
+                        <div class="mgmt-name">Jitendra Mohan</div>
+                        <div class="mgmt-detail">Stanford, 20+ years semiconductor experience. Co-founded Astera in 2017. Founder-led.</div>
+                    </div>
+                    <div class="mgmt-card">
+                        <div class="mgmt-role">Incoming CFO (March 2026)</div>
+                        <div class="mgmt-name">Desmond Lynch</div>
+                        <div class="mgmt-detail">Former Rambus CFO. Replacing retiring CFO Mike Tate. Smooth transition.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bull / Bear -->
+        <div class="bull-bear">
+            <div class="bull-panel">
+                <div class="panel-header">🟢 Bull Case</div>
+                <ul class="case-list">
+                    <li>Multi-product platform covering PCIe, CXL, fabric, and optical — multiple growth vectors</li>
+                    <li>Amazon $6.5B warrant deal signals long-term strategic commitment beyond typical supplier relationships</li>
+                    <li>CXL first-mover with confirmed Microsoft deployment — early lead in emerging standard</li>
+                    <li>Scorpio switches expanding from 1 to 3+ hyperscalers in 2026 — product diversification inflection</li>
+                    <li>75.7% gross margins with 92% revenue growth — rare combination at this scale</li>
+                </ul>
+            </div>
+            <div class="bear-panel">
+                <div class="panel-header">🔴 Bear Case</div>
+                <ul class="case-list">
+                    <li>Rich valuation even after 49% selloff — market still pricing in aggressive growth execution</li>
+                    <li>Top 3 customer concentration at ~80% of revenue — loss of any one is material</li>
+                    <li>Amazon warrant structure creates margin drag on reported financials</li>
+                    <li>CXL adoption could stall if hyperscalers pursue proprietary alternatives</li>
+                    <li>CFO transition in March 2026 adds near-term uncertainty (though replacement is strong)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Invalidation -->
+        <div class="invalidation-box" style="margin-top: 16px;">
+            <div class="panel-header">⚠ Thesis Invalidation Criteria</div>
+            <ul class="invalidation-list">
+                <li>Loss of Amazon relationship or significant warrant milestone failures</li>
+                <li>CXL adoption stalls across the industry — standard fails to gain traction</li>
+                <li>Gross margin drops below 65% (signals competitive or structural pricing pressure)</li>
+                <li>Scorpio switch expansion fails to materialize beyond initial hyperscaler customer</li>
+            </ul>
+        </div>
+
+        <!-- DD Findings -->
+        <div class="panel">
+            <div class="panel-header">DD Findings</div>
+            <div class="panel-body">
+                <ul class="dd-list">
+                    <li>Amazon warrant: 3.26M shares at $142.82 strike, expires 2033, performance-vested over time — creates deep financial alignment but also margin drag</li>
+                    <li>Microsoft confirmed as CXL memory deployment customer — validates Leo controller product</li>
+                    <li>Products span 4 categories: Aries (PCIe retimers), Leo (CXL controllers), Scorpio (smart fabric switches), optical engines</li>
+                    <li>49% decline from ATH ($262.90) is valuation compression, not fundamental deterioration — revenue and margins remain strong</li>
+                    <li>CFO Mike Tate retiring March 2026, replaced by Desmond Lynch (former Rambus CFO) — clean transition, no red flags</li>
+                    <li>No fraud indicators found: clean SEC record, no insider selling anomalies, no accounting red flags</li>
+                    <li>Customer concentration risk: top 3 customers = ~80% revenue — typical for early-stage semiconductor but needs monitoring</li>
+                    <li>Space datacenter risk assessed: negligible near-term impact — ground-based AI infrastructure remains dominant deployment model</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Thesis Evolution -->
+        <div class="panel">
+            <div class="panel-header">Thesis Evolution Log</div>
+            <div class="panel-body">
+                <div class="evolution-log">
+                    <div class="log-entry">
+                        <div class="log-date">Feb 14, 2026</div>
+                        <div class="log-text">Portfolio inception. Initial DD complete. Position in watchlist phase, no entry yet. Full due diligence conducted covering growth, margins, customer concentration, management quality, competitive landscape, and space datacenter risk assessment. Classified as Core/Active based on multi-product platform strength and hyperscaler commitments.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#top" class="back-top">↑ Back to top</a>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- CRDO — Credo Technology                                       -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section class="ticker-section" id="crdo">
+        <div class="ticker-header">
+            <span class="ticker-symbol">CRDO</span>
+            <span class="ticker-company">Credo Technology Group</span>
+            <div class="ticker-badges">
+                <span class="badge badge-growth">Growth</span>
+                <span class="badge badge-active">● Active</span>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Core Thesis</div>
+            <div class="panel-body">
+                <p>Credo Technology essentially created the Active Electrical Cable (AEC) category and dominates it with an estimated 88% market share. AECs are the copper-based alternative to optical cables for short-reach interconnects inside AI clusters — cheaper, lower power, and increasingly preferred by hyperscalers for rack-level connectivity. As AI clusters scale, the density of short-reach connections grows exponentially, and Credo sits at the center of this trend.</p>
+                <p>The growth story is extraordinary: +272% YoY revenue growth driven by hyperscaler adoption. Amazon is the #1 customer (not Microsoft, as commonly assumed), with concentration improving from 86% to 42% as Microsoft, xAI, and Meta have ramped. A 5th hyperscaler is now ramping. This rapid customer diversification significantly de-risks the revenue base.</p>
+                <p>The company is founder-influenced: co-founders Lawrence Cheng (CTO) and Job Lam (COO) remain active while professional CEO Bill Brennan manages operations. Product expansion into line card retimers, optical DSPs, and PCIe retimers provides growth beyond the core AEC franchise. The risk is that 93% of revenue still comes from just 4 hyperscaler customers, making Credo highly dependent on AI capex cycles.</p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Key Metrics</div>
+            <div class="panel-body" style="padding: 0;">
+                <div class="metrics-grid">
+                    <div class="metric-cell">
+                        <div class="metric-label">Revenue Growth (YoY)</div>
+                        <div class="metric-value green">+272%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Gross Margin</div>
+                        <div class="metric-value">62–64%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">AEC Market Share</div>
+                        <div class="metric-value green">~88%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Top Customer (Amazon)</div>
+                        <div class="metric-value amber">~42% of rev</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Customers >10% Rev</div>
+                        <div class="metric-value">4 hyperscalers</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">AEC % of Revenue</div>
+                        <div class="metric-value">~90%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Moat Analysis</div>
+            <div class="panel-body">
+                <div class="moat-items">
+                    <span class="moat-tag">Category Creator</span>
+                    <span class="moat-tag">88% Market Share</span>
+                    <span class="moat-tag">Switching Costs</span>
+                    <span class="moat-tag">Mixed-Signal IP</span>
+                </div>
+                <p class="moat-detail">Credo created the AEC market and commands 88% share (650 Group estimate). Their moat is built on proprietary mixed-signal SerDes IP that enables high-speed, low-power copper connectivity — extremely difficult to replicate. Once a hyperscaler qualifies and deploys AECs in their rack architecture, switching to a competitor requires re-qualification of the entire cable plant. The technical complexity of high-speed SerDes design (112G PAM4 and beyond) creates a natural barrier to entry, with only Broadcom as a credible potential competitor.</p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Management</div>
+            <div class="panel-body">
+                <div class="mgmt-grid">
+                    <div class="mgmt-card">
+                        <div class="mgmt-role">CEO</div>
+                        <div class="mgmt-name">Bill Brennan</div>
+                        <div class="mgmt-detail">Professional CEO. Manages operations while founders drive technical vision.</div>
+                    </div>
+                    <div class="mgmt-card">
+                        <div class="mgmt-role">CTO & Co-Founder</div>
+                        <div class="mgmt-name">Lawrence Cheng</div>
+                        <div class="mgmt-detail">Technical visionary behind the AEC category. Still active in product development.</div>
+                    </div>
+                    <div class="mgmt-card">
+                        <div class="mgmt-role">COO & Co-Founder</div>
+                        <div class="mgmt-name">Job Lam</div>
+                        <div class="mgmt-detail">Operational co-founder. Founder-influenced governance structure.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bull-bear">
+            <div class="bull-panel">
+                <div class="panel-header">🟢 Bull Case</div>
+                <ul class="case-list">
+                    <li>Created the AEC category and owns 88% market share — dominant position with switching costs</li>
+                    <li>Customer diversification rapidly improving: from 86% Amazon concentration to 42% with 4 customers >10%</li>
+                    <li>272% YoY revenue growth demonstrates explosive demand curve</li>
+                    <li>Product expansion into retimers, optical DSPs, and PCIe provides growth beyond AECs</li>
+                    <li>5th hyperscaler now ramping — continued diversification trajectory</li>
+                </ul>
+            </div>
+            <div class="bear-panel">
+                <div class="panel-header">🔴 Bear Case</div>
+                <ul class="case-list">
+                    <li>93% of revenue from just 4 hyperscaler customers — extreme customer concentration</li>
+                    <li>Entirely dependent on AI capex cycle — a pullback would hit Credo disproportionately</li>
+                    <li>AEC is ~90% of revenue — single product dependency risk</li>
+                    <li>Broadcom could enter AEC market with competitive offerings at scale</li>
+                    <li>Optical alternatives could eventually replace copper for short-reach interconnects</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="invalidation-box" style="margin-top: 16px;">
+            <div class="panel-header">⚠ Thesis Invalidation Criteria</div>
+            <ul class="invalidation-list">
+                <li>AEC market share drops below 70% — signals competitive erosion of core franchise</li>
+                <li>Amazon cuts orders or shifts to alternative suppliers</li>
+                <li>New credible AEC competitor emerges with hyperscaler design wins</li>
+                <li>AI capex cycle reverses and hyperscaler spending materially contracts</li>
+            </ul>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">DD Findings</div>
+            <div class="panel-body">
+                <ul class="dd-list">
+                    <li>Amazon is #1 customer (NOT Microsoft as commonly assumed) — critical to get this right for risk assessment</li>
+                    <li>Customer concentration improved dramatically: was 86% Amazon, now 42% with 4 customers >10% (Amazon, Microsoft, xAI, Meta)</li>
+                    <li>5th hyperscaler ramping but not yet disclosed — likely Google or Oracle based on market signals</li>
+                    <li>AECs account for ~90% of revenue — line card retimers, optical DSPs, and PCIe retimers are still early</li>
+                    <li>650 Group estimates 88% AEC market share — no credible second source yet at scale</li>
+                    <li>Mixed-signal SerDes IP is the core technical moat — high barrier to replication</li>
+                    <li>Space datacenter risk assessed: negligible — AECs are fundamentally a ground-based short-reach technology</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Thesis Evolution Log</div>
+            <div class="panel-body">
+                <div class="evolution-log">
+                    <div class="log-entry">
+                        <div class="log-date">Feb 14, 2026</div>
+                        <div class="log-text">Portfolio inception. Initial DD complete. Position in watchlist phase, no entry yet. Full due diligence conducted covering growth, margins, customer concentration, management quality, competitive landscape, and space datacenter risk assessment. Classified as Growth/Active based on extraordinary revenue growth and dominant market position.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#top" class="back-top">↑ Back to top</a>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- FN — Fabrinet                                                 -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section class="ticker-section" id="fn">
+        <div class="ticker-header">
+            <span class="ticker-symbol">FN</span>
+            <span class="ticker-company">Fabrinet</span>
+            <div class="ticker-badges">
+                <span class="badge badge-core">Core</span>
+                <span class="badge badge-active">● Active</span>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Core Thesis</div>
+            <div class="panel-body">
+                <p>Fabrinet is the invisible manufacturer behind the AI optical revolution. They don't design transceivers — they build them, with extreme precision, at low cost, in Thailand. Their defining relationship is with NVIDIA: Fabrinet manufactures NVIDIA's self-designed optical transceivers, capturing ~35% of revenue from this single customer. As NVIDIA pushes to self-produce 50%+ of its optical transceiver needs (up from 15-20%), Fabrinet is the primary beneficiary.</p>
+                <p>The business model is uniquely capital-efficient: $0 R&D spend (customers fund it), customers provide equipment, capex runs 2-3% of revenue (vs. 8-12% for Coherent), zero debt, and $969M in cash. Gross margins of 12.4% look low but are structural for contract manufacturing — they're actually 2-3x peers like Jabil. This is a toll-booth business: Fabrinet doesn't take technology risk, they take execution risk.</p>
+                <p>The "100% share" narrative needs clarification: it refers to NVIDIA's self-designed 1.6T transceivers ONLY, not the total transceiver market. Coherent designs its own transceivers; Fabrinet builds NVIDIA's designs. They operate in different parts of the value chain. The key risk is NVIDIA concentration: if NVIDIA decides to in-source manufacturing or switch to another contract manufacturer, Fabrinet loses its primary growth engine.</p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Key Metrics</div>
+            <div class="panel-body" style="padding: 0;">
+                <div class="metrics-grid">
+                    <div class="metric-cell">
+                        <div class="metric-label">Revenue Growth (YoY)</div>
+                        <div class="metric-value green">+36%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Gross Margin</div>
+                        <div class="metric-value">12.4%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">NVIDIA % of Revenue</div>
+                        <div class="metric-value amber">~35%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Cash Position</div>
+                        <div class="metric-value green">$969M</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Debt</div>
+                        <div class="metric-value green">$0</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Capex / Revenue</div>
+                        <div class="metric-value">2–3%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Moat Analysis</div>
+            <div class="panel-body">
+                <div class="moat-items">
+                    <span class="moat-tag">Precision Manufacturing</span>
+                    <span class="moat-tag">Thailand Cost Advantage</span>
+                    <span class="moat-tag">NVIDIA Strategic Partner</span>
+                    <span class="moat-tag">Asset-Light Model</span>
+                </div>
+                <p class="moat-detail">Fabrinet's moat is operational excellence in precision optical manufacturing at scale, combined with a Thailand-based cost advantage that's difficult to replicate. The zero-R&D, customer-funded model means Fabrinet never takes technology risk — they take execution risk, and they execute consistently. The NVIDIA relationship has deepened over multiple product generations, creating qualification-based switching costs. Competitors would need to build equivalent cleanroom capacity and demonstrate yield performance over years to become credible alternatives.</p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Management</div>
+            <div class="panel-body">
+                <div class="mgmt-grid">
+                    <div class="mgmt-card">
+                        <div class="mgmt-role">CEO</div>
+                        <div class="mgmt-name">Seamus Grady</div>
+                        <div class="mgmt-detail">CEO since 2017. Not a founder but runs the company with founder-like operational discipline. Strong execution track record.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bull-bear">
+            <div class="bull-panel">
+                <div class="panel-header">🟢 Bull Case</div>
+                <ul class="case-list">
+                    <li>NVIDIA deepening self-production (15-20% → 50%+) — Fabrinet is the primary manufacturing partner</li>
+                    <li>AWS diversification adds another major growth vector beyond NVIDIA</li>
+                    <li>Extremely asset-efficient: $0 R&D, customers fund equipment, 2-3% capex/revenue ratio</li>
+                    <li>Fortress balance sheet: zero debt, $969M cash — financial flexibility for any environment</li>
+                    <li>Toll-booth model: takes execution risk not technology risk — lower downside in tech transitions</li>
+                </ul>
+            </div>
+            <div class="bear-panel">
+                <div class="panel-header">🔴 Bear Case</div>
+                <ul class="case-list">
+                    <li>NVIDIA at 35% of revenue — extreme concentration in a single customer</li>
+                    <li>NVIDIA could in-source manufacturing or diversify to multiple contract manufacturers</li>
+                    <li>Gross margin structurally capped at ~12-13% — limited margin expansion potential</li>
+                    <li>"100% share" narrative is misleading — only applies to NVIDIA's self-designed 1.6T transceivers</li>
+                    <li>AMD does not use Fabrinet directly — limits total addressable market for self-designed transceivers</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="invalidation-box" style="margin-top: 16px;">
+            <div class="panel-header">⚠ Thesis Invalidation Criteria</div>
+            <ul class="invalidation-list">
+                <li>NVIDIA switches to another contract manufacturer or in-sources production</li>
+                <li>Gross margin drops below 10% — signals structural pricing pressure</li>
+                <li>Loss of any key customer without offsetting new wins</li>
+            </ul>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">DD Findings</div>
+            <div class="panel-body">
+                <ul class="dd-list">
+                    <li>"100% share" refers to NVIDIA's self-designed 1.6T optical transceivers ONLY — not the total transceiver market</li>
+                    <li>Coherent designs its own transceivers; Fabrinet contract-manufactures NVIDIA's designs — different value chains, not direct competitors</li>
+                    <li>Historical context: Innolight dominated 400G, Coherent led 800G merchant transceivers — NVIDIA's self-design push is the new dynamic</li>
+                    <li>AMD does NOT use Fabrinet directly — uses standard merchant modules from other suppliers</li>
+                    <li>$0 R&D spend is structural: customers fund all development, Fabrinet provides manufacturing expertise</li>
+                    <li>Capex discipline: 2-3% of revenue vs. Coherent's 8-12% — fundamentally different capital intensity</li>
+                    <li>Thailand manufacturing base provides labor cost advantage and established supply chain ecosystem</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Thesis Evolution Log</div>
+            <div class="panel-body">
+                <div class="evolution-log">
+                    <div class="log-entry">
+                        <div class="log-date">Feb 14, 2026</div>
+                        <div class="log-text">Portfolio inception. Initial DD complete. Position in watchlist phase, no entry yet. Full due diligence conducted covering growth, margins, customer concentration, management quality, competitive landscape, and space datacenter risk assessment. Classified as Core/Active based on NVIDIA strategic relationship and asset-light business model.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#top" class="back-top">↑ Back to top</a>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- NVT — nVent Electric                                          -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section class="ticker-section" id="nvt">
+        <div class="ticker-header">
+            <span class="ticker-symbol">NVT</span>
+            <span class="ticker-company">nVent Electric plc</span>
+            <div class="ticker-badges">
+                <span class="badge badge-core">Core</span>
+                <span class="badge badge-active">● Active</span>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Core Thesis</div>
+            <div class="panel-body">
+                <p>nVent Electric is the cleanest risk profile in the Tiger Portfolio. As NVIDIA's liquid cooling partner with a $2.3B backlog (3x YoY growth), nVent is positioned at the intersection of AI infrastructure and physical cooling — a problem that only gets harder as GPU power density increases. Unlike connectivity plays, cooling is non-negotiable: every AI data center needs it, and the thermal envelope keeps expanding.</p>
+                <p>What makes nVent unique in this portfolio is diversification. No single customer exceeds 12% of revenue — a stark contrast to the 35-80% concentration seen in ALAB, CRDO, and FN. This reduces binary risk and provides more stable revenue visibility. The company spun off from Pentair in 2018, and CEO Beth Wozniak has been leading since inception.</p>
+                <p>The trade-off is growth: at +35% YoY, nVent isn't a hypergrowth name, and the 28x forward P/E reflects expectations for steady rather than explosive growth. The stock is testing $115-121 resistance. This is a portfolio anchor — lower upside but significantly lower downside than the other names.</p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Key Metrics</div>
+            <div class="panel-body" style="padding: 0;">
+                <div class="metrics-grid">
+                    <div class="metric-cell">
+                        <div class="metric-label">Revenue Growth (YoY)</div>
+                        <div class="metric-value green">+35%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Gross Margin</div>
+                        <div class="metric-value">~38.6%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Backlog</div>
+                        <div class="metric-value green">$2.3B (3x YoY)</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Max Customer Conc.</div>
+                        <div class="metric-value green">&lt;12%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Fwd P/E</div>
+                        <div class="metric-value amber">~28x</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Key Partner</div>
+                        <div class="metric-value">NVIDIA</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Moat Analysis</div>
+            <div class="panel-body">
+                <div class="moat-items">
+                    <span class="moat-tag">NVIDIA Partnership</span>
+                    <span class="moat-tag">Thermal Engineering</span>
+                    <span class="moat-tag">Customer Diversification</span>
+                    <span class="moat-tag">Secular Demand</span>
+                </div>
+                <p class="moat-detail">nVent's moat is built on deep thermal engineering expertise combined with the NVIDIA partnership for liquid cooling solutions. Data center cooling is becoming more complex as GPU power density increases — this isn't a commodity business but requires specialized engineering for each deployment. The $2.3B backlog provides revenue visibility, while customer diversification (no customer >12%) reduces concentration risk. As data centers shift from air to liquid cooling, nVent's installed base and qualification relationships create switching costs.</p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Management</div>
+            <div class="panel-body">
+                <div class="mgmt-grid">
+                    <div class="mgmt-card">
+                        <div class="mgmt-role">CEO</div>
+                        <div class="mgmt-name">Beth Wozniak</div>
+                        <div class="mgmt-detail">CEO since 2018 Pentair spinoff. Not founder-led. Experienced industrial executive guiding the DC cooling pivot.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bull-bear">
+            <div class="bull-panel">
+                <div class="panel-header">🟢 Bull Case</div>
+                <ul class="case-list">
+                    <li>Cleanest risk profile: no single customer >12%, most diversified name in the portfolio</li>
+                    <li>Secular demand for DC cooling — thermal problem only gets harder as GPU density increases</li>
+                    <li>$2.3B backlog growing 3x YoY provides strong revenue visibility</li>
+                    <li>NVIDIA liquid cooling partnership positions nVent at the center of AI infrastructure buildout</li>
+                    <li>Air-to-liquid cooling transition is a multi-year secular tailwind</li>
+                </ul>
+            </div>
+            <div class="bear-panel">
+                <div class="panel-header">🔴 Bear Case</div>
+                <ul class="case-list">
+                    <li>28x forward P/E — premium valuation for what is ultimately an industrial company</li>
+                    <li>Testing $115-121 technical resistance — needs catalyst to break through</li>
+                    <li>Not a hypergrowth name — moderate growth may not satisfy momentum investors</li>
+                    <li>Cooling solutions face competition from Vertiv, Schneider, and in-house hyperscaler designs</li>
+                    <li>DC capex cycle turn would slow backlog conversion even with existing orders</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="invalidation-box" style="margin-top: 16px;">
+            <div class="panel-header">⚠ Thesis Invalidation Criteria</div>
+            <ul class="invalidation-list">
+                <li>Backlog growth stalls or declines — signals cooling demand plateau</li>
+                <li>Loses NVIDIA partnership or NVIDIA in-sources cooling solutions</li>
+                <li>Data center capex cycle turns negative — macro headwind to all DC infrastructure</li>
+            </ul>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">DD Findings</div>
+            <div class="panel-body">
+                <ul class="dd-list">
+                    <li>Most diversified name in portfolio — no single customer exceeds 12% of revenue</li>
+                    <li>NVIDIA liquid cooling partnership is the primary growth catalyst — positioned for GB200/GB300 cooling needs</li>
+                    <li>$2.3B backlog represents 3x YoY growth — strong forward revenue visibility</li>
+                    <li>Spun off from Pentair in 2018 — focused pure-play on electrical connection and protection</li>
+                    <li>Gross margin of ~38.6% reflects industrial-grade pricing power — well above typical electrical equipment companies</li>
+                    <li>Space datacenter risk assessed: negligible — cooling solutions are inherently tied to ground-based data center buildout</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Thesis Evolution Log</div>
+            <div class="panel-body">
+                <div class="evolution-log">
+                    <div class="log-entry">
+                        <div class="log-date">Feb 14, 2026</div>
+                        <div class="log-text">Portfolio inception. Initial DD complete. Position in watchlist phase, no entry yet. Full due diligence conducted covering growth, margins, customer concentration, management quality, competitive landscape, and space datacenter risk assessment. Classified as Core/Active based on cleanest risk profile and secular DC cooling demand.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#top" class="back-top">↑ Back to top</a>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- COHR — Coherent Corp                                          -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section class="ticker-section" id="cohr">
+        <div class="ticker-header">
+            <span class="ticker-symbol">COHR</span>
+            <span class="ticker-company">Coherent Corp</span>
+            <div class="ticker-badges">
+                <span class="badge badge-watch">Watch</span>
+                <span class="badge badge-weakened">● Weakened</span>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Core Thesis</div>
+            <div class="panel-body">
+                <p>Coherent Corp is the vertically integrated optical transceiver player — they design AND manufacture their own transceivers, including InP (Indium Phosphide) vertical integration. This is a fundamentally different model from Fabrinet (which only manufactures for others) and gives Coherent more control over their technology roadmap and margins. The 4x book-to-bill ratio signals strong demand visibility.</p>
+                <p>However, Coherent is currently classified as Watch/Weakened due to technical concerns. The chart has thin structure above $121, meaning there's limited price support if the stock breaks out and then reverses. Revenue growth of +17-22% YoY is respectable but modest compared to ALAB (+92%), CRDO (+272%), or even FN (+36%). Gross margins of 36.9-39% are decent but not exceptional.</p>
+                <p>The thesis here is wait-and-watch: Coherent has real technology advantages, but the risk/reward isn't as compelling as the core holdings. The weakened technical setup means entries need to be more patient and selective.</p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Key Metrics</div>
+            <div class="panel-body" style="padding: 0;">
+                <div class="metrics-grid">
+                    <div class="metric-cell">
+                        <div class="metric-label">Revenue Growth (YoY)</div>
+                        <div class="metric-value">+17–22%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Gross Margin</div>
+                        <div class="metric-value">36.9–39%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Book-to-Bill</div>
+                        <div class="metric-value green">4.0x</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Vertical Integration</div>
+                        <div class="metric-value">InP + Design</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Technical Setup</div>
+                        <div class="metric-value red">Thin above $121</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Model</div>
+                        <div class="metric-value">Design + Mfg</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Moat Analysis</div>
+            <div class="panel-body">
+                <div class="moat-items">
+                    <span class="moat-tag">Vertical Integration</span>
+                    <span class="moat-tag">InP Manufacturing</span>
+                    <span class="moat-tag">Design + Fabrication</span>
+                </div>
+                <p class="moat-detail">Coherent's moat is vertical integration: they control the entire stack from InP wafer fabrication through transceiver design and assembly. This gives them technology differentiation and (eventually) margin advantages as they optimize across the stack. However, vertical integration also means higher capex (8-12% of revenue vs. Fabrinet's 2-3%) and more execution complexity. The moat is real but comes with higher capital requirements.</p>
+            </div>
+        </div>
+
+        <div class="bull-bear">
+            <div class="bull-panel">
+                <div class="panel-header">🟢 Bull Case</div>
+                <ul class="case-list">
+                    <li>Full vertical integration (InP + design + manufacturing) provides technology control and potential margin expansion</li>
+                    <li>4x book-to-bill signals strong forward demand — orders significantly exceed current shipments</li>
+                    <li>Led the 800G merchant transceiver market before NVIDIA's self-design push</li>
+                </ul>
+            </div>
+            <div class="bear-panel">
+                <div class="panel-header">🔴 Bear Case</div>
+                <ul class="case-list">
+                    <li>Thin chart structure above $121 — limited technical support for breakout attempts</li>
+                    <li>Less focused than pure-play peers — conglomerate structure adds complexity</li>
+                    <li>Higher capex requirements (8-12% of revenue) vs. asset-light competitors</li>
+                    <li>NVIDIA's self-design push (via Fabrinet) reduces addressable market for merchant transceivers</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="invalidation-box" style="margin-top: 16px;">
+            <div class="panel-header">⚠ Thesis Invalidation Criteria</div>
+            <ul class="invalidation-list">
+                <li>Book-to-bill drops below 2x — signals demand weakening significantly</li>
+                <li>NVIDIA self-design captures majority of transceiver market, marginalizing merchant players</li>
+            </ul>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">DD Findings</div>
+            <div class="panel-body">
+                <ul class="dd-list">
+                    <li>Designs AND manufactures own transceivers — fundamentally different value chain position vs. Fabrinet</li>
+                    <li>InP vertical integration provides technology differentiation but requires higher capex (8-12% of rev)</li>
+                    <li>4x book-to-bill is strong but needs to convert to actual revenue growth to matter</li>
+                    <li>Chart structure is thin above $121 — weakened technical setup warranting Watch classification</li>
+                    <li>Led 800G merchant transceiver market, but NVIDIA self-design trend is a structural headwind for merchant players</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Thesis Evolution Log</div>
+            <div class="panel-body">
+                <div class="evolution-log">
+                    <div class="log-entry">
+                        <div class="log-date">Feb 14, 2026</div>
+                        <div class="log-text">Portfolio inception. Initial DD complete. Position in watchlist phase, no entry yet. Full due diligence conducted covering growth, margins, customer concentration, management quality, competitive landscape, and space datacenter risk assessment. Classified as Watch/Weakened due to thin chart structure above $121 and less compelling risk/reward vs. core holdings.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#top" class="back-top">↑ Back to top</a>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <!-- PWR — Quanta Services                                         -->
+    <!-- ═══════════════════════════════════════════════════════════════ -->
+    <section class="ticker-section" id="pwr">
+        <div class="ticker-header">
+            <span class="ticker-symbol">PWR</span>
+            <span class="ticker-company">Quanta Services, Inc.</span>
+            <div class="ticker-badges">
+                <span class="badge badge-watch">Watch</span>
+                <span class="badge badge-weakened">● Weakened</span>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Core Thesis</div>
+            <div class="panel-body">
+                <p>Quanta Services is the largest electrical contractor in the United States with 68,000 workers and a monopoly-like scale in electrical infrastructure. Every AI data center needs to be connected to the power grid, and Quanta is the company that does the physical electrical work. The $39.2B backlog is massive and provides multi-year revenue visibility.</p>
+                <p>However, Quanta is classified as Watch/Weakened because the stock is near all-time highs and trading at 76x P/E — an extraordinary valuation for what is fundamentally an electrical contracting services business with ~15% gross margins. The services model inherently limits margin expansion, and the near-ATH price means the risk/reward is unfavorable for new entries.</p>
+                <p>This is a "right company, wrong price" situation. The thesis on Quanta's business quality and market position is strong, but the valuation requires patience. A meaningful pullback (20-30%) would make this a much more interesting entry point.</p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Key Metrics</div>
+            <div class="panel-body" style="padding: 0;">
+                <div class="metrics-grid">
+                    <div class="metric-cell">
+                        <div class="metric-label">Revenue Growth (YoY)</div>
+                        <div class="metric-value green">+24%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Gross Margin</div>
+                        <div class="metric-value">~15%</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Backlog</div>
+                        <div class="metric-value green">$39.2B</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Employees</div>
+                        <div class="metric-value">68,000</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">P/E Ratio</div>
+                        <div class="metric-value red">~76x</div>
+                    </div>
+                    <div class="metric-cell">
+                        <div class="metric-label">Price vs ATH</div>
+                        <div class="metric-value amber">Near ATH</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Moat Analysis</div>
+            <div class="panel-body">
+                <div class="moat-items">
+                    <span class="moat-tag">Scale Monopoly</span>
+                    <span class="moat-tag">68K Workforce</span>
+                    <span class="moat-tag">Regulatory Barriers</span>
+                    <span class="moat-tag">Backlog Visibility</span>
+                </div>
+                <p class="moat-detail">Quanta's moat is pure scale: 68,000 workers, decades of utility relationships, and the largest fleet of specialized electrical equipment in the country. Building a competitor would require years and billions in investment — it's practically impossible to replicate this workforce and relationship base. Every major data center build, grid upgrade, and renewable energy project needs electrical contractors, and Quanta is the dominant player. Regulatory relationships and safety track records add further barriers.</p>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Management</div>
+            <div class="panel-body">
+                <div class="mgmt-grid">
+                    <div class="mgmt-card">
+                        <div class="mgmt-role">CEO</div>
+                        <div class="mgmt-name">Duke Austin</div>
+                        <div class="mgmt-detail">Experienced infrastructure executive leading the largest electrical contractor in the US. Strong operational execution.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bull-bear">
+            <div class="bull-panel">
+                <div class="panel-header">🟢 Bull Case</div>
+                <ul class="case-list">
+                    <li>Monopoly-like scale in electrical infrastructure — practically impossible to replicate 68K workforce</li>
+                    <li>$39.2B backlog provides multi-year revenue visibility</li>
+                    <li>Every AI data center needs power infrastructure — secular demand regardless of which AI companies win</li>
+                    <li>Grid modernization and renewable energy provide additional growth vectors beyond AI</li>
+                </ul>
+            </div>
+            <div class="bear-panel">
+                <div class="panel-header">🔴 Bear Case</div>
+                <ul class="case-list">
+                    <li>Near all-time highs — limited upside at current levels, significant downside risk</li>
+                    <li>76x P/E is extreme for an electrical contracting services business</li>
+                    <li>~15% gross margin reflects services model — structurally limited margin expansion</li>
+                    <li>Labor-intensive business model — wage inflation and labor shortages are ongoing risks</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="invalidation-box" style="margin-top: 16px;">
+            <div class="panel-header">⚠ Thesis Invalidation Criteria</div>
+            <ul class="invalidation-list">
+                <li>Backlog declines — signals structural demand weakening, not just cyclical</li>
+                <li>Valuation compresses without earnings growth to support it — multiple contraction</li>
+                <li>AI data center capex cycle reverses materially</li>
+            </ul>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">DD Findings</div>
+            <div class="panel-body">
+                <ul class="dd-list">
+                    <li>Largest electrical contractor in the US with 68,000 workers — scale advantage is the primary moat</li>
+                    <li>$39.2B backlog provides exceptional forward visibility but needs to convert to earnings growth to justify valuation</li>
+                    <li>76x P/E at near-ATH is pricing in perfection — any execution miss would trigger significant correction</li>
+                    <li>~15% gross margin is structural for services model — cannot meaningfully expand without changing business mix</li>
+                    <li>Grid modernization, renewable energy, and AI data center buildout all drive demand — diversified end market exposure</li>
+                    <li>Space datacenter risk assessed: negligible — physical electrical infrastructure is inherently ground-based</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel">
+            <div class="panel-header">Thesis Evolution Log</div>
+            <div class="panel-body">
+                <div class="evolution-log">
+                    <div class="log-entry">
+                        <div class="log-date">Feb 14, 2026</div>
+                        <div class="log-text">Portfolio inception. Initial DD complete. Position in watchlist phase, no entry yet. Full due diligence conducted covering growth, margins, customer concentration, management quality, competitive landscape, and space datacenter risk assessment. Classified as Watch/Weakened due to near-ATH price, 76x P/E, and unfavorable risk/reward at current levels.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="#top" class="back-top">↑ Back to top</a>
+    </section>
+
+</div>
+
+</body>
+</html>

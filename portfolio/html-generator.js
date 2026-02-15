@@ -629,6 +629,7 @@ function generateHTML() {
             </div>
             <div class="nav-links">
                 <a href="/aiportfolio/" class="active">📊 Dashboard</a>
+                <a href="/aiportfolio/thesis.html">💡 Thesis</a>
                 <a href="/aiportfolio-process/">📋 Rules</a>
                 <a href="/">🔬 Research</a>
             </div>
