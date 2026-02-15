@@ -218,7 +218,7 @@ function calcVolumeProfile(data, numBins = 60) {
   };
 }
 
-function drawChart(data, vwap, sma20, ema9, ema21, trendlines, rsi, macd) {
+function drawChart(data, vwap, sma5, sma20, sma50, sma200, trendlines, rsi, macd) {
   const width = 1200;
   const height = 1000;
   const canvas = createCanvas(width, height);
@@ -303,12 +303,14 @@ function drawChart(data, vwap, sma20, ema9, ema21, trendlines, rsi, macd) {
   // --- Overlay lines on price panel ---
   // VWAP
   drawLine(ctx, xScale, yScale, vwap, '#f39c12', 2);
+  // SMA 5
+  drawLine(ctx, xScale, yScale, sma5, '#00e5ff', 1);
   // SMA 20
   drawLine(ctx, xScale, yScale, sma20, '#3498db', 1.5, [4, 2]);
-  // EMA 9
-  drawLine(ctx, xScale, yScale, ema9, '#00e5ff', 1.5);
-  // EMA 21
-  drawLine(ctx, xScale, yScale, ema21, '#e040fb', 1.5);
+  // SMA 50
+  drawLine(ctx, xScale, yScale, sma50, '#e040fb', 1.5);
+  // SMA 200
+  drawLine(ctx, xScale, yScale, sma200, '#ff9800', 2);
 
   // --- Trendlines ---
   trendlines.forEach(line => {
@@ -553,9 +555,10 @@ function drawChart(data, vwap, sma20, ema9, ema21, trendlines, rsi, macd) {
   ctx.font = '11px monospace';
   const items = [
     { color: '#f39c12', label: 'VWAP' },
+    { color: '#00e5ff', label: 'SMA5' },
     { color: '#3498db', label: 'SMA20' },
-    { color: '#00e5ff', label: 'EMA9' },
-    { color: '#e040fb', label: 'EMA21' },
+    { color: '#e040fb', label: 'SMA50' },
+    { color: '#ff9800', label: 'SMA200' },
     { color: '#26a65b', label: 'Support' },
     { color: '#e74c3c', label: 'Resist' },
   ];
@@ -594,14 +597,15 @@ async function main() {
     console.log(`Got ${data.length} candles`);
     
     const vwap = calcVWAP(data);
+    const sma5 = calcSMA(data, 5);
     const sma20 = calcSMA(data, 20);
-    const ema9 = calcEMA(data, 9);
-    const ema21 = calcEMA(data, 21);
+    const sma50 = calcSMA(data, 50);
+    const sma200 = calcSMA(data, 200);
     const trendlines = findTrendlines(data);
     const rsi = calcRSI(data, 14);
     const macdData = calcMACD(data);
 
-    const canvas = drawChart(data, vwap, sma20, ema9, ema21, trendlines, rsi, macdData);
+    const canvas = drawChart(data, vwap, sma5, sma20, sma50, sma200, trendlines, rsi, macdData);
     
     const filename = `${symbol}_${interval}_${range}_${Date.now()}.png`;
     const filepath = path.join(outputDir, filename);
@@ -618,9 +622,10 @@ async function main() {
     console.log(`Last: $${last.close.toFixed(2)} | Open: $${first.open.toFixed(2)}`);
     console.log(`Day Range: $${Math.min(...data.map(d => d.low)).toFixed(2)} - $${Math.max(...data.map(d => d.high)).toFixed(2)}`);
     console.log(`VWAP: $${vwap[vwap.length - 1].toFixed(2)}`);
+    if (sma5[sma5.length - 1]) console.log(`SMA5: $${sma5[sma5.length - 1].toFixed(2)}`);
     if (sma20[sma20.length - 1]) console.log(`SMA20: $${sma20[sma20.length - 1].toFixed(2)}`);
-    if (ema9[ema9.length - 1]) console.log(`EMA9: $${ema9[ema9.length - 1].toFixed(2)}`);
-    if (ema21[ema21.length - 1]) console.log(`EMA21: $${ema21[ema21.length - 1].toFixed(2)}`);
+    if (sma50[sma50.length - 1]) console.log(`SMA50: $${sma50[sma50.length - 1].toFixed(2)}`);
+    if (sma200[sma200.length - 1]) console.log(`SMA200: $${sma200[sma200.length - 1].toFixed(2)}`);
     if (lastRSI) console.log(`RSI(14): ${lastRSI.toFixed(1)}`);
     if (lastMACD) console.log(`MACD: ${lastMACD.MACD.toFixed(3)} | Signal: ${lastMACD.signal.toFixed(3)} | Hist: ${lastMACD.histogram.toFixed(3)}`);
     const vp = calcVolumeProfile(data);
