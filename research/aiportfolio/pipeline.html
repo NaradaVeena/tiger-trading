@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐯 Tiger Pipeline — AI Infrastructure Expansion Candidates</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --bg-quaternary: #30363d;
+            --text-primary: #f0f6ff;
+            --text-secondary: #c9d1d9;
+            --text-muted: #8b949e;
+            --border: #30363d;
+            --green: #238636;
+            --green-bright: #3fb950;
+            --red: #da3633;
+            --blue: #1f6feb;
+            --blue-bright: #58a6ff;
+            --amber: #d29922;
+            --amber-bright: #e3b341;
+            --purple: #8b5cf6;
+            --terminal-font: 'JetBrains Mono', 'Courier New', monospace;
+            --ui-font: 'Inter', -apple-system, sans-serif;
+        }
+
+        body {
+            font-family: var(--ui-font);
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        /* ── Sticky Nav ── */
+        .terminal-bar {
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border);
+            padding: 8px 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            font-family: var(--terminal-font);
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .terminal-bar::-webkit-scrollbar { display: none; }
+
+        .terminal-status {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            min-width: max-content;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            transition: color 0.15s, background 0.15s;
+        }
+        .nav-links a:hover { color: var(--text-primary); background: rgba(48,54,61,0.4); }
+        .nav-links a.active { color: var(--text-primary); background: rgba(48,54,61,0.6); }
+
+        .tiger-brand {
+            color: var(--amber);
+            font-weight: 600;
+            font-size: 14px;
+            margin-right: 12px;
+        }
+
+        /* ── Container ── */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        /* ── Summary Cards ── */
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            margin-bottom: 16px;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        .summary-metric {
+            background: var(--bg-secondary);
+            padding: 16px 20px;
+            text-align: center;
+        }
+        .summary-metric .label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .summary-metric .value {
+            font-family: var(--terminal-font);
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .summary-metric .value.green { color: var(--green-bright); }
+        .summary-metric .value.amber { color: var(--amber-bright); }
+        .summary-metric .value.blue { color: var(--blue-bright); }
+        .summary-metric .value.muted { color: var(--text-muted); }
+
+        /* ── Terminal Panel ── */
+        .terminal-panel {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        .panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-tertiary);
+        }
+        .panel-title {
+            font-family: var(--terminal-font);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .panel-body { padding: 16px; }
+
+        /* ── Supply Chain Map ── */
+        .supply-chain {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .layer-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 14px;
+            transition: border-color 0.2s;
+        }
+        .layer-card:hover { border-color: var(--blue); }
+        .layer-num {
+            font-family: var(--terminal-font);
+            font-size: 11px;
+            color: var(--blue-bright);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .layer-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .layer-tickers {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .layer-ticker {
+            font-family: var(--terminal-font);
+            font-size: 11px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: opacity 0.15s;
+        }
+        .layer-ticker:hover { opacity: 0.8; }
+        .layer-ticker.top-pick {
+            background: rgba(35,134,54,0.2);
+            color: var(--green-bright);
+            border: 1px solid rgba(35,134,54,0.4);
+        }
+        .layer-ticker.screening {
+            background: rgba(210,153,34,0.15);
+            color: var(--amber-bright);
+            border: 1px solid rgba(210,153,34,0.3);
+        }
+        .layer-ticker.watch {
+            background: rgba(31,111,235,0.15);
+            color: var(--blue-bright);
+            border: 1px solid rgba(31,111,235,0.3);
+        }
+        .layer-ticker.pass {
+            background: rgba(139,148,158,0.1);
+            color: var(--text-muted);
+            border: 1px solid rgba(139,148,158,0.2);
+        }
+
+        /* ── Legend ── */
+        .legend {
+            display: flex;
+            gap: 16px;
+            margin-top: 12px;
+            font-size: 11px;
+            font-family: var(--terminal-font);
+        }
+        .legend-item { display: flex; align-items: center; gap: 5px; }
+        .legend-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+        }
+        .legend-dot.green { background: var(--green-bright); }
+        .legend-dot.amber { background: var(--amber-bright); }
+        .legend-dot.blue { background: var(--blue-bright); }
+        .legend-dot.gray { background: var(--text-muted); }
+
+        /* ── Table ── */
+        .table-wrap { overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        thead th {
+            background: var(--bg-tertiary);
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 10px 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+            white-space: nowrap;
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+        thead th:hover { color: var(--text-primary); }
+        thead th .sort-arrow {
+            margin-left: 4px;
+            font-size: 10px;
+            opacity: 0.4;
+        }
+        thead th.sorted .sort-arrow { opacity: 1; color: var(--blue-bright); }
+        tbody td {
+            padding: 10px 12px;
+            border-bottom: 1px solid rgba(48,54,61,0.5);
+            white-space: nowrap;
+            font-family: var(--terminal-font);
+            font-size: 12px;
+        }
+        tbody tr:hover { background: rgba(48,54,61,0.3); }
+        tbody td.ticker-col a {
+            color: var(--blue-bright);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        tbody td.ticker-col a:hover { text-decoration: underline; }
+        tbody td.thesis-col {
+            font-family: var(--ui-font);
+            font-size: 12px;
+            color: var(--text-muted);
+            white-space: normal;
+            max-width: 280px;
+        }
+
+        /* Status badges */
+        .badge {
+            display: inline-block;
+            font-family: var(--terminal-font);
+            font-size: 10px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .badge-top { background: rgba(35,134,54,0.2); color: var(--green-bright); border: 1px solid rgba(35,134,54,0.4); }
+        .badge-screening { background: rgba(210,153,34,0.15); color: var(--amber-bright); border: 1px solid rgba(210,153,34,0.3); }
+        .badge-watch { background: rgba(31,111,235,0.15); color: var(--blue-bright); border: 1px solid rgba(31,111,235,0.3); }
+        .badge-pass { background: rgba(139,148,158,0.1); color: var(--text-muted); border: 1px solid rgba(139,148,158,0.2); }
+
+        .poorna-tag {
+            display: inline-block;
+            font-family: var(--terminal-font);
+            font-size: 9px;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 8px;
+            background: rgba(139,92,246,0.2);
+            color: var(--purple);
+            border: 1px solid rgba(139,92,246,0.3);
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+
+        /* ── Moat colors ── */
+        .moat-high { color: var(--green-bright); }
+        .moat-medium { color: var(--amber-bright); }
+        .moat-low { color: var(--red); }
+
+        /* ── Top 5 Cards ── */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 12px;
+        }
+        .pick-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            overflow: hidden;
+            transition: border-color 0.2s;
+        }
+        .pick-card:hover { border-color: var(--green); }
+        .pick-card-header {
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            border-bottom: 1px solid var(--border);
+            background: rgba(35,134,54,0.05);
+        }
+        .pick-card-header:hover { background: rgba(35,134,54,0.1); }
+        .pick-rank {
+            font-family: var(--terminal-font);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--green-bright);
+            margin-right: 12px;
+        }
+        .pick-ticker {
+            font-family: var(--terminal-font);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .pick-company {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-left: 8px;
+        }
+        .pick-expand {
+            font-size: 18px;
+            color: var(--text-muted);
+            transition: transform 0.2s;
+        }
+        .pick-card.open .pick-expand { transform: rotate(180deg); }
+        .pick-card-body {
+            padding: 0 16px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .pick-card.open .pick-card-body {
+            padding: 16px;
+            max-height: 600px;
+        }
+        .pick-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .pick-stat {
+            background: var(--bg-secondary);
+            padding: 8px 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .pick-stat .stat-label {
+            font-size: 10px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .pick-stat .stat-value {
+            font-family: var(--terminal-font);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-top: 2px;
+        }
+        .pick-thesis {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        .pick-thesis strong { color: var(--text-primary); }
+
+        /* ── Criteria / Process ── */
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+        }
+        .criteria-item {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 14px;
+            display: flex;
+            gap: 10px;
+            align-items: flex-start;
+        }
+        .criteria-icon {
+            font-size: 18px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        .criteria-text {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .criteria-text strong {
+            color: var(--text-primary);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        .process-step {
+            background: var(--bg-primary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 14px;
+            text-align: center;
+        }
+        .step-num {
+            font-family: var(--terminal-font);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--blue-bright);
+            margin-bottom: 6px;
+        }
+        .step-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .step-desc {
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center;
+            padding: 24px 16px;
+            font-family: var(--terminal-font);
+            font-size: 11px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 16px;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 900px) {
+            .supply-chain { grid-template-columns: repeat(2, 1fr); }
+            .summary-grid { grid-template-columns: repeat(2, 1fr); }
+            .pick-stats { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .supply-chain { grid-template-columns: 1fr; }
+            .summary-grid { grid-template-columns: 1fr; }
+            .cards-grid { grid-template-columns: 1fr; }
+            .criteria-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr; }
+            .container { padding: 8px; }
+            .legend { flex-wrap: wrap; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ════════════════ NAV ════════════════ -->
+<div class="terminal-bar">
+    <div class="terminal-status">
+        <span class="tiger-brand">🐯 TIGER</span>
+        <div class="nav-links">
+            <a href="/aiportfolio/">📊 Dashboard</a>
+            <a href="/aiportfolio/thesis.html">💡 Thesis</a>
+            <a href="/aiportfolio/pipeline.html" class="active">🔬 Pipeline</a>
+            <a href="/aiportfolio-process/">📋 Rules</a>
+            <a href="/">🔬 Research</a>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+
+<!-- ════════════════ PIPELINE SUMMARY ════════════════ -->
+<div class="summary-grid">
+    <div class="summary-metric">
+        <div class="label">Top Picks</div>
+        <div class="value green">5</div>
+    </div>
+    <div class="summary-metric">
+        <div class="label">Screening</div>
+        <div class="value amber">4</div>
+    </div>
+    <div class="summary-metric">
+        <div class="label">Watch</div>
+        <div class="value blue">2</div>
+    </div>
+    <div class="summary-metric">
+        <div class="label">Passed</div>
+        <div class="value muted">3</div>
+    </div>
+</div>
+
+<!-- ════════════════ SUPPLY CHAIN MAP ════════════════ -->
+<div class="terminal-panel">
+    <div class="panel-header">
+        <span class="panel-title">⛓️ AI Infrastructure Supply Chain Map</span>
+    </div>
+    <div class="panel-body">
+        <div class="supply-chain">
+            <!-- Layer 1 -->
+            <div class="layer-card">
+                <div class="layer-num">Layer 1</div>
+                <div class="layer-name">Silicon & Compute</div>
+                <div class="layer-tickers">
+                    <a href="https://www.tradingview.com/symbols/NASDAQ-TSEM/" target="_blank" class="layer-ticker top-pick">TSEM</a>
+                    <a href="https://www.tradingview.com/symbols/NASDAQ-MRVL/" target="_blank" class="layer-ticker screening">MRVL</a>
+                    <a href="https://www.tradingview.com/symbols/NASDAQ-CLS/" target="_blank" class="layer-ticker screening">CLS</a>
+                </div>
+            </div>
+            <!-- Layer 2 -->
+            <div class="layer-card">
+                <div class="layer-num">Layer 2</div>
+                <div class="layer-name">Connectivity & Networking</div>
+                <div class="layer-tickers">
+                    <a href="https://www.tradingview.com/symbols/NYSE-ANET/" target="_blank" class="layer-ticker top-pick">ANET</a>
+                    <a href="https://www.tradingview.com/symbols/NYSE-APH/" target="_blank" class="layer-ticker screening">APH</a>
+                </div>
+            </div>
+            <!-- Layer 3 -->
+            <div class="layer-card">
+                <div class="layer-num">Layer 3</div>
+                <div class="layer-name">Optical & Photonics</div>
+                <div class="layer-tickers">
+                    <a href="https://www.tradingview.com/symbols/NASDAQ-LITE/" target="_blank" class="layer-ticker top-pick">LITE</a>
+                    <a href="https://www.tradingview.com/symbols/NYSE-GLW/" target="_blank" class="layer-ticker top-pick">GLW</a>
+                </div>
+            </div>
+            <!-- Layer 4 -->
+            <div class="layer-card">
+                <div class="layer-num">Layer 4</div>
+                <div class="layer-name">Power & Cooling</div>
+                <div class="layer-tickers">
+                    <a href="https://www.tradingview.com/symbols/NYSE-VRT/" target="_blank" class="layer-ticker top-pick">VRT</a>
+                    <a href="https://www.tradingview.com/symbols/NYSE-MOD/" target="_blank" class="layer-ticker screening">MOD</a>
+                    <a href="https://www.tradingview.com/symbols/NYSE-ETN/" target="_blank" class="layer-ticker watch">ETN</a>
+                </div>
+            </div>
+            <!-- Layer 5 -->
+            <div class="layer-card">
+                <div class="layer-num">Layer 5</div>
+                <div class="layer-name">Physical Infrastructure</div>
+                <div class="layer-tickers">
+                    <a href="https://www.tradingview.com/symbols/NYSE-GLW/" target="_blank" class="layer-ticker top-pick">GLW</a>
+                    <a href="https://www.tradingview.com/symbols/NASDAQ-EQIX/" target="_blank" class="layer-ticker pass">EQIX</a>
+                </div>
+            </div>
+            <!-- Layer 6 -->
+            <div class="layer-card">
+                <div class="layer-num">Layer 6</div>
+                <div class="layer-name">Testing & Enablement</div>
+                <div class="layer-tickers">
+                    <a href="https://www.tradingview.com/symbols/NASDAQ-KLIC/" target="_blank" class="layer-ticker watch">KLIC</a>
+                    <a href="https://www.tradingview.com/symbols/NASDAQ-AMKR/" target="_blank" class="layer-ticker pass">AMKR</a>
+                    <a href="https://www.tradingview.com/symbols/NASDAQ-AEHR/" target="_blank" class="layer-ticker pass">AEHR</a>
+                </div>
+            </div>
+        </div>
+        <div class="legend">
+            <div class="legend-item"><span class="legend-dot green"></span> Top Pick</div>
+            <div class="legend-item"><span class="legend-dot amber"></span> Screening</div>
+            <div class="legend-item"><span class="legend-dot blue"></span> Watch</div>
+            <div class="legend-item"><span class="legend-dot gray"></span> Pass</div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════ PIPELINE TABLE ════════════════ -->
+<div class="terminal-panel">
+    <div class="panel-header">
+        <span class="panel-title">📋 Pipeline Candidates</span>
+        <span style="font-family:var(--terminal-font);font-size:11px;color:var(--text-muted);">Click column headers to sort</span>
+    </div>
+    <div class="table-wrap">
+        <table id="pipeline-table">
+            <thead>
+                <tr>
+                    <th data-col="rank"># <span class="sort-arrow">▼</span></th>
+                    <th data-col="ticker">Ticker <span class="sort-arrow">▼</span></th>
+                    <th data-col="company">Company <span class="sort-arrow">▼</span></th>
+                    <th data-col="layer">Layer <span class="sort-arrow">▼</span></th>
+                    <th data-col="mcap">Mkt Cap <span class="sort-arrow">▼</span></th>
+                    <th data-col="rev">Rev Growth <span class="sort-arrow">▼</span></th>
+                    <th data-col="gm">Gross Margin <span class="sort-arrow">▼</span></th>
+                    <th data-col="aidc">AI/DC Rev % <span class="sort-arrow">▼</span></th>
+                    <th data-col="founder">Founder-led <span class="sort-arrow">▼</span></th>
+                    <th data-col="moat">Moat <span class="sort-arrow">▼</span></th>
+                    <th data-col="status">Status <span class="sort-arrow">▼</span></th>
+                    <th>Thesis</th>
+                </tr>
+            </thead>
+            <tbody id="pipeline-body"></tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ════════════════ TOP 5 CARDS ════════════════ -->
+<div class="terminal-panel">
+    <div class="panel-header">
+        <span class="panel-title">🏆 Top 5 Detailed Picks</span>
+    </div>
+    <div class="panel-body">
+        <div class="cards-grid" id="top5-cards"></div>
+    </div>
+</div>
+
+<!-- ════════════════ SCREENING CRITERIA ════════════════ -->
+<div class="terminal-panel">
+    <div class="panel-header">
+        <span class="panel-title">🎯 6-Pillar Screening Criteria</span>
+    </div>
+    <div class="panel-body">
+        <div class="criteria-grid">
+            <div class="criteria-item">
+                <span class="criteria-icon">📈</span>
+                <div class="criteria-text">
+                    <strong>Growth &gt;20% YoY</strong>
+                    Revenue acceleration signals structural demand, not cyclical.
+                </div>
+            </div>
+            <div class="criteria-item">
+                <span class="criteria-icon">🛡️</span>
+                <div class="criteria-text">
+                    <strong>Defensible Gross Margin</strong>
+                    Must be appropriate for business model — foundries differ from software.
+                </div>
+            </div>
+            <div class="criteria-item">
+                <span class="criteria-icon">🏰</span>
+                <div class="criteria-text">
+                    <strong>Identifiable Moat</strong>
+                    Technology lock-in, switching costs, network effects, or IP barriers.
+                </div>
+            </div>
+            <div class="criteria-item">
+                <span class="criteria-icon">👤</span>
+                <div class="criteria-text">
+                    <strong>Credible Management</strong>
+                    Founder-led preferred. Long-tenured operators with skin in the game.
+                </div>
+            </div>
+            <div class="criteria-item">
+                <span class="criteria-icon">🤖</span>
+                <div class="criteria-text">
+                    <strong>AI/DC Revenue &gt;25%</strong>
+                    Or demonstrably accelerating toward it. Pure-play preferred.
+                </div>
+            </div>
+            <div class="criteria-item">
+                <span class="criteria-icon">⚖️</span>
+                <div class="criteria-text">
+                    <strong>Reasonable Valuation</strong>
+                    Valuation relative to growth. Not cheap, but not euphoric.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ════════════════ PROCESS ════════════════ -->
+<div class="terminal-panel">
+    <div class="panel-header">
+        <span class="panel-title">🔄 How Names Get Added</span>
+    </div>
+    <div class="panel-body">
+        <div class="process-steps">
+            <div class="process-step">
+                <div class="step-num">01</div>
+                <div class="step-title">Supply Chain Mapping</div>
+                <div class="step-desc">Systematic walk of each infrastructure layer to find under-covered names.</div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">02</div>
+                <div class="step-title">Earnings Season Scan</div>
+                <div class="step-desc">Recurring review of AI/DC mentions, capex guidance, and demand signals each quarter.</div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">03</div>
+                <div class="step-title">Community Input</div>
+                <div class="step-desc">Anyone in the group can suggest a name. Fresh eyes find what the market misses.</div>
+            </div>
+            <div class="process-step">
+                <div class="step-num">04</div>
+                <div class="step-title">6-Pillar DD Screen</div>
+                <div class="step-desc">Must pass all six criteria before promotion from pipeline to active watchlist.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ════════════════ FOOTER ════════════════ -->
+<div class="footer">
+    🐯 Tiger Portfolio Pipeline · Last updated: February 15, 2025 · Not financial advice
+</div>
+
+<script>
+// ── Data ──
+const candidates = [
+    { rank:1, ticker:'TSEM', exchange:'NASDAQ', company:'Tower Semiconductor', layer:'1', layerName:'Silicon & Compute', mcap:10, mcapStr:'$10B', rev:14, revStr:'+14%', gm:23, gmStr:'23%', aidc:27, aidcStr:'25-30%', founder:'Yes*', moat:'High', status:'Top Pick', thesis:'Silicon photonics foundry with niche monopoly position. $920M capex cycle, NVIDIA partnership.' },
+    { rank:2, ticker:'ANET', exchange:'NYSE', company:'Arista Networks', layer:'2', layerName:'Connectivity', mcap:130, mcapStr:'$130B', rev:29, revStr:'+29%', gm:65, gmStr:'65%', aidc:85, aidcStr:'85%+', founder:'Yes', moat:'High', status:'Top Pick', thesis:'Best networking franchise. Jayshree Ullal + Andy Bechtolsheim. InfiniBand→Ethernet catalyst.' },
+    { rank:3, ticker:'LITE', exchange:'NASDAQ', company:'Lumentum', layer:'3', layerName:'Optical & Photonics', mcap:37, mcapStr:'$37B', rev:58, revStr:'+58%', gm:43, gmStr:'42-45%', aidc:86, aidcStr:'86%', founder:'No', moat:'High', status:'Top Pick', thesis:'Upstream optical supplier (EML lasers). OCS new category. 86% cloud revenue.' },
+    { rank:4, ticker:'GLW', exchange:'NYSE', company:'Corning', layer:'3/5', layerName:'Optical / Infra', mcap:45, mcapStr:'$45B', rev:35, revStr:'+35%', gm:38, gmStr:'38%', aidc:40, aidcStr:'40%', founder:'No*', moat:'High', status:'Top Pick', thesis:'Meta $6B deal. Optical +35%. 171-year moat in glass science.', poorna:true },
+    { rank:5, ticker:'VRT', exchange:'NYSE', company:'Vertiv', layer:'4', layerName:'Power & Cooling', mcap:95, mcapStr:'$95B', rev:28, revStr:'+28%', gm:37, gmStr:'37%', aidc:100, aidcStr:'100%', founder:'No', moat:'High', status:'Top Pick', thesis:'Pure-play DC power/cooling. $15B backlog doubled. 252% Q4 order growth.' },
+    { rank:6, ticker:'MOD', exchange:'NYSE', company:'Modine Manufacturing', layer:'4', layerName:'Power & Cooling', mcap:6, mcapStr:'$6B', rev:24, revStr:'+24%', gm:23, gmStr:'22-25%', aidc:27, aidcStr:'27%', founder:'No', moat:'Medium', status:'Screening', thesis:'DC thermal management +70% growth. Pivoting from legacy auto to AI cooling.' },
+    { rank:7, ticker:'MRVL', exchange:'NASDAQ', company:'Marvell Technology', layer:'1', layerName:'Silicon & Compute', mcap:105, mcapStr:'$105B', rev:37, revStr:'+37%', gm:59, gmStr:'59%', aidc:73, aidcStr:'73%', founder:'No', moat:'High', status:'Screening', thesis:'Custom silicon & electro-optics for hyperscalers. 73% AI/DC revenue.' },
+    { rank:8, ticker:'APH', exchange:'NYSE', company:'Amphenol', layer:'2', layerName:'Connectivity', mcap:100, mcapStr:'$100B', rev:37, revStr:'+37%', gm:33, gmStr:'33%', aidc:38, aidcStr:'38%', founder:'No*', moat:'High', status:'Screening', thesis:'Connector kingpin. 37% organic growth. 20-year CEO. Everywhere in the rack.' },
+    { rank:9, ticker:'CLS', exchange:'NASDAQ', company:'Celestica', layer:'1', layerName:'Silicon & Compute', mcap:12, mcapStr:'$12B', rev:44, revStr:'+44%', gm:11, gmStr:'11%', aidc:60, aidcStr:'60%+', founder:'No', moat:'Medium', status:'Screening', thesis:'AI/ML server manufacturing. 44% growth but thin 11% margins. EMS model.' },
+    { rank:10, ticker:'ETN', exchange:'NYSE', company:'Eaton', layer:'4', layerName:'Power & Cooling', mcap:130, mcapStr:'$130B', rev:9, revStr:'+9%', gm:37, gmStr:'37%', aidc:17, aidcStr:'15-20%', founder:'No', moat:'High', status:'Watch', thesis:'Electrical infrastructure giant. High moat but only 9% growth, AI/DC still small.' },
+    { rank:11, ticker:'EQIX', exchange:'NASDAQ', company:'Equinix', layer:'5', layerName:'Physical Infra', mcap:90, mcapStr:'$90B', rev:0, revStr:'—', gm:0, gmStr:'—', aidc:0, aidcStr:'—', founder:'No', moat:'High', status:'Pass', thesis:'REIT structure doesn\'t fit our trading framework.' },
+    { rank:12, ticker:'KLIC', exchange:'NASDAQ', company:'Kulicke & Soffa', layer:'6', layerName:'Testing', mcap:3.5, mcapStr:'$3.5B', rev:0, revStr:'—', gm:0, gmStr:'—', aidc:0, aidcStr:'—', founder:'No', moat:'Medium', status:'Watch', thesis:'Advanced packaging / bonding tools. Too early in AI pivot to size.' },
+    { rank:13, ticker:'AMKR', exchange:'NASDAQ', company:'Amkor', layer:'6', layerName:'Testing', mcap:7, mcapStr:'$7B', rev:0, revStr:'—', gm:0, gmStr:'—', aidc:0, aidcStr:'—', founder:'No', moat:'Low', status:'Pass', thesis:'Advanced packaging OSAT. Thin margins, commoditizing.' },
+    { rank:14, ticker:'AEHR', exchange:'NASDAQ', company:'Aehr Test Systems', layer:'6', layerName:'Testing', mcap:1, mcapStr:'$1B', rev:0, revStr:'—', gm:0, gmStr:'—', aidc:0, aidcStr:'—', founder:'No', moat:'Low', status:'Pass', thesis:'Wafer-level burn-in for SiC/AI chips. $1B too small, too early.' }
+];
+
+const top5Details = [
+    {
+        rank: 1, ticker: 'TSEM', company: 'Tower Semiconductor',
+        stats: [
+            { label: 'Market Cap', value: '$10B' },
+            { label: 'Rev Growth', value: '+14%' },
+            { label: 'Gross Margin', value: '23%' },
+            { label: 'AI/DC Rev', value: '25-30%' },
+            { label: 'Capex Cycle', value: '$920M' },
+            { label: 'Founder-led', value: 'Equivalent' }
+        ],
+        thesis: 'Silicon photonics foundry with <strong>niche monopoly</strong> in specialty analog/mixed-signal. $920M capex expansion signals multi-year demand visibility. <strong>NVIDIA partnership</strong> for co-packaged optics. CEO Russell Ellwanger has led the company for <strong>20+ years</strong> — founder-equivalent conviction. The only pure-play specialty foundry at scale.'
+    },
+    {
+        rank: 2, ticker: 'ANET', company: 'Arista Networks',
+        stats: [
+            { label: 'Market Cap', value: '$130B' },
+            { label: 'Rev Growth', value: '+29%' },
+            { label: 'Gross Margin', value: '65%' },
+            { label: 'AI/DC Rev', value: '85%+' },
+            { label: 'Mgmt', value: 'Founder-led' },
+            { label: 'Catalyst', value: 'IB→ETH' }
+        ],
+        thesis: '<strong>Best networking franchise in AI infrastructure.</strong> 65% gross margins are software-like for a hardware company. Led by <strong>Jayshree Ullal</strong> (ex-Cisco) and co-founded by <strong>Andy Bechtolsheim</strong> (Sun Microsystems founder, early Google investor). The InfiniBand→Ethernet migration is a massive catalyst as hyperscalers seek vendor diversity.'
+    },
+    {
+        rank: 3, ticker: 'LITE', company: 'Lumentum',
+        stats: [
+            { label: 'Market Cap', value: '$37B' },
+            { label: 'Rev Growth', value: '+58%' },
+            { label: 'Gross Margin', value: '42-45%' },
+            { label: 'AI/DC Rev', value: '86%' },
+            { label: 'New Category', value: 'OCS' },
+            { label: 'Cloud Mix', value: '86%' }
+        ],
+        thesis: 'Upstream optical supplier specializing in <strong>EML lasers</strong> — critical component for high-speed transceivers. 58% revenue growth driven by AI datacenter buildout. <strong>OCS (Optical Circuit Switching)</strong> is an entirely new product category. 86% of revenue from cloud customers provides demand visibility.'
+    },
+    {
+        rank: 4, ticker: 'GLW', company: 'Corning',
+        stats: [
+            { label: 'Market Cap', value: '$45B' },
+            { label: 'Optical Growth', value: '+35%' },
+            { label: 'Gross Margin', value: '38%' },
+            { label: 'AI/DC Rev', value: '~40%' },
+            { label: 'Meta Deal', value: '$6B' },
+            { label: 'History', value: '171 years' }
+        ],
+        thesis: '<strong>171-year moat in glass science</strong> — nobody else can make what Corning makes at scale. Meta\'s $6B deal validates multi-year demand. Optical segment growing +35%. CEO Wendell Weeks has led for <strong>20 years</strong>. Springboard plan targeting $4B incremental revenue. The picks and shovels of fiber infrastructure.',
+        poorna: true
+    },
+    {
+        rank: 5, ticker: 'VRT', company: 'Vertiv',
+        stats: [
+            { label: 'Market Cap', value: '$95B' },
+            { label: 'Rev Growth', value: '+28%' },
+            { label: 'Gross Margin', value: '37%' },
+            { label: 'AI/DC Rev', value: '100%' },
+            { label: 'Backlog', value: '$15B' },
+            { label: 'Q4 Orders', value: '+252%' }
+        ],
+        thesis: '<strong>Pure-play datacenter power and cooling.</strong> 100% AI/DC exposure — the purest way to play the infrastructure buildout. Backlog doubled to $15B, providing 2+ years of revenue visibility. Q4 order growth of <strong>252%</strong> signals accelerating demand. Liquid cooling for AI racks is a structural tailwind.'
+    }
+];
+
+// ── Render Table ──
+const tbody = document.getElementById('pipeline-body');
+function renderTable(data) {
+    tbody.innerHTML = data.map(c => {
+        const statusClass = c.status === 'Top Pick' ? 'badge-top' : c.status === 'Screening' ? 'badge-screening' : c.status === 'Watch' ? 'badge-watch' : 'badge-pass';
+        const moatClass = c.moat === 'High' ? 'moat-high' : c.moat === 'Medium' ? 'moat-medium' : 'moat-low';
+        const poornaTag = c.poorna ? '<span class="poorna-tag">Poorna\'s pick</span>' : '';
+        return `<tr>
+            <td>${c.rank}</td>
+            <td class="ticker-col"><a href="https://www.tradingview.com/symbols/${c.exchange}-${c.ticker}/" target="_blank">${c.ticker}</a>${poornaTag}</td>
+            <td>${c.company}</td>
+            <td>${c.layer}</td>
+            <td>${c.mcapStr}</td>
+            <td>${c.revStr}</td>
+            <td>${c.gmStr}</td>
+            <td>${c.aidcStr}</td>
+            <td>${c.founder}</td>
+            <td class="${moatClass}">${c.moat}</td>
+            <td><span class="badge ${statusClass}">${c.status}</span></td>
+            <td class="thesis-col">${c.thesis}</td>
+        </tr>`;
+    }).join('');
+}
+renderTable(candidates);
+
+// ── Sort ──
+let sortCol = 'rank', sortAsc = true;
+document.querySelectorAll('#pipeline-table thead th[data-col]').forEach(th => {
+    th.addEventListener('click', () => {
+        const col = th.dataset.col;
+        if (sortCol === col) sortAsc = !sortAsc; else { sortCol = col; sortAsc = true; }
+        document.querySelectorAll('#pipeline-table thead th').forEach(h => h.classList.remove('sorted'));
+        th.classList.add('sorted');
+        th.querySelector('.sort-arrow').textContent = sortAsc ? '▲' : '▼';
+        const sorted = [...candidates].sort((a, b) => {
+            let va, vb;
+            switch(col) {
+                case 'rank': va = a.rank; vb = b.rank; break;
+                case 'ticker': va = a.ticker; vb = b.ticker; return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+                case 'company': va = a.company; vb = b.company; return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+                case 'layer': va = a.layer; vb = b.layer; return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+                case 'mcap': va = a.mcap; vb = b.mcap; break;
+                case 'rev': va = a.rev; vb = b.rev; break;
+                case 'gm': va = a.gm; vb = b.gm; break;
+                case 'aidc': va = a.aidc; vb = b.aidc; break;
+                case 'founder': va = a.founder; vb = b.founder; return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+                case 'moat': const mo = {High:3,Medium:2,Low:1}; va = mo[a.moat]||0; vb = mo[b.moat]||0; break;
+                case 'status': const so = {'Top Pick':4,Screening:3,Watch:2,Pass:1}; va = so[a.status]||0; vb = so[b.status]||0; break;
+                default: va = a.rank; vb = b.rank;
+            }
+            return sortAsc ? va - vb : vb - va;
+        });
+        renderTable(sorted);
+    });
+});
+
+// ── Render Top 5 Cards ──
+const cardsContainer = document.getElementById('top5-cards');
+cardsContainer.innerHTML = top5Details.map(c => {
+    const poornaTag = c.poorna ? '<span class="poorna-tag">Poorna\'s pick</span>' : '';
+    return `<div class="pick-card" id="card-${c.ticker}">
+        <div class="pick-card-header" onclick="toggleCard('${c.ticker}')">
+            <div style="display:flex;align-items:center;">
+                <span class="pick-rank">#${c.rank}</span>
+                <span class="pick-ticker">${c.ticker}</span>
+                <span class="pick-company">${c.company}</span>
+                ${poornaTag}
+            </div>
+            <span class="pick-expand">▼</span>
+        </div>
+        <div class="pick-card-body">
+            <div class="pick-stats">
+                ${c.stats.map(s => `<div class="pick-stat"><div class="stat-label">${s.label}</div><div class="stat-value">${s.value}</div></div>`).join('')}
+            </div>
+            <div class="pick-thesis">${c.thesis}</div>
+        </div>
+    </div>`;
+}).join('');
+
+function toggleCard(ticker) {
+    document.getElementById('card-' + ticker).classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
