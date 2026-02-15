@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐯 Tiger Portfolio — Chart Feed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --border: #30363d;
+            --text-primary: #f0f6fc;
+            --text-secondary: #c9d1d9;
+            --text-muted: #8b949e;
+            --green: #238636;
+            --red: #da3633;
+            --blue: #1f6feb;
+            --amber: #d29922;
+            --purple: #8b5cf6;
+        }
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        .nav {
+            background: var(--bg-tertiary);
+            border-bottom: 1px solid var(--border);
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 500;
+        }
+        .nav a:hover { color: var(--text-primary); }
+        .nav a.active { color: var(--text-primary); background: rgba(48,54,61,0.6); }
+        .nav .brand { color: var(--text-primary); font-weight: 600; margin-right: 8px; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+        
+        h1 { font-size: 1.5rem; color: var(--text-primary); margin-bottom: 4px; }
+        .subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 32px; }
+
+        .chart-entry {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .chart-meta {
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        .chart-ticker {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--blue);
+        }
+        .chart-details {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .chart-date {
+            margin-left: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .chart-stats {
+            padding: 8px 20px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-tertiary);
+        }
+        .stat-label { color: var(--text-muted); }
+        .stat-value { color: var(--text-primary); font-weight: 500; }
+        .stat-positive { color: var(--green); }
+        .stat-negative { color: var(--red); }
+        .stat-poc { color: #ffeb3b; }
+        .stat-va { color: #c0a0f0; }
+
+        .chart-img {
+            width: 100%;
+            display: block;
+            cursor: pointer;
+        }
+        .chart-img:hover { opacity: 0.95; }
+
+        .chart-notes {
+            padding: 12px 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 6px 14px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .filter-btn:hover { border-color: var(--blue); color: var(--text-primary); }
+        .filter-btn.active { border-color: var(--blue); background: rgba(31,111,235,0.15); color: var(--blue); }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-muted);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 24px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .chart-meta { flex-wrap: wrap; }
+            .chart-date { margin-left: 0; }
+            .chart-stats { gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <span class="brand">🐯 Tiger</span>
+    <a href="/aiportfolio/">📊 Dashboard</a>
+    <a href="/aiportfolio/thesis.html">💡 Thesis</a>
+    <a href="/aiportfolio/pipeline.html">🔬 Pipeline</a>
+    <a href="/aiportfolio/charts.html" class="active">📈 Charts</a>
+    <a href="/aiportfolio-process/">📋 Rules</a>
+    <a href="/">🏠 Portal</a>
+</nav>
+
+<div class="container">
+    <h1>📈 Chart Feed</h1>
+    <p class="subtitle">Technical charts with Volume Profile — newest first</p>
+
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterCharts('all')">All</button>
+        <button class="filter-btn" onclick="filterCharts('ALAB')">ALAB</button>
+        <button class="filter-btn" onclick="filterCharts('CRDO')">CRDO</button>
+        <button class="filter-btn" onclick="filterCharts('FN')">FN</button>
+        <button class="filter-btn" onclick="filterCharts('NVT')">NVT</button>
+        <button class="filter-btn" onclick="filterCharts('COHR')">COHR</button>
+        <button class="filter-btn" onclick="filterCharts('PWR')">PWR</button>
+    </div>
+
+    <div id="chart-feed">
+        <!-- Charts injected here by the update script -->
+
+        <div class="chart-entry" data-ticker="ALAB">
+            <div class="chart-meta">
+                <span class="chart-ticker">ALAB</span>
+                <span class="chart-details">Daily · 6 Month · Volume Profile</span>
+                <span class="chart-date">Feb 15, 2026 · 6:08 PM</span>
+            </div>
+            <div class="chart-stats">
+                <span><span class="stat-label">Last</span> <span class="stat-value">$129.32</span></span>
+                <span><span class="stat-label">Chg</span> <span class="stat-negative">-55.68 (-30.10%)</span></span>
+                <span><span class="stat-label">RSI</span> <span class="stat-value">38.8</span></span>
+                <span><span class="stat-label">POC</span> <span class="stat-poc">$144.79</span></span>
+                <span><span class="stat-label">VAH</span> <span class="stat-va">$188.06</span></span>
+                <span><span class="stat-label">VAL</span> <span class="stat-va">$138.94</span></span>
+                <span><span class="stat-label">MACD</span> <span class="stat-negative">-5.95</span></span>
+            </div>
+            <a href="/charts/ALAB_1d_6mo_latest.png" target="_blank">
+                <img class="chart-img" src="/charts/ALAB_1d_6mo_latest.png" alt="ALAB daily 6mo chart with VP" loading="lazy">
+            </a>
+            <div class="chart-notes">
+                Price at $129 is below the entire value area (VAL $138.94). Trading in thin volume below the POC. Key test: can it reclaim $140 (prior range low, near VAL)? Next VP support not until ~$89 (Kedar's longer-term VP POC). RSI near oversold at 38.8. MACD deeply negative.
+            </div>
+        </div>
+
+        <div class="chart-entry" data-ticker="CRDO">
+            <div class="chart-meta">
+                <span class="chart-ticker">CRDO</span>
+                <span class="chart-details">Daily · 3 Month · Volume Profile</span>
+                <span class="chart-date">Feb 15, 2026 · 6:08 PM</span>
+            </div>
+            <div class="chart-stats">
+                <span><span class="stat-label">Last</span> <span class="stat-value">$121.44</span></span>
+                <span><span class="stat-label">Chg</span> <span class="stat-negative">-20.56 (-14.48%)</span></span>
+                <span><span class="stat-label">RSI</span> <span class="stat-value">45.3</span></span>
+                <span><span class="stat-label">POC</span> <span class="stat-poc">$141.04</span></span>
+                <span><span class="stat-label">VAH</span> <span class="stat-va">$157.98</span></span>
+                <span><span class="stat-label">VAL</span> <span class="stat-va">$118.11</span></span>
+                <span><span class="stat-label">MACD</span> <span class="stat-value">1.33</span></span>
+            </div>
+            <a href="/charts/CRDO_1d_3mo_latest.png" target="_blank">
+                <img class="chart-img" src="/charts/CRDO_1d_3mo_latest.png" alt="CRDO daily 3mo chart with VP" loading="lazy">
+            </a>
+            <div class="chart-notes">
+                Price at $121 sitting near VAL ($118.11) — right at the edge of the value area. POC at $141 overhead. RSI neutral at 45.3. MACD histogram turning positive (1.33) — early momentum shift? Watching $118 as the line. Below that = new lows territory.
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    🐯 Tiger Portfolio Chart Feed — Generated by Narada 🪕<br>
+    Charts auto-generated with Volume Profile using yahoo-finance2 + node-canvas
+</div>
+
+<script>
+function filterCharts(ticker) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    document.querySelectorAll('.chart-entry').forEach(entry => {
+        if (ticker === 'all' || entry.dataset.ticker === ticker) {
+            entry.style.display = 'block';
+        } else {
+            entry.style.display = 'none';
+        }
+    });
+}
+</script>
+
+</body>
+</html>
