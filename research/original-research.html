@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narada Research 🪕 | AI Infrastructure Investment Playbook</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Dark theme colors inspired by GitHub Dark */
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-tertiary: #21262d;
+            --bg-hover: #30363d;
+            --border: #30363d;
+            --text-primary: #f0f6fc;
+            --text-secondary: #8b949e;
+            --text-muted: #6e7681;
+            --accent-green: #238636;
+            --accent-yellow: #d29922;
+            --accent-red: #da3633;
+            --accent-blue: #2f81f7;
+            --accent-gray: #6e7681;
+            --gradient-gold: linear-gradient(135deg, #ffd700, #ffb000);
+            --gradient-green: linear-gradient(135deg, #22c55e, #16a34a);
+            --gradient-yellow: linear-gradient(135deg, #facc15, #d97706);
+            --gradient-red: linear-gradient(135deg, #ef4444, #dc2626);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(13, 17, 23, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(13, 17, 23, 0.98);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            background: var(--bg-hover);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 60px;
+            padding: 1rem 2rem;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 0.75rem 0 1rem 0;
+            background: linear-gradient(135deg, rgba(47, 129, 247, 0.1), rgba(35, 134, 54, 0.1));
+            border-radius: 12px;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .tagline {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 1.25rem;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            padding: 1.25rem;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            scroll-margin-top: 70px;
+        }
+
+        .hero {
+            scroll-margin-top: 80px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Cards */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stock-card {
+            background: var(--bg-tertiary);
+            border: 1px solid rgba(139, 148, 158, 0.26);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stock-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(47, 129, 247, 0.55);
+        }
+
+        .stock-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stock-symbol {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .stock-company {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.25rem;
+        }
+
+        .stock-verdict {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .verdict-buy {
+            background: var(--gradient-green);
+            color: white;
+        }
+
+        .verdict-watch {
+            background: var(--gradient-yellow);
+            color: #000;
+        }
+
+        .verdict-short {
+            background: var(--gradient-red);
+            color: white;
+        }
+
+        .verdict-pass {
+            background: var(--accent-gray);
+            color: white;
+        }
+
+        .stock-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .metric-label {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .metric-value {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .stock-thesis {
+            color: var(--text-secondary);
+            margin: 1.5rem 0;
+            font-style: italic;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid var(--accent-blue);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .stock-chart {
+            margin: 1.5rem 0;
+            text-align: center;
+            height: 450px;
+            padding: 0.3rem;
+            background: rgba(13, 17, 23, 0.72);
+            border: 1px solid rgba(139, 148, 158, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .stock-chart .tradingview-widget-container,
+        .stock-chart .tradingview-widget-container__widget {
+            border: 0 !important;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: none !important;
+        }
+
+        .stock-card p + p {
+            margin-top: 0.5rem;
+        }
+
+        /* Tables */
+        .data-table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin: 2rem 0;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0;
+            background: var(--bg-tertiary);
+            min-width: 720px;
+        }
+
+        .data-table th {
+            background: var(--bg-hover);
+            color: var(--text-primary);
+            font-weight: 600;
+            padding: 1rem;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .data-table th:hover {
+            background: var(--border);
+        }
+
+        .data-table td {
+            padding: 1rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+        }
+
+        .data-table tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        /* Portfolio Table */
+        .portfolio-table {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 2fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .portfolio-header {
+            font-weight: 600;
+            color: var(--text-primary);
+            padding: 1rem;
+            background: var(--bg-hover);
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        .portfolio-item {
+            padding: 1rem;
+            background: var(--bg-tertiary);
+            border-radius: 8px;
+            text-align: center;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+
+        /* Collapsible Sections */
+        .collapsible {
+            margin: 2rem 0;
+        }
+
+        .collapsible-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            background: var(--bg-hover);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+        }
+
+        .collapsible-header:hover {
+            background: var(--border);
+        }
+
+        .collapsible-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .collapsible-content.active {
+            max-height: 2000px;
+            padding: 2rem;
+        }
+
+        .collapsible-toggle {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .collapsible.active .collapsible-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* Charts */
+        .chart-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .chart-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        /* Research Files */
+        .report-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .report-card {
+            display: block;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.9rem 1rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.2s ease;
+        }
+
+        .report-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent-blue);
+            box-shadow: var(--shadow);
+        }
+
+        .report-card.primary {
+            background: linear-gradient(135deg, rgba(47, 129, 247, 0.18), rgba(35, 134, 54, 0.18));
+            border-color: rgba(47, 129, 247, 0.5);
+        }
+
+        .report-title {
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .report-meta {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .source-link {
+            margin: 0.2rem 0 1rem;
+        }
+
+        .source-link a {
+            display: inline-block;
+            padding: 0.35rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(47, 129, 247, 0.12);
+            border: 1px solid rgba(47, 129, 247, 0.35);
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+        }
+
+        .source-link a:hover {
+            background: rgba(47, 129, 247, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-content {
+                padding: 1rem;
+            }
+
+            .section {
+                padding: 1.25rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 1.25rem;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0.75rem 0;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.65rem;
+                padding: 0 1rem;
+            }
+
+            .nav-brand {
+                font-size: 1.1rem;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 0.5rem;
+                width: 100%;
+                overflow-x: auto;
+                flex-wrap: nowrap;
+                scrollbar-width: thin;
+                padding-bottom: 0.25rem;
+            }
+
+            .nav-links li {
+                flex: 0 0 auto;
+            }
+
+            .nav-link {
+                display: block;
+                white-space: nowrap;
+                padding: 0.4rem 0.7rem;
+                font-size: 0.85rem;
+                background: var(--bg-tertiary);
+                border: 1px solid var(--border);
+            }
+
+            .main-content {
+                margin-top: 124px;
+                padding: 0.75rem;
+            }
+
+            .section,
+            .hero {
+                scroll-margin-top: 140px;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .hero .tagline {
+                font-size: 1rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+                margin-bottom: 1rem;
+                padding-bottom: 0.75rem;
+            }
+
+            .section-title {
+                font-size: 1.35rem;
+            }
+
+            .cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .stock-card {
+                padding: 1rem;
+            }
+
+            .stock-metrics {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                margin: 1rem 0;
+            }
+
+            .metric {
+                padding: 0.4rem 0;
+            }
+
+            .stock-verdict {
+                font-size: 0.75rem;
+                padding: 0.4rem 0.65rem;
+            }
+
+            .stock-chart {
+                height: 280px;
+            }
+
+            .portfolio-table {
+                display: block;
+                margin: 1.25rem 0;
+            }
+
+            .portfolio-header {
+                display: none;
+            }
+
+            .portfolio-item {
+                text-align: left;
+                border-radius: 0;
+                border: 0;
+                background: transparent;
+                padding: 0.55rem 0.75rem;
+            }
+
+            .portfolio-item:nth-child(4n + 1) {
+                margin-top: 1rem;
+                padding: 0.75rem;
+                border: 1px solid var(--border);
+                border-bottom: none;
+                border-radius: 10px 10px 0 0;
+                background: var(--bg-hover);
+                color: var(--text-primary);
+                font-weight: 600;
+            }
+
+            .portfolio-item:nth-child(4n + 2),
+            .portfolio-item:nth-child(4n + 3),
+            .portfolio-item:nth-child(4n + 4) {
+                border-left: 1px solid var(--border);
+                border-right: 1px solid var(--border);
+                background: var(--bg-tertiary);
+            }
+
+            .portfolio-item:nth-child(4n + 2)::before {
+                content: "Stock: ";
+                color: var(--text-muted);
+                font-weight: 500;
+            }
+
+            .portfolio-item:nth-child(4n + 3)::before {
+                content: "Allocation: ";
+                color: var(--text-muted);
+                font-weight: 500;
+            }
+
+            .portfolio-item:nth-child(4n + 4)::before {
+                content: "Entry: ";
+                color: var(--text-muted);
+                font-weight: 500;
+            }
+
+            .portfolio-item:nth-child(4n + 4) {
+                border-bottom: 1px solid var(--border);
+                border-radius: 0 0 10px 10px;
+            }
+
+            .collapsible-header {
+                padding: 1rem;
+            }
+
+            .collapsible-header h3 {
+                font-size: 1rem;
+            }
+
+            .collapsible-content.active {
+                padding: 1rem;
+            }
+
+            .last-updated {
+                display: none;
+            }
+
+            .report-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                margin-top: 132px;
+            }
+
+            .hero {
+                padding: 1.2rem 0.75rem 1.5rem;
+            }
+
+            .section {
+                padding: 1rem;
+            }
+
+            .stock-chart {
+                height: 240px;
+            }
+        }
+
+        /* Utilities */
+        .text-green { color: var(--accent-green); }
+        .text-red { color: var(--accent-red); }
+        .text-yellow { color: var(--accent-yellow); }
+        .text-center { text-align: center; }
+        .mb-2 { margin-bottom: 1rem; }
+        .mb-4 { margin-bottom: 2rem; }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 4rem;
+            background: var(--bg-secondary);
+        }
+
+        /* Last Updated */
+        .last-updated {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-brand">🪕 Narada Research</a>
+            <ul class="nav-links">
+                <li><a href="/aiportfolio/" class="nav-link" style="color:#d29922;">🐯 Portfolio</a></li>
+                <li><a href="/aiportfolio-process/" class="nav-link">📋 Rules</a></li>
+                <li><a href="#executive-summary" class="nav-link">Summary</a></li>
+                <li><a href="#top-picks" class="nav-link">Top Picks</a></li>
+                <li><a href="#watch-list" class="nav-link">Watch List</a></li>
+                <li><a href="#sectors" class="nav-link">Sectors</a></li>
+                <li><a href="#software" class="nav-link">Software</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <h1>🪕 Narada Research</h1>
+            <p class="tagline">AI Revolution Investment Playbook — February 2026</p>
+            <p class="date">Deep-dive analysis of 8 AI infrastructure stocks across the complete stack</p>
+        </section>
+
+        <section id="research-files" class="section">
+            <div class="section-header">
+                <h2 class="section-title">📁 Research Reports</h2>
+            </div>
+            <p class="section-subtitle">
+                Download the underlying PDFs and full pack. Most of this page summarizes these reports, so linking them gives readers source depth without duplicating the full writeups here.
+            </p>
+            <div class="report-grid">
+                <a class="report-card primary" href="./AI_Investment_Research_Feb2026.zip" target="_blank" rel="noopener" download>
+                    <div class="report-title">Download Full Research Pack (ZIP)</div>
+                    <div class="report-meta">All reports bundled • 366 KB</div>
+                </a>
+                <a class="report-card" href="./AI_Infrastructure_Final_Rankings_Feb2026.pdf" target="_blank" rel="noopener">
+                    <div class="report-title">AI Infrastructure Final Rankings</div>
+                    <div class="report-meta">PDF • 7 pages • 65 KB</div>
+                </a>
+                <a class="report-card" href="./Deep_Dive_AI_Infrastructure_Hardware_Feb2026.pdf" target="_blank" rel="noopener">
+                    <div class="report-title">Deep Dive: AI Infrastructure Hardware</div>
+                    <div class="report-meta">PDF • 8 pages • 104 KB</div>
+                </a>
+                <a class="report-card" href="./AI_Infrastructure_Hidden_Gems_Feb2026.pdf" target="_blank" rel="noopener">
+                    <div class="report-title">AI Infrastructure Hidden Gems</div>
+                    <div class="report-meta">PDF • 7 pages • 79 KB</div>
+                </a>
+                <a class="report-card" href="./AI_Software_Data_Layer_Hidden_Gems_Feb2026.pdf" target="_blank" rel="noopener">
+                    <div class="report-title">AI Software & Data Layer Hidden Gems</div>
+                    <div class="report-meta">PDF • 9 pages • 90 KB</div>
+                </a>
+                <a class="report-card" href="./AI_Short_Book_Losers_From_AI_Adoption_Feb2026.pdf" target="_blank" rel="noopener">
+                    <div class="report-title">AI Short Book: Losers From AI Adoption</div>
+                    <div class="report-meta">PDF • 9 pages • 91 KB</div>
+                </a>
+                <a class="report-card" href="./Backtest_Friday_Fade_Presidents_Day_Feb2026.pdf" target="_blank" rel="noopener">
+                    <div class="report-title">Backtest: Friday Fade (Presidents' Day)</div>
+                    <div class="report-meta">PDF • 5 pages • 74 KB</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Executive Summary -->
+        <section id="executive-summary" class="section">
+            <div class="section-header">
+                <h2 class="section-title">📊 Executive Summary</h2>
+            </div>
+            <p class="source-link">
+                <a href="./AI_Infrastructure_Final_Rankings_Feb2026.pdf" target="_blank" rel="noopener">Open source report: Final Rankings PDF</a>
+            </p>
+            
+            <p class="section-subtitle">
+                Eight AI infrastructure stocks analyzed across three batches covering the full AI data center supply chain — from silicon and optics to cooling, fiber, and electrical grid buildout. Each stock evaluated on fundamentals, competitive moat, growth trajectory, valuation, technical setup, and risk/reward balance.
+            </p>
+
+            <!-- Chart Review Notes -->
+            <div style="background: linear-gradient(135deg, rgba(47, 129, 247, 0.15), rgba(35, 134, 54, 0.15)); border: 1px solid rgba(47, 129, 247, 0.4); border-radius: 10px; padding: 1.5rem; margin: 2rem 0; color: var(--text-primary);">
+                <h4 style="color: var(--text-primary); margin-bottom: 1rem; font-size: 1.1rem;">📊 Rankings Updated Feb 14, 2026</h4>
+                <p style="margin: 0; color: var(--text-secondary); line-height: 1.6;">Chart review with volume profile analysis identified ALAB as the strongest technical setup (RSI 39, thick value area support, post-earnings washout). Original fundamental rankings adjusted for technical risk: FN (RSI divergence), COHR (thin structure above $121), PWR (near ATH). Rule: don't be whale exit liquidity.</p>
+            </div>
+
+            <div class="data-table-wrapper">
+                <table class="data-table" id="rankings-table">
+                    <thead>
+                        <tr>
+                            <th onclick="sortTable(0)">Rank</th>
+                            <th onclick="sortTable(1)">Ticker</th>
+                            <th onclick="sortTable(2)">Company</th>
+                            <th onclick="sortTable(3)">Market Cap</th>
+                            <th onclick="sortTable(4)">Fwd P/E</th>
+                            <th onclick="sortTable(5)">Key Growth</th>
+                            <th onclick="sortTable(6)">Score</th>
+                            <th onclick="sortTable(7)">Verdict</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td><strong>ALAB</strong></td>
+                            <td>Astera Labs</td>
+                            <td>$22.4B</td>
+                            <td>~65x</td>
+                            <td>Rev +115%, 74% GM</td>
+                            <td>9/10</td>
+                            <td><span class="verdict-buy">BUY</span></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><strong>NVT</strong></td>
+                            <td>nVent Electric</td>
+                            <td>$18.2B</td>
+                            <td>~28x</td>
+                            <td>Rev +30%, DC rev +67%</td>
+                            <td>8/10</td>
+                            <td><span class="verdict-watch" style="background: linear-gradient(135deg, #2f81f7, #1e6df0); color: white;">STARTER</span></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td><strong>FN</strong></td>
+                            <td>Fabrinet</td>
+                            <td>$18.5B</td>
+                            <td>~31x</td>
+                            <td>Rev +35%, 100% 1.6T share</td>
+                            <td>7/10</td>
+                            <td><span class="verdict-watch" style="background: linear-gradient(135deg, #2f81f7, #1e6df0); color: white;">STARTER</span></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td><strong>CRDO</strong></td>
+                            <td>Credo Technology</td>
+                            <td>$20B</td>
+                            <td>~55x</td>
+                            <td>Rev +173%, 88% AEC share</td>
+                            <td>7/10</td>
+                            <td><span class="verdict-watch" style="background: linear-gradient(135deg, #2f81f7, #1e6df0); color: white;">STARTER</span></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td><strong>COHR</strong></td>
+                            <td>Coherent Corp</td>
+                            <td>$34B</td>
+                            <td>~45x</td>
+                            <td>DC rev +33%, 4x B2B</td>
+                            <td>6/10</td>
+                            <td><span class="verdict-watch">WATCH</span></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td><strong>PWR</strong></td>
+                            <td>Quanta Services</td>
+                            <td>$77B</td>
+                            <td>~40x</td>
+                            <td>Rev +17.6%, $39.2B backlog</td>
+                            <td>5/10</td>
+                            <td><span class="verdict-watch">WATCH</span></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td><strong>MOD</strong></td>
+                            <td>Modine Mfg</td>
+                            <td>$7.4B</td>
+                            <td>~38x</td>
+                            <td>DC rev +78%, spinoff</td>
+                            <td>4/10</td>
+                            <td><span class="verdict-watch">WATCH</span></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td><strong>GLW</strong></td>
+                            <td>Corning Inc</td>
+                            <td>$115B</td>
+                            <td>~42x</td>
+                            <td>Optical +24%, Meta $6B</td>
+                            <td>3/10</td>
+                            <td><span class="verdict-watch">WATCH</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h3 style="margin-top: 3rem; margin-bottom: 1rem;">🎯 Portfolio Construction: The AI Infrastructure Basket</h3>
+            
+            <div class="portfolio-table">
+                <div class="portfolio-header">Layer</div>
+                <div class="portfolio-header">Stock</div>
+                <div class="portfolio-header">Allocation</div>
+                <div class="portfolio-header">Entry Strategy</div>
+                
+                <div class="portfolio-item">Core (#1)</div>
+                <div class="portfolio-item">ALAB</div>
+                <div class="portfolio-item">25%</div>
+                <div class="portfolio-item">Buy $15K at open, add $10K on dip to $120-125</div>
+                
+                <div class="portfolio-item">Core</div>
+                <div class="portfolio-item">NVT</div>
+                <div class="portfolio-item">15%</div>
+                <div class="portfolio-item">Starter $5K, add on breakout above $121</div>
+                
+                <div class="portfolio-item">Core</div>
+                <div class="portfolio-item">FN</div>
+                <div class="portfolio-item">12%</div>
+                <div class="portfolio-item">Starter $4K, add on pullback to $440-470</div>
+                
+                <div class="portfolio-item">Growth</div>
+                <div class="portfolio-item">CRDO</div>
+                <div class="portfolio-item">8%</div>
+                <div class="portfolio-item">Starter $3K if 200d SMA ($122) holds</div>
+                
+                <div class="portfolio-item">LEAPS</div>
+                <div class="portfolio-item">ALAB Jan 2028</div>
+                <div class="portfolio-item">5%</div>
+                <div class="portfolio-item">Delta ~0.50, only LEAPS on oversold name</div>
+                
+                <div class="portfolio-item">Watch</div>
+                <div class="portfolio-item">COHR</div>
+                <div class="portfolio-item">10% reserved</div>
+                <div class="portfolio-item">Wait for $150-200</div>
+                
+                <div class="portfolio-item">Watch</div>
+                <div class="portfolio-item">PWR</div>
+                <div class="portfolio-item">7% reserved</div>
+                <div class="portfolio-item">Wait for $430-470</div>
+                
+                <div class="portfolio-item">Cash</div>
+                <div class="portfolio-item">—</div>
+                <div class="portfolio-item">18%</div>
+                <div class="portfolio-item">Dry powder for pullbacks</div>
+            </div>
+        </section>
+
+        <!-- Top Picks -->
+        <section id="top-picks" class="section">
+            <div class="section-header">
+                <h2 class="section-title">🏆 Top Picks</h2>
+            </div>
+            
+            <div class="cards-grid">
+                <!-- ALAB Card - Top Pick -->
+                <div class="stock-card">
+                    <div class="stock-header">
+                        <div>
+                            <div class="stock-symbol">ALAB</div>
+                            <div class="stock-company">Astera Labs</div>
+                        </div>
+                        <div class="stock-verdict verdict-buy">BUY</div>
+                    </div>
+                    
+                    <div class="stock-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Price</span>
+                            <span class="metric-value">$132.32</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Market Cap</span>
+                            <span class="metric-value">$22.4B</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Forward P/E</span>
+                            <span class="metric-value">~65x</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Revenue Growth</span>
+                            <span class="metric-value text-green">+115% YoY</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Gross Margin</span>
+                            <span class="metric-value">74%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">RSI</span>
+                            <span class="metric-value text-green">39 (oversold)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stock-thesis">
+                        "Purpose-built AI connectivity silicon solving the interconnect bottleneck — best technical setup in the group"
+                    </div>
+                    
+                    <div class="stock-chart">
+                        <div class="tradingview-widget-container" style="height:100%;width:100%">
+                            <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {"autosize":true,"symbol":"NASDAQ:ALAB","interval":"D","timezone":"America/New_York","theme":"dark","style":"1","locale":"en","backgroundColor":"rgba(13,17,23,1)","gridColor":"rgba(48,54,61,0.3)","hide_top_toolbar":false,"hide_legend":false,"save_image":false,"calendar":false,"hide_volume_indicator":false,"support_host":"https://www.tradingview.com","studies":["STD;RSI","STD;MACD","STD;EMA"],"range":"6M"}
+                            </script>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Key reasons:</strong> RSI 39 (oversold) — best technical setup in the group. Thick volume support at $125-150 — buying INTO the value area, not thin air</p>
+                    <p><strong>Post-earnings washout:</strong> Q4 beat (EPS $0.58 vs $0.51, Rev $271M vs $250M) but stock dropped 10% on whisper miss. Q1 guide $286-297M crushed estimates ($259M)</p>
+                    <p><strong>115% YoY revenue growth, 74% gross margins. Amazon $466M strategic warrant</strong></p>
+                    <p><strong>Entry zone:</strong> $120-135 | <strong>Invalidation:</strong> below $100</p>
+                </div>
+
+                <!-- NVT Card - STARTER -->
+                <div class="stock-card">
+                    <div class="stock-header">
+                        <div>
+                            <div class="stock-symbol">NVT</div>
+                            <div class="stock-company">nVent Electric PLC</div>
+                        </div>
+                        <div class="stock-verdict" style="background: linear-gradient(135deg, #2f81f7, #1e6df0); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">STARTER</div>
+                    </div>
+                    
+                    <div class="stock-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Price</span>
+                            <span class="metric-value">$112.65</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Market Cap</span>
+                            <span class="metric-value">$18.2B</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Forward P/E</span>
+                            <span class="metric-value">~28x</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Revenue Growth</span>
+                            <span class="metric-value text-green">+30% YoY</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">DC Revenue</span>
+                            <span class="metric-value text-green">+67% YoY</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">RSI</span>
+                            <span class="metric-value text-yellow">53 (neutral)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stock-thesis">
+                        "Strong fundamentals but testing $115-121 resistance, possible double top"
+                    </div>
+                    
+                    <div class="stock-chart">
+                        <div class="tradingview-widget-container" style="height:100%;width:100%">
+                            <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {"autosize":true,"symbol":"NYSE:NVT","interval":"D","timezone":"America/New_York","theme":"dark","style":"1","locale":"en","backgroundColor":"rgba(13,17,23,1)","gridColor":"rgba(48,54,61,0.3)","hide_top_toolbar":false,"hide_legend":false,"save_image":false,"calendar":false,"hide_volume_indicator":false,"support_host":"https://www.tradingview.com","studies":["STD;RSI","STD;MACD","STD;EMA"],"range":"6M"}
+                            </script>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Volume profile shows value area at $100-110 — currently above it</p>
+                    <p><strong>Action:</strong> Starter position only, add on confirmed breakout above $121 with volume</p>
+                </div>
+
+                <!-- FN Card - STARTER -->
+                <div class="stock-card">
+                    <div class="stock-header">
+                        <div>
+                            <div class="stock-symbol">FN</div>
+                            <div class="stock-company">Fabrinet</div>
+                        </div>
+                        <div class="stock-verdict" style="background: linear-gradient(135deg, #2f81f7, #1e6df0); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">STARTER</div>
+                    </div>
+                    
+                    <div class="stock-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Price</span>
+                            <span class="metric-value">$500.57</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Market Cap</span>
+                            <span class="metric-value">$18.5B</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Forward P/E</span>
+                            <span class="metric-value">~31x</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Revenue Growth</span>
+                            <span class="metric-value text-green">+35% YoY</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">1.6T Share</span>
+                            <span class="metric-value text-green">100%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">RSI Status</span>
+                            <span class="metric-value text-red">Bearish divergence</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stock-thesis">
+                        "Bearish RSI divergence: price made higher highs but RSI making lower highs"
+                    </div>
+                    
+                    <div class="stock-chart">
+                        <div class="tradingview-widget-container" style="height:100%;width:100%">
+                            <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {"autosize":true,"symbol":"NYSE:FN","interval":"D","timezone":"America/New_York","theme":"dark","style":"1","locale":"en","backgroundColor":"rgba(13,17,23,1)","gridColor":"rgba(48,54,61,0.3)","hide_top_toolbar":false,"hide_legend":false,"save_image":false,"calendar":false,"hide_volume_indicator":false,"support_host":"https://www.tradingview.com","studies":["STD;RSI","STD;MACD","STD;EMA"],"range":"6M"}
+                            </script>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Light volume on recent bounce from $470 low</strong></p>
+                    <p><strong>Action:</strong> Starter only, wait for pullback to $440-470 volume support</p>
+                </div>
+
+                <!-- CRDO Card - STARTER -->
+                <div class="stock-card">
+                    <div class="stock-header">
+                        <div>
+                            <div class="stock-symbol">CRDO</div>
+                            <div class="stock-company">Credo Technology</div>
+                        </div>
+                        <div class="stock-verdict" style="background: linear-gradient(135deg, #2f81f7, #1e6df0); color: white; padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px;">STARTER</div>
+                    </div>
+                    
+                    <div class="stock-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Price</span>
+                            <span class="metric-value">$121.34</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Market Cap</span>
+                            <span class="metric-value">$20B</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Forward P/E</span>
+                            <span class="metric-value">~55x</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Revenue Growth</span>
+                            <span class="metric-value text-green">+173% YoY</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">AEC Share</span>
+                            <span class="metric-value">88%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">200d SMA</span>
+                            <span class="metric-value">$122</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stock-thesis">
+                        "Solving the 'Copper Wall' in AI clusters with 88% AEC market share — sitting on 200d SMA"
+                    </div>
+                    
+                    <div class="stock-chart">
+                        <div class="tradingview-widget-container" style="height:100%;width:100%">
+                            <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {"autosize":true,"symbol":"NASDAQ:CRDO","interval":"D","timezone":"America/New_York","theme":"dark","style":"1","locale":"en","backgroundColor":"rgba(13,17,23,1)","gridColor":"rgba(48,54,61,0.3)","hide_top_toolbar":false,"hide_legend":false,"save_image":false,"calendar":false,"hide_volume_indicator":false,"support_host":"https://www.tradingview.com","studies":["STD;RSI","STD;MACD","STD;EMA"],"range":"6M"}
+                            </script>
+                        </div>
+                    </div>
+                    
+                    <p><strong>Action:</strong> Starter position if 200d SMA ($122) holds</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Watch List -->
+        <section id="watch-list" class="section">
+            <div class="section-header">
+                <h2 class="section-title">👀 Watch List</h2>
+            </div>
+            <p class="source-link">
+                <a href="./AI_Infrastructure_Hidden_Gems_Feb2026.pdf" target="_blank" rel="noopener">Open source report: Infrastructure Hidden Gems PDF</a>
+            </p>
+            
+            <div class="cards-grid">
+                <!-- COHR Card - Updated for Watch Only -->
+                <div class="stock-card">
+                    <div class="stock-header">
+                        <div>
+                            <div class="stock-symbol">COHR</div>
+                            <div class="stock-company">Coherent Corp</div>
+                        </div>
+                        <div class="stock-verdict verdict-watch">WATCH</div>
+                    </div>
+                    <div class="stock-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Price</span>
+                            <span class="metric-value">$219.66</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Market Cap</span>
+                            <span class="metric-value">$34B</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Forward P/E</span>
+                            <span class="metric-value">~45x</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">DC Revenue</span>
+                            <span class="metric-value text-green">+33.6% YoY</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Book-to-Bill</span>
+                            <span class="metric-value text-green">4x</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Entry Target</span>
+                            <span class="metric-value">$150-200</span>
+                        </div>
+                    </div>
+                    <div class="stock-thesis">Thin volume structure above $121. Air pocket below $199. Don't be whale exit liquidity.</div>
+                    <div class="stock-chart">
+                        <div class="tradingview-widget-container" style="height:100%;width:100%">
+                            <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {"autosize":true,"symbol":"NYSE:COHR","interval":"D","timezone":"America/New_York","theme":"dark","style":"1","locale":"en","backgroundColor":"rgba(13,17,23,1)","gridColor":"rgba(48,54,61,0.3)","hide_top_toolbar":false,"hide_legend":false,"save_image":false,"calendar":false,"hide_volume_indicator":false,"support_host":"https://www.tradingview.com","studies":["STD;RSI","STD;MACD","STD;EMA"],"range":"6M"}
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PWR Card - Updated for Watch Only -->
+                <div class="stock-card">
+                    <div class="stock-header">
+                        <div>
+                            <div class="stock-symbol">PWR</div>
+                            <div class="stock-company">Quanta Services</div>
+                        </div>
+                        <div class="stock-verdict verdict-watch">WATCH</div>
+                    </div>
+                    <div class="stock-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Price</span>
+                            <span class="metric-value">$524.36</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">ATH</span>
+                            <span class="metric-value">$543</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Trailing P/E</span>
+                            <span class="metric-value text-red">76x</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Backlog</span>
+                            <span class="metric-value">$39.2B</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Revenue Growth</span>
+                            <span class="metric-value">+17.6% YoY</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Entry Target</span>
+                            <span class="metric-value">$430-470</span>
+                        </div>
+                    </div>
+                    <div class="stock-thesis">Upper ascending channel, near ATH ($543), 76x trailing P/E. Wait for pullback to $430-470.</div>
+                    <div class="stock-chart">
+                        <div class="tradingview-widget-container" style="height:100%;width:100%">
+                            <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {"autosize":true,"symbol":"NYSE:PWR","interval":"D","timezone":"America/New_York","theme":"dark","style":"1","locale":"en","backgroundColor":"rgba(13,17,23,1)","gridColor":"rgba(48,54,61,0.3)","hide_top_toolbar":false,"hide_legend":false,"save_image":false,"calendar":false,"hide_volume_indicator":false,"support_host":"https://www.tradingview.com","studies":["STD;RSI","STD;MACD","STD;EMA"],"range":"6M"}
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MOD Card -->
+                <div class="stock-card">
+                    <div class="stock-header">
+                        <div>
+                            <div class="stock-symbol">MOD</div>
+                            <div class="stock-company">Modine Manufacturing</div>
+                        </div>
+                        <div class="stock-verdict verdict-watch">WATCH</div>
+                    </div>
+                    <div class="stock-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Price</span>
+                            <span class="metric-value">$219.96</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">DC Revenue</span>
+                            <span class="metric-value text-green">+78% YoY</span>
+                        </div>
+                    </div>
+                    <div class="stock-thesis">100-year-old company transformed into pure-play AI cooling via spinoff</div>
+                    <div class="stock-chart">
+                        <div class="tradingview-widget-container" style="height:100%;width:100%">
+                            <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {"autosize":true,"symbol":"NYSE:MOD","interval":"D","timezone":"America/New_York","theme":"dark","style":"1","locale":"en","backgroundColor":"rgba(13,17,23,1)","gridColor":"rgba(48,54,61,0.3)","hide_top_toolbar":false,"hide_legend":false,"save_image":false,"calendar":false,"hide_volume_indicator":false,"support_host":"https://www.tradingview.com","studies":["STD;RSI","STD;MACD","STD;EMA"],"range":"6M"}
+                            </script>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GLW Card -->
+                <div class="stock-card">
+                    <div class="stock-header">
+                        <div>
+                            <div class="stock-symbol">GLW</div>
+                            <div class="stock-company">Corning Inc</div>
+                        </div>
+                        <div class="stock-verdict verdict-watch">WATCH</div>
+                    </div>
+                    <div class="stock-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Price</span>
+                            <span class="metric-value">$131.74</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Meta Deal</span>
+                            <span class="metric-value">$6B</span>
+                        </div>
+                    </div>
+                    <div class="stock-thesis">World's dominant fiber optics supplier riding AI interconnect demand</div>
+                    <div class="stock-chart">
+                        <div class="tradingview-widget-container" style="height:100%;width:100%">
+                            <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                            {"autosize":true,"symbol":"NYSE:GLW","interval":"D","timezone":"America/New_York","theme":"dark","style":"1","locale":"en","backgroundColor":"rgba(13,17,23,1)","gridColor":"rgba(48,54,61,0.3)","hide_top_toolbar":false,"hide_legend":false,"save_image":false,"calendar":false,"hide_volume_indicator":false,"support_host":"https://www.tradingview.com","studies":["STD;RSI","STD;MACD","STD;EMA"],"range":"6M"}
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Opportunity Matrix -->
+        <section id="matrix" class="section">
+            <div class="section-header">
+                <h2 class="section-title">🎯 AI Opportunity Matrix</h2>
+            </div>
+            
+            <div class="chart-container">
+                <a href="./AI_Investment_Matrix_v3.png" target="_blank" rel="noopener">
+                    <img src="./AI_Investment_Matrix_v3.png" alt="AI Investment Matrix" />
+                </a>
+            </div>
+            
+            <p class="section-subtitle">
+                This matrix maps AI infrastructure opportunities across obviousness and opportunity. The opportunity axis is intentionally focused on the current actionable range so chart space is used by real signal rather than empty low-score territory.
+            </p>
+        </section>
+
+        <!-- Sector Deep Dives -->
+        <section id="sectors" class="section">
+            <div class="section-header">
+                <h2 class="section-title">🏗️ Sector Deep Dives</h2>
+            </div>
+            <p class="source-link">
+                <a href="./Deep_Dive_AI_Infrastructure_Hardware_Feb2026.pdf" target="_blank" rel="noopener">Open source report: Infrastructure Hardware Deep Dive PDF</a>
+            </p>
+            
+            <div class="collapsible" id="infra-power">
+                <div class="collapsible-header" onclick="toggleCollapsible('infra-power')">
+                    <h3>⚡ Infrastructure & Power</h3>
+                    <span class="collapsible-toggle">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <h4>Bloom Energy (BE) — Market Cap: ~$30B+</h4>
+                    <p>Fuel cell company that pivoted hard into data center power. Their solid-oxide fuel cells can be deployed behind the meter, bypassing 5+ year grid connection wait times. $5B deal with Brookfield for data center power.</p>
+                    
+                    <h4>Constellation Energy (CEG) — Market Cap: ~$90B</h4>
+                    <p>Largest U.S. nuclear fleet operator. Data centers need 24/7 carbon-free power — nuclear is the only scalable option. Microsoft's 20-year Three Mile Island restart deal put this on the map.</p>
+                    
+                    <h4>Entergy (ETR) — Market Cap: ~$35B</h4>
+                    <p>Dominant utility in the Gulf Coast region. Cheap land + extensive energy infrastructure = perfect for data center builds. Multiple data center projects announced in its service territory.</p>
+                </div>
+            </div>
+
+            <div class="collapsible" id="cooling-thermal">
+                <div class="collapsible-header" onclick="toggleCollapsible('cooling-thermal')">
+                    <h3>🧊 Cooling & Thermal</h3>
+                    <span class="collapsible-toggle">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <h4>Vertiv Holdings (VRT) — Market Cap: ~$71B</h4>
+                    <p>80%+ revenue exposure to data centers — the purest public play on data center infrastructure. Liquid cooling revenue more than doubled in Q1 2025, with 40% CAGR projected through 2028.</p>
+                    
+                    <h4>nVent Electric (NVT) — Market Cap: ~$18.2B</h4>
+                    <p>Makes enclosures, cooling, and electrical connection solutions for data centers. Partnered directly with NVIDIA on liquid cooling solutions. Expanding dedicated facilities.</p>
+                    
+                    <h4>Eaton Corporation (ETN) — Market Cap: ~$130B</h4>
+                    <p>Power management giant that acquired Boyd Corporation for $9.5B, adding $1.5B in liquid cooling revenue. Their electrical infrastructure is in virtually every data center.</p>
+                </div>
+            </div>
+
+            <div class="collapsible" id="networking">
+                <div class="collapsible-header" onclick="toggleCollapsible('networking')">
+                    <h3>🔗 Networking & Interconnects</h3>
+                    <span class="collapsible-toggle">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <h4>Fabrinet (FN) — Market Cap: ~$18.5B</h4>
+                    <p>The contract manufacturer for optical interconnects — the "Foxconn of photonics." Every optical transceiver company's growth flows through Fabrinet's manufacturing lines.</p>
+                    
+                    <h4>Lumentum Holdings (LITE) — Market Cap: ~$28B</h4>
+                    <p>Makes laser chips and optical transceivers. Stock up 372% in 2025 — the best-performing AI infrastructure stock of the year. Cloud/networking revenue up 67% YoY.</p>
+                    
+                    <h4>Corning (GLW) — Market Cap: ~$115B</h4>
+                    <p>Enterprise optical communications revenue surged 81% YoY. Produces the specialty glass and optical fiber that physically connects every data center.</p>
+                </div>
+            </div>
+
+            <div class="collapsible" id="memory-storage">
+                <div class="collapsible-header" onclick="toggleCollapsible('memory-storage')">
+                    <h3>💾 Memory & Storage</h3>
+                    <span class="collapsible-toggle">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <h4>SK Hynix — Market Cap: ~$100B</h4>
+                    <p>62% market share in HBM (High Bandwidth Memory) — the memory that goes on every AI GPU. Already sold out entire 2026 HBM supply. The "NVIDIA of memory."</p>
+                    
+                    <h4>Micron Technology (MU) — Market Cap: ~$110B</h4>
+                    <p>#2 in HBM behind SK Hynix. CEO confirmed "HBM capacity for 2025 and 2026 is fully booked." Gaining share as Samsung struggles with quality.</p>
+                    
+                    <h4>Celestica (CLS) — Market Cap: ~$12B</h4>
+                    <p>Contract manufacturer building AI servers, networking equipment, and storage solutions for hyperscalers. One of the best-performing AI stocks of 2025.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Software & Data Layer -->
+        <section id="software" class="section">
+            <div class="section-header">
+                <h2 class="section-title">💻 Software & Data Layer</h2>
+            </div>
+            <p class="source-link">
+                <a href="./AI_Software_Data_Layer_Hidden_Gems_Feb2026.pdf" target="_blank" rel="noopener">Open source report: Software/Data Hidden Gems PDF</a>
+            </p>
+            
+            <div class="collapsible" id="data-infra">
+                <div class="collapsible-header" onclick="toggleCollapsible('data-infra')">
+                    <h3>📊 Data Infrastructure</h3>
+                    <span class="collapsible-toggle">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <h4>Innodata (INOD) — Hidden Gem Score: 9/10</h4>
+                    <p>Market Cap: ~$1.7B. Sleepy content services company reinvented as AI training data powerhouse. 45%+ organic growth in 2025, AI Services segment growing 60%+. The closest public pure-play on "AI needs data."</p>
+                    
+                    <h4>TaskUs (TASK) — Hidden Gem Score: 8/10</h4>
+                    <p>Market Cap: ~$1.3B. AI segment ($58.7M in Q3 2025, growing 60.8%) does data labeling, annotation, and red-teaming for foundation model developers. Trading at ~1.2x revenue — absurdly cheap.</p>
+                </div>
+            </div>
+
+            <div class="collapsible" id="ai-middleware">
+                <div class="collapsible-header" onclick="toggleCollapsible('ai-middleware')">
+                    <h3>🔧 AI Middleware / Orchestration</h3>
+                    <span class="collapsible-toggle">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <h4>Elastic (ESTC) — Hidden Gem Score: 7/10</h4>
+                    <p>Market Cap: ~$6.2B. Vector search capabilities make it a production-grade alternative to standalone vector databases. Unlike pure vector DB startups, Elastic has an existing enterprise customer base.</p>
+                    
+                    <h4>Dynatrace (DT) — Hidden Gem Score: 7/10</h4>
+                    <p>Market Cap: ~$15B. As enterprises deploy AI agents, they need to observe them. Dynatrace's AI-powered platform is uniquely positioned for "AI observing AI." Every AI agent needs monitoring.</p>
+                </div>
+            </div>
+
+            <div class="collapsible" id="data-moats">
+                <div class="collapsible-header" onclick="toggleCollapsible('data-moats')">
+                    <h3>🏛️ Companies with Unique Data Moats — Post-Selloff Opportunities</h3>
+                    <span class="collapsible-toggle">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <p class="text-yellow"><strong>The Anthropic Panic Selloff (Feb 3-4):</strong> ~$1T wiped from software stocks after Anthropic announced a legal plugin for Claude. This created buying opportunities in data moat companies.</p>
+                    
+                    <h4>Thomson Reuters (TRI) — Hidden Gem Score: 8/10 🔥</h4>
+                    <p>Market Cap: ~$63B (DOWN from ~$80B pre-selloff). Westlaw's curated case law database took decades to build. Down 16%+ overreaction — TRI's data becomes the training data for legal AI.</p>
+                    
+                    <h4>RELX — Hidden Gem Score: 8/10 🔥</h4>
+                    <p>Market Cap: ~$70B (down from ~$85B+). Only 10-13% of EBIT is from legal — the selloff is disproportionate to the actual threat. Elsevier's scientific publishing database is AI-training gold.</p>
+                    
+                    <h4>UiPath (PATH) — Hidden Gem Score: 8/10</h4>
+                    <p>Market Cap: ~$6B. Stock Price: ~$12-13 (down from $80+ IPO highs). At forward P/E of ~19x, the market is pricing in death, not transformation to AI agent platform.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Short Book -->
+        <section id="short-book" class="section">
+            <div class="section-header">
+                <h2 class="section-title">🩸 Short Book / AI Losers</h2>
+            </div>
+            <p class="source-link">
+                <a href="./AI_Short_Book_Losers_From_AI_Adoption_Feb2026.pdf" target="_blank" rel="noopener">Open source report: AI Short Book PDF</a>
+            </p>
+            
+            <div class="collapsible" id="short-candidates">
+                <div class="collapsible-header" onclick="toggleCollapsible('short-candidates')">
+                    <h3>🎯 Top 10 Short Candidates</h3>
+                    <span class="collapsible-toggle">▼</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="data-table-wrapper">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Ticker</th>
+                                    <th>Company</th>
+                                    <th>Disruption Score</th>
+                                    <th>Why</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td><strong>CNDT</strong></td>
+                                    <td>Conduent</td>
+                                    <td class="text-red">9/10</td>
+                                    <td>Pure back-office processing. AI eats this whole.</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td><strong>RHI</strong></td>
+                                    <td>Robert Half</td>
+                                    <td class="text-red">9/10</td>
+                                    <td>White-collar temp staffing = what AI agents replace. Down 74% already.</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td><strong>CNXC</strong></td>
+                                    <td>Concentrix</td>
+                                    <td class="text-red">9/10</td>
+                                    <td>Call center giant. AI voice agents replacing human calls.</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td><strong>INTU</strong></td>
+                                    <td>Intuit</td>
+                                    <td class="text-red">8/10</td>
+                                    <td>TurboTax & QuickBooks = #1 "why pay when AI does it?" targets.</td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td><strong>ZD</strong></td>
+                                    <td>Ziff Davis</td>
+                                    <td class="text-red">9/10</td>
+                                    <td>SEO content empire being eaten by AI search.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <h4>Key Themes:</h4>
+                    <ul style="margin-top: 1rem; color: var(--text-secondary);">
+                        <li><strong>Outsourcing/BPO:</strong> Indian IT's billable hour model directly threatened by AI agents</li>
+                        <li><strong>Content Farms:</strong> 15% decline in global search traffic as AI answers replace clicks</li>
+                        <li><strong>Staffing Agencies:</strong> Why hire temp workers when AI agents do knowledge work?</li>
+                        <li><strong>Traditional SaaS:</strong> $1T wiped from software stocks in Feb 2026 - "why pay per-seat when AI does the work?"</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Odds & Ends -->
+        <section id="odds-ends" class="section">
+            <div class="section-header">
+                <h2 class="section-title">🧰 Odds & Ends</h2>
+            </div>
+            <p class="section-subtitle">
+                Tactical and non-core notes that may be useful, but are outside the main AI infrastructure thesis flow.
+            </p>
+            <h3>📈 Friday Pre-Holiday Fade Backtest</h3>
+            <p class="source-link">
+                <a href="./Backtest_Friday_Fade_Presidents_Day_Feb2026.pdf" target="_blank" rel="noopener">Open source report: Backtest PDF</a>
+            </p>
+            
+            <p class="section-subtitle">
+                Analysis of Friday afternoon fades before long weekends, based on the setup observed February 13, 2026 (Presidents' Day weekend).
+            </p>
+            
+            <h3>Current Setup (Feb 13, 2026)</h3>
+            <ul style="margin-bottom: 2rem; color: var(--text-secondary);">
+                <li>SPX: ~6,870, afternoon fade, near ATH</li>
+                <li>NVDA: -1.6%</li>
+                <li>IWM: +1.65% (small caps outperforming)</li>
+                <li>Pattern: Tech weakness + small cap rotation + near ATH + long weekend</li>
+            </ul>
+            
+            <h3>Historical Outcomes</h3>
+            <div class="data-table-wrapper">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Holiday</th>
+                            <th>SPX Next Day</th>
+                            <th>SPY Puts Return</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aug 29, 2025</td>
+                            <td>Labor Day</td>
+                            <td class="text-red">-0.74%</td>
+                            <td class="text-green">+80-120%</td>
+                            <td>Best analog to current setup</td>
+                        </tr>
+                        <tr>
+                            <td>Jan 16, 2026</td>
+                            <td>MLK Day</td>
+                            <td class="text-red">-2.04%</td>
+                            <td class="text-green">+350-500%</td>
+                            <td>Massive Tuesday gap-down</td>
+                        </tr>
+                        <tr>
+                            <td>Oct 10, 2025</td>
+                            <td>Columbus Day</td>
+                            <td class="text-green">+1.40%</td>
+                            <td class="text-red">-70-85%</td>
+                            <td>Counter-example (was crash day)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <h3>Key Findings</h3>
+            <div style="margin-top: 1.5rem;">
+                <p><strong>Win Rate:</strong> 2/3 (67%) for similar setups</p>
+                <p><strong>Average Winner:</strong> ~+250% on puts</p>
+                <p><strong>Average Loser:</strong> ~-80% on puts</p>
+                <p><strong>Key Differentiator:</strong> Orderly rotation (like today) vs. panic selling (Oct 10)</p>
+                <p><strong>Recommended Trade:</strong> SPY $683-685 puts, Tuesday expiry (1-2% portfolio risk)</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h3 style="margin-bottom: 1rem;">⚠️ Disclaimer</h3>
+        <p>
+            This is research analysis for informational purposes only, not investment advice. 
+            All data sourced from company earnings, analyst reports, Yahoo Finance, Reuters, CNBC, 
+            and public filings. Always do your own due diligence before making investment decisions.
+        </p>
+        <p style="margin-top: 1rem; color: var(--text-muted);">
+            Analysis date: February 13, 2026 | Data as of market close
+        </p>
+    </footer>
+
+    <!-- Last Updated -->
+    <div class="last-updated">
+        Last Updated: Feb 14, 2026 1:05 AM EST
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Table sorting functionality
+        let currentSort = { column: 0, direction: 1 };
+
+        function sortTable(columnIndex) {
+            const table = document.getElementById('rankings-table');
+            const tbody = table.querySelector('tbody');
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            
+            // Determine sort direction
+            if (currentSort.column === columnIndex) {
+                currentSort.direction *= -1;
+            } else {
+                currentSort.direction = 1;
+            }
+            currentSort.column = columnIndex;
+            
+            // Sort rows
+            rows.sort((a, b) => {
+                const aValue = a.cells[columnIndex].textContent.trim();
+                const bValue = b.cells[columnIndex].textContent.trim();
+                
+                // Handle numeric columns
+                if (columnIndex === 0 || columnIndex === 3 || columnIndex === 4 || columnIndex === 6) {
+                    const aNum = parseFloat(aValue.replace(/[^0-9.-]/g, ''));
+                    const bNum = parseFloat(bValue.replace(/[^0-9.-]/g, ''));
+                    return (aNum - bNum) * currentSort.direction;
+                }
+                
+                // Handle text columns
+                return aValue.localeCompare(bValue) * currentSort.direction;
+            });
+            
+            // Update table
+            rows.forEach(row => tbody.appendChild(row));
+            
+            // Update header to show sort direction
+            const headers = table.querySelectorAll('th');
+            headers.forEach((header, index) => {
+                header.classList.remove('sort-asc', 'sort-desc');
+                if (index === columnIndex) {
+                    header.classList.add(currentSort.direction === 1 ? 'sort-asc' : 'sort-desc');
+                }
+            });
+        }
+
+        // Collapsible sections
+        function toggleCollapsible(id) {
+            const collapsible = document.getElementById(id);
+            const content = collapsible.querySelector('.collapsible-content');
+            const toggle = collapsible.querySelector('.collapsible-toggle');
+            
+            collapsible.classList.toggle('active');
+            content.classList.toggle('active');
+            
+            if (content.classList.contains('active')) {
+                content.style.maxHeight = content.scrollHeight + 'px';
+            } else {
+                content.style.maxHeight = '0px';
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up initial table sort (by rank)
+            sortTable(0);
+        });
+    </script>
+</body>
+</html>
