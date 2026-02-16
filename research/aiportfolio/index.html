@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🐯 Tiger Portfolio — AI Infrastructure Trading Terminal</title>
+    <link rel="stylesheet" href="/aiportfolio/nav.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -484,14 +485,14 @@
 </head>
 <body>
     <!-- Navigation Bar -->
-    <nav style="background: var(--bg-secondary); border-bottom: 1px solid var(--border); padding: 10px 16px; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 16px; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap;">
-        <span style="font-weight: 700; font-size: 1rem;">🐯 Tiger Portfolio</span>
-        <a href="/aiportfolio/" class="nav-links" style="color: var(--text-primary); background: var(--bg-tertiary); padding: 4px 8px; border-radius: 4px; font-size: 0.82rem; margin-left: auto;">📊 Dashboard</a>
-        <a href="/aiportfolio/thesis.html" class="nav-links" style="color: var(--text-muted); font-size: 0.82rem; padding: 4px 8px;">💡 Thesis</a>
-        <a href="/aiportfolio/pipeline.html" class="nav-links" style="color: var(--text-muted); font-size: 0.82rem; padding: 4px 8px;">🔬 Pipeline</a>
-        <a href="/aiportfolio/plan.html" class="nav-links" style="color: var(--text-muted); font-size: 0.82rem; padding: 4px 8px;">📝 Plan</a>
-        <a href="/aiportfolio-process/" class="nav-links" style="color: var(--text-muted); font-size: 0.82rem; padding: 4px 8px;">📋 Rules</a>
-        <a href="/" class="nav-links" style="color: var(--text-muted); font-size: 0.82rem; padding: 4px 8px;">🏠 Portal</a>
+    <nav class="tiger-nav">
+        <span class="tiger-nav-brand">🐯 Tiger Portfolio</span>
+        <a href="/aiportfolio/" class="active">📊 Dashboard</a>
+        <a href="/aiportfolio/thesis.html">💡 Thesis</a>
+        <a href="/aiportfolio/pipeline.html">🔬 Pipeline</a>
+        <a href="/aiportfolio/plan.html">📝 Plan</a>
+        <a href="/aiportfolio-process/">📋 Rules</a>
+        <a href="/">🏠 Portal</a>
     </nav>
 
     <!-- Terminal Status Bar -->

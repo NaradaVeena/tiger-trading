@@ -1,0 +1,36 @@
+/* Shared Tiger Portfolio Navigation */
+.tiger-nav {
+    background: #161b22;
+    border-bottom: 1px solid #30363d;
+    padding: 10px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    font-family: 'Inter', -apple-system, sans-serif;
+}
+.tiger-nav-brand {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #f0f6fc;
+}
+.tiger-nav a {
+    color: #8b949e;
+    font-size: 0.82rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.tiger-nav a:hover {
+    color: #f0f6fc;
+    text-decoration: none;
+}
+.tiger-nav a.active {
+    color: #f0f6fc;
+    background: #21262d;
+}
