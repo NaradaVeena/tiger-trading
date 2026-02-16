@@ -21,6 +21,7 @@ The key insight: AI infrastructure isn't just about bigger servers. It's about r
 Traditional enterprise servers consume 150-300W per socket. Modern AI accelerators like NVIDIA's H200 consume up to 700W per GPU, with training clusters requiring 8 GPUs per node. A single AI training server can consume 6-8kW, compared to 1-2kW for traditional servers. Scale this to 100,000+ GPU clusters, and you're looking at 100-500MW data centers—equivalent to small cities.
 
 **The Physics Problem:**
+
 - **Compute Density**: AI chips pack more transistors per square mm, generating heat proportional to power consumption
 - **Heat Removal**: Air cooling hits physical limits around 250W/cm². Beyond this, liquid cooling becomes mandatory
 - **Grid Constraints**: Traditional data centers consume 10-30MW. AI data centers need 100-1000MW, straining electrical grids
@@ -30,16 +31,19 @@ Traditional enterprise servers consume 150-300W per socket. Modern AI accelerato
 nVent specializes in the unglamorous but critical infrastructure:
 
 **Liquid Cooling Systems:**
+
 - **Direct-to-chip cooling**: Liquid cooling blocks mounted directly on GPUs
 - **Immersion cooling**: Entire servers submerged in dielectric fluid
 - **Cold plates and heat exchangers**: Custom thermal management solutions
 
 **Power Distribution:**
+
 - **Intelligent PDUs**: Power distribution units with remote monitoring
 - **Busway systems**: High-capacity power distribution for megawatt deployments
 - **Thermal management**: Cable management systems optimized for liquid cooling
 
 **Recent Developments:**
+
 - Partnership with Siemens for NVIDIA AI data center reference architectures
 - Modular liquid cooling solutions aligned with chip manufacturers' thermal requirements
 - Focus on 400V/800V DC power distribution for efficiency
@@ -62,12 +66,14 @@ Quanta builds the physical infrastructure:
 While most investor attention focuses on leading-edge nodes (3nm, 5nm), AI infrastructure requires diverse silicon technologies:
 
 **Specialty Foundry Focus:**
+
 - **Analog/Mixed-Signal**: Power management ICs, SerDes drivers, clock distribution
 - **Silicon Photonics**: Optical transceivers, modulators, photodetectors
 - **SiGe (Silicon-Germanium)**: High-frequency RF components, optical receivers
 - **Power Electronics**: GaN (Gallium Nitride) and SiC (Silicon Carbide) for efficient power conversion
 
 **Why Specialty Matters:**
+
 Leading-edge logic (GPUs, CPUs) gets headlines, but AI infrastructure requires thousands of support chips:
 - Power management ICs for clean power delivery
 - SerDes transceivers for high-speed I/O
@@ -75,6 +81,7 @@ Leading-edge logic (GPUs, CPUs) gets headlines, but AI infrastructure requires t
 - RF chips for wireless backhaul
 
 **Tower's Position:**
+
 - **65nm-180nm processes**: Optimized for analog performance, not transistor density
 - **Silicon photonics capabilities**: Critical for optical interconnects
 - **Automotive qualification**: Reliability standards applicable to data center infrastructure
@@ -100,16 +107,19 @@ Optical interconnects use photons instead of electrons, enabling:
 Coherent's strength lies in vertical integration across the optical stack:
 
 **Silicon Photonics:**
+
 - **Integrated photonic circuits**: Lasers, modulators, detectors on single chip
 - **1.6T transceivers**: 1.6 terabit/second modules using Marvell DSPs
 - **Co-packaged optics**: Optical components integrated directly with ASICs
 
 **Manufacturing Capability:**
+
 - **VCSEL arrays**: Vertical Cavity Surface Emitting Lasers for short-reach links
 - **Optical components**: Lenses, filters, couplers, isolators
 - **Assembly and test**: Complete transceiver manufacturing
 
 **Product Portfolio:**
+
 - **DR8 modules**: 8 lanes × 200Gbps = 1.6Tbps total bandwidth
 - **Optical circuit switches**: Direct optical connections between racks
 - **Active optical cables**: Integrated transceivers and fiber
@@ -139,16 +149,19 @@ SerDes (Serializer/Deserializer) chips convert parallel data streams to high-spe
 Credo's core innovation is making electrical SerDes work at higher speeds through:
 
 **Advanced Signal Processing:**
+
 - **Equalization**: Correcting signal distortion from cables/traces
 - **Error correction**: Forward error correction (FEC) for reliable transmission
 - **Retiming**: Cleaning up signal timing for longer reaches
 
 **Product Portfolio:**
+
 - **224Gbps retimers**: Enabling longer PCIe Gen6 and Ethernet connections
 - **AEC (Active Electrical Cables)**: Integrated SerDes in cable assemblies
 - **Multiprotocol support**: UALink, Ethernet, PCIe on single chip
 
 **The AI Differentiator:**
+
 - **HiWire AECs**: Active cables with integrated retimers for reliable high-speed links
 - **ZeroFlap technology**: Reducing optical link failures in massive AI clusters
 - **PILOT SDK**: Debug tools for system-level optimization
@@ -174,17 +187,20 @@ AI workloads drive custom silicon because:
 Unlike Broadcom/Marvell (general networking ASICs), Astera focuses specifically on AI connectivity:
 
 **Product Categories:**
+
 - **PCIe retimers**: Enabling GPU-CPU communication over longer distances
 - **CXL (Compute Express Link) controllers**: Memory expansion for AI workloads
 - **Ethernet ASICs**: Custom networking chips for AI fabrics
 
 **The "Rack-Scale" Vision:**
+
 Traditional servers are GPU-limited. Astera enables rack-scale computing where:
 - **Disaggregated resources**: Separate compute, memory, storage across rack
 - **Flexible interconnects**: Dynamic allocation of resources via software
 - **Open standards**: CXL, PCIe, Ethernet instead of proprietary interconnects
 
 **Recent Developments:**
+
 - **NVLink Fusion**: Custom solutions for NVIDIA GPU interconnects
 - **COSMOS software**: Management and optimization for large fleets
 - **aiXscale acquisition**: Adding photonics capabilities
@@ -207,21 +223,25 @@ Traditional HPC used InfiniBand for low-latency GPU clustering. AI is driving a 
 Arista's strength lies in software-defined networking optimized for AI:
 
 **AI Spine Architecture:**
+
 - **Spine-leaf topology**: Non-blocking communication between any two points
 - **800G Ethernet**: Latest generation providing 800Gbps per port
 - **AI-optimized routing**: Multipath load balancing for training traffic
 
 **EOS (Extensible Operating System):**
+
 - **Unified software**: Same OS across all switches
 - **Programmability**: Custom routing protocols for AI workloads
 - **Telemetry**: Deep visibility into AI training job performance
 
 **Competitive Advantages:**
+
 - **Software differentiation**: EOS enables rapid feature development
 - **AI-native design**: Purpose-built for AI training traffic patterns
 - **Ecosystem partnerships**: Integration with NVIDIA, Astera Labs, and others
 
 **Technology Roadmap:**
+
 - **1.6T Ethernet**: Next generation doubling bandwidth again
 - **Co-packaged optics**: Integrated photonics for lower power/cost
 - **AI traffic optimization**: Machine learning-driven congestion management
@@ -294,10 +314,12 @@ Silicon design (TSEM foundry) → Assembly (FN) → Integration → Deployment
 - **Silicon photonics**: Optical alignment adds manufacturing complexity
 
 **Advanced Packaging Revolution:**
+
 Traditional chips: Single die in package
 AI chips: Multiple dies connected with high-bandwidth interconnects
 
 **CoWoS (Chip-on-Wafer-on-Substrate):**
+
 - **2.5D packaging**: Multiple dies on silicon interposer
 - **3D packaging**: Stacked memory on logic die
 - **Bandwidth advantage**: 1000x bandwidth vs. traditional packaging
@@ -312,11 +334,13 @@ AI chips: Multiple dies connected with high-bandwidth interconnects
 **Interconnect scaling**: Physical limits constrain bandwidth growth
 
 **The Math:**
+
 - GPU compute: 2x every 2 years
 - Electrical I/O: 1.3x every 2 years
 - Gap widens to 10x over decade
 
 **Optical Solution:**
+
 Photonics can scale bandwidth faster than electronics:
 - **Wavelength division multiplexing**: Multiple colors on single fiber
 - **Spatial multiplexing**: Multiple fibers per cable
@@ -329,11 +353,13 @@ Photonics can scale bandwidth faster than electronics:
 #### The Technology Trade-offs
 
 **InfiniBand Advantages:**
+
 - **Lower latency**: Hardware-optimized for HPC workloads
 - **RDMA**: Direct memory access without CPU involvement
 - **Proven ecosystem**: Decades of HPC optimization
 
 **Ethernet Advantages:**
+
 - **Scale**: Spine-leaf topologies support 100,000+ endpoints
 - **Economics**: Hyperscale volume drives cost down
 - **Open standards**: Multiple vendor ecosystem
@@ -345,6 +371,7 @@ Photonics can scale bandwidth faster than electronics:
 **Future (2027+)**: Ethernet expected to dominate
 
 **Driving Forces:**
+
 - **Scale requirements**: 100,000+ GPU clusters favor Ethernet
 - **Cloud architecture**: Hyperscalers prefer open standards
 - **Cost pressure**: Ethernet economics beat InfiniBand at scale
@@ -358,11 +385,13 @@ Photonics can scale bandwidth faster than electronics:
 #### The Technology Evolution
 
 **Traditional Transceivers:**
+
 - **Separate components**: Laser, modulator, detector, electronics
 - **Assembly-intensive**: Manual alignment, high manufacturing cost
 - **Performance limits**: Speed/power trade-offs
 
 **Silicon Photonics:**
+
 - **Integrated approach**: All optical functions on single chip
 - **CMOS-compatible**: Leverages semiconductor manufacturing scale
 - **Performance scaling**: Higher speeds, lower power per bit
@@ -388,12 +417,14 @@ Photonic integrated circuit + Electronic IC + Simple assembly → Transceiver
 #### The Defensibility Hierarchy
 
 **Most Defensible (Highest Margins):**
+
 1. **Physical infrastructure**: Power, cooling, enclosures (NVT, PWR)
 2. **Custom silicon**: Application-specific chips (ALAB, CRDO)
 3. **Specialized manufacturing**: Precision assembly (FN, TSEM)
 4. **Software platforms**: Network OS, management (ANET)
 
 **Least Defensible (Commoditizing):**
+
 5. **Standard components**: Generic transceivers, switches
 6. **Contract manufacturing**: High-volume, low-mix production
 
@@ -453,12 +484,14 @@ Photonic integrated circuit + Electronic IC + Simple assembly → Transceiver
 #### New Market Creation vs. Substitution
 
 **New Markets (TAM Expansion):**
+
 - **Liquid cooling systems** (NVT): Didn't exist at scale pre-AI
 - **AI-specific retimers** (CRDO): New category for GPU interconnects
 - **Silicon photonics transceivers** (COHR): Replaces traditional electrical I/O
 - **Rack-scale connectivity** (ALAB): New architecture paradigm
 
 **Market Share Taking:**
+
 - **AI-optimized switches** (ANET): Taking share from legacy networking vendors
 - **Specialty foundry** (TSEM): Growing faster than leading-edge foundries
 - **Precision manufacturing** (FN): Taking share from traditional EMS providers
@@ -520,6 +553,7 @@ Photonic integrated circuit + Electronic IC + Simple assembly → Transceiver
 The AI infrastructure transformation creates a complex value chain where traditional server-centric thinking doesn't apply. Success requires understanding the physics constraints (bandwidth walls, thermal limits, power delivery) driving fundamental architecture changes.
 
 **Key Investment Themes:**
+
 
 1. **Infrastructure First**: Physical infrastructure companies (PWR, NVT) benefit earliest from AI CapEx cycles and have most defensible positions.
 

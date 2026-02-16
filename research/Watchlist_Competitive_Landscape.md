@@ -100,11 +100,13 @@ CRDO sells primarily to hyperscalers for rack-to-rack connectivity, while ANET s
 Broadcom launched **world's first 5nm PCIe Gen 5.0/CXL2.0 and PCIe Gen 6.0/CXL3.1 retimers** in March 2024 - direct attack on ALAB's core market.
 
 **Broadcom Advantages:**
+
 - **Scale**: $50B+ revenue giant vs ALAB's $396M
 - **Integration**: Can bundle retimers with switching ASICs for total solution
 - **Customer relationships**: Already supplies hyperscalers with networking silicon
 
 **ALAB's Defense:**
+
 - **First-mover advantage**: PCIe 6.0 and CXL connectivity leadership  
 - **Specialization**: Pure-play focus vs Broadcom's diversified portfolio
 - **COSMOS software stack**: Differentiated management and analytics
@@ -197,6 +199,7 @@ Major optical companies are **bringing manufacturing in-house**:
 ### **The Hyperscaler Dependency**
 **6 of 8 companies heavily dependent on same customers:**
 
+
 | Company | Hyperscaler Exposure | Risk Level |
 |---------|---------------------|------------|
 | ALAB | Heavy (noted customer concentration) | **HIGH** |
@@ -225,6 +228,7 @@ When **hyperscaler builds AI data center**:
 ### **Bull Scenario: Hyperscaler CapEx +40% in 2026**
 
 **Winners (Ranked by Leverage):**
+
 1. **ALAB** (+50-70% revenue) - Pure AI connectivity play, high operating leverage
 2. **CRDO** (+40-60% revenue) - AEC cables directly scale with AI cluster size
 3. **NVT** (+30-50% revenue) - Liquid cooling demand accelerates 
@@ -232,10 +236,12 @@ When **hyperscaler builds AI data center**:
 5. **PWR** (+20-30% revenue) - More data centers to build
 
 **Moderate Winners:**
+
 - **FN** (+15-25% revenue) - Benefits but capacity-constrained
 - **COHR** (+10-20% revenue) - Optical demand up, but competitive pressure
 
 **Laggards:**
+
 - **TSEM** (+5-15% revenue) - Least direct AI exposure, more diversified
 
 ---
@@ -243,15 +249,18 @@ When **hyperscaler builds AI data center**:
 ### **Bear Scenario: CapEx Pullback -20%**
 
 **Most Exposed (Downside Risk):**
+
 1. **ALAB** (-30-50% revenue) - High customer concentration, AI-specific
 2. **CRDO** (-25-40% revenue) - AEC business directly tied to hyperscaler spend
 3. **NVT** (-20-35% revenue) - Data center-specific products
 
 **Moderate Impact:**
+
 - **ANET** (-15-25% revenue) - Some enterprise/cloud buffer
 - **PWR** (-10-20% revenue) - Grid modernization provides some offset
 
 **Best Defensive Names:**
+
 - **TSEM** (-5-15% revenue) - Diversified across automotive, industrial, mobile
 - **FN** (-10-15% revenue) - Diversified manufacturing base
 - **COHR** (-10-20% revenue) - Industrial laser business provides buffer
@@ -262,15 +271,19 @@ When **hyperscaler builds AI data center**:
 
 **If Arista/Broadcom successfully push "Ethernet for AI training":**
 
+
 **Winners:**
+
 - **ANET** (+30-50% revenue) - Direct beneficiary of protocol shift
 - **ALAB** (+20-40% revenue) - PCIe/CXL becomes preferred over NVLink
 - **CRDO** (+15-30% revenue) - Ethernet clusters need more AECs
 
 **Losers:**
+
 - **None in portfolio** - NVIDIA InfiniBand not held
 
 **Neutral:**
+
 - **Others** - Optical transceivers needed regardless of protocol
 
 ---
@@ -279,16 +292,20 @@ When **hyperscaler builds AI data center**:
 
 **If Google TPU model spreads (custom ASICs vs GPU):**
 
+
 **Winners:**
+
 - **TSEM** (+20-40% revenue) - Specialty foundry for custom silicon
 - **PWR** (+10-20% revenue) - Still need data centers
 
 **Losers:**
+
 - **ALAB** (-20-40% revenue) - Less need for GPU connectivity
 - **CRDO** (-15-30% revenue) - Custom silicon may have integrated connectivity
 - **ANET** (-10-20% revenue) - Custom ASICs may bypass traditional networking
 
 **Mixed:**
+
 - **FN/COHR** - Still need optical connectivity, but different form factors
 
 ---
@@ -306,6 +323,7 @@ When **hyperscaler builds AI data center**:
 **True Diversification Score: 4/10**
 
 **The portfolio is highly correlated around:**
+
 1. **AI/Cloud CapEx cycles** (7 of 8 companies)
 2. **Hyperscaler customer concentration** (6 of 8 companies)  
 3. **Taiwan/Asia manufacturing exposure** (5 of 8 companies)

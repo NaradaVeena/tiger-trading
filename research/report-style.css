@@ -156,13 +156,29 @@ tbody td:first-child {
 
 /* Lists */
 ul, ol {
-  margin: 8px 0 14px;
-  padding-left: 24px;
+  margin: 10px 0 16px;
+  padding-left: 28px;
+  list-style-position: outside;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
 }
 
 li {
-  margin-bottom: 4px;
+  display: list-item;
+  margin-bottom: 6px;
+  padding-left: 4px;
   color: #2d3748;
+  line-height: 1.55;
+}
+
+li p {
+  margin-bottom: 4px;
 }
 
 li strong {
@@ -171,7 +187,11 @@ li strong {
 
 /* Nested lists */
 li ul, li ol {
-  margin: 4px 0 4px;
+  margin: 6px 0 6px;
+}
+
+li li {
+  margin-bottom: 4px;
 }
 
 /* Horizontal rules */
