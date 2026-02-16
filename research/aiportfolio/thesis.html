@@ -1548,6 +1548,17 @@
         'ALAB': 'NASDAQ', 'CRDO': 'NASDAQ', 'FN': 'NYSE',
         'NVT': 'NYSE', 'COHR': 'NYSE', 'PWR': 'NYSE'
     };
+    // Force chart container heights after widgets load
+    setTimeout(() => {
+        document.querySelectorAll('.tv-chart-container [id^="tv-chart-"]').forEach(el => {
+            el.style.cssText = 'width: 100% !important; height: 100% !important;';
+            const wrapper = el.querySelector('[id$="-wrapper"]');
+            if (wrapper) wrapper.style.cssText += 'width: 100% !important; height: 100% !important;';
+            const iframe = el.querySelector('iframe');
+            if (iframe) iframe.style.cssText += 'width: 100% !important; height: 100% !important;';
+        });
+    }, 2000);
+
     Object.entries(tickerExchange).forEach(([ticker, exchange]) => {
         new TradingView.widget({
             "container_id": "tv-chart-" + ticker.toLowerCase(),
