@@ -1,0 +1,247 @@
+/* Narada Research Report — Professional PDF Style */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
+
+/* Page setup */
+@page {
+  size: letter;
+  margin: 1in 0.9in;
+}
+
+/* Base */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.6;
+  color: #1a1a2e;
+  max-width: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Title / H1 */
+h1 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 800;
+  font-size: 26pt;
+  color: #0f0f23;
+  border-bottom: 3px solid #2d5aa0;
+  padding-bottom: 12px;
+  margin-bottom: 6px;
+  margin-top: 0;
+  letter-spacing: -0.5px;
+}
+
+/* Subtitle / H3 directly after H1 */
+h1 + h3 {
+  font-weight: 400;
+  font-size: 11pt;
+  color: #5a6178;
+  margin-top: 0;
+  margin-bottom: 4px;
+  border: none;
+  padding: 0;
+}
+
+/* Subtitle: date line (bold text after subtitle) */
+h1 + h3 + p {
+  font-size: 9.5pt;
+  color: #7a8299;
+  margin-bottom: 28px;
+}
+
+/* Section headers */
+h2 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700;
+  font-size: 16pt;
+  color: #1a365d;
+  margin-top: 32px;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1.5px solid #e2e8f0;
+  letter-spacing: -0.3px;
+}
+
+/* Sub-section headers */
+h3 {
+  font-weight: 600;
+  font-size: 12pt;
+  color: #2d5aa0;
+  margin-top: 22px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #edf2f7;
+  padding-bottom: 4px;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 10.5pt;
+  color: #4a5568;
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+/* Paragraphs */
+p {
+  margin-bottom: 10px;
+  color: #2d3748;
+}
+
+/* Bold text — make it pop */
+strong {
+  font-weight: 600;
+  color: #1a202c;
+}
+
+/* Emphasis */
+em {
+  font-style: italic;
+  color: #4a5568;
+}
+
+/* Tables — the big upgrade */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 20px;
+  font-size: 9.5pt;
+  line-height: 1.4;
+}
+
+thead {
+  background: linear-gradient(135deg, #1a365d 0%, #2d5aa0 100%);
+}
+
+thead th {
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 9pt;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+thead th:first-child {
+  border-radius: 4px 0 0 0;
+}
+
+thead th:last-child {
+  border-radius: 0 4px 0 0;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e8ecf1;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f7fafc;
+}
+
+tbody tr:hover {
+  background-color: #edf2f7;
+}
+
+tbody td {
+  padding: 8px 12px;
+  color: #2d3748;
+  vertical-align: top;
+}
+
+tbody td:first-child {
+  font-weight: 500;
+  color: #1a365d;
+}
+
+/* Lists */
+ul, ol {
+  margin: 8px 0 14px;
+  padding-left: 24px;
+}
+
+li {
+  margin-bottom: 4px;
+  color: #2d3748;
+}
+
+li strong {
+  color: #1a365d;
+}
+
+/* Nested lists */
+li ul, li ol {
+  margin: 4px 0 4px;
+}
+
+/* Horizontal rules */
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(to right, #2d5aa0, #e2e8f0);
+  margin: 28px 0;
+}
+
+/* Block quotes — for key insights */
+blockquote {
+  border-left: 4px solid #2d5aa0;
+  background-color: #f0f4fb;
+  padding: 12px 16px;
+  margin: 14px 0;
+  border-radius: 0 6px 6px 0;
+  font-size: 10pt;
+}
+
+blockquote p {
+  color: #1a365d;
+  margin: 0;
+}
+
+/* Code / tickers */
+code {
+  background-color: #edf2f7;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-size: 9.5pt;
+  color: #2d5aa0;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+}
+
+/* Links */
+a {
+  color: #2d5aa0;
+  text-decoration: none;
+  border-bottom: 1px dotted #2d5aa0;
+}
+
+/* Sources section — smaller, muted */
+h2:last-of-type ~ ul,
+h2:last-of-type ~ p {
+  font-size: 9pt;
+  color: #718096;
+}
+
+/* Disclaimer at bottom */
+p:last-child em {
+  font-size: 8.5pt;
+  color: #a0aec0;
+}
+
+/* Print adjustments */
+@media print {
+  body {
+    font-size: 10pt;
+  }
+  
+  h1 {
+    font-size: 24pt;
+  }
+  
+  h2 {
+    page-break-after: avoid;
+  }
+  
+  table, figure {
+    page-break-inside: avoid;
+  }
+}
