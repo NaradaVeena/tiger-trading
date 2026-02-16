@@ -182,13 +182,15 @@
             height: 500px;
         }
         .tv-chart-container .tradingview-widget-container,
-        .tv-chart-container .tradingview-widget-container > div {
-            width: 100%;
-            height: 100%;
+        .tv-chart-container .tradingview-widget-container > div,
+        .tv-chart-container .tradingview-widget-container > div > div {
+            width: 100% !important;
+            height: 100% !important;
         }
         .tv-chart-container iframe {
             width: 100% !important;
             height: 100% !important;
+            display: block;
         }
 
         /* ── Ticker Section ── */
@@ -1543,8 +1545,7 @@
     Object.entries(tickerExchange).forEach(([ticker, exchange]) => {
         new TradingView.widget({
             "container_id": "tv-chart-" + ticker.toLowerCase(),
-            "width": "100%",
-            "height": "100%",
+            "autosize": true,
             "symbol": exchange + ":" + ticker,
             "interval": "D",
             "timezone": "America/New_York",
