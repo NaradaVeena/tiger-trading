@@ -24,7 +24,16 @@ The ticker must have an ACTIVE thesis in the portfolio database. This means it h
 5. Competitive positioning (market share, differentiation)
 6. Bull/bear/invalidation (specific thesis-killing triggers documented)
 
-**How to check:** `node portfolio/cli.js status` → thesis table shows ticker with status = 'active'
+**How to get the watchlist:** Query the thesis DB for all active tickers:
+```javascript
+cd /home/vamsi/tiger-trading && node -e "
+const Database = require('better-sqlite3');
+const db = new Database('portfolio/data/portfolio.db');
+const tickers = db.prepare(\"SELECT ticker, company, category, status FROM thesis WHERE status IN ('active','weakened')\").all();
+console.log(JSON.stringify(tickers));
+"
+```
+This is the **single source of truth**. Never hardcode ticker lists.
 
 **Gate 1 fail = no trade.** Pipeline/watch names don't get proformas until promoted.
 
