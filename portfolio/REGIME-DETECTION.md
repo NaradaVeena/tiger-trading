@@ -174,4 +174,58 @@ OR:
 
 ---
 
-*This is a proposal for group review. Implementation begins after approval.*
+---
+
+## Macro Regime Layer (Added Feb 16)
+
+Per Poorna's insight: "Rising tide lifts all boats." We need market-wide context alongside per-ticker regimes.
+
+### Two Macro Dimensions
+
+**1. Monetary Conditions (Loose vs Tight)**
+Measured via 20-day trends in:
+- **10Y Treasury yield (^TNX):** Falling = loosening, rising = tightening
+- **US Dollar Index (DX-Y.NYB):** Weakening = loosening, strengthening = tightening
+- **TLT (20+ yr bonds):** Rising = rates falling = loosening
+- **VIX level:** <18 = loose, >25 = tight
+
+Score: -1 (tight) to +1 (loose). Classification: >0.25 = loose, <-0.25 = tight, else neutral.
+
+**2. Market Sentiment (Risk-On vs Risk-Off)**
+Measured via 20-day trends in ratios:
+- **IWM/SPY:** Small caps outperforming = risk-on
+- **XLK/XLU:** Tech over utilities = risk-on
+- **XLK/XLP:** Tech over staples = risk-on (Poorna's observation: staples rallying like memes = risk-off)
+- **HYG/LQD:** High yield over IG bonds = risk-on
+- **GLD/SPY:** Gold outperforming = risk-OFF (inverted)
+
+Score: -1 (risk-off) to +1 (risk-on). Classification: >0.25 = risk-on, <-0.25 = risk-off, else neutral.
+
+### Combined Macro Regime
+
+| Monetary | Sentiment | Macro Regime | Portfolio Action |
+|----------|-----------|-------------|------------------|
+| Loose | Risk-on | **BULLISH** 🟢 | Lean in. Deploy cash. Standard 3:1 R/R. |
+| Loose | Risk-off | **CAUTIOUS** 🟡 | Money available but hiding. Deploy selectively, smaller starters. |
+| Tight | Risk-on | **CAUTIOUS** 🟡 | Fighting the Fed. Dangerous. Tighter stops, 4:1 R/R. |
+| Tight | Risk-off | **BEARISH** 🔴 | Preserve capital. Cash > positions. Only highest-conviction. |
+| Neutral | Any / Any | **NEUTRAL** ⚪ | Standard criteria. |
+
+### Current State (as of Feb 13, 2026)
+**CAUTIOUS** — Monetary conditions are LOOSE (yields falling, dollar weakening, score +75%) but sentiment is RISK-OFF (gold outperforming, staples/utilities leading over tech, small caps lagging, score -60%). This confirms Poorna's observation: money is available but rotating into defensive sectors.
+
+### DB Table
+```sql
+macro_regime (date, spy_price, tlt_price, iwm_price, hyg_price, lqd_price,
+  xlk_price, xlp_price, xlu_price, gld_price, dxy_price, tnx_yield, vix_price,
+  iwm_spy_ratio, xlk_xlu_ratio, xlk_xlp_ratio, hyg_lqd_ratio, gld_spy_ratio,
+  monetary_score, sentiment_score, monetary_regime, sentiment_regime, macro_regime)
+```
+
+### Integration with Trade Selection
+The 11 AM proforma reads macro regime from DB. Combined with per-ticker regime:
+- **Macro BULLISH + Ticker TRENDING:** Maximum conviction. Full position sizing.
+- **Macro CAUTIOUS + Ticker GOLDILOCKS:** Starters only. Wait for confirmation.
+- **Macro BEARISH + any ticker regime:** Cash. Only add if 5:1 R/R.
+
+*Last updated: Feb 16, 2026*

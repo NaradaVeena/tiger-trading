@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-16T20:57:47.587Z",
+  "updated": "2026-02-16T21:06:32.806Z",
   "regimes": [
     {
       "ticker": "ALAB",
@@ -121,5 +121,179 @@
         "breakout": null
       }
     }
-  ]
+  ],
+  "macro": {
+    "current": {
+      "date": "2026-02-13",
+      "monetary": "loose",
+      "sentiment": "risk-off",
+      "regime": "cautious",
+      "monetary_score": 75,
+      "sentiment_score": -60,
+      "vix": 20.6,
+      "tnx": 4.06
+    },
+    "history": [
+      {
+        "date": "2026-01-16",
+        "monetary": "tight",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 15.9,
+        "tnx": 4.23
+      },
+      {
+        "date": "2026-01-20",
+        "monetary": "tight",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 20.1,
+        "tnx": 4.3
+      },
+      {
+        "date": "2026-01-21",
+        "monetary": "tight",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 16.9,
+        "tnx": 4.25
+      },
+      {
+        "date": "2026-01-22",
+        "monetary": "neutral",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 15.6,
+        "tnx": 4.25
+      },
+      {
+        "date": "2026-01-23",
+        "monetary": "neutral",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 16.1,
+        "tnx": 4.24
+      },
+      {
+        "date": "2026-01-26",
+        "monetary": "loose",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 16.1,
+        "tnx": 4.21
+      },
+      {
+        "date": "2026-01-27",
+        "monetary": "neutral",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 16.4,
+        "tnx": 4.22
+      },
+      {
+        "date": "2026-01-28",
+        "monetary": "neutral",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 16.4,
+        "tnx": 4.25
+      },
+      {
+        "date": "2026-01-29",
+        "monetary": "loose",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 16.9,
+        "tnx": 4.23
+      },
+      {
+        "date": "2026-01-30",
+        "monetary": "loose",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 17.4,
+        "tnx": 4.24
+      },
+      {
+        "date": "2026-02-02",
+        "monetary": "neutral",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 16.3,
+        "tnx": 4.28
+      },
+      {
+        "date": "2026-02-03",
+        "monetary": "neutral",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 18,
+        "tnx": 4.27
+      },
+      {
+        "date": "2026-02-04",
+        "monetary": "neutral",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 18.6,
+        "tnx": 4.28
+      },
+      {
+        "date": "2026-02-05",
+        "monetary": "neutral",
+        "sentiment": "risk-off",
+        "macro": "neutral",
+        "vix": 21.8,
+        "tnx": 4.21
+      },
+      {
+        "date": "2026-02-06",
+        "monetary": "neutral",
+        "sentiment": "risk-off",
+        "macro": "neutral",
+        "vix": 20.4,
+        "tnx": 4.21
+      },
+      {
+        "date": "2026-02-09",
+        "monetary": "neutral",
+        "sentiment": "risk-off",
+        "macro": "neutral",
+        "vix": 17.4,
+        "tnx": 4.2
+      },
+      {
+        "date": "2026-02-10",
+        "monetary": "loose",
+        "sentiment": "risk-off",
+        "macro": "cautious",
+        "vix": 17.8,
+        "tnx": 4.15
+      },
+      {
+        "date": "2026-02-11",
+        "monetary": "neutral",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 17.6,
+        "tnx": 4.17
+      },
+      {
+        "date": "2026-02-12",
+        "monetary": "loose",
+        "sentiment": "risk-off",
+        "macro": "cautious",
+        "vix": 20.8,
+        "tnx": 4.1
+      },
+      {
+        "date": "2026-02-13",
+        "monetary": "loose",
+        "sentiment": "risk-off",
+        "macro": "cautious",
+        "vix": 20.6,
+        "tnx": 4.06
+      }
+    ]
+  }
 }
