@@ -52,6 +52,8 @@ function getStartDate(range) {
     case '3mo': now.setMonth(now.getMonth() - 3); break;
     case '6mo': now.setMonth(now.getMonth() - 6); break;
     case '1y': now.setFullYear(now.getFullYear() - 1); break;
+    case '2y': now.setFullYear(now.getFullYear() - 2); break;
+    case '5y': now.setFullYear(now.getFullYear() - 5); break;
     default: now.setDate(now.getDate() - 1);
   }
   return now;
