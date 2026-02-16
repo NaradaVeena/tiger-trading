@@ -25,12 +25,14 @@ The portfolio is **less diversified than it appears** - it's essentially "8 ways
 **Market Overlap:** High-speed data center connectivity, but **complementary rather than competitive**
 
 **ALAB (Astera Labs)** - *$396M revenue, +242% YoY*
+
 - **Focus**: PCIe/CXL retimers and switches
 - **Products**: Aries retimers (PCIe 5.0/6.0, CXL), Scorpio fabric switches, Leo CXL memory controllers
 - **Sweet Spot**: GPU-to-CPU connections, scale-up AI clusters
 - **Customers**: Heavy concentration on hyperscalers (customer concentration risk noted in earnings)
 
 **CRDO (Credo Technology)** - *$796M LTM revenue, +224% YoY*
+
 - **Focus**: SerDes IP, Active Electrical Cables (AECs), optical connectivity
 - **Products**: HiWire AECs, Seagull retimers, 28G-224G SerDes IP, optical PAM4 DSPs
 - **Sweet Spot**: Rack-to-rack connections, scale-out networking
@@ -46,12 +48,14 @@ The portfolio is **less diversified than it appears** - it's essentially "8 ways
 **Market Overlap:** Optical component manufacturing - **Potential conflict of interest**
 
 **FN (Fabrinet)** - *Contract manufacturer for 300+ customers*
+
 - **Business Model**: Contract manufacturing of optical transceivers, modules, lasers
 - **Key Customers**: **Nvidia, Ciena,** Infinera, DZS - and likely others we can't see
 - **Thailand-based manufacturing** with multi-facility campus
 - **Risk**: Manufactures for COHR's competitors while we hold both stocks
 
 **COHR (Coherent Corp)** - *Formerly II-VI, acquired Coherent in 2022*
+
 - **Products**: Silicon photonics, transceivers, optical amplifiers, Steelerton DSPs
 - **InP wafer fabrication**: 6-inch wafers in US and European fabs
 - **Direct competitor**: Lumentum (35% coherent optics market share)
@@ -66,6 +70,7 @@ The portfolio is **less diversified than it appears** - it's essentially "8 ways
 **Analysis**: Arista uses **Broadcom ASICs** (Tomahawk 5, Jericho3-AI), **not Credo products**
 
 ANET's partnership with Broadcom is deep and strategic:
+
 - **Arista provides software** (EOS network OS)  
 - **Broadcom provides silicon** (switching ASICs)
 - **Joint go-to-market** against Cisco (Silicon One) and NVIDIA InfiniBand
@@ -80,11 +85,13 @@ CRDO sells primarily to hyperscalers for rack-to-rack connectivity, while ANET s
 **Key Finding**: TSEM manufactures for **Broadcom** (Wi-Fi 7 RF front-end modules, RFSOI technology)
 
 **The Chain**: TSEM → Broadcom → ANET
+
 - **TSEM** manufactures specialty analog/RF chips for **Broadcom**
 - **Broadcom** supplies switching ASICs to **ANET**
 - If TSEM loses Broadcom business or faces capacity constraints, it could impact ANET
 
 **Revenue Scale**: TSEM serves 300+ customers including Broadcom, Intel, On Semi, Samsung, Skyworks
+
 - **TSEM** specializes in analog/RF, not the digital switching chips ANET needs
 - **Risk is low but present** - capacity constraints or yield issues could ripple through
 
@@ -119,6 +126,7 @@ Broadcom launched **world's first 5nm PCIe Gen 5.0/CXL2.0 and PCIe Gen 6.0/CXL3.
 **Same giant, different battlefield**
 
 **Broadcom competes in**:
+
 - **SerDes IP licensing** (CRDO's chiplet business)
 - **Optical connectivity** (competes with CRDO's optical DSPs)
 - **Switch connectivity** (alternative to CRDO's AEC cables)
@@ -131,6 +139,7 @@ Broadcom launched **world's first 5nm PCIe Gen 5.0/CXL2.0 and PCIe Gen 6.0/CXL3.
 **Customers becoming competitors**
 
 Major optical companies are **bringing manufacturing in-house**:
+
 - **Coherent** has its own InP fabs (US, Europe)  
 - **Lumentum** has internal manufacturing
 - **Nvidia** increasingly uses internal manufacturing for AI products
@@ -143,10 +152,12 @@ Major optical companies are **bringing manufacturing in-house**:
 **The AI networking battle**
 
 **NVIDIA**: Dominates AI training networks with InfiniBand
+
 - **Quantum-X800 switches** for scale-up AI clusters
 - **NVIDIA is passing Cisco and rivals Arista in datacenter Ethernet sales**
 
 **Cisco**: Silicon One ASICs competing with Broadcom
+
 - **8501 switches** with Silicon One G200 ASIC
 - Traditional enterprise relationships
 
@@ -158,6 +169,7 @@ Major optical companies are **bringing manufacturing in-house**:
 **The optical communications duopoly**
 
 **Lumentum**: Claims **~35% market share in coherent optics**
+
 - Revenue declined 23% in fiscal 2024 but recovering with AI demand
 - Strong in 3D sensing (~40% market share)
 
@@ -169,6 +181,7 @@ Major optical companies are **bringing manufacturing in-house**:
 **Data center thermal management competition**
 
 **Vertiv**: **$7.2B revenue** (vs NVT's smaller scale)
+
 - **Comprehensive cooling solutions**: From UPS to liquid cooling
 - **Established hyperscaler relationships**
 
@@ -180,6 +193,7 @@ Major optical companies are **bringing manufacturing in-house**:
 **Infrastructure services competition**
 
 **EMCOR**: **$12.8B revenue** (vs PWR's scale)
+
 - **M&E (Mechanical & Electrical) focus** for data centers
 - **Broader service offerings**
 
@@ -347,6 +361,7 @@ When **hyperscaler builds AI data center**:
 5. **Scenario Planning Critical** - Portfolio acts like leveraged AI CapEx play, not diversified infrastructure basket
 
 ### **Missing Exposures:**
+
 - **Power Infrastructure** (utilities, transformers)  
 - **Memory/Storage** (not just connectivity)
 - **European/Non-Asian Supply Chain** alternatives

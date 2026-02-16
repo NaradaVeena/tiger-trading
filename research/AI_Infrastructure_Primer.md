@@ -51,6 +51,7 @@ nVent specializes in the unglamorous but critical infrastructure:
 #### Quanta Services (PWR): The Execution Layer
 
 Quanta builds the physical infrastructure:
+
 - **Electrical grid connections**: Substations, transmission lines for massive power draws
 - **Data center construction**: Specialized electrical and mechanical systems
 - **Emergency power systems**: Backup generators, UPS systems for critical AI workloads
@@ -75,6 +76,7 @@ While most investor attention focuses on leading-edge nodes (3nm, 5nm), AI infra
 **Why Specialty Matters:**
 
 Leading-edge logic (GPUs, CPUs) gets headlines, but AI infrastructure requires thousands of support chips:
+
 - Power management ICs for clean power delivery
 - SerDes transceivers for high-speed I/O
 - Optical components for data center networking
@@ -93,11 +95,13 @@ Leading-edge logic (GPUs, CPUs) gets headlines, but AI infrastructure requires t
 #### The Fundamental Problem
 
 Electrical interconnects hit physical limits around 56Gbps per lane due to:
+
 - **Skin effect**: High-frequency signals travel on copper surface, increasing resistance
 - **Crosstalk**: Adjacent wires interfere at high frequencies
 - **Power consumption**: Electrical SerDes consume exponentially more power at higher speeds
 
 Optical interconnects use photons instead of electrons, enabling:
+
 - **Higher bandwidth**: 100Gbps+ per optical lane
 - **Lower power**: Photons don't have resistance
 - **Longer reach**: Kilometers vs. meters for electrical
@@ -127,6 +131,7 @@ Coherent's strength lies in vertical integration across the optical stack:
 #### Fabrinet (FN): The Manufacturing Partner
 
 Fabrinet provides precision manufacturing for optical components:
+
 - **Optical transceiver assembly**: Sub-micron precision alignment
 - **Electro-optical PCBA**: Mixed analog/digital boards for transceivers
 - **Supply chain management**: Southeast Asia manufacturing cost advantages
@@ -140,6 +145,7 @@ Fabrinet provides precision manufacturing for optical components:
 #### What is SerDes?
 
 SerDes (Serializer/Deserializer) chips convert parallel data streams to high-speed serial links. They're the unsung heroes of AI infrastructure, enabling:
+
 - **PCIe connections**: CPU to GPU communication
 - **Ethernet**: Server-to-switch networking
 - **Intra-rack links**: GPU-to-GPU communication
@@ -178,6 +184,7 @@ Credo's core innovation is making electrical SerDes work at higher speeds throug
 **Custom Silicon**: Chips designed for specific applications/customers
 
 AI workloads drive custom silicon because:
+
 - **Workload optimization**: Custom datapaths for transformer models
 - **Integration**: Combining multiple functions on single chip
 - **Differentiation**: Custom features not available in merchant silicon
@@ -195,6 +202,7 @@ Unlike Broadcom/Marvell (general networking ASICs), Astera focuses specifically 
 **The "Rack-Scale" Vision:**
 
 Traditional servers are GPU-limited. Astera enables rack-scale computing where:
+
 - **Disaggregated resources**: Separate compute, memory, storage across rack
 - **Flexible interconnects**: Dynamic allocation of resources via software
 - **Open standards**: CXL, PCIe, Ethernet instead of proprietary interconnects
@@ -214,6 +222,7 @@ Traditional servers are GPU-limited. Astera enables rack-scale computing where:
 #### The Shift from InfiniBand to Ethernet
 
 Traditional HPC used InfiniBand for low-latency GPU clustering. AI is driving a shift to Ethernet because:
+
 - **Scale**: Ethernet switches scale to 100,000+ ports vs. InfiniBand's smaller fabrics
 - **Open standards**: Multiple vendor ecosystem vs. single-vendor InfiniBand
 - **Economics**: Ethernet benefits from hyperscale volume economics
@@ -256,6 +265,7 @@ Let's trace a single AI training batch through the infrastructure stack:
 ```
 Grid Power → Substation (PWR) → Data Center PDU (NVT) → Server PSU → GPU (700W)
 ```
+
 - Quanta builds grid connections for 100+ MW delivery
 - nVent PDUs distribute and monitor power with 99.999% uptime
 - Liquid cooling removes heat (nVent cold plates)
@@ -264,6 +274,7 @@ Grid Power → Substation (PWR) → Data Center PDU (NVT) → Server PSU → GPU
 ```
 CPU sends training batch → PCIe (CRDO retimer) → GPU memory → Compute → Results
 ```
+
 - Credo retimers enable reliable PCIe Gen5/6 over longer traces
 - Custom power management (TSEM ICs) maintains clean power delivery
 
@@ -271,6 +282,7 @@ CPU sends training batch → PCIe (CRDO retimer) → GPU memory → Compute → 
 ```
 GPU A → NVLink → Astera retimer → PCIe switch → NVLink → GPU B
 ```
+
 - Astera's NVLink Fusion chips enable flexible GPU interconnection
 - Data flows at 900GB/s between GPUs in same server
 
@@ -278,6 +290,7 @@ GPU A → NVLink → Astera retimer → PCIe switch → NVLink → GPU B
 ```
 Server → Ethernet (ANET switch) → Optical (COHR transceiver) → Fabric → Remote GPU
 ```
+
 - Arista spine-leaf fabric routes training data between racks
 - Coherent 800G/1.6T transceivers carry data over fiber
 - AI training synchronization requires sub-microsecond latency
@@ -286,6 +299,7 @@ Server → Ethernet (ANET switch) → Optical (COHR transceiver) → Fabric → 
 ```
 GPU → PCIe → NVMe SSD → Training data → Memory → GPU processing
 ```
+
 - High-bandwidth storage for dataset loading
 - CXL memory expansion (Astera controllers) for larger models
 
@@ -293,6 +307,7 @@ GPU → PCIe → NVMe SSD → Training data → Memory → GPU processing
 ```
 Silicon design (TSEM foundry) → Assembly (FN) → Integration → Deployment
 ```
+
 - Tower manufactures analog/mixed-signal support chips
 - Fabrinet assembles complex optical transceivers
 
@@ -305,10 +320,12 @@ Silicon design (TSEM foundry) → Assembly (FN) → Integration → Deployment
 #### Traditional Metrics Don't Apply
 
 **Wafer Starts**: Number of silicon wafers entering production
+
 - **Leading-edge focus**: 3nm/5nm wafers get attention but represent <10% of industry volume
 - **AI infrastructure reality**: Most chips use 28nm-180nm processes optimized for specific functions
 
 **Yield Curves**: 
+
 - **Digital logic**: Yield improves predictably with maturity
 - **Analog/RF**: Yield limited by process variation, not defect density
 - **Silicon photonics**: Optical alignment adds manufacturing complexity
@@ -342,6 +359,7 @@ AI chips: Multiple dies connected with high-bandwidth interconnects
 **Optical Solution:**
 
 Photonics can scale bandwidth faster than electronics:
+
 - **Wavelength division multiplexing**: Multiple colors on single fiber
 - **Spatial multiplexing**: Multiple fibers per cable
 - **Advanced modulation**: More bits per photon
@@ -377,6 +395,7 @@ Photonics can scale bandwidth faster than electronics:
 - **Cost pressure**: Ethernet economics beat InfiniBand at scale
 
 **Investment Impact**: 
+
 - **Winners**: Ethernet specialists (Arista, Broadcom)
 - **Challenged**: InfiniBand pure-plays (Mellanox, now part of NVIDIA)
 
@@ -436,6 +455,7 @@ Photonic integrated circuit + Electronic IC + Simple assembly → Transceiver
 **Scale economics**: Fixed costs amortized over large deployments
 
 **Example: nVent's Moat**
+
 - **Thermal engineering**: Decades of cooling optimization experience
 - **Safety certifications**: UL, IEC approvals for data center deployment
 - **Integration complexity**: Liquid cooling requires mechanical, electrical, and thermal expertise
@@ -446,22 +466,27 @@ Photonic integrated circuit + Electronic IC + Simple assembly → Transceiver
 #### The Hyperscaler Investment Cascade
 
 **Phase 1: Planning (12-18 months before deployment)**
+
 - **Winners**: Design/engineering services, power infrastructure (PWR)
 - **Orders**: Grid connections, substations, data center construction
 
 **Phase 2: Infrastructure Build (6-12 months before)**
+
 - **Winners**: Physical infrastructure (NVT), semiconductor foundries (TSEM)
 - **Orders**: Power distribution, cooling systems, silicon production
 
 **Phase 3: Equipment Assembly (3-6 months before)**
+
 - **Winners**: Manufacturing services (FN), component suppliers (COHR)
 - **Orders**: Optical transceivers, cable assemblies, final integration
 
 **Phase 4: Deployment (0-3 months)**
+
 - **Winners**: Networking platforms (ANET), connectivity ASICs (ALAB, CRDO)
 - **Orders**: Switches, retimers, software licenses
 
 **Phase 5: Operation (ongoing)**
+
 - **Winners**: Software platforms, support services
 - **Revenue**: Subscription, maintenance, upgrades
 
@@ -472,11 +497,13 @@ Photonic integrated circuit + Electronic IC + Simple assembly → Transceiver
 #### Traditional Data Center vs. AI Infrastructure
 
 **Traditional Data Center TAM**: ~$50B annually
+
 - **Servers**: Standard x86, modest power/cooling requirements
 - **Networking**: 1G/10G Ethernet, traditional spine-leaf
 - **Growth rate**: ~5-10% annually
 
 **AI Infrastructure TAM**: ~$200B+ by 2030
+
 - **Specialized servers**: GPU-optimized, 5-10x power density
 - **High-speed networking**: 400G/800G/1.6T, AI-optimized fabrics
 - **Growth rate**: 30-50% annually
