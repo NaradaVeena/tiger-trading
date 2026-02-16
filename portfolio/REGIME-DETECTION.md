@@ -2,7 +2,7 @@
 
 **Proposed by:** Poorna B  
 **Date:** Feb 16, 2026  
-**Status:** PROPOSAL — awaiting group review
+**Status:** IMPLEMENTED — backfilled from historical data, live results below
 
 ---
 
@@ -94,13 +94,13 @@ This gets flagged in the weekly report and the daily proforma notes.
 
 ---
 
-## Implementation Plan
+## Implementation Status
 
-### Phase 1: Data Collection (Week 1)
-- Add `indicator_scores` table to portfolio DB
-- Daily cron (after 2 PM lock) computes and stores scores for each ticker
-- Schema:
+**Backfilled from historical data** (1 year, 8 tickers, ~45 scored days each after SMA200 lookback).
+
+### DB Schema (LIVE)
 ```sql
+-- Raw indicator signals + outcomes
 CREATE TABLE indicator_scores (
   id INTEGER PRIMARY KEY,
   date TEXT NOT NULL,
@@ -108,28 +108,46 @@ CREATE TABLE indicator_scores (
   indicator TEXT NOT NULL,     -- 'ma_trend', 'rsi_reversion', 'macd_momentum', 'volume_confirm', 'sr_hold', 'breakout'
   signal_direction TEXT,       -- 'bullish', 'bearish', 'neutral'
   signal_value REAL,           -- the indicator value that generated the signal
-  outcome INTEGER,             -- 1 = correct, 0 = incorrect, NULL = pending (within 5-day window)
-  outcome_date TEXT,           -- when the outcome was scored
-  created_at TEXT DEFAULT (datetime('now'))
+  outcome INTEGER,             -- 1 = correct, 0 = incorrect
+  outcome_date TEXT,           -- when the outcome was scored (5 days forward)
+  created_at TEXT DEFAULT (datetime('now')),
+  UNIQUE(date, ticker, indicator)
+);
+
+-- Rolling 20-day regime classification
+CREATE TABLE regime_summary (
+  id INTEGER PRIMARY KEY,
+  date TEXT NOT NULL,
+  ticker TEXT NOT NULL,
+  ma_trend_acc REAL,
+  rsi_reversion_acc REAL,
+  macd_momentum_acc REAL,
+  volume_confirm_acc REAL,
+  sr_hold_acc REAL,
+  breakout_acc REAL,
+  trend_avg REAL,              -- avg of MA + MACD + Breakout accuracy
+  meanrev_avg REAL,            -- avg of RSI + S/R accuracy
+  regime TEXT,                 -- 'trending', 'chop', 'transition', 'goldilocks', 'mixed'
+  created_at TEXT DEFAULT (datetime('now')),
+  UNIQUE(date, ticker)
 );
 ```
 
-### Phase 2: Scoring Engine (Week 2)
-- Backfill 20 days of historical scores using chart data
-- Build rolling accuracy calculator
-- Add regime classification logic
+### Query Current Regimes
+```javascript
+cd /home/vamsi/tiger-trading && node -e "
+const db = require('better-sqlite3')('portfolio/data/portfolio.db');
+const regimes = db.prepare('SELECT ticker, regime, trend_avg, meanrev_avg, ma_trend_acc, rsi_reversion_acc, macd_momentum_acc, volume_confirm_acc, sr_hold_acc, breakout_acc FROM regime_summary WHERE date = (SELECT MAX(date) FROM regime_summary) ORDER BY ticker').all();
+regimes.forEach(r => console.log(JSON.stringify(r)));
+"
+```
 
-### Phase 3: Reporting (Week 3)
-- Weekly regime report to Tigerrr group
-- Per-ticker indicator heatmap (which indicators are working for which names)
-- Regime dashboard widget on the portal
-
-### Phase 4: Integration (Week 4)
-- Proforma cron reads current regime before scoring
-- Trade selection criteria adjusts based on regime:
-  - **Trending:** Weight MA alignment + breakout signals heavily, relax RSI overbought concern
-  - **Chop:** Weight RSI extremes + S/R levels, skip breakout entries, tighter targets
-  - **Transition:** Reduce position sizes, widen stops, require higher conviction threshold
+### Integration with Proforma Cron
+The 11 AM proforma reads current regime and adjusts Gate 2 weights:
+- **Trending:** MA alignment and MACD are HIGH-CONFIDENCE. RSI overbought is LOW-CONFIDENCE (trends persist).
+- **Chop:** RSI extremes and S/R levels are HIGH-CONFIDENCE. MA crossovers are LOW-CONFIDENCE (whipsaw).
+- **Transition:** ALL indicators LOW-CONFIDENCE. Reduce position sizes, require 4:1 R/R instead of 3:1.
+- **Goldilocks:** Most indicators working. Deploy with standard 3:1 criteria.
 
 ---
 
