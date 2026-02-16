@@ -1,0 +1,125 @@
+{
+  "updated": "2026-02-16T20:57:47.587Z",
+  "regimes": [
+    {
+      "ticker": "ALAB",
+      "regime": "mixed",
+      "date": "2026-02-06",
+      "trend_avg": 30,
+      "meanrev_avg": 50,
+      "indicators": {
+        "ma_trend": 30,
+        "rsi_reversion": null,
+        "macd_momentum": 30,
+        "volume_confirm": 60,
+        "sr_hold": 50,
+        "breakout": null
+      }
+    },
+    {
+      "ticker": "ANET",
+      "regime": "goldilocks",
+      "date": "2026-02-06",
+      "trend_avg": 56,
+      "meanrev_avg": 71,
+      "indicators": {
+        "ma_trend": 67,
+        "rsi_reversion": 100,
+        "macd_momentum": 45,
+        "volume_confirm": 43,
+        "sr_hold": 43,
+        "breakout": null
+      }
+    },
+    {
+      "ticker": "COHR",
+      "regime": "goldilocks",
+      "date": "2026-02-06",
+      "trend_avg": 75,
+      "meanrev_avg": 60,
+      "indicators": {
+        "ma_trend": 80,
+        "rsi_reversion": 60,
+        "macd_momentum": 70,
+        "volume_confirm": 56,
+        "sr_hold": null,
+        "breakout": null
+      }
+    },
+    {
+      "ticker": "CRDO",
+      "regime": "goldilocks",
+      "date": "2026-02-06",
+      "trend_avg": 65,
+      "meanrev_avg": 67,
+      "indicators": {
+        "ma_trend": null,
+        "rsi_reversion": 83,
+        "macd_momentum": 65,
+        "volume_confirm": 71,
+        "sr_hold": 50,
+        "breakout": null
+      }
+    },
+    {
+      "ticker": "FN",
+      "regime": "goldilocks",
+      "date": "2026-02-06",
+      "trend_avg": 60,
+      "meanrev_avg": 75,
+      "indicators": {
+        "ma_trend": 60,
+        "rsi_reversion": null,
+        "macd_momentum": 60,
+        "volume_confirm": 33,
+        "sr_hold": 75,
+        "breakout": null
+      }
+    },
+    {
+      "ticker": "NVT",
+      "regime": "goldilocks",
+      "date": "2026-02-06",
+      "trend_avg": 66,
+      "meanrev_avg": 80,
+      "indicators": {
+        "ma_trend": 62,
+        "rsi_reversion": 100,
+        "macd_momentum": 70,
+        "volume_confirm": 29,
+        "sr_hold": 60,
+        "breakout": null
+      }
+    },
+    {
+      "ticker": "PWR",
+      "regime": "trending",
+      "date": "2026-02-06",
+      "trend_avg": 70,
+      "meanrev_avg": 35,
+      "indicators": {
+        "ma_trend": 80,
+        "rsi_reversion": 20,
+        "macd_momentum": 60,
+        "volume_confirm": 60,
+        "sr_hold": 50,
+        "breakout": null
+      }
+    },
+    {
+      "ticker": "TSEM",
+      "regime": "trending",
+      "date": "2026-02-06",
+      "trend_avg": 80,
+      "meanrev_avg": 29,
+      "indicators": {
+        "ma_trend": 80,
+        "rsi_reversion": 29,
+        "macd_momentum": 80,
+        "volume_confirm": 56,
+        "sr_hold": null,
+        "breakout": null
+      }
+    }
+  ]
+}

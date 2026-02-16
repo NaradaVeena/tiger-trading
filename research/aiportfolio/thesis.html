@@ -1872,5 +1872,106 @@
 
 </div>
 
+<script>
+// Regime data injection — reads from DB-exported JSON
+(async () => {
+    try {
+        const resp = await fetch('data/regime.json');
+        if (!resp.ok) return;
+        const data = await resp.json();
+        
+        const regimeColors = {
+            trending: { bg: '#1a3d1a', border: '#2d8a2d', text: '#4ade80', label: '🔥 TRENDING' },
+            goldilocks: { bg: '#1a2d3d', border: '#2d6e8a', text: '#60a5fa', label: '🎯 GOLDILOCKS' },
+            chop: { bg: '#3d3d1a', border: '#8a8a2d', text: '#facc15', label: '🔄 CHOP' },
+            transition: { bg: '#3d1a1a', border: '#8a2d2d', text: '#f87171', label: '⚠️ TRANSITION' },
+            mixed: { bg: '#2d2d2d', border: '#666', text: '#aaa', label: '❓ MIXED' },
+        };
+        
+        const accColor = (v) => {
+            if (v === null) return '#555';
+            if (v >= 70) return '#4ade80';
+            if (v >= 55) return '#60a5fa';
+            if (v >= 40) return '#facc15';
+            return '#f87171';
+        };
+        
+        const accBar = (v) => {
+            if (v === null) return '<span style="color:#555">—</span>';
+            const c = accColor(v);
+            return `<span style="color:${c};font-weight:600">${v}%</span>`;
+        };
+
+        for (const r of data.regimes) {
+            const section = document.getElementById(r.ticker.toLowerCase());
+            if (!section) continue;
+            
+            const rc = regimeColors[r.regime] || regimeColors.mixed;
+            
+            // Add regime badge to header
+            const badges = section.querySelector('.ticker-badges');
+            if (badges) {
+                const badge = document.createElement('span');
+                badge.className = 'badge';
+                badge.style.cssText = `background:${rc.bg};border:1px solid ${rc.border};color:${rc.text};`;
+                badge.textContent = rc.label;
+                badges.appendChild(badge);
+            }
+            
+            // Add regime panel after TradingView chart
+            const chartContainer = section.querySelector('.tv-chart-container');
+            const insertAfter = chartContainer || section.querySelector('.panel');
+            if (!insertAfter) continue;
+            
+            const panel = document.createElement('div');
+            panel.className = 'panel';
+            panel.innerHTML = `
+                <div class="panel-header" style="display:flex;justify-content:space-between;align-items:center;">
+                    <span>Regime Analysis</span>
+                    <span style="font-size:0.75rem;color:#888;">20-day rolling • as of ${r.date}</span>
+                </div>
+                <div class="panel-body">
+                    <div style="display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:12px;">
+                        <div style="background:#0d0d18;padding:12px;border-radius:6px;text-align:center;">
+                            <div style="font-size:0.75rem;color:#888;margin-bottom:4px;">Trend Indicators</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:${accColor(r.trend_avg)}">${r.trend_avg !== null ? r.trend_avg + '%' : '—'}</div>
+                        </div>
+                        <div style="background:#0d0d18;padding:12px;border-radius:6px;text-align:center;">
+                            <div style="font-size:0.75rem;color:#888;margin-bottom:4px;">Mean-Rev Indicators</div>
+                            <div style="font-size:1.5rem;font-weight:700;color:${accColor(r.meanrev_avg)}">${r.meanrev_avg !== null ? r.meanrev_avg + '%' : '—'}</div>
+                        </div>
+                    </div>
+                    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+                        <tr style="border-bottom:1px solid #222;">
+                            <td style="padding:6px 8px;color:#888;">MA Trend</td>
+                            <td style="padding:6px 8px;text-align:right;">${accBar(r.indicators.ma_trend)}</td>
+                            <td style="padding:6px 8px;color:#888;">RSI Reversion</td>
+                            <td style="padding:6px 8px;text-align:right;">${accBar(r.indicators.rsi_reversion)}</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #222;">
+                            <td style="padding:6px 8px;color:#888;">MACD Momentum</td>
+                            <td style="padding:6px 8px;text-align:right;">${accBar(r.indicators.macd_momentum)}</td>
+                            <td style="padding:6px 8px;color:#888;">Volume Confirm</td>
+                            <td style="padding:6px 8px;text-align:right;">${accBar(r.indicators.volume_confirm)}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:6px 8px;color:#888;">S/R Hold</td>
+                            <td style="padding:6px 8px;text-align:right;">${accBar(r.indicators.sr_hold)}</td>
+                            <td style="padding:6px 8px;color:#888;">Breakout</td>
+                            <td style="padding:6px 8px;text-align:right;">${accBar(r.indicators.breakout)}</td>
+                        </tr>
+                    </table>
+                </div>
+            `;
+            insertAfter.after(panel);
+        }
+        
+        console.log('Regime data loaded for', data.regimes.length, 'tickers');
+    } catch (e) {
+        console.log('Regime data not available:', e.message);
+    }
+})();
+</script>
+
 </body>
 </html>
