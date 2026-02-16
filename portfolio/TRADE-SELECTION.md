@@ -104,6 +104,24 @@ Then evaluate these criteria IN ORDER:
 
 **Gate 2 pass = 5+ criteria pass/conditional, 0 fails.**
 
+#### Regime Adjustment (CRITICAL)
+Before scoring Gate 2, query the current regime from the DB:
+```javascript
+cd /home/vamsi/tiger-trading && node -e "
+const db = require('better-sqlite3')('portfolio/data/portfolio.db');
+const r = db.prepare('SELECT ticker, regime, trend_avg, meanrev_avg FROM regime_summary WHERE date = (SELECT MAX(date) FROM regime_summary) ORDER BY ticker').all();
+r.forEach(x => console.log(JSON.stringify(x)));
+"
+```
+
+Adjust indicator weights based on regime (see `portfolio/REGIME-DETECTION.md` for full details):
+- **TRENDING:** MA alignment + MACD = HIGH confidence. RSI overbought = LOW confidence (don't penalize RSI >65).
+- **CHOP:** RSI extremes + S/R levels = HIGH confidence. MA crossovers = LOW confidence (whipsaw risk).
+- **TRANSITION/MIXED:** ALL indicators LOW confidence. Require 4:1 R/R instead of 3:1. Starter positions only.
+- **GOLDILOCKS:** Standard 3:1 criteria. Most indicators reliable.
+
+State the regime and which indicators you're weighting up/down in the scorecard.
+
 ---
 
 ### Gate 3: Portfolio Fit 🎯
