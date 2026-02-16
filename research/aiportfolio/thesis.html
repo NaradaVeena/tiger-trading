@@ -171,6 +171,18 @@
         .badge-growth { background: rgba(31,111,235,0.2); color: #58a6ff; }
         .badge-watch { background: rgba(210,153,34,0.2); color: var(--amber); }
 
+        /* ── TradingView Chart ── */
+        .tv-chart-container {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+        .tv-chart-container .tradingview-widget-container {
+            height: 500px;
+        }
+
         /* ── Ticker Section ── */
         .ticker-section {
             margin-bottom: 48px;
@@ -618,6 +630,13 @@
             </div>
         </div>
 
+        <!-- TradingView Chart -->
+        <div class="tv-chart-container">
+            <div class="tradingview-widget-container">
+                <div id="tv-chart-alab"></div>
+            </div>
+        </div>
+
         <!-- Core Thesis -->
         <div class="panel">
             <div class="panel-header">Core Thesis</div>
@@ -777,6 +796,13 @@
             </div>
         </div>
 
+        <!-- TradingView Chart -->
+        <div class="tv-chart-container">
+            <div class="tradingview-widget-container">
+                <div id="tv-chart-crdo"></div>
+            </div>
+        </div>
+
         <div class="panel">
             <div class="panel-header">Core Thesis</div>
             <div class="panel-body">
@@ -932,6 +958,13 @@
             </div>
         </div>
 
+        <!-- TradingView Chart -->
+        <div class="tv-chart-container">
+            <div class="tradingview-widget-container">
+                <div id="tv-chart-fn"></div>
+            </div>
+        </div>
+
         <div class="panel">
             <div class="panel-header">Core Thesis</div>
             <div class="panel-body">
@@ -1073,6 +1106,13 @@
             <div class="ticker-badges">
                 <span class="badge badge-core">Core</span>
                 <span class="badge badge-active">● Active</span>
+            </div>
+        </div>
+
+        <!-- TradingView Chart -->
+        <div class="tv-chart-container">
+            <div class="tradingview-widget-container">
+                <div id="tv-chart-nvt"></div>
             </div>
         </div>
 
@@ -1219,6 +1259,13 @@
             </div>
         </div>
 
+        <!-- TradingView Chart -->
+        <div class="tv-chart-container">
+            <div class="tradingview-widget-container">
+                <div id="tv-chart-cohr"></div>
+            </div>
+        </div>
+
         <div class="panel">
             <div class="panel-header">Core Thesis</div>
             <div class="panel-body">
@@ -1340,6 +1387,13 @@
             <div class="ticker-badges">
                 <span class="badge badge-watch">Watch</span>
                 <span class="badge badge-weakened">● Weakened</span>
+            </div>
+        </div>
+
+        <!-- TradingView Chart -->
+        <div class="tv-chart-container">
+            <div class="tradingview-widget-container">
+                <div id="tv-chart-pwr"></div>
             </div>
         </div>
 
@@ -1470,6 +1524,39 @@
     </section>
 
 </div>
+
+<!-- TradingView Widget Script -->
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+<script type="text/javascript">
+    const tickerExchange = {
+        'ALAB': 'NASDAQ', 'CRDO': 'NASDAQ', 'FN': 'NYSE',
+        'NVT': 'NYSE', 'COHR': 'NYSE', 'PWR': 'NYSE'
+    };
+    Object.entries(tickerExchange).forEach(([ticker, exchange]) => {
+        new TradingView.widget({
+            "container_id": "tv-chart-" + ticker.toLowerCase(),
+            "autosize": true,
+            "symbol": exchange + ":" + ticker,
+            "interval": "D",
+            "timezone": "America/New_York",
+            "theme": "dark",
+            "style": "1",
+            "locale": "en",
+            "toolbar_bg": "#0d1117",
+            "enable_publishing": false,
+            "hide_top_toolbar": false,
+            "hide_legend": false,
+            "save_image": false,
+            "studies": ["RSI@tv-basicstudies", "MACD@tv-basicstudies", "MASimple@tv-basicstudies|20"],
+            "show_popup_button": true,
+            "popup_width": "1000",
+            "popup_height": "650",
+            "height": 500,
+            "backgroundColor": "#0d1117",
+            "gridColor": "#161b22"
+        });
+    });
+</script>
 
 </body>
 </html>
