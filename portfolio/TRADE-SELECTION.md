@@ -81,6 +81,7 @@ Then evaluate these criteria IN ORDER:
 - **Check polarity flips:** Former resistance now acting as support = bullish confirmation. Former support now acting as resistance = bearish confirmation.
 - **VP levels:** POC = strongest support/resistance. VAH/VAL = value area boundaries. Outside value area = thin air.
 - **No entries in thin air** (price above VAH with no VP support underneath)
+- **"Price has memory"** (Poorna): High-volume levels represent trapped participants emotionally anchored to those prices. Trapped longs sell at breakeven (resistance), missed buyers bid on retest (support). Once price clears a major volume node, trapped supply/demand is freed and price moves freely to the next node. This is WHY breakouts through POC/VAH can be explosive — and why failed breakouts (rejection at volume nodes) are equally significant.
 
 #### 2f. Risk/Reward Ratio
 - **Minimum 3:1 R/R** per Shannon framework
@@ -100,6 +101,7 @@ Then evaluate these criteria IN ORDER:
 | Extension | <30% or slopes justify | 30%+ rising slopes | 30%+ flat slopes |
 | Volume | Healthy pattern | Neutral | Distribution signal |
 | S/R + Polarity | At confirmed support | Near support | In thin air |
+| VP Trapped Participants | Near major node | Between nodes | In thin air |
 | R/R | ≥ 3:1 | 2.5-3:1 with slope adj | < 2.5:1 |
 
 **Gate 2 pass = 5+ criteria pass/conditional, 0 fails.**
@@ -156,6 +158,7 @@ Every proforma proposal MUST include this scorecard:
 | Extension | ✅/⚠️/❌ | X% above 200d, slope +Y% |
 | Volume | ✅/⚠️/❌ | Pattern description |
 | S/R + Polarity | ✅/⚠️/❌ | Entry level + what confirms it |
+| VP Memory | 🔑 | Nearest major VP node, who's trapped, what happens if cleared |
 | R/R | ✅/⚠️/❌ | Entry/Stop/Target = X:1 |
 | **Score** | **X/6** | |
 
@@ -184,6 +187,17 @@ The 11 AM cron job (`tiger-proforma-11am`) must:
 **No surprises.** Every proforma is traceable to this criteria.
 
 ---
+
+## News Follows Price
+Per Poorna (Feb 16, 2026): Surprises tend to happen in the direction of price action. A stock in Stage 4 decline attracting bad news (e.g., ALAB CFO departure) is confirmation, not surprise. A stock in Stage 2 markup getting upgrades is expected.
+
+**In the scorecard:** Flag whether news ALIGNS with or CONTRADICTS the current stage:
+- **Aligns:** Confirmation — reinforces the trend, no change to scoring
+- **Contradicts:** Potential inflection — warrants deeper analysis, note in scorecard as a watch item
+
+The real signal is news that fights the trend. That's when you dig deeper.
+
+**The strongest variant:** A stock that rallies (or refuses to drop) on bad news after a long drawdown = seller exhaustion. This is classic Stage 1 accumulation — supply absorbed, nobody left to sell. Far more actionable than bad news confirming a downtrend.
 
 ## Analyst Consensus Note
 Per Poorna's correction (Feb 16, 2026): Analyst consensus is a DATA POINT, not a gate. It can be a **contrary indicator** — when price significantly exceeds consensus, it may signal re-rating ahead, not overvaluation. Never use consensus as a price ceiling for target-setting. Do note large divergences between price and consensus in the scorecard for discussion purposes.

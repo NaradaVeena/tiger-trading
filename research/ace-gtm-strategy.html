@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/svg+xml" href="favicon2.svg">
+<meta charset="UTF-8">
+<title>A&CE Go-To-Market Strategy</title>
+<style>
+  @page { margin: 20mm 18mm; size: letter; }
+  @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #222; line-height: 1.55; font-size: 11pt; }
+
+  /* Cover */
+  .cover { text-align: left; padding-top: 120pt; page-break-after: always; }
+  .cover-bar { width: 60pt; height: 4pt; background: #0066cc; margin-bottom: 30pt; }
+  .cover h1 { font-size: 28pt; font-weight: 700; color: #0a0a0a; margin-bottom: 6pt; }
+  .cover .sub { font-size: 13pt; color: #0066cc; font-weight: 500; margin-bottom: 30pt; }
+  .cover .meta { font-size: 10pt; color: #777; line-height: 1.8; }
+
+  /* Section titles */
+  .section-title { background: #0a1628; color: white; padding: 10pt 14pt; margin: 18pt 0 12pt 0; font-size: 14pt; font-weight: 700; page-break-after: avoid; }
+  .section-title .num { font-size: 8pt; color: #4d9fff; text-transform: uppercase; letter-spacing: 2pt; display: block; margin-bottom: 2pt; }
+
+  /* Tier headers */
+  .tier { background: #eef2f7; padding: 6pt 10pt; margin: 14pt 0 8pt 0; border-left: 3pt solid #0066cc; font-weight: 700; font-size: 10pt; page-break-after: avoid; }
+
+  /* Company cards */
+  .card { border: 1pt solid #ddd; padding: 8pt 10pt; margin-bottom: 8pt; background: #fafafa; border-radius: 4pt; page-break-inside: avoid; }
+  .card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4pt; }
+  .card-name { font-weight: 700; font-size: 11pt; }
+  .badge { display: inline-block; padding: 1pt 7pt; border-radius: 8pt; color: white; font-size: 8pt; font-weight: 700; }
+  .b5 { background: #00875a; } .b4 { background: #0066cc; } .b3 { background: #e68a00; }
+  .card p { font-size: 9.5pt; color: #444; margin-bottom: 2pt; }
+  .card strong { color: #111; }
+
+  /* Pitch blocks */
+  .pitch { background: #f5f7fa; border-left: 3pt solid #0066cc; padding: 10pt 14pt; margin: 8pt 0; page-break-inside: avoid; }
+  .pitch.exec { border-left-color: #00875a; }
+  .pitch p { margin-bottom: 6pt; font-size: 10.5pt; }
+  .pitch ul { margin: 4pt 0 6pt 14pt; font-size: 10.5pt; }
+  .pitch li { margin-bottom: 2pt; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; font-size: 10pt; }
+  th { background: #0a1628; color: white; padding: 6pt 8pt; text-align: left; font-size: 9pt; }
+  td { padding: 5pt 8pt; border-bottom: 1pt solid #e0e0e0; }
+  tr:nth-child(even) td { background: #f8f9fa; }
+
+  /* Template boxes */
+  .tpl { border: 1pt solid #ccc; border-radius: 4pt; margin: 8pt 0; page-break-inside: avoid; overflow: hidden; }
+  .tpl-label { background: #0a1628; color: white; padding: 4pt 10pt; font-size: 8pt; font-weight: 600; text-transform: uppercase; letter-spacing: 1pt; }
+  .tpl-body { padding: 8pt 12pt; font-size: 10pt; line-height: 1.6; }
+  .tpl-body p { margin-bottom: 5pt; }
+
+  /* Conference cards */
+  .conf { display: flex; gap: 10pt; border: 1pt solid #ddd; border-radius: 4pt; padding: 8pt 10pt; margin-bottom: 6pt; page-break-inside: avoid; }
+  .conf-date { min-width: 60pt; text-align: center; background: #0a1628; color: white; border-radius: 3pt; padding: 6pt 4pt; font-size: 9pt; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+  .conf-info { flex: 1; }
+  .conf-info .name { font-weight: 700; font-size: 10.5pt; margin-bottom: 2pt; }
+  .conf-info .desc { font-size: 9.5pt; color: #444; }
+  .conf-info .action { font-size: 9.5pt; color: #cc0000; font-weight: 600; margin-top: 3pt; }
+
+  h3 { font-size: 12pt; font-weight: 700; margin: 14pt 0 6pt 0; padding-bottom: 3pt; border-bottom: 1pt solid #ddd; page-break-after: avoid; }
+  .note { background: #fff8e1; border: 1pt solid #ffe082; padding: 6pt 10pt; border-radius: 3pt; font-size: 9.5pt; margin: 8pt 0; }
+  .hi { color: #cc0000; font-weight: 700; }
+  .med { color: #e68a00; font-weight: 700; }
+  .lo { color: #00875a; font-weight: 700; }
+  .footer { text-align: center; font-size: 8pt; color: #aaa; margin-top: 20pt; padding-top: 8pt; border-top: 1pt solid #e0e0e0; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-bar"></div>
+  <h1>A&CE Go-To-Market Strategy</h1>
+  <div class="sub">AI-Native Engineering Insights & Analytics for Offshore Energy</div>
+  <div class="meta">
+    Prepared: February 16, 2026<br>
+    Confidential — For Internal Use Only
+  </div>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section-title"><span class="num">Section 01</span>Target Company List — 20 Companies, 5 Tiers</div>
+
+<div class="tier">Tier 1 — Offshore Engineering Consultancies (Highest Fit)</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">1. Subsea7</span><span class="badge b5">5/5</span></div>
+  <p><strong>Why:</strong> Actively hiring "Digital Solutions Engineer (OrcaFlex/Abaqus)" — building exactly what A&CE already has.</p>
+  <p><strong>Contact:</strong> VP Engineering / Head of Digital Solutions &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn + OTC Houston</p>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">2. Wood plc</span><span class="badge b5">5/5</span></div>
+  <p><strong>Why:</strong> Appointed first CTO (Darren Martin) for digital transformation. Being pursued by Sidara — in flux, may want to bolster capabilities.</p>
+  <p><strong>Contact:</strong> Darren Martin, CTO &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn, direct email</p>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">3. Worley</span><span class="badge b5">5/5</span></div>
+  <p><strong>Why:</strong> Laura Leonard appointed Chief AI & Enterprise Services Officer (Nov 2025). CEO restructuring around AI transformation.</p>
+  <p><strong>Contact:</strong> Laura Leonard, Chief AI Officer &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn (new in role, actively building)</p>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">4. TechnipFMC</span><span class="badge b4">4/5</span></div>
+  <p><strong>Why:</strong> Major subsea player (Subsea 2.0®), heavy digital investment. OrcaFlex/AQWA automation directly relevant.</p>
+  <p><strong>Contact:</strong> Justin Rounce, EVP & CTO &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn + OTC Houston</p>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">5. 2H Offshore (Acteon Group)</span><span class="badge b5">5/5</span></div>
+  <p><strong>Why:</strong> Riser specialists already doing ML-enhanced fatigue, digital twins. Published ANN paper for riser digital twins. Natural acqui-hire fit.</p>
+  <p><strong>Contact:</strong> Managing Director / Head of Digital &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn + email (smaller, more accessible)</p>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">6. McDermott International</span><span class="badge b4">4/5</span></div>
+  <p><strong>Why:</strong> EPCI provider, partnered with Aize for digital project execution. Houston-based.</p>
+  <p><strong>Contact:</strong> VP Digital / VP Technology &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn + OTC Houston</p>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">7. Saipem</span><span class="badge b3">3/5</span></div>
+  <p><strong>Why:</strong> Major offshore contractor, committed to digital tools. Large org, slower process.</p>
+  <p><strong>Contact:</strong> Chief Digital Officer &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn, OTC</p>
+</div>
+
+<div class="tier">Tier 2 — Classification Societies & Engineering Software</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">8. DNV (Digital Solutions)</span><span class="badge b5">5/5</span></div>
+  <p><strong>Why:</strong> World's largest offshore engineering software provider (Sesam, Phast, Synergi). 221 S-N curves aligns directly with standards-centric business.</p>
+  <p><strong>Contact:</strong> VP / Director of Product, Digital Solutions &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn + OMAE</p>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">9. ABS (American Bureau of Shipping)</span><span class="badge b4">4/5</span></div>
+  <p><strong>Why:</strong> Patrick Ryan (SVP & CTO) focused on digital technology. Houston-based. Investing heavily in digital classification.</p>
+  <p><strong>Contact:</strong> Patrick Ryan, SVP & CTO &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn + OTC Houston</p>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">10. Bureau Veritas</span><span class="badge b3">3/5</span></div>
+  <p><strong>Why:</strong> Expanding digital capabilities in marine & offshore classification. European HQ may slow process.</p>
+  <p><strong>Contact:</strong> Marine & Offshore digital leadership &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn</p>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">11. Akselos</span><span class="badge b5">5/5</span></div>
+  <p><strong>Why:</strong> Swiss startup — structural digital twins for offshore. MIT-origin FEA. A&CE's fatigue library is complementary. Startup speed.</p>
+  <p><strong>Contact:</strong> Thomas Leurent, CEO & Co-Founder &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn (founders accessible)</p>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">12. Cognite</span><span class="badge b4">4/5</span></div>
+  <p><strong>Why:</strong> Industrial data platform (Ørsted, TotalEnergies clients). A&CE could become Cognite modules.</p>
+  <p><strong>Contact:</strong> VP of Energy / Head of Partnerships &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn</p>
+</div>
+
+<div class="tier">Tier 3 — Offshore Wind Developers</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">13. Ørsted</span><span class="badge b4">4/5</span></div>
+  <p><strong>Why:</strong> World's largest offshore wind developer. Digital Innovation Challenge active. 1,300+ turbines.</p>
+  <p><strong>Contact:</strong> Alex Louden, Head of UK&IE Innovation Hub &nbsp;|&nbsp; <strong>Channel:</strong> Innovation Challenge + LinkedIn</p>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">14. Equinor (Renewables)</span><span class="badge b4">4/5</span></div>
+  <p><strong>Why:</strong> 50+ years ocean engineering → wind. Offshore Wind Innovation Hub with NYU. Strong US presence.</p>
+  <p><strong>Contact:</strong> Innovation Hub program manager &nbsp;|&nbsp; <strong>Channel:</strong> Innovation Hub + LinkedIn</p>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">15. Dominion Energy (CVOW)</span><span class="badge b3">3/5</span></div>
+  <p><strong>Why:</strong> Building largest US offshore wind farm. 176 turbines = massive analysis needs.</p>
+  <p><strong>Contact:</strong> CVOW Engineering Manager &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn + IPF Conference</p>
+</div>
+
+<div class="tier">Tier 4 — Oil Majors</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">16. Shell &nbsp; | &nbsp; 17. Chevron &nbsp; | &nbsp; 18. BP</span><span class="badge b3">3/5</span></div>
+  <p><strong>Why:</strong> Major GoM/North Sea operations. Internal teams benefit from automation. Deep pockets but slow procurement. Target VP Subsea Engineering or Head of Digital Engineering via LinkedIn + OTC.</p>
+</div>
+
+<div class="tier">Tier 5 — Specialist Firms (Niche but High-Probability)</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">19. Oceaneering</span><span class="badge b4">4/5</span></div>
+  <p><strong>Why:</strong> Dedicated "Integrity Management & Digital Solutions" segment. Acquired Global Design Innovation Ltd (2024) — actively acquiring. Houston HQ.</p>
+  <p><strong>Contact:</strong> VP Integrity Management & Digital Solutions &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn + OTC</p>
+</div>
+
+<div class="card">
+  <div class="card-head"><span class="card-name">20. Intecsea (Worley)</span><span class="badge b4">4/5</span></div>
+  <p><strong>Why:</strong> Specialist offshore consultancy within Worley. Subsea, pipelines, wind. Reach through Laura Leonard's org.</p>
+  <p><strong>Contact:</strong> Via Worley / Laura Leonard &nbsp;|&nbsp; <strong>Channel:</strong> LinkedIn</p>
+</div>
+
+<!-- SECTION 2 -->
+<div class="section-title"><span class="num">Section 02</span>The Pitch — 3 Versions</div>
+
+<h3>A. 30-Second Elevator Pitch</h3>
+<div class="pitch">
+  <p>A&CE delivers AI-native engineering analytics for offshore energy. We've built 704+ production Python modules that automate OrcaFlex/AQWA workflows, fatigue assessment, and structural analysis — cutting typical analysis time by 60-80%.</p>
+  <p>Our library includes 221 S-N curves from 17 international standards, ML-enhanced fatigue assessment (85% time reduction, 23% accuracy improvement), and batch automation that processes 50 configurations in 4 hours instead of 50.</p>
+  <p>We're looking for an engineering firm that wants to <strong>own</strong> this capability. Interested in a conversation?</p>
+</div>
+
+<h3>B. 2-Minute Pitch</h3>
+<div class="pitch">
+  <p><strong>A&CE: AI-Native Engineering Insights & Analytics for Offshore Energy</strong></p>
+  <p>We've spent years building what most offshore engineering firms say they want but can't build in-house: a production-grade, AI-powered engineering automation platform.</p>
+  <p><strong>What we've built:</strong></p>
+  <ul>
+    <li><strong>704+ production Python modules</strong> — structural analysis, fatigue, hydrodynamics, field economics</li>
+    <li><strong>221 S-N curves from 17 international standards</strong> (DNV, API, ABS, BSI, IIW)</li>
+    <li><strong>OrcaFlex/AQWA batch automation</strong> — 50 configs in 4 hours vs. 50 hours manually</li>
+    <li><strong>ML-enhanced fatigue</strong> — 85% time reduction, 23% accuracy improvement</li>
+    <li><strong>AI agent orchestration</strong> — Claude, Codex, Gemini integrated into engineering workflows</li>
+  </ul>
+  <p><strong>Proven on real projects:</strong> platform life extension, subsea FEA, wind foundations, riser studies, BSEE economics, marine safety correlation.</p>
+  <p>We're exploring acquisition, sponsorship, or deep partnership. Would you be open to a 30-minute conversation?</p>
+</div>
+
+<h3>C. Executive Summary</h3>
+<div class="pitch exec">
+  <p><strong>The Opportunity:</strong> Offshore engineering analysis workflows remain largely manual. Firms spend 2-3 years and millions building internal tools for incremental improvements. A&CE offers a shortcut.</p>
+
+  <table>
+    <tr><th>Capability</th><th>Detail</th></tr>
+    <tr><td>Codebase</td><td>704+ production Python modules</td></tr>
+    <tr><td>S-N Curve Library</td><td>221 curves from 17 international standards</td></tr>
+    <tr><td>Analysis Automation</td><td>OrcaFlex & AQWA batch — 50 configs in 4 hrs (vs. 50 hrs)</td></tr>
+    <tr><td>ML Fatigue</td><td>85% time reduction, 23% accuracy improvement</td></tr>
+    <tr><td>Time Savings</td><td>60-80% on typical engineering analyses</td></tr>
+    <tr><td>AI Integration</td><td>Multi-model orchestration (Claude, Codex, Gemini)</td></tr>
+  </table>
+
+  <p><strong>Strategic value to acquirer:</strong> Immediate capability (production code, not prototypes), domain expertise embedded in every module, AI-native workflow scalable across organization, competitive differentiation, talent (founder-engineer bridging offshore engineering + AI/ML).</p>
+  <p>Solo founder, full IP ownership, no outside investors. Clean transaction.</p>
+  <p><strong>Contact:</strong> Vamsee Achanta, Founder — aceengineer.com</p>
+</div>
+
+<!-- SECTION 3 -->
+<div class="section-title"><span class="num">Section 03</span>Outreach Templates</div>
+
+<h3>A. LinkedIn Connection Request (≤300 chars)</h3>
+
+<div class="tpl">
+  <div class="tpl-label">VP Engineering / CTO</div>
+  <div class="tpl-body"><p>Hi [Name], I've built an AI-native offshore engineering platform (700+ Python modules, OrcaFlex/AQWA automation, 221 S-N curves). Looking to connect with leaders driving digital transformation in offshore energy. Would love to share what we've built.</p></div>
+</div>
+
+<div class="tpl">
+  <div class="tpl-label">Digital / Innovation Leaders</div>
+  <div class="tpl-body"><p>Hi [Name], I lead A&CE — we automate offshore engineering analysis with AI (60-80% time savings). Saw [Company]'s push into digital engineering and think there's strong alignment. Would welcome a conversation.</p></div>
+</div>
+
+<div class="tpl">
+  <div class="tpl-label">M&A / Corporate Development</div>
+  <div class="tpl-body"><p>Hi [Name], I run A&CE, an AI-native offshore engineering analytics firm (700+ production Python modules). Exploring strategic options including acquisition. Would value connecting with [Company]'s corp dev team.</p></div>
+</div>
+
+<h3>B. LinkedIn Follow-Up After Connection</h3>
+
+<div class="tpl">
+  <div class="tpl-label">Follow-Up Message</div>
+  <div class="tpl-body">
+    <p>Thanks for connecting, [Name].</p>
+    <p>Quick context — A&CE is a production-grade engineering analytics platform for offshore energy:<br>
+    • 704+ Python modules for structural, fatigue, and hydrodynamic analysis<br>
+    • 221 S-N curves from 17 international standards<br>
+    • OrcaFlex/AQWA batch: 50 configs in 4 hours (vs. 50 hours)<br>
+    • ML-enhanced fatigue: 85% time reduction, 23% better accuracy</p>
+    <p>Deployed on real projects — platform life extension, subsea FEA, wind foundations.</p>
+    <p>I'm exploring whether [Company] might acquire or partner on this capability. The code is production-ready, not a pilot. Would you have 30 minutes this week? — Vamsee</p>
+  </div>
+</div>
+
+<h3>C. Cold Email — VP Engineering</h3>
+
+<div class="tpl">
+  <div class="tpl-label">Subject: AI-powered offshore engineering automation — 60-80% time savings</div>
+  <div class="tpl-body">
+    <p>Dear [Name],</p>
+    <p>I'm reaching out because [Company]'s investment in digital engineering caught my attention — specifically [mention something specific].</p>
+    <p>I'm the founder of A&CE (aceengineer.com). We've built what I believe is the most comprehensive AI-native engineering analytics platform for offshore energy: 704+ production Python modules, 221 S-N curves from 17 standards, OrcaFlex/AQWA batch automation (50 configs in 4 hrs vs. 50 hrs), ML-enhanced fatigue (85% time reduction, 23% accuracy gain), and multi-model AI agent orchestration.</p>
+    <p>This isn't a concept — it's working code deployed on real offshore projects. I'm exploring strategic options including acquisition. Would you have 30 minutes?</p>
+    <p>Best regards, Vamsee Achanta — aceengineer.com</p>
+  </div>
+</div>
+
+<h3>D. Cold Email — M&A / Corp Dev</h3>
+
+<div class="tpl">
+  <div class="tpl-label">Subject: Acquisition opportunity — AI-native offshore engineering analytics</div>
+  <div class="tpl-body">
+    <p>Dear [Name],</p>
+    <p>I'm the founder of A&CE, an AI-native engineering analytics firm for offshore energy. 704+ production Python modules, 221 S-N curves from 17 standards, 60-80% time savings on typical analyses. Solo founder, full IP ownership, no investors — clean transaction.</p>
+    <p>Strategic fit for [Company]: immediate digital engineering capability, competitive differentiation, domain expertise bridging offshore engineering and AI/ML.</p>
+    <p>Would your team be open to an exploratory conversation?</p>
+    <p>Best regards, Vamsee Achanta — aceengineer.com</p>
+  </div>
+</div>
+
+<!-- SECTION 4 -->
+<div class="section-title"><span class="num">Section 04</span>Anthropic Outreach</div>
+
+<div class="tpl">
+  <div class="tpl-label">Alex Albert — Head of Claude Relations (@alexalbert__ on X)</div>
+  <div class="tpl-body">
+    <p><strong>Tweet:</strong> @alexalbert__ Built something wild with Claude Code: a workspace-hub orchestrating 704+ Python modules for offshore engineering. Claude handles architecture, Codex handles implementation, Gemini handles research — all through Claude Code as the central brain. 221 S-N fatigue curves, OrcaFlex batch automation, 60-80% time savings. Claude Code isn't just a coding assistant — it's the operating system for an entire engineering firm. 🧵</p>
+    <p><strong>DM:</strong> Hey Alex — using Claude Code as central orchestrator for my offshore engineering firm. 704+ production modules, multi-agent setup (Claude + Codex + Gemini), real 60-80% time savings on offshore projects. Happy to do a writeup or demo if this is the kind of use case worth showcasing.</p>
+  </div>
+</div>
+
+<div class="tpl">
+  <div class="tpl-label">Boris Cherny — Claude Code Product Lead (LinkedIn)</div>
+  <div class="tpl-body">
+    <p>Hi Boris — I'm a Claude Code power user: an offshore engineering firm where CC orchestrates 704+ production Python modules. Multi-agent pattern (Claude for architecture, Codex for implementation, Gemini for research), AGENTS.md as connective tissue. Solo engineer with throughput of a team of 10. Would love to share the workspace pattern if useful for the CC community.</p>
+  </div>
+</div>
+
+<div class="tpl">
+  <div class="tpl-label">Irina Ghose — Managing Director, Anthropic India (LinkedIn)</div>
+  <div class="tpl-body">
+    <p>Hi Irina — Congrats on the India role! I run A&CE, an offshore engineering analytics firm built entirely on Claude Code. 704+ production modules for offshore energy, deployed on real projects globally. India's massive offshore engineering services industry could adopt this AI-native model. Would welcome a conversation about how Anthropic India might support this kind of deep engineering application.</p>
+  </div>
+</div>
+
+<!-- SECTION 5 -->
+<div class="section-title"><span class="num">Section 05</span>Conferences & Visibility</div>
+
+<div class="conf">
+  <div class="conf-date">MAY<br>4-7</div>
+  <div class="conf-info">
+    <div class="name">OTC 2026 — Offshore Technology Conference</div>
+    <div class="desc">Houston, TX — THE conference for offshore energy. Every target company will be there.</div>
+    <div class="action">⚡ Register now. Plan meetings with Subsea7, Wood, Worley, TechnipFMC, ABS, Oceaneering.</div>
+  </div>
+</div>
+
+<div class="conf">
+  <div class="conf-date">MAY 31<br>JUN 5</div>
+  <div class="conf-info">
+    <div class="name">ISOPE 2026 — Intl. Offshore & Polar Engineering</div>
+    <div class="desc">Orlando, FL — Technical conference, ideal for presenting ML-enhanced fatigue or AI orchestration.</div>
+    <div class="action">🔴 CFP IS OPEN — Submit abstract NOW on AI agent orchestration or ML fatigue methodology.</div>
+  </div>
+</div>
+
+<div class="conf">
+  <div class="conf-date">JUN<br>7-12</div>
+  <div class="conf-info">
+    <div class="name">OMAE 2026 — Ocean, Offshore & Arctic Engineering</div>
+    <div class="desc">Tokyo — Premier academic conference. DNV, classification societies. Check late submissions.</div>
+  </div>
+</div>
+
+<div class="conf">
+  <div class="conf-date">APR<br>21-23</div>
+  <div class="conf-info">
+    <div class="name">WindEurope Annual Event 2026</div>
+    <div class="desc">European venue TBD — For targeting Ørsted, Equinor, Siemens Gamesa. Budget permitting.</div>
+  </div>
+</div>
+
+<div class="note"><strong>Quick Win:</strong> Start LinkedIn content series this week — "How I automated 50 OrcaFlex configs in 4 hours" / "Building the largest open S-N curve library" / "AI agents for offshore engineering"</div>
+
+<!-- SECTION 6 -->
+<div class="section-title"><span class="num">Section 06</span>Priority Action Matrix</div>
+
+<table>
+  <tr><th>Action</th><th>Priority</th><th>Timeline</th></tr>
+  <tr><td>LinkedIn → Laura Leonard (Worley Chief AI Officer)</td><td class="hi">🔴 HIGH</td><td>This week</td></tr>
+  <tr><td>LinkedIn → Subsea7 hiring manager (OrcaFlex role)</td><td class="hi">🔴 HIGH</td><td>This week</td></tr>
+  <tr><td>Submit ISOPE 2026 abstract</td><td class="hi">🔴 HIGH</td><td>This week</td></tr>
+  <tr><td>Register for OTC Houston 2026</td><td class="hi">🔴 HIGH</td><td>This month</td></tr>
+  <tr><td>LinkedIn → Thomas Leurent (Akselos CEO)</td><td class="hi">🔴 HIGH</td><td>This week</td></tr>
+  <tr><td>Tweet @ Alex Albert (Anthropic)</td><td class="med">🟡 MEDIUM</td><td>This week</td></tr>
+  <tr><td>LinkedIn → Boris Cherny (Claude Code)</td><td class="med">🟡 MEDIUM</td><td>This week</td></tr>
+  <tr><td>Cold email → Patrick Ryan (ABS CTO)</td><td class="med">🟡 MEDIUM</td><td>This month</td></tr>
+  <tr><td>LinkedIn → 2H Offshore leadership</td><td class="med">🟡 MEDIUM</td><td>This month</td></tr>
+  <tr><td>LinkedIn → Oceaneering digital team</td><td class="med">🟡 MEDIUM</td><td>This month</td></tr>
+  <tr><td>LinkedIn content series</td><td class="lo">🟢 ONGOING</td><td>Start this week</td></tr>
+  <tr><td>Website refresh (firm positioning)</td><td class="lo">🟢 ONGOING</td><td>This month</td></tr>
+</table>
+
+<div class="footer">A&CE Go-To-Market Strategy &bull; Confidential &bull; February 2026</div>
+
+</body>
+</html>

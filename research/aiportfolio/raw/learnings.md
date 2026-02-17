@@ -27,3 +27,6 @@
 - GLW (Corning) suggested by Poorna — validated in expansion screen as top 4 pick (Meta $6B deal).
 - VP feature built into chart tool. Visual polish pass done in browser.
 - Context silo architecture designed to prevent cross-thread contamination.
+- **"News follows price"** (Poorna, Feb 16): Surprises tend to happen in the direction of price action. News aligning with stage = confirmation. News contradicting stage = real signal worth investigating. Baked into TRADE-SELECTION.md scorecard.
+- **Conversations are ephemeral** — if you say "I'll bake this in," do it NOW or it doesn't exist. Don't promise future work without immediately writing to a persistent file that a cron reads.
+- **"Price has memory"** (Poorna, Feb 16): High-volume levels = trapped participants. Breakouts through major VP nodes are explosive because trapped supply/demand clears. Failed breakouts at volume nodes are equally significant. Baked into TRADE-SELECTION.md Gate 2e (S/R + Polarity).

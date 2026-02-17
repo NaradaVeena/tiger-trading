@@ -1,5 +1,5 @@
 {
-  "updated": "2026-02-16T21:06:32.806Z",
+  "updated": "2026-02-17T04:58:52.704Z",
   "regimes": [
     {
       "ticker": "ALAB",
@@ -124,32 +124,16 @@
   ],
   "macro": {
     "current": {
-      "date": "2026-02-13",
+      "date": "2026-02-17",
       "monetary": "loose",
-      "sentiment": "risk-off",
-      "regime": "cautious",
-      "monetary_score": 75,
-      "sentiment_score": -60,
-      "vix": 20.6,
+      "sentiment": "neutral",
+      "regime": "neutral",
+      "monetary_score": 50,
+      "sentiment_score": -20,
+      "vix": 21.2,
       "tnx": 4.06
     },
     "history": [
-      {
-        "date": "2026-01-16",
-        "monetary": "tight",
-        "sentiment": "neutral",
-        "macro": "neutral",
-        "vix": 15.9,
-        "tnx": 4.23
-      },
-      {
-        "date": "2026-01-20",
-        "monetary": "tight",
-        "sentiment": "neutral",
-        "macro": "neutral",
-        "vix": 20.1,
-        "tnx": 4.3
-      },
       {
         "date": "2026-01-21",
         "monetary": "tight",
@@ -292,6 +276,22 @@
         "sentiment": "risk-off",
         "macro": "cautious",
         "vix": 20.6,
+        "tnx": 4.06
+      },
+      {
+        "date": "2026-02-16",
+        "monetary": "loose",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 21.2,
+        "tnx": 4.06
+      },
+      {
+        "date": "2026-02-17",
+        "monetary": "loose",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 21.2,
         "tnx": 4.06
       }
     ]
