@@ -27,21 +27,36 @@ function formatPercent(value) {
   return (value * 100).toFixed(2) + '%';
 }
 
-function formatDate(dateStr) {
-  return new Date(dateStr).toLocaleDateString('en-US', {
+const TZ = 'America/New_York';
+
+function formatDate(input) {
+  if (!input) return '';
+  const dateStr = typeof input === 'string' ? input : input.toISOString();
+  // Handle YYYY-MM-DD dates by appending T12:00 to avoid timezone date shifts
+  const d = dateStr.length === 10 ? new Date(dateStr + 'T12:00:00') : new Date(dateStr);
+  return d.toLocaleDateString('en-US', {
+    timeZone: TZ,
     year: 'numeric',
     month: 'short',
     day: 'numeric'
   });
 }
 
-function formatDateTime(dateStr) {
-  return new Date(dateStr).toLocaleString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit'
+function formatDateTime(input) {
+  if (!input) return '';
+  if (input instanceof Date) {
+    return input.toLocaleString('en-US', {
+      timeZone: TZ, year: 'numeric', month: 'short', day: 'numeric',
+      hour: '2-digit', minute: '2-digit'
+    });
+  }
+  // Stored as 'YYYY-MM-DD HH:MM:SS' in ET — parse as ET
+  const d = !input.includes('T') && !input.includes('Z')
+    ? new Date(input.replace(' ', 'T') + '-05:00')
+    : new Date(input);
+  return d.toLocaleString('en-US', {
+    timeZone: TZ, year: 'numeric', month: 'short', day: 'numeric',
+    hour: '2-digit', minute: '2-digit'
   });
 }
 
@@ -849,14 +864,16 @@ function generateHTML() {
                     <tbody>
                         ${trades.map(trade => `
                         <tr>
-                            <td>${formatDate(trade.date)}</td>
+                            <td>${formatDate(trade.date)}<br><span style="font-size:11px;color:var(--text-muted)">${trade.time || ''}</span></td>
                             <td class="ticker">${trade.ticker}</td>
                             <td><span class="status-badge status-${trade.status}">${trade.action.toUpperCase()}</span></td>
                             <td>${trade.type}</td>
                             <td style="text-align: right;" class="currency">${trade.quantity}</td>
                             <td style="text-align: right;" class="currency">${formatCurrency(trade.proforma_price || trade.price)}</td>
                             <td style="text-align: right;" class="currency">${formatCurrency(trade.locked_price || trade.price)}</td>
-                            <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">${trade.reasoning || ''}</td>
+                            <td style="max-width: 300px;">
+                              ${trade.reasoning ? `<details><summary style="cursor:pointer;font-size:12px;color:var(--text-muted);">View reasoning</summary><div style="margin-top:6px;font-size:12px;line-height:1.5;white-space:pre-wrap;">${trade.reasoning}</div></details>` : ''}
+                            </td>
                         </tr>
                         `).join('')}
                     </tbody>

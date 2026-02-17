@@ -19,17 +19,10 @@
         a { color: var(--blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
 
-        .nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 10px 16px; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; gap: 16px; flex-wrap: nowrap; overflow-x: auto; white-space: nowrap; }
-        .nav-brand { font-weight: 700; font-size: 1rem; }
-        .nav a.link { color: var(--text3); font-size: 0.82rem; padding: 4px 8px; border-radius: 4px; }
-        .nav a.link:hover { color: var(--text); text-decoration: none; }
-        .nav a.link.active { color: var(--text); background: var(--bg3); }
-
         .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
         h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
         .subtitle { color: var(--text3); font-size: 1rem; margin-bottom: 2rem; }
         h2 { font-size: 1.3rem; font-weight: 600; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
-        h3 { font-size: 1rem; font-weight: 600; margin: 1.5rem 0 0.75rem; }
 
         .section { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1.5rem; margin-bottom: 1.5rem; }
         .section p { font-size: 0.92rem; color: var(--text2); margin-bottom: 0.75rem; }
@@ -43,20 +36,9 @@
         td { padding: 10px 12px; border-bottom: 1px solid var(--border); color: var(--text2); }
         td:first-child { color: var(--text); font-weight: 500; }
 
-        .status { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: 600; }
-        .status-active { background: rgba(63,185,80,0.15); color: var(--green); }
-        .status-planned { background: rgba(47,129,247,0.15); color: var(--blue); }
-        .status-future { background: rgba(139,148,158,0.15); color: var(--text3); }
-
-        .trigger-list { list-style: none; padding: 0; }
-        .trigger-list li { padding: 8px 12px; margin-bottom: 6px; background: var(--bg); border-left: 3px solid var(--border); border-radius: 0 6px 6px 0; font-size: 0.88rem; color: var(--text2); }
-        .trigger-list li strong { color: var(--yellow); }
-
         .phase { border-left: 3px solid var(--blue); padding-left: 16px; margin: 16px 0; }
         .phase-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--blue); margin-bottom: 4px; }
         .phase p { font-size: 0.88rem; color: var(--text2); margin-bottom: 4px; }
-
-        .version { font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: var(--text3); margin-top: 2rem; text-align: center; }
 
         .footer { text-align: center; color: var(--text3); font-size: 0.78rem; margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
 
@@ -75,188 +57,167 @@
         <a href="/aiportfolio/plan.html" class="active">📝 Plan</a>
         <a href="/aiportfolio-process/">📋 Rules</a>
         <a href="docs.html">📄 Docs</a>
-                <a href="/">🏠 Portal</a>
+        <a href="/">🏠 Portal</a>
     </nav>
 
     <div class="container">
         <h1>📝 The Plan</h1>
-        <p class="subtitle">What we're doing, why, and where we're going. Living document — enhances over time.</p>
+        <p class="subtitle">Strategy, structure, and how we operate. Updated weekly as needed.</p>
 
-        <!-- ─── WHAT ─── -->
-        <h2>🎯 What We're Doing</h2>
+        <!-- ─── STRATEGY ─── -->
+        <h2>🎯 Strategy</h2>
         <div class="section">
-            <p>Building a <strong>$100K concentrated portfolio</strong> of 6-12 AI infrastructure companies with physical moats (hardware, manufacturing, cooling, power). Hold horizon: <strong>3-5 years</strong>. Benchmark: <strong>SMH</strong>.</p>
+            <p><strong>$100K concentrated portfolio</strong> of 6-12 AI infrastructure companies with physical moats — hardware, manufacturing, cooling, power. Not software, not models. The picks and shovels.</p>
             <div class="highlight">
-                <strong>Core thesis:</strong> AI infrastructure buildout is a multi-year capex cycle. The picks aren't software or models — they're the physical layer that takes years to replicate. We buy the picks and shovels, not the miners.
+                <strong>Core thesis:</strong> AI infrastructure buildout is a multi-year capex cycle. Physical assets take years to replicate. We buy the layer that every AI company depends on, regardless of which model or application wins.
             </div>
-            <p>Vamsi mirrors every trade with real money. This isn't a paper exercise — process reliability matters more than process sophistication.</p>
+            <p><strong>Hold horizon:</strong> 3-5 years &nbsp;|&nbsp; <strong>Benchmark:</strong> SMH &nbsp;|&nbsp; <strong>Inception:</strong> Feb 14, 2026</p>
+            <p>Vamsi mirrors every trade with real money. Process reliability matters more than sophistication.</p>
         </div>
 
-        <!-- ─── WHY ─── -->
-        <h2>💡 Why This Way</h2>
+        <!-- ─── OPERATING MODEL ─── -->
+        <h2>⚙️ How We Operate</h2>
         <div class="section">
-            <p><strong>Concentrated, not diversified.</strong> 6-12 names means each pick matters. Deep DD on fewer names beats shallow coverage of 50.</p>
-            <p><strong>Group intelligence, not groupthink.</strong> Five members with different styles — TA, conviction, process — create natural tension that improves decisions. No single style dominates.</p>
-            <p><strong>Process over instinct.</strong> Every trade follows documented rules. Proforma → review → lock. No impulsive entries, no "I have a feeling" trades.</p>
-            <p><strong>Right-sized automation.</strong> Automate what's repeatable (daily scans, snapshots, alerts). Leave judgment to humans (entry timing, thesis calls, position sizing).</p>
-        </div>
-
-        <!-- ─── CURRENT STATE ─── -->
-        <h2>📊 Where We Are Now</h2>
-        <div class="section">
-            <table>
-                <tr><td>Capital</td><td>$100,000 (all cash)</td></tr>
-                <tr><td>Positions</td><td>0</td></tr>
-                <tr><td>Watchlist</td><td>6 names (ALAB, CRDO, FN, NVT, COHR, PWR)</td></tr>
-                <tr><td>Pipeline</td><td>14 candidates across 6 infrastructure layers</td></tr>
-                <tr><td>Inception</td><td>Feb 14, 2026</td></tr>
-                <tr><td>Phase</td><td><span class="status status-active">Accumulation</span> — waiting for entry setups</td></tr>
-            </table>
-        </div>
-
-        <!-- ─── WORKFLOWS ─── -->
-        <h2>⚙️ Workflows</h2>
-        <div class="section">
-            <p>Three active workflows. Each has a clear purpose, cadence, and output. Nothing runs without a reason.</p>
             <table>
                 <thead>
-                    <tr><th>Workflow</th><th>Cadence</th><th>Purpose</th><th>Output</th><th>Status</th></tr>
+                    <tr><th>Workflow</th><th>When</th><th>What Happens</th></tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Daily Trade Execution</td>
-                        <td>Mon-Fri<br>11 AM → 2 PM</td>
-                        <td>Scan watchlist, propose trades, lock after group review</td>
-                        <td>Proforma → group message → dashboard update</td>
-                        <td><span class="status status-active">Active</span></td>
+                        <td>Macro Regime</td>
+                        <td>Mon-Fri 10:30 AM</td>
+                        <td>Update macro indicators (VIX, yields, DXY, breadth). Sets context for trade decisions. Posts to group.</td>
                     </tr>
                     <tr>
-                        <td>Weekly Thesis Review</td>
+                        <td>Daily Proforma</td>
+                        <td>Mon-Fri 11 AM</td>
+                        <td>Score all watchlist names against <a href="/aiportfolio-process/">3-gate system</a>. Create proforma trades for names that pass. Post scorecards to group.</td>
+                    </tr>
+                    <tr>
+                        <td>Trade Lock</td>
+                        <td>Mon-Fri 2 PM</td>
+                        <td>Lock proformas at market prices. Refresh positions. Snapshot. Regime scoring. Post EOD summary.</td>
+                    </tr>
+                    <tr>
+                        <td>Weekly Review</td>
                         <td>Sunday 6 PM</td>
-                        <td>Validate each thesis against weekly price action + news</td>
-                        <td>Thesis evolution log + status updates</td>
-                        <td><span class="status status-active">Active</span></td>
+                        <td>Full thesis review. News + chart check on every name. Benchmark comparison. Pipeline evaluation.</td>
                     </tr>
                     <tr>
-                        <td>Research Pipeline</td>
+                        <td>Research</td>
                         <td>Ad hoc</td>
-                        <td>Deep DD on new names, competitive analysis, earnings review</td>
-                        <td>Thesis page entries, pipeline updates</td>
-                        <td><span class="status status-active">Active</span></td>
+                        <td>Deep DD on new names. Competitive landscape. Earnings analysis. Triggered by group discussion.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- ─── TRADE SELECTION ─── -->
+        <h2>🔍 Trade Selection — The 3 Gates</h2>
+        <div class="section">
+            <p>Every trade must pass all three. No exceptions. Full details in <a href="/aiportfolio-process/">Rules</a>.</p>
+            <table>
+                <thead>
+                    <tr><th>Gate</th><th>What It Checks</th><th>Key Criteria</th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Fundamental</td>
+                        <td>Is the thesis active?</td>
+                        <td>6-pillar DD complete: growth, moat, management, concentration risk, competitive position, bull/bear/invalidation</td>
                     </tr>
                     <tr>
-                        <td>Friday Close Snapshot</td>
-                        <td>Friday ~4:15 PM</td>
-                        <td>Weekly technical summary — where each name closed vs key levels, SMA status, VP zones</td>
-                        <td>Group message + feeds Sunday review</td>
-                        <td><span class="status status-planned">Planned</span></td>
+                        <td>2. Technical</td>
+                        <td>Does the chart support entry now?</td>
+                        <td>Shannon stage analysis, MA alignment + slope, extension risk (quantified), volume character, S/R polarity, VP memory, R/R ≥ 3:1. Adjusted by per-ticker regime.</td>
                     </tr>
                     <tr>
-                        <td>Price Alerts</td>
-                        <td>Event-driven</td>
-                        <td>Notify when watchlist names hit predefined entry/exit zones</td>
-                        <td>Group alert when level is hit</td>
-                        <td><span class="status status-planned">Planned</span></td>
+                        <td>3. Portfolio Fit</td>
+                        <td>Does this trade fit the book?</td>
+                        <td>Position sizing (starter 3-5%, core 15-25%), cash management (≤50% deployed/day), correlation, heat check (≤15%)</td>
                     </tr>
+                </tbody>
+            </table>
+            <div class="highlight">
+                <strong>Regime detection</strong> adjusts Gate 2 weights per ticker. Trending → trust MAs. Chop → trust RSI/S&R. Mixed → require 4:1 R/R. The system adapts to market character, not the other way around.
+            </div>
+        </div>
+
+        <!-- ─── GROUP ─── -->
+        <h2>👥 The Group</h2>
+        <div class="section">
+            <table>
+                <thead>
+                    <tr><th>Member</th><th>Role</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>Vamsi</td><td>Portfolio owner. Final call on trades. Mirrors with real money.</td></tr>
+                    <tr><td>Kedar</td><td>Technical analysis. Chart validation, VP levels, break-and-retest patterns.</td></tr>
+                    <tr><td>Poorna</td><td>Multi-timeframe analysis. Brian Shannon framework. Bearish signal rigor.</td></tr>
+                    <tr><td>Anirudh</td><td>Deep conviction. Moat analysis, founder quality, long-term thesis.</td></tr>
+                    <tr><td>Undi</td><td>Process design. Workflow efficiency, systematic improvement.</td></tr>
+                    <tr><td>Narada</td><td>Execution engine. Runs workflows, generates analysis, maintains portal. Proposes trades — doesn't decide them.</td></tr>
                 </tbody>
             </table>
         </div>
 
         <!-- ─── TOOLS ─── -->
-        <h2>🛠️ Tools & Artifacts</h2>
+        <h2>🛠️ Tools</h2>
         <div class="section">
             <table>
                 <thead>
-                    <tr><th>Tool</th><th>What It Does</th><th>Used By</th></tr>
+                    <tr><th>Tool</th><th>Purpose</th></tr>
                 </thead>
                 <tbody>
-                    <tr><td>Portfolio CLI</td><td>Add/remove trades, take snapshots, generate dashboard</td><td>Daily Trade Execution</td></tr>
-                    <tr><td>Chart Generator</td><td>Candlestick + VP + RSI + MACD + SMA charts</td><td>All workflows, on-demand</td></tr>
-                    <tr><td>Dashboard</td><td>Live portfolio view — positions, P&L, allocation, benchmark</td><td>Everyone (portal)</td></tr>
-                    <tr><td>Thesis Tracker</td><td>Per-ticker DD, bull/bear cases, evolution log, TradingView charts</td><td>Weekly Review, Research</td></tr>
-                    <tr><td>Pipeline Page</td><td>Expansion candidates across infrastructure layers</td><td>Research Pipeline</td></tr>
+                    <tr><td><a href="/aiportfolio/">Dashboard</a></td><td>Live portfolio — positions, P&L, allocation, benchmark comparison</td></tr>
+                    <tr><td><a href="/aiportfolio/thesis.html">Thesis Tracker</a></td><td>Per-ticker DD, bull/bear cases, evolution log</td></tr>
+                    <tr><td><a href="/aiportfolio/pipeline.html">Pipeline</a></td><td>Expansion candidates across infrastructure layers</td></tr>
+                    <tr><td>Chart Generator</td><td>Candlestick + Volume Profile + RSI + MACD + trendlines</td></tr>
+                    <tr><td>Portfolio CLI</td><td>Proforma → lock → snapshot → dashboard generation</td></tr>
+                    <tr><td>Regime Engine</td><td>Per-ticker + macro regime detection, adjusts trade criteria dynamically</td></tr>
                 </tbody>
             </table>
         </div>
 
-        <!-- ─── ROLES ─── -->
-        <h2>👥 Group Roles</h2>
+        <!-- ─── GROWTH PATH ─── -->
+        <h2>📈 How the Process Grows</h2>
         <div class="section">
-            <table>
-                <thead>
-                    <tr><th>Member</th><th>Style</th><th>Contribution</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Vamsi</td><td>Portfolio owner</td><td>Final call on trades. Mirrors with real money. Sets objectives.</td></tr>
-                    <tr><td>Kedar</td><td>Technical analysis</td><td>Chart validation, break-and-retest patterns, VP levels. Does his own analysis — automated TA is reference, not replacement.</td></tr>
-                    <tr><td>Poorna</td><td>Technical analysis</td><td>Multi-timeframe SMA analysis, trend confirmation. Weekly snapshot is her primary input.</td></tr>
-                    <tr><td>Anirudh</td><td>Deep conviction</td><td>Moat analysis, founder quality, long-term thesis strength. Quarterly DD refreshes over daily charts.</td></tr>
-                    <tr><td>Vamsee</td><td>Process</td><td>Workflow design, efficiency, systematic improvement. Keeps the machine running clean.</td></tr>
-                    <tr><td>Narada</td><td>Execution</td><td>Runs workflows, generates analysis, maintains portal. Doesn't make trades — proposes them.</td></tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- ─── ENHANCEMENT PATH ─── -->
-        <h2>📈 Enhancement Path</h2>
-        <div class="section">
-            <p>Process grows with the portfolio, not ahead of it. Each enhancement is triggered by a real need, not speculation about future needs.</p>
+            <p>Process earns its complexity. New workflows get added when the portfolio demands them, not before.</p>
 
             <div class="phase">
-                <div class="phase-label">Phase 1 — Now (0 positions, $100K cash)</div>
-                <p>✅ Daily trade execution (11 AM → 2 PM)</p>
-                <p>✅ Weekly thesis review (Sunday)</p>
-                <p>✅ Research pipeline (ad hoc)</p>
-                <p>🔜 Friday close snapshot</p>
-                <p>🔜 Price alerts for entry zones</p>
+                <div class="phase-label">Early (1-3 positions, mostly cash)</div>
+                <p>Daily proforma + lock cycle. Weekly thesis review. Manual research as needed. Cash is the hedge.</p>
             </div>
 
             <div class="phase">
-                <div class="phase-label">Phase 2 — First positions deployed (1-3 names, $30-50K invested)</div>
-                <p>Position-level P&L tracking on dashboard</p>
-                <p>Earnings calendar integration (auto-flag upcoming reports)</p>
-                <p>Thesis invalidation monitoring (automated check against documented triggers)</p>
+                <div class="phase-label">Building (4+ positions, $50K+ invested)</div>
+                <p>Earnings calendar integration. Thesis invalidation monitoring. Sector correlation checks. Friday close snapshot.</p>
             </div>
 
             <div class="phase">
-                <div class="phase-label">Phase 3 — Majority invested (4+ names, $70K+ deployed)</div>
-                <p>Sector correlation monitoring (are all picks moving together?)</p>
-                <p>Hedge workflow activation (index puts when cash &lt; 30%)</p>
-                <p>Quarterly DD refresh cycle</p>
+                <div class="phase-label">Concentrated (70%+ deployed)</div>
+                <p>Hedge workflow activation (index puts). Quarterly DD refresh cycle. Risk-adjusted rebalancing.</p>
             </div>
 
             <div class="phase">
-                <div class="phase-label">Phase 4 — LEAPS or leverage introduced</div>
-                <p>Greeks tracking (delta, theta, gamma exposure)</p>
-                <p>Expiry management workflow</p>
-                <p>Risk-adjusted position sizing</p>
+                <div class="phase-label">Leverage (if LEAPS introduced)</div>
+                <p>Greeks tracking. Expiry management. Delta-adjusted sizing.</p>
             </div>
-
-            <h3>Enhancement Triggers</h3>
-            <ul class="trigger-list">
-                <li><strong>Trigger:</strong> First position entered → <strong>Add:</strong> Position P&L to dashboard, daily snapshot includes held positions</li>
-                <li><strong>Trigger:</strong> 3+ positions held → <strong>Add:</strong> Correlation monitoring, earnings calendar</li>
-                <li><strong>Trigger:</strong> Cash drops below 30% → <strong>Add:</strong> Hedge workflow, risk monitoring</li>
-                <li><strong>Trigger:</strong> LEAPS purchased → <strong>Add:</strong> Greeks tracking, expiry management</li>
-                <li><strong>Trigger:</strong> Group requests new analysis type → <strong>Evaluate:</strong> Does it serve the 3-5 year objective? If yes, add. If it serves daily noise, push back.</li>
-            </ul>
         </div>
 
         <!-- ─── PRINCIPLES ─── -->
-        <h2>⚖️ Process Principles</h2>
+        <h2>⚖️ Principles</h2>
         <div class="section">
-            <div class="highlight"><strong>1. Earn the next workflow.</strong> New process gets added when the portfolio demands it, not before. Zero positions = zero need for position monitoring.</div>
-            <div class="highlight"><strong>2. Two workflows confirming &gt; one workflow deciding.</strong> When the daily execution scan and weekly review both point to the same trade, conviction is real. Single-source signals get scrutinized harder.</div>
-            <div class="highlight"><strong>3. Every workflow has an owner.</strong> If nobody consumes the output, the workflow gets cut. No orphan processes running for their own sake.</div>
-            <div class="highlight"><strong>4. Simplicity = trust.</strong> Vamsi mirrors with real money. Fewer workflows = fewer conflicting signals = more confidence in execution. Complexity earns its keep or gets removed.</div>
-            <div class="highlight"><strong>5. Push back, don't accommodate.</strong> If a request doesn't fit an existing workflow, name it. Create a new one only if it serves the objective. Don't shoehorn new needs into old processes.</div>
+            <div class="highlight"><strong>1. Don't be whale exit liquidity.</strong> Buy into volume nodes, not thin air. VP is the single best tool for avoiding traps.</div>
+            <div class="highlight"><strong>2. Two signals confirming > one signal deciding.</strong> Daily scan + weekly review both pointing to the same trade = real conviction.</div>
+            <div class="highlight"><strong>3. News follows price.</strong> Surprises happen in the direction of the trend. The real signal is news that fights the trend.</div>
+            <div class="highlight"><strong>4. Earn the next workflow.</strong> If nobody consumes the output, it gets cut. No orphan processes.</div>
+            <div class="highlight"><strong>5. Simplicity = trust.</strong> Real money follows every trade. Fewer workflows = fewer conflicting signals = more confidence.</div>
         </div>
-
-        <div class="version">v1.0 — Feb 15, 2026 · Plan mode active · Group review pending</div>
 
         <div class="footer">
             <p>🐯 Tiger Portfolio — AI Infrastructure | <a href="/aiportfolio/">Dashboard</a> | <a href="/aiportfolio/thesis.html">Thesis</a> | <a href="/aiportfolio-process/">Rules</a></p>
-            <p style="margin-top:8px;">This plan is the group's contract. Changes require group discussion.</p>
+            <p style="margin-top:8px;">Reviewed weekly during Sunday thesis review. Last updated: Feb 17, 2026</p>
         </div>
     </div>
 </body>
