@@ -474,30 +474,11 @@ async function takeSnapshot() {
         benchmarkPrice = quote.price;
         benchmarkReturnPct = (benchmarkPrice - benchmarkInceptionPrice) / benchmarkInceptionPrice;
         
-        // Only update benchmark if we got a better price than what's already stored
-        // (avoids overwriting intraday price with stale after-hours/pre-market data)
-        const existing = db.prepare('SELECT price, return_pct FROM benchmark WHERE date = ? AND ticker = ?').get(getCurrentDate(), benchmarkTicker);
-        if (!existing) {
-          db.prepare(`
-            INSERT INTO benchmark (date, ticker, price, return_pct)
-            VALUES (?, ?, ?, ?)
-          `).run(getCurrentDate(), benchmarkTicker, benchmarkPrice, benchmarkReturnPct);
-        } else {
-          // Only overwrite during regular market hours (9:30 AM - 4:00 PM ET, weekdays)
-          const now = new Date();
-          const etHour = parseInt(now.toLocaleString('en-US', { timeZone: 'America/New_York', hour: '2-digit', hour12: false }));
-          const etMin = parseInt(now.toLocaleString('en-US', { timeZone: 'America/New_York', minute: '2-digit' }));
-          const etDay = parseInt(now.toLocaleString('en-US', { timeZone: 'America/New_York', weekday: 'short' }) === 'Sat' || now.toLocaleString('en-US', { timeZone: 'America/New_York', weekday: 'short' }) === 'Sun' ? 0 : 1);
-          const marketOpen = etDay === 1 && ((etHour === 9 && etMin >= 30) || (etHour >= 10 && etHour < 16));
-          if (marketOpen) {
-            db.prepare(`UPDATE benchmark SET price = ?, return_pct = ? WHERE date = ? AND ticker = ?`).run(benchmarkPrice, benchmarkReturnPct, getCurrentDate(), benchmarkTicker);
-          } else {
-            // Use existing data instead of overwriting with stale price
-            benchmarkPrice = existing.price;
-            benchmarkReturnPct = existing.return_pct;
-            console.log(`ℹ️ Using existing ${benchmarkTicker} price $${existing.price.toFixed(2)} (market closed)`);
-          }
-        }
+        // Store benchmark data point (last write wins — run snapshot after market close for accurate data)
+        db.prepare(`
+          INSERT OR REPLACE INTO benchmark (date, ticker, price, return_pct)
+          VALUES (?, ?, ?, ?)
+        `).run(getCurrentDate(), benchmarkTicker, benchmarkPrice, benchmarkReturnPct);
       }
     } catch (e) {
       console.log(`⚠️ Could not fetch ${benchmarkTicker} price: ${e.message}`);
