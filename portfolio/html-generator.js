@@ -142,7 +142,13 @@ function generateHTML() {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/aiportfolio/nav.css">
     <style>
+        /* Mobile nav: hidden on desktop, scrollable bar on mobile */
+        .mobile-nav { display: none; }
+        @media (max-width: 768px) {
+            .mobile-nav { display: flex; }
+        }
         * {
             margin: 0;
             padding: 0;
@@ -617,6 +623,19 @@ function generateHTML() {
     </style>
 </head>
 <body>
+    <!-- Mobile Nav (hidden on desktop, shown on mobile) -->
+    <nav class="tiger-nav mobile-nav">
+        <span class="tiger-nav-brand">🐯 Tiger Portfolio</span>
+        <a href="/aiportfolio/" class="active">📊 Dashboard</a>
+        <a href="/aiportfolio/thesis.html">💡 Thesis</a>
+        <a href="/aiportfolio/pipeline.html">🔬 Pipeline</a>
+        <a href="/aiportfolio/charts.html">📈 Charts</a>
+        <a href="/aiportfolio/plan.html">📝 Plan</a>
+        <a href="/aiportfolio-process/">📋 Rules</a>
+        <a href="/aiportfolio/docs.html">📄 Docs</a>
+        <a href="/">🏠 Portal</a>
+    </nav>
+
     <!-- Terminal Status Bar -->
     <div class="terminal-bar">
         <div class="terminal-status">
