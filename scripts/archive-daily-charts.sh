@@ -100,6 +100,14 @@ sed -i "s/DATE_PLACEHOLDER/$DATE/g" "$ARCHIVE_DIR/index.html"
 FILES_JSON=$(cd "$ARCHIVE_DIR" && ls *.png 2>/dev/null | sort | while read f; do echo "\"$f\""; done | paste -sd, -)
 sed -i "s|FILES_PLACEHOLDER|[$FILES_JSON]|" "$ARCHIVE_DIR/index.html"
 
+# Update dates.json manifest (list of all archived dates, newest first)
+CHARTS_ROOT="/home/vamsi/tiger-trading/research/aiportfolio/charts"
+(cd "$CHARTS_ROOT" && ls -d 20??-??-?? 2>/dev/null | sort -r | python3 -c "
+import sys, json
+dates = [line.strip() for line in sys.stdin if line.strip()]
+json.dump(dates, sys.stdout)
+") > "$CHARTS_ROOT/dates.json"
+
 echo ""
 echo "Archive: $ARCHIVE_DIR"
 echo "Portal:  https://narada.galigutta.com/aiportfolio/charts/$DATE/"

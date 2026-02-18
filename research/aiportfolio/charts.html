@@ -173,25 +173,25 @@
         let currentDate = null;
         let currentTicker = 'all';
 
-        // Discover available dates by trying known patterns
+        // Load available dates from manifest
         async function discoverDates() {
-            // Try fetching the charts directory listing
             try {
-                const res = await fetch(chartsBase + '/');
-                const html = await res.text();
-                // Python SimpleHTTPServer directory listing has links like <a href="2026-02-17/">
-                const matches = html.match(/href="(\d{4}-\d{2}-\d{2})\/"/g) || [];
-                return matches.map(m => m.match(/(\d{4}-\d{2}-\d{2})/)[1]).sort().reverse();
+                const res = await fetch(chartsBase + '/dates.json?t=' + Date.now());
+                return await res.json();
             } catch(e) {
                 return [];
             }
         }
 
-        // Discover chart files in a date directory
+        // Discover chart files in a date directory by parsing its index.html
         async function discoverCharts(date) {
             try {
-                const res = await fetch(`${chartsBase}/${date}/`);
+                const res = await fetch(`${chartsBase}/${date}/index.html`);
                 const html = await res.text();
+                // The archive index.html has: const files = ["ALAB_daily.png",...];
+                const match = html.match(/const files = (\[.*?\]);/);
+                if (match) return JSON.parse(match[1]).sort();
+                // Fallback: parse directory listing
                 const matches = html.match(/href="([A-Z]+_(daily|weekly)\.png)"/g) || [];
                 return matches.map(m => m.match(/"(.+?)"/)[1]).sort();
             } catch(e) {
