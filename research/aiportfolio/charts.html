@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="../favicon2.svg">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🐯 Tiger Portfolio — Chart Feed</title>
+    <title>🐯 Tiger Portfolio — Charts</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -19,9 +19,7 @@
             --text-muted: #8b949e;
             --green: #238636;
             --red: #da3633;
-            --blue: #1f6feb;
             --amber: #d29922;
-            --purple: #8b5cf6;
         }
         body {
             font-family: 'Inter', -apple-system, sans-serif;
@@ -29,238 +27,266 @@
             color: var(--text-secondary);
             line-height: 1.5;
         }
-        .nav {
-            background: var(--bg-tertiary);
-            border-bottom: 1px solid var(--border);
-            padding: 10px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            font-size: 13px;
-            overflow-x: auto;
-            white-space: nowrap;
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
         }
-        .nav a {
+        .page-header {
+            margin-bottom: 24px;
+        }
+        .page-header h1 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+        .page-header .subtitle {
             color: var(--text-muted);
-            text-decoration: none;
+            font-size: 0.85rem;
+        }
+        .date-selector {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .date-btn {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.82rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .date-btn:hover { color: var(--text-primary); border-color: var(--text-muted); }
+        .date-btn.active { color: var(--amber); border-color: var(--amber); background: rgba(210,153,34,0.1); }
+        .ticker-filter {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .ticker-btn {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
             padding: 4px 10px;
             border-radius: 4px;
-            font-weight: 500;
+            cursor: pointer;
+            font-size: 0.78rem;
+            font-family: 'JetBrains Mono', monospace;
         }
-        .nav a:hover { color: var(--text-primary); }
-        .nav a.active { color: var(--text-primary); background: rgba(48,54,61,0.6); }
-        .nav .brand { color: var(--text-primary); font-weight: 600; margin-right: 8px; }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
-        
-        h1 { font-size: 1.5rem; color: var(--text-primary); margin-bottom: 4px; }
-        .subtitle { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 32px; }
-
-        .chart-entry {
+        .ticker-btn:hover { color: var(--text-primary); }
+        .ticker-btn.active { color: var(--amber); border-color: var(--amber); }
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+            gap: 16px;
+        }
+        .chart-card {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
             border-radius: 8px;
-            margin-bottom: 20px;
             overflow: hidden;
         }
-        .chart-meta {
-            padding: 16px 20px;
+        .chart-card-header {
+            padding: 12px 16px 8px;
             display: flex;
             align-items: center;
-            gap: 12px;
-            border-bottom: 1px solid var(--border);
+            gap: 10px;
         }
-        .chart-ticker {
-            font-family: 'JetBrains Mono', monospace;
+        .chart-card-header .ticker {
+            color: var(--amber);
             font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--blue);
-        }
-        .chart-details {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-        .chart-date {
-            margin-left: auto;
+            font-size: 1rem;
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
+        }
+        .chart-card-header .timeframe {
             color: var(--text-muted);
-        }
-        .chart-stats {
-            padding: 8px 20px;
-            font-family: 'JetBrains Mono', monospace;
             font-size: 0.8rem;
-            color: var(--text-secondary);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            border-bottom: 1px solid var(--border);
-            background: var(--bg-tertiary);
         }
-        .stat-label { color: var(--text-muted); }
-        .stat-value { color: var(--text-primary); font-weight: 500; }
-        .stat-positive { color: var(--green); }
-        .stat-negative { color: var(--red); }
-        .stat-poc { color: #ffeb3b; }
-        .stat-va { color: #c0a0f0; }
-
-        .chart-img {
+        .chart-card img {
             width: 100%;
             display: block;
             cursor: pointer;
         }
-        .chart-img:hover { opacity: 0.95; }
-
-        .chart-notes {
-            padding: 12px 20px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border);
-        }
-
-        .filter-bar {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 24px;
-            flex-wrap: wrap;
-        }
-        .filter-btn {
-            padding: 6px 14px;
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            background: var(--bg-secondary);
-            color: var(--text-secondary);
+        .chart-card img:hover { opacity: 0.92; }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 200;
             cursor: pointer;
-            font-size: 0.85rem;
-            font-family: 'Inter', sans-serif;
+            justify-content: center;
+            align-items: center;
         }
-        .filter-btn:hover { border-color: var(--blue); color: var(--text-primary); }
-        .filter-btn.active { border-color: var(--blue); background: rgba(31,111,235,0.15); color: var(--blue); }
-
-        .empty-state {
-            text-align: center;
-            padding: 60px 20px;
-            color: var(--text-muted);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 24px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border);
-            margin-top: 40px;
-        }
+        .lightbox.active { display: flex; }
+        .lightbox img { max-width: 95%; max-height: 95%; object-fit: contain; }
+        .loading { text-align: center; padding: 40px; color: var(--text-muted); }
+        .empty { text-align: center; padding: 60px; color: var(--text-muted); }
 
         @media (max-width: 768px) {
-            .chart-meta { flex-wrap: wrap; }
-            .chart-date { margin-left: 0; }
-            .chart-stats { gap: 8px; }
+            .container { padding: 12px; }
+            .chart-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+    <nav class="tiger-nav">
+        <span class="tiger-nav-brand">🐯 Tiger Portfolio</span>
+        <a href="/aiportfolio/">📊 Dashboard</a>
+        <a href="/aiportfolio/thesis.html">💡 Thesis</a>
+        <a href="/aiportfolio/pipeline.html">🔬 Pipeline</a>
+        <a href="/aiportfolio/charts.html" class="active">📈 Charts</a>
+        <a href="/aiportfolio/plan.html">📝 Plan</a>
+        <a href="/aiportfolio-process/">📋 Rules</a>
+        <a href="/aiportfolio/docs.html">📄 Docs</a>
+        <a href="/">🏠 Portal</a>
+    </nav>
 
-<nav class="tiger-nav">
-    <span class="tiger-nav-brand">🐯 Tiger Portfolio</span>
-    <a href="/aiportfolio/">📊 Dashboard</a>
-    <a href="/aiportfolio/thesis.html">💡 Thesis</a>
-    <a href="/aiportfolio/pipeline.html">🔬 Pipeline</a>
-    <a href="/aiportfolio/charts.html" class="active">📈 Charts</a>
-    <a href="/aiportfolio/plan.html">📝 Plan</a>
-    <a href="/aiportfolio-process/">📋 Rules</a>
-    <a href="/aiportfolio/docs.html">📄 Docs</a>
-    <a href="/">🏠 Portal</a>
-</nav>
-
-<div class="container">
-    <h1>📈 Chart Feed</h1>
-    <p class="subtitle">Technical charts with Volume Profile — newest first</p>
-
-    <div class="filter-bar">
-        <button class="filter-btn active" onclick="filterCharts('all')">All</button>
-        <button class="filter-btn" onclick="filterCharts('ALAB')">ALAB</button>
-        <button class="filter-btn" onclick="filterCharts('CRDO')">CRDO</button>
-        <button class="filter-btn" onclick="filterCharts('FN')">FN</button>
-        <button class="filter-btn" onclick="filterCharts('NVT')">NVT</button>
-        <button class="filter-btn" onclick="filterCharts('COHR')">COHR</button>
-        <button class="filter-btn" onclick="filterCharts('PWR')">PWR</button>
-    </div>
-
-    <div id="chart-feed">
-        <!-- Charts injected here by the update script -->
-
-        <div class="chart-entry" data-ticker="ALAB">
-            <div class="chart-meta">
-                <span class="chart-ticker">ALAB</span>
-                <span class="chart-details">Daily · 6 Month · Volume Profile</span>
-                <span class="chart-date">Feb 15, 2026 · 6:08 PM</span>
-            </div>
-            <div class="chart-stats">
-                <span><span class="stat-label">Last</span> <span class="stat-value">$129.32</span></span>
-                <span><span class="stat-label">Chg</span> <span class="stat-negative">-55.68 (-30.10%)</span></span>
-                <span><span class="stat-label">RSI</span> <span class="stat-value">38.8</span></span>
-                <span><span class="stat-label">POC</span> <span class="stat-poc">$144.79</span></span>
-                <span><span class="stat-label">VAH</span> <span class="stat-va">$188.06</span></span>
-                <span><span class="stat-label">VAL</span> <span class="stat-va">$138.94</span></span>
-                <span><span class="stat-label">MACD</span> <span class="stat-negative">-5.95</span></span>
-            </div>
-            <a href="/charts/ALAB_1d_6mo_latest.png" target="_blank">
-                <img class="chart-img" src="/charts/ALAB_1d_6mo_latest.png" alt="ALAB daily 6mo chart with VP" loading="lazy">
-            </a>
-            <div class="chart-notes">
-                Price at $129 is below the entire value area (VAL $138.94). Trading in thin volume below the POC. Key test: can it reclaim $140 (prior range low, near VAL)? Next VP support not until ~$89 (Kedar's longer-term VP POC). RSI near oversold at 38.8. MACD deeply negative.
-            </div>
+    <div class="container">
+        <div class="page-header">
+            <h1>📈 Technical Charts</h1>
+            <p class="subtitle">Daily & weekly charts with Volume Profile — auto-updated every 30 min during market hours</p>
         </div>
 
-        <div class="chart-entry" data-ticker="CRDO">
-            <div class="chart-meta">
-                <span class="chart-ticker">CRDO</span>
-                <span class="chart-details">Daily · 3 Month · Volume Profile</span>
-                <span class="chart-date">Feb 15, 2026 · 6:08 PM</span>
-            </div>
-            <div class="chart-stats">
-                <span><span class="stat-label">Last</span> <span class="stat-value">$121.44</span></span>
-                <span><span class="stat-label">Chg</span> <span class="stat-negative">-20.56 (-14.48%)</span></span>
-                <span><span class="stat-label">RSI</span> <span class="stat-value">45.3</span></span>
-                <span><span class="stat-label">POC</span> <span class="stat-poc">$141.04</span></span>
-                <span><span class="stat-label">VAH</span> <span class="stat-va">$157.98</span></span>
-                <span><span class="stat-label">VAL</span> <span class="stat-va">$118.11</span></span>
-                <span><span class="stat-label">MACD</span> <span class="stat-value">1.33</span></span>
-            </div>
-            <a href="/charts/CRDO_1d_3mo_latest.png" target="_blank">
-                <img class="chart-img" src="/charts/CRDO_1d_3mo_latest.png" alt="CRDO daily 3mo chart with VP" loading="lazy">
-            </a>
-            <div class="chart-notes">
-                Price at $121 sitting near VAL ($118.11) — right at the edge of the value area. POC at $141 overhead. RSI neutral at 45.3. MACD histogram turning positive (1.33) — early momentum shift? Watching $118 as the line. Below that = new lows territory.
-            </div>
+        <div class="date-selector" id="date-selector">
+            <span class="loading">Loading dates...</span>
         </div>
 
+        <div class="ticker-filter" id="ticker-filter"></div>
+
+        <div class="chart-grid" id="chart-grid">
+            <div class="loading">Loading charts...</div>
+        </div>
     </div>
-</div>
 
-<div class="footer">
-    🐯 Tiger Portfolio Chart Feed — Generated by Narada 🪕<br>
-    Charts auto-generated with Volume Profile using yahoo-finance2 + node-canvas
-</div>
+    <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+        <img id="lb-img" src="">
+    </div>
 
-<script>
-function filterCharts(ticker) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
-    
-    document.querySelectorAll('.chart-entry').forEach(entry => {
-        if (ticker === 'all' || entry.dataset.ticker === ticker) {
-            entry.style.display = 'block';
-        } else {
-            entry.style.display = 'none';
+    <script>
+        const chartsBase = '/aiportfolio/charts';
+        let currentDate = null;
+        let currentTicker = 'all';
+
+        // Discover available dates by trying known patterns
+        async function discoverDates() {
+            // Try fetching the charts directory listing
+            try {
+                const res = await fetch(chartsBase + '/');
+                const html = await res.text();
+                // Python SimpleHTTPServer directory listing has links like <a href="2026-02-17/">
+                const matches = html.match(/href="(\d{4}-\d{2}-\d{2})\/"/g) || [];
+                return matches.map(m => m.match(/(\d{4}-\d{2}-\d{2})/)[1]).sort().reverse();
+            } catch(e) {
+                return [];
+            }
         }
-    });
-}
-</script>
 
+        // Discover chart files in a date directory
+        async function discoverCharts(date) {
+            try {
+                const res = await fetch(`${chartsBase}/${date}/`);
+                const html = await res.text();
+                const matches = html.match(/href="([A-Z]+_(daily|weekly)\.png)"/g) || [];
+                return matches.map(m => m.match(/"(.+?)"/)[1]).sort();
+            } catch(e) {
+                return [];
+            }
+        }
+
+        function renderDateSelector(dates) {
+            const el = document.getElementById('date-selector');
+            if (dates.length === 0) {
+                el.innerHTML = '<span class="loading">No chart archives found</span>';
+                return;
+            }
+            el.innerHTML = dates.map((d, i) => 
+                `<button class="date-btn ${i === 0 ? 'active' : ''}" onclick="selectDate('${d}')">${d}</button>`
+            ).join('');
+        }
+
+        function renderTickerFilter(files) {
+            const tickers = [...new Set(files.map(f => f.split('_')[0]))].sort();
+            const el = document.getElementById('ticker-filter');
+            el.innerHTML = `<button class="ticker-btn active" onclick="filterTicker('all')">All</button>` +
+                tickers.map(t => `<button class="ticker-btn" onclick="filterTicker('${t}')">${t}</button>`).join('');
+        }
+
+        function renderCharts(date, files) {
+            const grid = document.getElementById('chart-grid');
+            const filtered = currentTicker === 'all' ? files : files.filter(f => f.startsWith(currentTicker + '_'));
+            
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="empty">No charts available</div>';
+                return;
+            }
+
+            grid.innerHTML = filtered.map(f => {
+                const parts = f.replace('.png', '').split('_');
+                const ticker = parts[0];
+                const timeframe = parts[1] === 'daily' ? 'Daily · 6 Month' : 'Weekly · 2 Year';
+                return `
+                <div class="chart-card" data-ticker="${ticker}">
+                    <div class="chart-card-header">
+                        <span class="ticker">${ticker}</span>
+                        <span class="timeframe">${timeframe}</span>
+                    </div>
+                    <img src="${chartsBase}/${date}/${f}" alt="${ticker} ${parts[1]} chart" loading="lazy"
+                         onclick="openLightbox(this.src)">
+                </div>`;
+            }).join('');
+        }
+
+        function openLightbox(src) {
+            document.getElementById('lb-img').src = src;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        async function selectDate(date) {
+            currentDate = date;
+            currentTicker = 'all';
+            
+            // Update active button
+            document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.date-btn').forEach(b => {
+                if (b.textContent === date) b.classList.add('active');
+            });
+
+            document.getElementById('chart-grid').innerHTML = '<div class="loading">Loading charts...</div>';
+            const files = await discoverCharts(date);
+            renderTickerFilter(files);
+            renderCharts(date, files);
+        }
+
+        function filterTicker(ticker) {
+            currentTicker = ticker;
+            document.querySelectorAll('.ticker-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.ticker-btn').forEach(b => {
+                if (b.textContent === (ticker === 'all' ? 'All' : ticker)) b.classList.add('active');
+            });
+            discoverCharts(currentDate).then(files => renderCharts(currentDate, files));
+        }
+
+        // Keyboard: Escape closes lightbox
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active');
+        });
+
+        // Init
+        (async () => {
+            const dates = await discoverDates();
+            renderDateSelector(dates);
+            if (dates.length > 0) {
+                await selectDate(dates[0]);
+            } else {
+                document.getElementById('chart-grid').innerHTML = '<div class="empty">No chart archives found. Charts are generated during market hours.</div>';
+            }
+        })();
+    </script>
 </body>
 </html>
