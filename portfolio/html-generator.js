@@ -648,7 +648,9 @@ function generateHTML() {
                 <a href="/aiportfolio/thesis.html">💡 Thesis</a>
                 <a href="/aiportfolio/pipeline.html">🔬 Pipeline</a>
                 <a href="/aiportfolio/charts.html">📈 Charts</a>
+                <a href="/aiportfolio/plan.html">📝 Plan</a>
                 <a href="/aiportfolio-process/">📋 Rules</a>
+                <a href="/aiportfolio/docs.html">📄 Docs</a>
                 <a href="/">🏠 Portal</a>
             </div>
         </div>
