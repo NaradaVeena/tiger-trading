@@ -735,7 +735,7 @@ function generateHTML() {
                           const pnlClass = (pos.unrealized_pnl || 0) >= 0 ? 'gain-row' : 'loss-row';
                           return `
                         <tr class="${pnlClass}">
-                            <td><a href="https://www.tradingview.com/chart/?symbol=${pos.ticker}" target="_blank" class="ticker">${pos.ticker}</a></td>
+                            <td><a href="/aiportfolio/thesis.html#${pos.ticker.toLowerCase()}" class="ticker">${pos.ticker}</a></td>
                             <td>${pos.type}</td>
                             <td style="text-align: right;" class="currency">${pos.shares}</td>
                             <td style="text-align: right;" class="currency">${formatCurrency(pos.avg_cost)}</td>
@@ -822,7 +822,7 @@ function generateHTML() {
                     <tbody>
                         ${theses.map(thesis => `
                         <tr class="thesis-row" onclick="toggleThesis(this)">
-                            <td><a href="https://www.tradingview.com/chart/?symbol=${thesis.ticker}" target="_blank" class="ticker">${thesis.ticker}</a></td>
+                            <td><a href="/aiportfolio/thesis.html#${thesis.ticker.toLowerCase()}" class="ticker">${thesis.ticker}</a></td>
                             <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">${thesis.company || ''}</td>
                             <td><span class="status-badge category-${thesis.category}">${thesis.category?.toUpperCase() || ''}</span></td>
                             <td><span class="status-badge status-${thesis.status}">${thesis.status?.toUpperCase() || ''}</span></td>
