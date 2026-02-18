@@ -49,6 +49,16 @@ The highest-probability trades occur when trends align across multiple timeframe
 
 Do NOT skip the monthly timeframe. It provides critical context for whether a correction is normal within a secular trend or the beginning of a structural reversal.
 
+**Each timeframe gets its own conviction rating.** Do NOT give a single stage call for the whole stock. Stage and conviction can differ across timeframes — and those differences ARE the analysis. A stock in "Stage 2 (Early-Mid), High conviction" on the monthly but "Stage 2 (Correction phase), Moderate" on the daily tells you: the long-term trend is healthy but near-term timing is uncertain. Produce this table for EVERY analysis:
+
+| Timeframe | Stage | MA Alignment | Trend Direction | Conviction |
+|-----------|-------|--------------|-----------------|------------|
+| Monthly   |       |              |                 |            |
+| Weekly    |       |              |                 |            |
+| Daily     |       |              |                 |            |
+
+Conviction levels: **High** (stage confirmed, volume supports, no divergences), **Moderate-High** (stage confirmed but minor caution flags), **Moderate** (mixed signals or recovery in progress), **Low** (conflicting signals, stay out).
+
 Read `references/trends-and-timeframes.md` for trend identification, trend lines, corrections, and consolidation analysis.
 
 ## Support and Resistance
@@ -62,6 +72,21 @@ Read `references/support-resistance.md` for detailed rules on identifying, evalu
 - The more times a level is tested, the more likely it is to break
 - Use S/R to determine potential levels of buying/selling imbalances, not as exact buy/sell triggers
 
+### Layered S/R Mapping (MANDATORY)
+
+A single source of S/R (e.g., VP only, or MAs only) is incomplete. Every analysis must map levels from ALL of these sources and identify **confluence zones** where multiple sources agree:
+
+1. **Volume Profile nodes** — POC, VAH, VAL, and any secondary high-volume nodes
+2. **Horizontal S/R** — prior swing highs/lows, gap fills, prior breakout levels
+3. **Moving average levels** — current SMA20/50/100/200 values. Flag MA convergence zones (e.g., "SMA50 and SMA100 converging at $6.19-6.24")
+4. **Channel/trendline boundaries** — rising/falling channel upper/lower bounds
+5. **Psychological levels** — round numbers ($5.00, $8.00, $10.00) that attract order flow
+6. **Prior pivot highs/lows** — the most recent swing high and swing low on each timeframe
+
+**Confluence = conviction.** A level where VP POC + SMA200 + prior swing low all converge is institutional-grade support. A level with only one source is weaker. State the confluence count for each level.
+
+Present as two tables (Resistance descending, Support ascending) with columns: Level, Sources (what agrees there), Confluence Count, Significance.
+
 ## Volume Analysis
 
 Read `references/volume-analysis.md` for complete volume interpretation rules across all four stages.
@@ -72,6 +97,19 @@ Read `references/volume-analysis.md` for complete volume interpretation rules ac
 - Rallies on decreasing volume = suspect; volume expanding on pullbacks = question trend strength
 - Big volume without further price progress in trend direction = distribution/accumulation signal
 - Large volume after extended trending often signals exhaustion and turning point
+
+### Volume Trend Analysis (Multi-Session — MANDATORY)
+
+Do NOT assess volume from a single bar. Analyze volume *across the move*:
+
+1. **Identify the current swing** — when did the current rally/pullback start? (e.g., "recovery from Jan 29 low")
+2. **Compare volume trajectory across the swing** — is volume expanding or contracting as the move progresses? Plot the trend, not the snapshot.
+3. **Flag divergences explicitly:**
+   - Price rising over N sessions while volume declines across those sessions = **volume divergence warning**. Per Shannon: "rallies on decreasing volume should be viewed with suspicion." This may mean the rally is driven by short covering rather than genuine accumulation, or motivated buyers haven't committed yet.
+   - Price falling over N sessions while volume declines = healthy pullback (supply drying up)
+   - Price falling while volume expands = active distribution, bearish
+4. **State the numbers.** "Volume declined from 65M to 23M over the 10-day recovery rally" is analysis. "Volume was below average" is not.
+5. **The directional move that follows a divergence reveals its meaning.** Volume expansion on an upside break above the swing high = divergence resolved bullishly (buyers were waiting). Volume expansion on a breakdown below the swing low = divergence was a warning. Monitor the next directional move for resolution.
 
 ## Volume Profile Integration
 
@@ -168,12 +206,15 @@ Present alignment in a table:
 ## Anti-Patterns (Mistakes to Avoid)
 
 1. **Skipping the monthly timeframe.** Missing the secular context leads to wrong stage identification.
-2. **Calling a daily candle bullish without checking intraday action.** A green candle that opened at the high and closed near the low is NOT bullish.
-3. **Ignoring death crosses.** "MA crossovers represent indecision" — respect this.
-4. **Treating the 200-day SMA as support when price is below it.** If price has broken below the 200-day, it becomes resistance until reclaimed.
-5. **Cherry-picking the R/R scenario that works.** If the natural stop and natural target don't give 3:1, the trade doesn't qualify. Don't widen the target or tighten the stop to make the math work.
-6. **Being too bullish too early on stage transitions.** "Early Stage 2" is not "confirmed Stage 2." Wait for the MA stack to fully align and for price to hold above the breakout level on a retest.
-7. **Ignoring insider selling patterns.** Technical and smart-money signals that agree are high conviction. Divergences (chart says buy, insiders say sell) warrant extra caution.
+2. **Giving a single stage call without per-timeframe conviction.** "Late Stage 2" is lazy. Separate monthly/weekly/daily stages and conviction levels — the gaps between them ARE the insight.
+3. **Single-bar volume analysis.** Looking at today's volume vs average and calling it "healthy" or "weak." Analyze volume *across the move* — a 10-day rally on declining volume is a divergence even if the last bar was above average.
+4. **Calling a daily candle bullish without checking intraday action.** A green candle that opened at the high and closed near the low is NOT bullish.
+5. **Ignoring death crosses.** "MA crossovers represent indecision" — respect this.
+6. **Treating the 200-day SMA as support when price is below it.** If price has broken below the 200-day, it becomes resistance until reclaimed.
+7. **Cherry-picking the R/R scenario that works.** If the natural stop and natural target don't give 3:1, the trade doesn't qualify. Don't widen the target or tighten the stop to make the math work.
+8. **Being too bullish too early on stage transitions.** "Early Stage 2" is not "confirmed Stage 2." Wait for the MA stack to fully align and for price to hold above the breakout level on a retest.
+9. **Ignoring insider selling patterns.** Technical and smart-money signals that agree are high conviction. Divergences (chart says buy, insiders say sell) warrant extra caution.
+10. **Sparse S/R mapping.** Only listing VP levels (POC/VAH/VAL) or only MAs is incomplete. Layer all sources — VP, horizontal S/R, MAs, channels, psychological levels, prior pivots — and identify confluence zones where multiple sources agree. Confluence = conviction.
 
 ## Extension Risk Assessment
 
@@ -239,18 +280,44 @@ Each timeframe gets:
 #### 📉 Daily Chart (Near-term Context)
 
 ### 4. Technical Alignment Assessment
-Multi-timeframe alignment table + narrative on how timeframes agree or conflict.
+Multi-timeframe conviction table (MANDATORY — this is the core output):
 
-| Timeframe | Stage | Trend | MAs | Volume | Bias |
-|-----------|-------|-------|-----|--------|------|
-| Monthly   |       |       |     |        |      |
-| Weekly    |       |       |     |        |      |
-| Daily     |       |       |     |        |      |
+| Timeframe | Stage | MA Alignment | Trend Direction | Volume Character | Conviction |
+|-----------|-------|--------------|-----------------|-----------------|------------|
+| Monthly   |       |              |                 |                 |            |
+| Weekly    |       |              |                 |                 |            |
+| Daily     |       |              |                 |                 |            |
 
-### 5. Key Levels to Monitor
-- **Resistance** table (descending) with level, significance, and what happens if breached
-- **Support** table (ascending) with level, significance, and what happens if lost
-- **Moving Average Framework** table with MA, level, slope, and interpretation
+Narrative: How do the timeframes agree or conflict? What does the conviction differential tell us? (e.g., "Monthly High + Daily Moderate = pullback within a healthy trend, resolution likely upward")
+
+### 5. Volume Trend Assessment
+Identify the current swing, measure volume trajectory across it, and flag any divergences. State specific numbers (session count, volume levels). This is separate from per-timeframe volume notes — this is the cross-session trend analysis.
+
+### 6. Key Levels to Monitor (Layered S/R)
+
+**Resistance Zones** (descending):
+
+| Level | Sources | Confluence | Significance |
+|-------|---------|------------|--------------|
+|       |         |            |              |
+
+**Support Zones** (ascending):
+
+| Level | Sources | Confluence | Significance |
+|-------|---------|------------|--------------|
+|       |         |            |              |
+
+Sources column lists what agrees at that level (VP POC, SMA200, prior swing low, channel bound, psychological, etc.). Confluence = count of agreeing sources.
+
+**Moving Average Architecture:**
+
+| MA Period | Value | Slope | Significance |
+|-----------|-------|-------|--------------|
+| 5-Day     |       |       |              |
+| 20-Day    |       |       |              |
+| 50-Day    |       |       |              |
+| 100-Day   |       |       |              |
+| 200-Day   |       |       |              |
 
 ### 6. R/R Scenarios
 At least 2 entry scenarios with explicit stop, target, and ratio. Mark pass/fail vs 3:1.

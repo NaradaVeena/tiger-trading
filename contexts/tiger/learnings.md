@@ -22,3 +22,10 @@
 - Regime data was stale (last update Feb 6) — needs regular daily updates.
 - ALAB continuing Stage 4 decline (-4% on Feb 17), confirming "news follows price" thesis.
 - NVT showing strength (+2.9%), approaching $121 breakout level.
+- **Analysis theater kills portfolios.** 11 AM cron analyzed tickers for 3 days without executing `cli.js proforma`. Process must execute, not just evaluate.
+- **Don't trade on after-hours headlines.** NVIDIA-Meta deal looked like ANET displacement at first glance. Deeper research revealed dual-fabric architecture (DSF vs NSF) — complementary, not competitive.
+- **Verify sub-agent claims against primary sources.** Sub-agents reported NVIDIA as current #1 in DC Ethernet revenue; actual data shows briefly #1 in Q2 2025, now #3. Don't repeat peak numbers as current state.
+- **Not all DC switches are fungible.** Scheduled fabric (Arista DSF/7700R4) vs whitebox ASIC (Spectrum-X in FBOSS) serve fundamentally different roles. Market share numbers that lump them together are misleading.
+- **Kedar: daily channel break, not intraday.** Don't react to intraday wicks. Wait for daily close below channel to confirm break. Discipline > speed.
+- **After substantive group discussions, prompt for thesis evolution updates.** Don't let conversation insights evaporate — persist to thesis DB + evolution log.
+- **"Dancing with elephants" (Poorna):** Every watchlist name sells to hyperscalers/NVIDIA. Any elephant can decide to make its own shovels. Elephant risk must be a standing section in every thesis — who could vertically integrate, and what's the moat against it? Added to Gate 1 in TRADE-SELECTION.md.

@@ -35,6 +35,15 @@ console.log(JSON.stringify(tickers));
 ```
 This is the **single source of truth**. Never hardcode ticker lists.
 
+#### 1b. Elephant Risk / Vertical Integration Threat
+Every watchlist name sells to hyperscalers and/or NVIDIA/Broadcom. Assess:
+- **Who is the elephant?** Which customer(s) represent >15% of revenue or strategic dependency?
+- **What's the threat?** Is the elephant actively building this capability in-house, bundling it with other products, or acquiring competitors?
+- **What's the moat?** Manufacturing complexity, cost structure, regulatory barriers, switching costs, co-design relationships?
+- **Rating:** LOW (theoretical risk) / MEDIUM (elephant exploring, not committed) / HIGH (elephant actively self-sourcing or bundling)
+
+HIGH elephant risk doesn't disqualify — but it demands a documented moat thesis and tighter position sizing. If the moat is "they haven't done it yet," that's not a moat.
+
 **Gate 1 fail = no trade.** Pipeline/watch names don't get proformas until promoted.
 
 ---
@@ -149,6 +158,7 @@ Every proforma proposal MUST include this scorecard:
 ### Gate 1: Fundamental ✅/❌
 - Thesis status: [active/weakened/pipeline]
 - Key thesis: [one line]
+- Elephant risk: [LOW/MEDIUM/HIGH] — [one line: who's the elephant, what's the threat, what's the moat]
 
 ### Gate 2: Technical Scorecard
 | Criteria | Result | Detail |
