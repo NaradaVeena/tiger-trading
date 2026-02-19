@@ -300,6 +300,7 @@
         .badge-screening { background: rgba(210,153,34,0.15); color: var(--amber-bright); border: 1px solid rgba(210,153,34,0.3); }
         .badge-watch { background: rgba(31,111,235,0.15); color: var(--blue-bright); border: 1px solid rgba(31,111,235,0.3); }
         .badge-pass { background: rgba(139,148,158,0.1); color: var(--text-muted); border: 1px solid rgba(139,148,158,0.2); }
+        .badge-promoted { background: rgba(139,92,246,0.2); color: #a78bfa; border: 1px solid rgba(139,92,246,0.4); }
 
         .poorna-tag {
             display: inline-block;
@@ -744,11 +745,11 @@
 <script>
 // ── Data ──
 const candidates = [
-    { rank:1, ticker:'TSEM', exchange:'NASDAQ', company:'Tower Semiconductor', layer:'1', layerName:'Silicon & Compute', mcap:10, mcapStr:'$10B', rev:14, revStr:'+14%', gm:23, gmStr:'23%', aidc:27, aidcStr:'25-30%', founder:'Yes*', moat:'High', status:'Top Pick', thesis:'Silicon photonics foundry with niche monopoly position. $920M capex cycle, NVIDIA partnership.' },
-    { rank:2, ticker:'ANET', exchange:'NYSE', company:'Arista Networks', layer:'2', layerName:'Connectivity', mcap:130, mcapStr:'$130B', rev:29, revStr:'+29%', gm:65, gmStr:'65%', aidc:85, aidcStr:'85%+', founder:'Yes', moat:'High', status:'Top Pick', thesis:'Best networking franchise. Jayshree Ullal + Andy Bechtolsheim. InfiniBand→Ethernet catalyst.' },
-    { rank:3, ticker:'LITE', exchange:'NASDAQ', company:'Lumentum', layer:'3', layerName:'Optical & Photonics', mcap:37, mcapStr:'$37B', rev:58, revStr:'+58%', gm:43, gmStr:'42-45%', aidc:86, aidcStr:'86%', founder:'No', moat:'High', status:'Top Pick', thesis:'Upstream optical supplier (EML lasers). OCS new category. 86% cloud revenue.' },
-    { rank:4, ticker:'GLW', exchange:'NYSE', company:'Corning', layer:'3/5', layerName:'Optical / Infra', mcap:45, mcapStr:'$45B', rev:35, revStr:'+35%', gm:38, gmStr:'38%', aidc:40, aidcStr:'40%', founder:'No*', moat:'High', status:'Top Pick', thesis:'Meta $6B deal. Optical +35%. 171-year moat in glass science.', poorna:true },
-    { rank:5, ticker:'VRT', exchange:'NYSE', company:'Vertiv', layer:'4', layerName:'Power & Cooling', mcap:95, mcapStr:'$95B', rev:28, revStr:'+28%', gm:37, gmStr:'37%', aidc:100, aidcStr:'100%', founder:'No', moat:'High', status:'Top Pick', thesis:'Pure-play DC power/cooling. $15B backlog doubled. 252% Q4 order growth.' },
+    { rank:1, ticker:'TSEM', exchange:'NASDAQ', company:'Tower Semiconductor', layer:'1', layerName:'Silicon & Compute', mcap:10, mcapStr:'$10B', rev:14, revStr:'+14%', gm:23, gmStr:'23%', aidc:27, aidcStr:'25-30%', founder:'Yes*', moat:'High', status:'Promoted', thesis:'Silicon photonics foundry with niche monopoly position. $920M capex cycle, NVIDIA partnership.' },
+    { rank:2, ticker:'ANET', exchange:'NYSE', company:'Arista Networks', layer:'2', layerName:'Connectivity', mcap:130, mcapStr:'$130B', rev:29, revStr:'+29%', gm:65, gmStr:'65%', aidc:85, aidcStr:'85%+', founder:'Yes', moat:'High', status:'Promoted', thesis:'Best networking franchise. Jayshree Ullal + Andy Bechtolsheim. InfiniBand→Ethernet catalyst.' },
+    { rank:3, ticker:'LITE', exchange:'NASDAQ', company:'Lumentum', layer:'3', layerName:'Optical & Photonics', mcap:37, mcapStr:'$37B', rev:58, revStr:'+58%', gm:43, gmStr:'42-45%', aidc:86, aidcStr:'86%', founder:'No', moat:'High', status:'Promoted', thesis:'Upstream optical supplier (EML lasers). OCS new category. 86% cloud revenue.' },
+    { rank:4, ticker:'GLW', exchange:'NYSE', company:'Corning', layer:'3/5', layerName:'Optical / Infra', mcap:45, mcapStr:'$45B', rev:35, revStr:'+35%', gm:38, gmStr:'38%', aidc:40, aidcStr:'40%', founder:'No*', moat:'High', status:'Promoted', thesis:'Meta $6B deal. Optical +35%. 171-year moat in glass science.', poorna:true },
+    { rank:5, ticker:'VRT', exchange:'NYSE', company:'Vertiv', layer:'4', layerName:'Power & Cooling', mcap:95, mcapStr:'$95B', rev:28, revStr:'+28%', gm:37, gmStr:'37%', aidc:100, aidcStr:'100%', founder:'No', moat:'High', status:'Promoted', thesis:'Pure-play DC power/cooling. $15B backlog doubled. 252% Q4 order growth.' },
     { rank:6, ticker:'MOD', exchange:'NYSE', company:'Modine Manufacturing', layer:'4', layerName:'Power & Cooling', mcap:6, mcapStr:'$6B', rev:24, revStr:'+24%', gm:23, gmStr:'22-25%', aidc:27, aidcStr:'27%', founder:'No', moat:'Medium', status:'Screening', thesis:'DC thermal management +70% growth. Pivoting from legacy auto to AI cooling.' },
     { rank:7, ticker:'MRVL', exchange:'NASDAQ', company:'Marvell Technology', layer:'1', layerName:'Silicon & Compute', mcap:105, mcapStr:'$105B', rev:37, revStr:'+37%', gm:59, gmStr:'59%', aidc:73, aidcStr:'73%', founder:'No', moat:'High', status:'Screening', thesis:'Custom silicon & electro-optics for hyperscalers. 73% AI/DC revenue.' },
     { rank:8, ticker:'APH', exchange:'NYSE', company:'Amphenol', layer:'2', layerName:'Connectivity', mcap:100, mcapStr:'$100B', rev:37, revStr:'+37%', gm:33, gmStr:'33%', aidc:38, aidcStr:'38%', founder:'No*', moat:'High', status:'Screening', thesis:'Connector kingpin. 37% organic growth. 20-year CEO. Everywhere in the rack.' },
@@ -828,7 +829,7 @@ const top5Details = [
 const tbody = document.getElementById('pipeline-body');
 function renderTable(data) {
     tbody.innerHTML = data.map(c => {
-        const statusClass = c.status === 'Top Pick' ? 'badge-top' : c.status === 'Screening' ? 'badge-screening' : c.status === 'Watch' ? 'badge-watch' : 'badge-pass';
+        const statusClass = c.status === 'Promoted' ? 'badge-promoted' : c.status === 'Top Pick' ? 'badge-top' : c.status === 'Screening' ? 'badge-screening' : c.status === 'Watch' ? 'badge-watch' : 'badge-pass';
         const moatClass = c.moat === 'High' ? 'moat-high' : c.moat === 'Medium' ? 'moat-medium' : 'moat-low';
         const poornaTag = c.poorna ? '<span class="poorna-tag">Poorna\'s pick</span>' : '';
         return `<tr>
@@ -871,7 +872,7 @@ document.querySelectorAll('#pipeline-table thead th[data-col]').forEach(th => {
                 case 'aidc': va = a.aidc; vb = b.aidc; break;
                 case 'founder': va = a.founder; vb = b.founder; return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
                 case 'moat': const mo = {High:3,Medium:2,Low:1}; va = mo[a.moat]||0; vb = mo[b.moat]||0; break;
-                case 'status': const so = {'Top Pick':4,Screening:3,Watch:2,Pass:1}; va = so[a.status]||0; vb = so[b.status]||0; break;
+                case 'status': const so = {'Promoted':5,'Top Pick':4,Screening:3,Watch:2,Pass:1}; va = so[a.status]||0; vb = so[b.status]||0; break;
                 default: va = a.rank; vb = b.rank;
             }
             return sortAsc ? va - vb : vb - va;

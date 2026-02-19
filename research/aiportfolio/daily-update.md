@@ -1,57 +1,80 @@
 # Tiger Portfolio — Daily Update
-## Tuesday, February 17, 2026 — 2 PM Lock
+## Wednesday, February 18, 2026 — 2 PM Lock
 
 ### Portfolio Status
-- **Cash:** $100,000 (100%)
-- **Positions:** 0
-- **Heat:** 0%
-- **Benchmark:** SMH $409.46 (+0.43%)
-- **Alpha vs SMH:** -0.43% (flat cash vs rising benchmark)
+- **Total Value:** $99,867 (-0.13%)
+- **Cash:** $94,975 (95.1%)
+- **Invested:** $4,892 (4.9%) — ANET starter
+- **Unrealized P&L:** -$133 (-2.6% on position)
+- **Benchmark:** SMH $414.16 (+1.63% since inception)
+- **Alpha vs SMH:** -1.74%
+- **Macro Regime:** BULLISH 🟢 (Monetary: loose +0.50, Sentiment: risk-on +0.40)
 
 ---
 
-### Market Snapshot (2:00 PM ET)
-| Index | Price | Change |
-|-------|-------|--------|
-| SPY | $684.12 | +0.35% |
-| SMH | $409.46 | +0.43% |
+### Open Positions
+| Ticker | Shares | Avg Cost | Price | P&L | P&L% |
+|--------|--------|----------|-------|-----|------|
+| ANET | 35 | $143.58 | $140.10 | -$133 | -2.6% |
+
+ANET down -1.74% today — only red name on the watchlist. Position well within tolerance (stop at $120).
 
 ---
 
-### Watchlist Prices (Live at 2 PM)
-| Ticker | Price | Day Chg | Regime (Feb 6) | Notes |
-|--------|-------|---------|-----------------|-------|
-| ALAB | $124.11 | -4.03% | Mixed | Continued weakness post-earnings selloff |
-| NVT | $116.49 | +2.86% | Goldilocks | Bouncing off POC, approaching $121 breakout |
-| FN | $498.50 | +0.59% | Goldilocks | Holding above entry zone ceiling |
-| CRDO | $125.62 | +3.44% | Goldilocks | Recovery from Stage 4, pre-announcement rally continuing |
-| COHR | $223.06 | +2.69% | Goldilocks | Strong but weakened thesis |
-| PWR | $530.48 | +1.22% | Trending | New ATH territory |
-| TSEM | $127.66 | -0.84% | Trending | Slight pullback, still extended |
-| ANET | $143.71 | +1.50% | Goldilocks | Best setup — approaching entry zone ($135-138) |
+### Watchlist Prices (2 PM ET)
+| Ticker | Price | Day Chg | Regime (Today) | Regime Chg? |
+|--------|-------|---------|----------------|-------------|
+| ALAB | $129.54 | +4.73% | Transition ⚠️ | was Mixed |
+| NVT | $116.23 | +0.88% | Chop 🔄 | — |
+| FN | $515.41 | +3.75% | Goldilocks 🎯 | was Chop |
+| CRDO | $132.20 | +5.93% | Goldilocks 🎯 | was Mixed |
+| COHR | $225.77 | +2.64% | Goldilocks 🎯 | was Mixed |
+| PWR | $527.35 | +0.42% | Trending ✅ | was Goldilocks |
+| TSEM | $128.82 | +0.81% | Goldilocks 🎯 | — |
+| ANET | $140.10 | -1.74% | Mixed | was Chop |
+
+---
+
+### Regime Changes (6 of 8 tickers changed)
+- **ALAB:** Mixed → Transition ⚠️ — weakening further, trend accuracy just 21%
+- **FN:** Chop → Goldilocks 🎯 — both trend (57%) and mean-rev (100%) working
+- **CRDO:** Mixed → Goldilocks 🎯 — trend 57%, mean-rev 92%
+- **COHR:** Mixed → Goldilocks 🎯 — improving across the board
+- **PWR:** Goldilocks → Trending ✅ — strong trend accuracy at 89%
+- **ANET:** Chop → Mixed — marginal improvement, trend 38%, mean-rev 50%
+
+**Note:** Macro regime upgraded to BULLISH (was CAUTIOUS). Sentiment flipped risk-on.
+
+---
+
+### Key Technical Readings
+| Ticker | RSI | MA Aligned | MACD | Dist SMA200 |
+|--------|-----|-----------|------|-------------|
+| ALAB | 38.3 | ❌ | -4.20 ↑ | -13.3% |
+| NVT | 53.4 | ✅ | -0.21 ↑ | +25.9% |
+| FN | 52.5 | ✅ | +3.03 ↑ | +39.5% |
+| CRDO | 51.2 | ❌ | +2.12 ↑ | +7.0% |
+| COHR | 51.9 | ✅ | -1.04 ↑ | +75.4% |
+| PWR | 66.7 | ✅ | +3.02 ↓ | +28.2% |
+| TSEM | 42.6 | ✅ | -1.41 ↓ | +67.1% |
+| ANET | 40.9 | ✅ | -0.08 ↓ | +11.3% |
 
 ---
 
 ### Proformas & Trades
 **No proformas pending.** No trades locked today.
 
-Portfolio remains 100% cash. No positions triggered entry criteria.
-
-### Key Observations
-1. **ALAB** continuing decline (-4% today), now at $124 vs $129 yesterday. Stage 4 confirmed. Wait for base.
-2. **NVT** strong day (+2.9%), approaching critical $121 breakout level. Watch for volume confirmation.
-3. **CRDO** bouncing (+3.4%) on pre-announcement momentum. Still needs to reclaim $128 (VAL) sustainably.
-4. **ANET** remains best positioned — $143.71 with pullback to $135-138 being ideal entry zone.
-
 ### Exit Rules Check
-- No positions → no exit triggers.
+- **ANET** -2.6% — well within tolerance. Thesis intact. No action.
+- No positions down 15%+ or up 50%+.
 
-### Alert Levels (Unchanged)
-- ANET $135-138 (SMA20 pullback entry → 4.1:1 R/R)
-- TSEM $121 (POC pullback entry → 4.67:1 R/R)
-- FN $447-460 (POC/entry zone pullback → 3.04:1 R/R)
-- NVT $103-105 (VWAP pullback) or $121+ (breakout on volume)
+### Observations
+1. **ALAB** big bounce +4.7% but still in transition regime — RSI 38 oversold territory, watching for base formation.
+2. **CRDO** strongest day +5.9%, regime improved to Goldilocks. Worth watching for 11 AM proforma evaluation.
+3. **FN** quietly strong +3.8%, extended 39.5% above SMA200. Goldilocks regime but extension risk is real.
+4. **ANET** our sole position is the only red name today (-1.7%). RSI 40.9 is constructive. MAs aligned. Patience.
+5. **Macro shift to BULLISH** is notable — first time since portfolio inception. Sentiment risk-on + loose monetary = favorable backdrop.
 
 ---
 
-*Regime scoring being updated from Feb 6 → Feb 17. Updated regimes will be in next daily update.*
+*Next: Thursday Feb 19, 11 AM proforma scan*

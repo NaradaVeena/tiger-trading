@@ -514,20 +514,20 @@
             </div>
             <div class="status-item">
                 <span class="status-change negative">
-                    -$35.00 (-0.03%)
+                    -$141.40 (-0.14%)
                 </span>
             </div>
             <div class="status-item">
                 <span>Cash: <span class="status-value">$95K</span></span>
             </div>
             <div class="status-item">
-                <span>Heat: <span class="status-value">4.99%</span></span>
+                <span>Heat: <span class="status-value">4.89%</span></span>
             </div>
             <div class="status-item">
                 <span>SMH: <span class="status-change negative">-0.05%</span></span>
             </div>
             <div class="status-item">
-                <span>α: <span class="status-change positive">+0.02%</span></span>
+                <span>α: <span class="status-change negative">-0.09%</span></span>
             </div>
             <div class="nav-links">
                 <a href="/aiportfolio/" class="active">📊 Dashboard</a>
@@ -566,7 +566,7 @@
             <div class="summary-metric">
                 <div class="label">Unrealized P&L</div>
                 <div class="value negative">
-                    -$35.00
+                    -$141.40
                 </div>
             </div>
             <div class="summary-metric">
@@ -584,8 +584,8 @@
             </div>
             <div class="summary-metric">
                 <div class="label">Alpha (α)</div>
-                <div class="value positive">
-                    +0.02%
+                <div class="value negative">
+                    -0.09%
                 </div>
                 <div class="change neutral">vs SMH</div>
             </div>
@@ -620,13 +620,13 @@
                             <td>stock</td>
                             <td style="text-align: right;" class="currency">35</td>
                             <td style="text-align: right;" class="currency">$143.58</td>
-                            <td style="text-align: right;" class="currency">$142.58</td>
-                            <td style="text-align: right;" class="currency">$4,990.30</td>
+                            <td style="text-align: right;" class="currency">$139.54</td>
+                            <td style="text-align: right;" class="currency">$4,883.90</td>
                             <td style="text-align: right;" class="currency negative">
-                                -$35.00
+                                -$141.40
                             </td>
                             <td style="text-align: right;" class="currency negative">
-                                -0.70%
+                                -2.81%
                             </td>
                             <td style="text-align: right;" class="currency">100.00%</td>
                             <td><a href="#" onclick="alert('Trade action not implemented')" style="color: var(--text-muted);">TRADE</a></td>
@@ -828,6 +828,15 @@
             
             <div class="journal-entry">
                 <div class="journal-meta">
+                    <span>Feb 18, 2026, 02:00 PM</span>
+                    <span class="journal-category">REVIEW</span>
+                    
+                </div>
+                <div class="journal-content">Feb 18 2PM lock: No proformas pending. Markets open post-Presidents Day. Portfolio 100% cash at $99,867. SMH at $414.27 (+1.61% since inception). Regime scoring in progress.</div>
+            </div>
+            
+            <div class="journal-entry">
+                <div class="journal-meta">
                     <span>Feb 17, 2026, 04:26 PM</span>
                     <span class="journal-category">REVIEW</span>
                     
@@ -867,7 +876,7 @@
 
     <div class="terminal-footer">
         <div>🐯 Tiger Portfolio Management System</div>
-        <div>Generated Feb 17, 2026, 09:53 PM • <a href="/aiportfolio-process/" style="color: var(--text-muted);">Rules & Process</a></div>
+        <div>Generated Feb 18, 2026, 04:30 PM • <a href="/aiportfolio-process/" style="color: var(--text-muted);">Rules & Process</a></div>
         <div style="margin-top: 8px; font-size: 11px;">
             For educational purposes only • Not investment advice
         </div>
@@ -910,7 +919,7 @@
         const canvas = document.getElementById('performanceChart');
         if (canvas) {
             const ctx = canvas.getContext('2d');
-            const data = [{"x":0,"y":100000,"portfolioReturn":0,"benchmarkReturn":0,"date":"Feb 14, 2026"},{"x":1,"y":100000,"portfolioReturn":0,"benchmarkReturn":0,"date":"Feb 16, 2026"},{"x":2,"y":99965,"portfolioReturn":-0.034999999999999996,"benchmarkReturn":-0.05150593544590316,"date":"Feb 17, 2026"}];
+            const data = [{"x":0,"y":100000,"portfolioReturn":0,"benchmarkReturn":0,"date":"Feb 14, 2026"},{"x":1,"y":100000,"portfolioReturn":0,"benchmarkReturn":0,"date":"Feb 16, 2026"},{"x":2,"y":99965,"portfolioReturn":-0.034999999999999996,"benchmarkReturn":-0.05150593544590316,"date":"Feb 17, 2026"},{"x":3,"y":99858.59999999999,"portfolioReturn":-0.14140000000000874,"benchmarkReturn":1.1846365152555636,"date":"Feb 18, 2026"}];
             
             const rect = canvas.getBoundingClientRect();
             canvas.width = rect.width * window.devicePixelRatio;

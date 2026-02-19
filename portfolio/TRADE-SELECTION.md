@@ -44,7 +44,7 @@ Every watchlist name sells to hyperscalers and/or NVIDIA/Broadcom. Assess:
 
 HIGH elephant risk doesn't disqualify — but it demands a documented moat thesis and tighter position sizing. If the moat is "they haven't done it yet," that's not a moat.
 
-**Gate 1 fail = no trade.** Pipeline/watch names don't get proformas until promoted.
+**Gate 1 fail = no trade.** Pipeline names that pass Gate 1 are immediately promoted to the watchlist — Gate 2 determines when to enter, not whether to monitor. A name with strong fundamentals must be on the watchlist so we can act when the technical setup arrives. Never leave a fundamentally-qualified name in the pipeline where it won't be actively tracked. (Process update: Feb 19, 2026)
 
 ---
 
