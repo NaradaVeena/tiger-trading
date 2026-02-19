@@ -612,6 +612,22 @@
     </div>
 </div>
 
+<!-- ════════════════ GRADUATED BANNER ════════════════ -->
+<div class="terminal-panel" style="border-color:rgba(139,92,246,0.3);background:rgba(139,92,246,0.05);">
+    <div class="panel-header">
+        <span class="panel-title">✅ Graduated to Watchlist</span>
+        <span style="font-family:var(--terminal-font);font-size:11px;color:#a78bfa;">Gate 1 passed → promoted to active monitoring</span>
+    </div>
+    <div style="padding:12px 16px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;">
+        <a href="/aiportfolio/thesis.html#tsem" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.4);border-radius:6px;color:#a78bfa;text-decoration:none;font-family:var(--terminal-font);font-size:13px;font-weight:600;">TSEM <span style="font-size:10px;color:var(--text-muted);">Feb 16</span></a>
+        <a href="/aiportfolio/thesis.html#anet" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.4);border-radius:6px;color:#a78bfa;text-decoration:none;font-family:var(--terminal-font);font-size:13px;font-weight:600;">ANET <span style="font-size:10px;color:var(--text-muted);">Feb 16</span></a>
+        <a href="/aiportfolio/thesis.html#lite" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.4);border-radius:6px;color:#a78bfa;text-decoration:none;font-family:var(--terminal-font);font-size:13px;font-weight:600;">LITE <span style="font-size:10px;color:var(--text-muted);">Feb 19</span></a>
+        <a href="/aiportfolio/thesis.html#glw" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.4);border-radius:6px;color:#a78bfa;text-decoration:none;font-family:var(--terminal-font);font-size:13px;font-weight:600;">GLW <span style="font-size:10px;color:var(--text-muted);">Feb 19</span></a>
+        <a href="/aiportfolio/thesis.html#vrt" style="display:inline-flex;align-items:center;gap:6px;padding:6px 12px;background:rgba(139,92,246,0.15);border:1px solid rgba(139,92,246,0.4);border-radius:6px;color:#a78bfa;text-decoration:none;font-family:var(--terminal-font);font-size:13px;font-weight:600;">VRT <span style="font-size:10px;color:var(--text-muted);">Feb 19</span></a>
+        <span style="font-size:12px;color:var(--text-muted);margin-left:4px;">→ <a href="/aiportfolio/thesis.html" style="color:var(--blue-bright);">View in Thesis Tracker</a></span>
+    </div>
+</div>
+
 <!-- ════════════════ PIPELINE TABLE ════════════════ -->
 <div class="terminal-panel">
     <div class="panel-header">
@@ -828,7 +844,9 @@ const top5Details = [
 // ── Render Table ──
 const tbody = document.getElementById('pipeline-body');
 function renderTable(data) {
-    tbody.innerHTML = data.map(c => {
+    // Filter out promoted candidates — they live on the watchlist now
+    const active = data.filter(c => c.status !== 'Promoted');
+    tbody.innerHTML = active.map(c => {
         const statusClass = c.status === 'Promoted' ? 'badge-promoted' : c.status === 'Top Pick' ? 'badge-top' : c.status === 'Screening' ? 'badge-screening' : c.status === 'Watch' ? 'badge-watch' : 'badge-pass';
         const moatClass = c.moat === 'High' ? 'moat-high' : c.moat === 'Medium' ? 'moat-medium' : 'moat-low';
         const poornaTag = c.poorna ? '<span class="poorna-tag">Poorna\'s pick</span>' : '';
@@ -883,7 +901,11 @@ document.querySelectorAll('#pipeline-table thead th[data-col]').forEach(th => {
 
 // ── Render Top 5 Cards ──
 const cardsContainer = document.getElementById('top5-cards');
-cardsContainer.innerHTML = top5Details.map(c => {
+const activeTop5 = top5Details.filter(c => c.status !== 'Promoted');
+if (activeTop5.length === 0) {
+    cardsContainer.innerHTML = `<div style="padding:20px;color:var(--text-muted);font-size:13px;text-align:center;border:1px dashed var(--border);border-radius:6px;">All top picks have been promoted to the watchlist. See <a href="/aiportfolio/thesis.html" style="color:var(--blue-bright);">Thesis Tracker</a> for active coverage.</div>`;
+} else {
+cardsContainer.innerHTML = activeTop5.map(c => {
     const poornaTag = c.poorna ? '<span class="poorna-tag">Poorna\'s pick</span>' : '';
     return `<div class="pick-card" id="card-${c.ticker}">
         <div class="pick-card-header" onclick="toggleCard('${c.ticker}')">
@@ -903,6 +925,7 @@ cardsContainer.innerHTML = top5Details.map(c => {
         </div>
     </div>`;
 }).join('');
+} // end else (activeTop5)
 
 function toggleCard(ticker) {
     document.getElementById('card-' + ticker).classList.toggle('open');
