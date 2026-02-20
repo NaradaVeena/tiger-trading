@@ -92,6 +92,10 @@ function generateHTML() {
   const benchmarkInceptionPrice = parseFloat(db.prepare("SELECT value FROM config WHERE key = 'benchmark_inception_price'").get()?.value || '0');
   const latestBenchmark = db.prepare('SELECT * FROM benchmark WHERE ticker = ? ORDER BY date DESC LIMIT 1').get(benchmarkTicker);
   
+  // Get macro regime
+  const macro = db.prepare('SELECT * FROM macro_regime ORDER BY date DESC LIMIT 1').get();
+  const tickerRegimes = db.prepare('SELECT ticker, regime FROM regime_summary WHERE date = (SELECT MAX(date) FROM regime_summary)').all();
+  
   // Calculate totals
   let totalInvested = 0;
   let totalUnrealizedPnL = 0;
@@ -727,6 +731,61 @@ function generateHTML() {
                 <div class="change neutral">vs ${benchmarkTicker}</div>
             </div>
         </div>
+
+        ${macro ? `
+        <!-- Macro Regime Panel -->
+        <div class="terminal-panel">
+            <div class="panel-header">
+                <div class="panel-title">🌐 Macro Regime & Indicators</div>
+                <div class="panel-subtitle">Market conditions and per-ticker technical status • Updated ${formatDate(macro.date)}</div>
+            </div>
+            <div style="padding: 16px;">
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 20px;">
+                    <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 4px; text-align: center;">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Macro Regime</div>
+                        <div style="font-size: 14px; font-weight: 600; color: ${macro.macro_regime === 'bullish' ? 'var(--green)' : macro.macro_regime === 'bearish' ? 'var(--red)' : 'var(--amber)'}; text-transform: uppercase;">
+                            ${macro.macro_regime || 'UNKNOWN'}
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 4px; text-align: center;">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Monetary</div>
+                        <div style="font-size: 14px; font-weight: 600; color: ${macro.monetary_regime === 'loose' ? 'var(--green)' : macro.monetary_regime === 'tight' ? 'var(--red)' : 'var(--amber)'}; text-transform: uppercase;">
+                            ${macro.monetary_regime || 'NEUTRAL'} (${(macro.monetary_score || 0).toFixed(2)})
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 4px; text-align: center;">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Sentiment</div>
+                        <div style="font-size: 14px; font-weight: 600; color: ${macro.sentiment_regime === 'risk-on' ? 'var(--green)' : macro.sentiment_regime === 'risk-off' ? 'var(--red)' : 'var(--amber)'}; text-transform: uppercase;">
+                            ${macro.sentiment_regime || 'NEUTRAL'} (${(macro.sentiment_score || 0).toFixed(2)})
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 4px; text-align: center;">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">VIX / 10Y Yield</div>
+                        <div style="font-size: 14px; font-weight: 600;">
+                            ${macro.vix_price ? macro.vix_price.toFixed(2) : '-'} / ${macro.tnx_yield ? macro.tnx_yield.toFixed(3) : '-'}%
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 4px; text-align: center;">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">DXY Index</div>
+                        <div style="font-size: 14px; font-weight: 600;">
+                            ${macro.dxy_price ? macro.dxy_price.toFixed(3) : '-'}
+                        </div>
+                    </div>
+                </div>
+
+                <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">Ticker Regimes</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    ${tickerRegimes.map(r => `
+                    <div style="background: var(--bg-tertiary); padding: 6px 12px; border-radius: 20px; font-size: 12px; border: 1px solid var(--border); display: flex; align-items: center; gap: 6px;">
+                        <a href="/aiportfolio/thesis.html#${r.ticker.toLowerCase()}" class="ticker" style="color: var(--text-primary); text-decoration: none;">${r.ticker}</a>
+                        <span style="height: 4px; width: 4px; border-radius: 50%; background: var(--text-muted);"></span>
+                        <span style="color: ${r.regime === 'trending' ? 'var(--green)' : r.regime === 'choppy' ? 'var(--amber)' : r.regime === 'transition' ? 'var(--blue)' : 'var(--text-muted)'}; font-weight: 500; text-transform: uppercase;">${r.regime}</span>
+                    </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+        ` : ''}
 
         <!-- Current Positions -->
         <div class="terminal-panel">

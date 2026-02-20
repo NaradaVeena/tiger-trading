@@ -1,5 +1,5 @@
 # Tiger Portfolio — Execution Context
-**Last updated:** Feb 15, 2026, 6:35 PM EST
+**Last updated:** Feb 19, 2026, 2:15 PM EST
 
 ## Objective
 Beat SMH (VanEck Semiconductor ETF) over 3-5 years through concentrated, high-conviction AI infrastructure picks. $100K starting capital. Inception: Feb 14, 2026.
@@ -9,12 +9,12 @@ Beat SMH (VanEck Semiconductor ETF) over 3-5 years through concentrated, high-co
 - Track only. Do NOT chase benchmark components or rush to deploy cash. Cash is a position.
 
 ## Current Portfolio State
-- **Total Value:** $100,000
-- **Cash:** $100,000 (100%)
-- **Positions:** None (all cash)
-- **Heat:** 0%
-- **Alpha vs SMH:** 0.00%
-- **Pending Proformas:** NVT BUY 44 shares @ $113.25 ($4,983)
+- **Total Value:** $99,788 (-0.21%)
+- **Cash:** $94,975 (95.2%)
+- **Positions:** ANET (4.8%)
+- **Heat:** 4.8%
+- **Alpha vs SMH:** -0.28%
+- **Pending Proformas:** None
 
 ## Watchlist
 **Source of truth: portfolio DB thesis table.** Query with:
@@ -82,12 +82,19 @@ Every proforma includes a scorecard. No surprises.
 ## Signal Group
 - **Tigerrr** — can't send directly from cron (base64 ID bug). Write updates to portal + announce to main session.
 
-## Current Technical Snapshot (Feb 15, 2026)
-| Ticker | Price | SMA5 | SMA20 | SMA50 | SMA200 | RSI | VP POC | VP VAH | VP VAL |
-|--------|-------|------|-------|-------|--------|-----|--------|--------|--------|
-| ALAB | $129.32 | $154.03 | $161.97 | $163.06 | $149.32* | 38.8 | $144.79 | $188.06 | $138.94 |
-| CRDO | $121.44 | — | $126.05 | — | — | 45.3 | $141.04 | $157.98 | $118.11 |
+## Current Technical Snapshot (Feb 19, 2026)
+| Ticker | Price | SMA20 | SMA50 | SMA200 | RSI | VP POC | VP VAH | VP VAL | Regime |
+|--------|-------|-------|-------|--------|-----|--------|--------|--------|--------|
+| ALAB | $154.13 | $161.43 | $163.06* | $149.32* | 40.9 | $142.87 | $190.15 | $139.23 | Chop 🔄 |
+| NVT | $116.71 | $113.92 | $108.69 | $99.85 | 59.1 | $112.36 | $116.75 | $99.19 | Chop 🔄 |
+| FN | $512.61 | $481.05 | $477.80 | $416.72 | 57.9 | $447.13 | $518.28 | $375.98 | Chop 🔄 |
+| CRDO | $128.41 | $122.94 | $138.24 | $117.82 | 49.7 | $151.00 | $165.95 | $124.09 | Mixed |
+| COHR | $230.50 | $218.12 | $199.72 | $155.67 | 59.8 | $115.55 | $190.17 | $84.35 | Trending ✅ |
+| PWR | $553.10 | $496.52 | $462.46 | $411.38 | 72.7 | $437.99 | $484.25 | $407.68 | Trending ✅ |
+| TSEM | $125.81 | $132.61 | $126.03 | $109.12 | 46.3 | $128.40 | $141.10 | $75.06 | Goldilocks 🎯 |
+| ANET | $137.50 | $140.08 | $133.57 | $128.89 | 50.2 | $141.83 | $148.97 | $127.12 | Chop 🔄 |
+| LITE | $629.69? | $480.93 | $407.85 | $328.12 | 77.2 | $167.52 | $353.82 | $111.20 | Mixed |
+| GLW | $131.02 | $116.07 | $100.10 | $84.22 | 71.1 | $88.47 | $96.43 | $70.72 | Mixed |
+| VRT | $244.65 | $204.88 | $183.38 | $145.12 | 72.0 | $160.89 | $196.24 | $143.79 | Mixed |
 
-*SMA200 from 1y chart. Others from 6mo/3mo.
-
-Markets closed Mon Feb 16 (Presidents' Day). First real trading day: Tuesday Feb 17.
+Markets closed Mon Feb 16. Trading week shortened.

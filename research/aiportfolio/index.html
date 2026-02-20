@@ -514,20 +514,20 @@
             </div>
             <div class="status-item">
                 <span class="status-change negative">
-                    -$141.40 (-0.14%)
+                    -$222.25 (-0.22%)
                 </span>
             </div>
             <div class="status-item">
                 <span>Cash: <span class="status-value">$95K</span></span>
             </div>
             <div class="status-item">
-                <span>Heat: <span class="status-value">4.89%</span></span>
+                <span>Heat: <span class="status-value">4.81%</span></span>
             </div>
             <div class="status-item">
-                <span>SMH: <span class="status-change negative">-0.05%</span></span>
+                <span>SMH: <span class="status-change positive">+1.18%</span></span>
             </div>
             <div class="status-item">
-                <span>α: <span class="status-change negative">-0.09%</span></span>
+                <span>α: <span class="status-change negative">-1.41%</span></span>
             </div>
             <div class="nav-links">
                 <a href="/aiportfolio/" class="active">📊 Dashboard</a>
@@ -566,7 +566,7 @@
             <div class="summary-metric">
                 <div class="label">Unrealized P&L</div>
                 <div class="value negative">
-                    -$141.40
+                    -$222.25
                 </div>
             </div>
             <div class="summary-metric">
@@ -577,19 +577,134 @@
             </div>
             <div class="summary-metric">
                 <div class="label">SMH Return</div>
-                <div class="value negative">
-                    -0.05%
+                <div class="value positive">
+                    +1.18%
                 </div>
-                <div class="change neutral">$407.51</div>
+                <div class="change neutral">$412.55</div>
             </div>
             <div class="summary-metric">
                 <div class="label">Alpha (α)</div>
                 <div class="value negative">
-                    -0.09%
+                    -1.41%
                 </div>
                 <div class="change neutral">vs SMH</div>
             </div>
         </div>
+
+        
+        <!-- Macro Regime Panel -->
+        <div class="terminal-panel">
+            <div class="panel-header">
+                <div class="panel-title">🌐 Macro Regime & Indicators</div>
+                <div class="panel-subtitle">Market conditions and per-ticker technical status • Updated Feb 19, 2026</div>
+            </div>
+            <div style="padding: 16px;">
+                <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-bottom: 20px;">
+                    <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 4px; text-align: center;">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Macro Regime</div>
+                        <div style="font-size: 14px; font-weight: 600; color: var(--amber); text-transform: uppercase;">
+                            neutral
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 4px; text-align: center;">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Monetary</div>
+                        <div style="font-size: 14px; font-weight: 600; color: var(--green); text-transform: uppercase;">
+                            loose (0.50)
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 4px; text-align: center;">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Sentiment</div>
+                        <div style="font-size: 14px; font-weight: 600; color: var(--amber); text-transform: uppercase;">
+                            neutral (-0.20)
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 4px; text-align: center;">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">VIX / 10Y Yield</div>
+                        <div style="font-size: 14px; font-weight: 600;">
+                            20.58 / 4.069%
+                        </div>
+                    </div>
+                    <div style="background: var(--bg-tertiary); padding: 12px; border-radius: 4px; text-align: center;">
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">DXY Index</div>
+                        <div style="font-size: 14px; font-weight: 600;">
+                            97.868
+                        </div>
+                    </div>
+                </div>
+
+                <div style="font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 8px; text-transform: uppercase;">Ticker Regimes</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    
+                    <div style="background: var(--bg-tertiary); padding: 6px 12px; border-radius: 20px; font-size: 12px; border: 1px solid var(--border); display: flex; align-items: center; gap: 6px;">
+                        <a href="/aiportfolio/thesis.html#alab" class="ticker" style="color: var(--text-primary); text-decoration: none;">ALAB</a>
+                        <span style="height: 4px; width: 4px; border-radius: 50%; background: var(--text-muted);"></span>
+                        <span style="color: var(--text-muted); font-weight: 500; text-transform: uppercase;">chop</span>
+                    </div>
+                    
+                    <div style="background: var(--bg-tertiary); padding: 6px 12px; border-radius: 20px; font-size: 12px; border: 1px solid var(--border); display: flex; align-items: center; gap: 6px;">
+                        <a href="/aiportfolio/thesis.html#anet" class="ticker" style="color: var(--text-primary); text-decoration: none;">ANET</a>
+                        <span style="height: 4px; width: 4px; border-radius: 50%; background: var(--text-muted);"></span>
+                        <span style="color: var(--text-muted); font-weight: 500; text-transform: uppercase;">chop</span>
+                    </div>
+                    
+                    <div style="background: var(--bg-tertiary); padding: 6px 12px; border-radius: 20px; font-size: 12px; border: 1px solid var(--border); display: flex; align-items: center; gap: 6px;">
+                        <a href="/aiportfolio/thesis.html#cohr" class="ticker" style="color: var(--text-primary); text-decoration: none;">COHR</a>
+                        <span style="height: 4px; width: 4px; border-radius: 50%; background: var(--text-muted);"></span>
+                        <span style="color: var(--green); font-weight: 500; text-transform: uppercase;">trending</span>
+                    </div>
+                    
+                    <div style="background: var(--bg-tertiary); padding: 6px 12px; border-radius: 20px; font-size: 12px; border: 1px solid var(--border); display: flex; align-items: center; gap: 6px;">
+                        <a href="/aiportfolio/thesis.html#crdo" class="ticker" style="color: var(--text-primary); text-decoration: none;">CRDO</a>
+                        <span style="height: 4px; width: 4px; border-radius: 50%; background: var(--text-muted);"></span>
+                        <span style="color: var(--text-muted); font-weight: 500; text-transform: uppercase;">mixed</span>
+                    </div>
+                    
+                    <div style="background: var(--bg-tertiary); padding: 6px 12px; border-radius: 20px; font-size: 12px; border: 1px solid var(--border); display: flex; align-items: center; gap: 6px;">
+                        <a href="/aiportfolio/thesis.html#fn" class="ticker" style="color: var(--text-primary); text-decoration: none;">FN</a>
+                        <span style="height: 4px; width: 4px; border-radius: 50%; background: var(--text-muted);"></span>
+                        <span style="color: var(--text-muted); font-weight: 500; text-transform: uppercase;">chop</span>
+                    </div>
+                    
+                    <div style="background: var(--bg-tertiary); padding: 6px 12px; border-radius: 20px; font-size: 12px; border: 1px solid var(--border); display: flex; align-items: center; gap: 6px;">
+                        <a href="/aiportfolio/thesis.html#glw" class="ticker" style="color: var(--text-primary); text-decoration: none;">GLW</a>
+                        <span style="height: 4px; width: 4px; border-radius: 50%; background: var(--text-muted);"></span>
+                        <span style="color: var(--text-muted); font-weight: 500; text-transform: uppercase;">mixed</span>
+                    </div>
+                    
+                    <div style="background: var(--bg-tertiary); padding: 6px 12px; border-radius: 20px; font-size: 12px; border: 1px solid var(--border); display: flex; align-items: center; gap: 6px;">
+                        <a href="/aiportfolio/thesis.html#lite" class="ticker" style="color: var(--text-primary); text-decoration: none;">LITE</a>
+                        <span style="height: 4px; width: 4px; border-radius: 50%; background: var(--text-muted);"></span>
+                        <span style="color: var(--text-muted); font-weight: 500; text-transform: uppercase;">mixed</span>
+                    </div>
+                    
+                    <div style="background: var(--bg-tertiary); padding: 6px 12px; border-radius: 20px; font-size: 12px; border: 1px solid var(--border); display: flex; align-items: center; gap: 6px;">
+                        <a href="/aiportfolio/thesis.html#nvt" class="ticker" style="color: var(--text-primary); text-decoration: none;">NVT</a>
+                        <span style="height: 4px; width: 4px; border-radius: 50%; background: var(--text-muted);"></span>
+                        <span style="color: var(--text-muted); font-weight: 500; text-transform: uppercase;">chop</span>
+                    </div>
+                    
+                    <div style="background: var(--bg-tertiary); padding: 6px 12px; border-radius: 20px; font-size: 12px; border: 1px solid var(--border); display: flex; align-items: center; gap: 6px;">
+                        <a href="/aiportfolio/thesis.html#pwr" class="ticker" style="color: var(--text-primary); text-decoration: none;">PWR</a>
+                        <span style="height: 4px; width: 4px; border-radius: 50%; background: var(--text-muted);"></span>
+                        <span style="color: var(--green); font-weight: 500; text-transform: uppercase;">trending</span>
+                    </div>
+                    
+                    <div style="background: var(--bg-tertiary); padding: 6px 12px; border-radius: 20px; font-size: 12px; border: 1px solid var(--border); display: flex; align-items: center; gap: 6px;">
+                        <a href="/aiportfolio/thesis.html#tsem" class="ticker" style="color: var(--text-primary); text-decoration: none;">TSEM</a>
+                        <span style="height: 4px; width: 4px; border-radius: 50%; background: var(--text-muted);"></span>
+                        <span style="color: var(--text-muted); font-weight: 500; text-transform: uppercase;">goldilocks</span>
+                    </div>
+                    
+                    <div style="background: var(--bg-tertiary); padding: 6px 12px; border-radius: 20px; font-size: 12px; border: 1px solid var(--border); display: flex; align-items: center; gap: 6px;">
+                        <a href="/aiportfolio/thesis.html#vrt" class="ticker" style="color: var(--text-primary); text-decoration: none;">VRT</a>
+                        <span style="height: 4px; width: 4px; border-radius: 50%; background: var(--text-muted);"></span>
+                        <span style="color: var(--text-muted); font-weight: 500; text-transform: uppercase;">mixed</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
 
         <!-- Current Positions -->
         <div class="terminal-panel">
@@ -620,13 +735,13 @@
                             <td>stock</td>
                             <td style="text-align: right;" class="currency">35</td>
                             <td style="text-align: right;" class="currency">$143.58</td>
-                            <td style="text-align: right;" class="currency">$139.54</td>
-                            <td style="text-align: right;" class="currency">$4,883.90</td>
+                            <td style="text-align: right;" class="currency">$137.23</td>
+                            <td style="text-align: right;" class="currency">$4,803.05</td>
                             <td style="text-align: right;" class="currency negative">
-                                -$141.40
+                                -$222.25
                             </td>
                             <td style="text-align: right;" class="currency negative">
-                                -2.81%
+                                -4.42%
                             </td>
                             <td style="text-align: right;" class="currency">100.00%</td>
                             <td><a href="#" onclick="alert('Trade action not implemented')" style="color: var(--text-muted);">TRADE</a></td>
@@ -721,6 +836,30 @@
                         </tr>
                         
                         <tr class="thesis-row" onclick="toggleThesis(this)">
+                            <td><a href="/aiportfolio/thesis.html#glw" class="ticker">GLW</a></td>
+                            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">Corning Incorporated</td>
+                            <td><span class="status-badge category-Core">CORE</span></td>
+                            <td><span class="status-badge status-active">ACTIVE</span></td>
+                            <td>
+                                <div class="thesis-truncated" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;">Passive optical infrastructure giant with 171-year glass science moat playing AI buildout through optical fiber/cable demand for hyperscale data centers. Meta B multiyear deal anchors US capacity. Optical segment +24% YoY. Springboard plan targets 1B incremental revenue by 2028 (7.4B total). Poorna conviction pick. GLW occupies a differentiated layer vs COHR/FN/LITE — it makes the passive conduit (fiber, cable, connectivity) that all active optical signals travel through. AI data center buildout requires massive fiber deployment between racks, pods, and campuses. Passive infrastructure is less cyclical than active components, provides steady revenue anchor. Baker-adjacent: not in his explicit AI interconnect thesis but benefits directly from capex surge flowing into physical data center infrastructure.</div>
+                                <div class="thesis-full">Passive optical infrastructure giant with 171-year glass science moat playing AI buildout through optical fiber/cable demand for hyperscale data centers. Meta B multiyear deal anchors US capacity. Optical segment +24% YoY. Springboard plan targets 1B incremental revenue by 2028 (7.4B total). Poorna conviction pick. GLW occupies a differentiated layer vs COHR/FN/LITE — it makes the passive conduit (fiber, cable, connectivity) that all active optical signals travel through. AI data center buildout requires massive fiber deployment between racks, pods, and campuses. Passive infrastructure is less cyclical than active components, provides steady revenue anchor. Baker-adjacent: not in his explicit AI interconnect thesis but benefits directly from capex surge flowing into physical data center infrastructure.</div>
+                            </td>
+                            <td>Feb 18, 2026</td>
+                        </tr>
+                        
+                        <tr class="thesis-row" onclick="toggleThesis(this)">
+                            <td><a href="/aiportfolio/thesis.html#lite" class="ticker">LITE</a></td>
+                            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">Lumentum Holdings</td>
+                            <td><span class="status-badge category-Growth">GROWTH</span></td>
+                            <td><span class="status-badge status-active">ACTIVE</span></td>
+                            <td>
+                                <div class="thesis-truncated" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;">Upstream EML laser manufacturer supplying the optical components inside every high-speed transceiver and co-packaged optic (CPO). 86% cloud revenue. Two new revenue categories not yet fully priced: (1) Optical Circuit Switch (OCS) — new intelligent optical switching category for AI scale-out networks, 00M+ backlog shipping H2 2026; (2) CPO — LITE supplies EML laser chips that go into CPO modules from COHR, FN, and others. Q3 FY2026 guidance 05M (~85% YoY growth). Baker-perfect alignment: optical interconnects are one of the two clearest AI infrastructure plays in his framework. Upstream positioning means LITE captures value across the entire optical supply chain regardless of which module/transceiver maker wins.</div>
+                                <div class="thesis-full">Upstream EML laser manufacturer supplying the optical components inside every high-speed transceiver and co-packaged optic (CPO). 86% cloud revenue. Two new revenue categories not yet fully priced: (1) Optical Circuit Switch (OCS) — new intelligent optical switching category for AI scale-out networks, 00M+ backlog shipping H2 2026; (2) CPO — LITE supplies EML laser chips that go into CPO modules from COHR, FN, and others. Q3 FY2026 guidance 05M (~85% YoY growth). Baker-perfect alignment: optical interconnects are one of the two clearest AI infrastructure plays in his framework. Upstream positioning means LITE captures value across the entire optical supply chain regardless of which module/transceiver maker wins.</div>
+                            </td>
+                            <td>Feb 18, 2026</td>
+                        </tr>
+                        
+                        <tr class="thesis-row" onclick="toggleThesis(this)">
                             <td><a href="/aiportfolio/thesis.html#nvt" class="ticker">NVT</a></td>
                             <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">nVent Electric</td>
                             <td><span class="status-badge category-core">CORE</span></td>
@@ -755,41 +894,17 @@
                             </td>
                             <td>Feb 16, 2026</td>
                         </tr>
-
-                        <tr class="thesis-row" onclick="toggleThesis(this)">
-                            <td><a href="/aiportfolio/thesis.html#lite" class="ticker">LITE</a></td>
-                            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">Lumentum Holdings</td>
-                            <td><span class="status-badge category-growth">GROWTH</span></td>
-                            <td><span class="status-badge status-active">ACTIVE</span></td>
-                            <td>
-                                <div class="thesis-truncated" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;">Upstream EML laser manufacturer. OCS ($400M+ backlog) + CPO = two new categories beyond core transceivers. 86% cloud revenue. Q3 guide $805M (+85% YoY). Baker-max optical alignment. Watching for RSI pullback from 74 before entry.</div>
-                                <div class="thesis-full">Upstream EML laser manufacturer. OCS ($400M+ backlog) + CPO = two new categories beyond core transceivers. 86% cloud revenue. Q3 guide $805M (+85% YoY). Baker-max optical alignment. Watching for RSI pullback from 74 before entry.</div>
-                            </td>
-                            <td>Feb 19, 2026</td>
-                        </tr>
-
-                        <tr class="thesis-row" onclick="toggleThesis(this)">
-                            <td><a href="/aiportfolio/thesis.html#glw" class="ticker">GLW</a></td>
-                            <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">Corning</td>
-                            <td><span class="status-badge category-core">CORE</span></td>
-                            <td><span class="status-badge status-active">ACTIVE</span></td>
-                            <td>
-                                <div class="thesis-truncated" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;">171-year glass science moat. Passive optical infrastructure (fiber/cable) for AI clusters. Meta $6B deal. Springboard: $27.4B revenue target by 2028 (+$11B). Poorna conviction pick. Watching SMA50 ~$99 for entry.</div>
-                                <div class="thesis-full">171-year glass science moat. Passive optical infrastructure (fiber/cable) for AI clusters. Meta $6B deal. Springboard: $27.4B revenue target by 2028 (+$11B). Poorna conviction pick. Watching SMA50 ~$99 for entry.</div>
-                            </td>
-                            <td>Feb 19, 2026</td>
-                        </tr>
-
+                        
                         <tr class="thesis-row" onclick="toggleThesis(this)">
                             <td><a href="/aiportfolio/thesis.html#vrt" class="ticker">VRT</a></td>
                             <td style="max-width: 150px; overflow: hidden; text-overflow: ellipsis;">Vertiv Holdings</td>
-                            <td><span class="status-badge category-core">CORE</span></td>
+                            <td><span class="status-badge category-Core">CORE</span></td>
                             <td><span class="status-badge status-active">ACTIVE</span></td>
                             <td>
-                                <div class="thesis-truncated" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;">Pure-play DC power/cooling — 100% AI/DC revenue vs NVT's 30%. $15B backlog 2× YoY, 252% Q4 order growth. Baker-max liquid cooling alignment. Watching SMA50 ~$195–210 for entry.</div>
-                                <div class="thesis-full">Pure-play DC power/cooling — 100% AI/DC revenue vs NVT's 30%. $15B backlog 2× YoY, 252% Q4 order growth. Baker-max liquid cooling alignment. Watching SMA50 ~$195–210 for entry.</div>
+                                <div class="thesis-truncated" style="max-width: 300px; overflow: hidden; text-overflow: ellipsis;">Pure-play data center power and cooling infrastructure — 100% AI/DC revenue exposure vs NVT's ~30%. 5B backlog doubled YoY; 252% Q4 order growth. Liquid cooling and power management for AI clusters. While NVT is a diversified industrial with a DC segment, VRT is fully dedicated: UPS systems, PDUs, thermal management, and liquid cooling purpose-built for hyperscale AI data centers. Direct Baker alignment — he identifies liquid cooling as mandatory infrastructure (30kW → 130kW per rack with Blackwell) and VRT's product suite is exactly the answer. Higher revenue growth rate (28%) than NVT at the company level because the full company is exposed to AI tailwinds, not just a segment. Organic orders +252% Q4 suggests capex visibility extends well into 2027.</div>
+                                <div class="thesis-full">Pure-play data center power and cooling infrastructure — 100% AI/DC revenue exposure vs NVT's ~30%. 5B backlog doubled YoY; 252% Q4 order growth. Liquid cooling and power management for AI clusters. While NVT is a diversified industrial with a DC segment, VRT is fully dedicated: UPS systems, PDUs, thermal management, and liquid cooling purpose-built for hyperscale AI data centers. Direct Baker alignment — he identifies liquid cooling as mandatory infrastructure (30kW → 130kW per rack with Blackwell) and VRT's product suite is exactly the answer. Higher revenue growth rate (28%) than NVT at the company level because the full company is exposed to AI tailwinds, not just a segment. Organic orders +252% Q4 suggests capex visibility extends well into 2027.</div>
                             </td>
-                            <td>Feb 19, 2026</td>
+                            <td>Feb 18, 2026</td>
                         </tr>
                         
                     </tbody>
@@ -819,6 +934,32 @@
                         </tr>
                     </thead>
                     <tbody>
+                        
+                        <tr>
+                            <td>Feb 19, 2026<br><span style="font-size:11px;color:var(--text-muted)">14:48:49</span></td>
+                            <td class="ticker">FN</td>
+                            <td><span class="status-badge status-cancelled">BUY</span></td>
+                            <td>stock</td>
+                            <td style="text-align: right;" class="currency">8</td>
+                            <td style="text-align: right;" class="currency">$508.58</td>
+                            <td style="text-align: right;" class="currency">$508.58</td>
+                            <td style="max-width: 300px;">
+                              <details><summary style="cursor:pointer;font-size:12px;color:var(--text-muted);">View reasoning</summary><div style="margin-top:6px;font-size:12px;line-height:1.5;white-space:pre-wrap;">Passes trend criteria with massive volume/gap (+77%), though R/R is hard to structure due to volatility. Score: 4/5.</div></details>
+                            </td>
+                        </tr>
+                        
+                        <tr>
+                            <td>Feb 19, 2026<br><span style="font-size:11px;color:var(--text-muted)">14:48:48</span></td>
+                            <td class="ticker">NVT</td>
+                            <td><span class="status-badge status-cancelled">BUY</span></td>
+                            <td>stock</td>
+                            <td style="text-align: right;" class="currency">34</td>
+                            <td style="text-align: right;" class="currency">$116.33</td>
+                            <td style="text-align: right;" class="currency">$116.33</td>
+                            <td style="max-width: 300px;">
+                              <details><summary style="cursor:pointer;font-size:12px;color:var(--text-muted);">View reasoning</summary><div style="margin-top:6px;font-size:12px;line-height:1.5;white-space:pre-wrap;">Strong Trend Alignment (Price > SMA20 > SMA50), breaking out above POC (12) with volume. Score: 5/5.</div></details>
+                            </td>
+                        </tr>
                         
                         <tr>
                             <td>Feb 17, 2026<br><span style="font-size:11px;color:var(--text-muted)">14:11:59</span></td>
@@ -860,6 +1001,15 @@
         <div class="terminal-panel">
             <div class="panel-header">
                 <div class="panel-title">📝 Trading Journal</div>
+            </div>
+            
+            <div class="journal-entry">
+                <div class="journal-meta">
+                    <span>Feb 19, 2026, 02:01 PM</span>
+                    <span class="journal-category">REVIEW</span>
+                    
+                </div>
+                <div class="journal-content">End of Day Lock</div>
             </div>
             
             <div class="journal-entry">
@@ -912,7 +1062,7 @@
 
     <div class="terminal-footer">
         <div>🐯 Tiger Portfolio Management System</div>
-        <div>Generated Feb 18, 2026, 04:30 PM • <a href="/aiportfolio-process/" style="color: var(--text-muted);">Rules & Process</a></div>
+        <div>Generated Feb 19, 2026, 04:30 PM • <a href="/aiportfolio-process/" style="color: var(--text-muted);">Rules & Process</a></div>
         <div style="margin-top: 8px; font-size: 11px;">
             For educational purposes only • Not investment advice
         </div>
@@ -955,7 +1105,7 @@
         const canvas = document.getElementById('performanceChart');
         if (canvas) {
             const ctx = canvas.getContext('2d');
-            const data = [{"x":0,"y":100000,"portfolioReturn":0,"benchmarkReturn":0,"date":"Feb 14, 2026"},{"x":1,"y":100000,"portfolioReturn":0,"benchmarkReturn":0,"date":"Feb 16, 2026"},{"x":2,"y":99965,"portfolioReturn":-0.034999999999999996,"benchmarkReturn":-0.05150593544590316,"date":"Feb 17, 2026"},{"x":3,"y":99858.59999999999,"portfolioReturn":-0.14140000000000874,"benchmarkReturn":1.1846365152555636,"date":"Feb 18, 2026"}];
+            const data = [{"x":0,"y":100000,"portfolioReturn":0,"benchmarkReturn":0,"date":"Feb 14, 2026"},{"x":1,"y":100000,"portfolioReturn":0,"benchmarkReturn":0,"date":"Feb 16, 2026"},{"x":2,"y":99965,"portfolioReturn":-0.034999999999999996,"benchmarkReturn":-0.05150593544590316,"date":"Feb 17, 2026"},{"x":3,"y":99858.59999999999,"portfolioReturn":-0.14140000000000874,"benchmarkReturn":1.1846365152555636,"date":"Feb 18, 2026"},{"x":4,"y":99777.75,"portfolioReturn":-0.22225,"benchmarkReturn":0.6082605709800748,"date":"Feb 19, 2026"}];
             
             const rect = canvas.getBoundingClientRect();
             canvas.width = rect.width * window.devicePixelRatio;
