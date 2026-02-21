@@ -9,11 +9,11 @@ Beat SMH (VanEck Semiconductor ETF) over 3-5 years through concentrated, high-co
 - Track only. Do NOT chase benchmark components or rush to deploy cash. Cash is a position.
 
 ## Current Portfolio State
-- **Total Value:** $99,788 (-0.21%)
-- **Cash:** $94,975 (95.2%)
-- **Positions:** ANET (4.8%)
-- **Heat:** 4.8%
-- **Alpha vs SMH:** -0.28%
+- **Total Value:** $99,765 (-0.23%)
+- **Cash:** $87,154 (87.3%)
+- **Positions:** ANET (4.8%), COHR (4.0%), PWR (3.9%)
+- **Heat:** 12.7%
+- **Alpha vs SMH:** -2.08%
 - **Pending Proformas:** None
 
 ## Watchlist
@@ -82,19 +82,19 @@ Every proforma includes a scorecard. No surprises.
 ## Signal Group
 - **Tigerrr** — can't send directly from cron (base64 ID bug). Write updates to portal + announce to main session.
 
-## Current Technical Snapshot (Feb 19, 2026)
+## Current Technical Snapshot (Feb 20, 2026)
 | Ticker | Price | SMA20 | SMA50 | SMA200 | RSI | VP POC | VP VAH | VP VAL | Regime |
 |--------|-------|-------|-------|--------|-----|--------|--------|--------|--------|
-| ALAB | $154.13 | $161.43 | $163.06* | $149.32* | 40.9 | $142.87 | $190.15 | $139.23 | Chop 🔄 |
+| ALAB | $154.13 | $161.43 | $163.06* | $149.32* | 40.9 | $142.87 | $190.15 | $139.23 | Mixed |
 | NVT | $116.71 | $113.92 | $108.69 | $99.85 | 59.1 | $112.36 | $116.75 | $99.19 | Chop 🔄 |
 | FN | $512.61 | $481.05 | $477.80 | $416.72 | 57.9 | $447.13 | $518.28 | $375.98 | Chop 🔄 |
 | CRDO | $128.41 | $122.94 | $138.24 | $117.82 | 49.7 | $151.00 | $165.95 | $124.09 | Mixed |
-| COHR | $230.50 | $218.12 | $199.72 | $155.67 | 59.8 | $115.55 | $190.17 | $84.35 | Trending ✅ |
-| PWR | $553.10 | $496.52 | $462.46 | $411.38 | 72.7 | $437.99 | $484.25 | $407.68 | Trending ✅ |
-| TSEM | $125.81 | $132.61 | $126.03 | $109.12 | 46.3 | $128.40 | $141.10 | $75.06 | Goldilocks 🎯 |
-| ANET | $137.50 | $140.08 | $133.57 | $128.89 | 50.2 | $141.83 | $148.97 | $127.12 | Chop 🔄 |
+| COHR | $247.37 | $218.12 | $199.72 | $155.67 | 65.0 | $115.55 | $190.17 | $84.35 | Goldilocks 🎯 |
+| PWR | $555.56 | $496.52 | $462.46 | $411.38 | 75.0 | $437.99 | $484.25 | $407.68 | Goldilocks 🎯 |
+| TSEM | $125.81 | $132.61 | $126.03 | $109.12 | 46.3 | $128.40 | $141.10 | $75.06 | Mixed |
+| ANET | $136.12 | $140.08 | $133.57 | $128.89 | 50.2 | $141.83 | $148.97 | $127.12 | Chop 🔄 |
 | LITE | $629.69? | $480.93 | $407.85 | $328.12 | 77.2 | $167.52 | $353.82 | $111.20 | Mixed |
-| GLW | $131.02 | $116.07 | $100.10 | $84.22 | 71.1 | $88.47 | $96.43 | $70.72 | Mixed |
-| VRT | $244.65 | $204.88 | $183.38 | $145.12 | 72.0 | $160.89 | $196.24 | $143.79 | Mixed |
+| GLW | $131.02 | $116.07 | $100.10 | $84.22 | 71.1 | $88.47 | $96.43 | $70.72 | Trending ✅ |
+| VRT | $244.65 | $204.88 | $183.38 | $145.12 | 72.0 | $160.89 | $196.24 | $143.79 | Trending ✅ |
 
 Markets closed Mon Feb 16. Trading week shortened.

@@ -16,6 +16,8 @@
 9. **Pest Control — Northern VA** (BizBuySell HS-65388) — $650K, $334K rev, $270K EBITDA. Mentioned Feb 13.
 10. **Pest Control #2 — NoVA/DC** (BusinessBroker.net #995851) — financials undisclosed, 86% recurring, 95% retention. Mentioned Feb 13.
 11. **HVAC/Duct Cleaning — NoVA** (BusinessBroker.net SB-58164) — $365K, $750K rev, ~$155K SDE. Franchise. Mentioned Feb 13.
+12. **Established Lawn & Landscape — NoVA** (US.BusinessesForSale) — 58% Commercial/HOA. Location: Prince William/Fairfax. Financials unverified. Mentioned Feb 20.
+13. **Managed IT & Voice — Virginia** (DealStream `spsphi`) — 80% recurring rev, 30 clients. Vendors: Dell, Microsoft. Mentioned Feb 20.
 
 ## Exclusions
 - No coworking spaces
