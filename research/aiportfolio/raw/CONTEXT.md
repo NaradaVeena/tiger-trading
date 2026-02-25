@@ -9,11 +9,11 @@ Beat SMH (VanEck Semiconductor ETF) over 3-5 years through concentrated, high-co
 - Track only. Do NOT chase benchmark components or rush to deploy cash. Cash is a position.
 
 ## Current Portfolio State
-- **Total Value:** $99,641.57 (-0.36%)
-- **Cash:** $87,154.42 (87.5%)
-- **Positions:** ANET (4.6%), COHR (4.0%), PWR (3.9%)
-- **Heat:** 12.5%
-- **Alpha vs SMH:** -0.97%
+- **Total Value:** $99,357.92 (-0.64%)
+- **Cash:** $79,756.42 (80.3%)
+- **Positions:** COHR (7.7%), ANET (4.5%), PWR (3.8%), VRT (3.7%)
+- **Heat:** 19.7%
+- **Alpha vs SMH:** -2.43%
 - **Pending Proformas:** None
 
 ## Watchlist

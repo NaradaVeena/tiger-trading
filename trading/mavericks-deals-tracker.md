@@ -1,5 +1,5 @@
 # MAVericks Deal Tracker
-> Last Scanned: Feb 22, 2026 (11:16 AM) — No new deals matching our criteria found.
+> Last Scanned: Feb 23, 2026 (9:18 AM) — No new deals matching our criteria found.
 
 ## Deals Already Surfaced (don't repeat these)
 
@@ -19,6 +19,7 @@
 11. **HVAC/Duct Cleaning — NoVA** (BusinessBroker.net SB-58164) — $365K, $750K rev, ~$155K SDE. Franchise. Mentioned Feb 13.
 12. **Established Lawn & Landscape — NoVA** (US.BusinessesForSale) — 58% Commercial/HOA. Location: Prince William/Fairfax. Financials unverified. Mentioned Feb 20.
 13. **Managed IT & Voice — Virginia** (DealStream `spsphi`) — 80% recurring rev, 30 clients. Vendors: Dell, Microsoft. Mentioned Feb 20.
+14. **HVAC, Electrical & Plumbing Contractor — Prince William County** (BizBuySell #1849096) — $2.6M, $710K CF. Est 1993, residential/commercial mix. Mentioned Feb 23.
 
 ## Exclusions
 - No coworking spaces
