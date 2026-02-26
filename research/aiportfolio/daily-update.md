@@ -1,26 +1,41 @@
 # Tiger Portfolio Daily Update
-**Date:** Monday, February 23rd, 2026
+**Date:** Wednesday, February 25th, 2026
 
 ## Executive Summary
-- **Portfolio Value:** $99,357.92 (-0.64%)
-- **Alpha vs SMH:** -2.43%
-- **Cash Position:** $79,756.42 (80.3%)
-- **Portfolio Heat:** 19.7%
+- **Portfolio Value:** $100,830.08 (+0.83%)
+- **Cash Position:** $79,756.42 (79.1%)
+- **Invested Capital:** $21,073.66 (20.9%)
+- **Alpha vs SMH:** -3.82% (SMH +4.65% vs inception)
+- **Open Positions:** 4 (ANET, COHR, PWR, VRT)
 
-## Trading Activity
-Locked two proforma trades at the 2 PM window:
-1. **BUY 15 COHR** @ $248.27 (Total: $3,724.05) - Goldilocks regime, strong RSI and trend continuation.
-2. **BUY 15 VRT** @ $244.93 (Total: $3,673.95) - Trending regime, MAs aligned, test of SMA5 support.
+## 2 PM Trade Lock Actions
+1. Checked pending proformas — **none**.
+2. Refreshed all position prices.
+3. Captured daily snapshot for 2026-02-25.
+4. Added review journal entry.
+5. Regenerated dashboard.
 
-## Regime Changes
-System recomputed rolling 20-day indicator accuracy and identified the following regime changes:
-- **ALAB:** Mixed -> Chop
-- **LITE:** Mixed -> Trending
-- **PWR:** Goldilocks -> Trending
-- **TSEM:** Mixed -> Chop
+## Regime Scoring (Rolling 20-Day Accuracy)
+Scored all active/weakened watchlist tickers and updated `indicator_scores` + `regime_summary` for 2026-02-25.
+
+**Current Regimes (active watchlist):**
+- **ALAB:** mixed (trend 0.40, mean-rev 0.56)
+- **ANET:** chop (trend 0.35, mean-rev 0.79)
+- **CRDO:** trending (trend 0.62, mean-rev 0.35)
+- **FN:** chop (trend 0.33, mean-rev 0.79)
+- **GLW:** trending (trend 0.85, mean-rev 0.24)
+- **LITE:** trending (trend 0.90, mean-rev 0.33)
+- **NVT:** chop (trend 0.42, mean-rev 0.85)
+- **TSEM:** mixed (trend 0.55, mean-rev 0.45)
+- **VRT:** trending (trend 0.71, mean-rev 0.45)
+
+**Regime changes vs prior regime date (2026-02-23):**
+- **ALAB:** Chop → mixed
+- **CRDO:** Mixed → trending
+- **TSEM:** Chop → mixed
+- **COHR (weakened):** Goldilocks → mixed
 
 ## Exit Rules Check
-All positions evaluated against exit rules:
-- No positions down 15%+ with weakening thesis.
-- No positions up 50%+ with RSI > 70.
-- Result: No forced exits triggered.
+- **Down 15%+ with weakening thesis:** none
+- **Up 50%+ with RSI > 70:** none
+- **Action required:** none
