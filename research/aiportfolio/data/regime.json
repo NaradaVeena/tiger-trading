@@ -1,10 +1,10 @@
 {
-  "updated": "2026-02-27T12:00:13.611Z",
+  "updated": "2026-02-28T12:00:11.016Z",
   "regimes": [
     {
       "ticker": "ALAB",
       "regime": "mixed",
-      "date": "2026-02-26",
+      "date": "2026-02-27",
       "trend_avg": 40,
       "meanrev_avg": 56,
       "indicators": {
@@ -19,7 +19,7 @@
     {
       "ticker": "ANET",
       "regime": "chop",
-      "date": "2026-02-26",
+      "date": "2026-02-27",
       "trend_avg": 35,
       "meanrev_avg": 79,
       "indicators": {
@@ -34,7 +34,7 @@
     {
       "ticker": "COHR",
       "regime": "mixed",
-      "date": "2026-02-26",
+      "date": "2026-02-27",
       "trend_avg": 53,
       "meanrev_avg": 70,
       "indicators": {
@@ -49,7 +49,7 @@
     {
       "ticker": "CRDO",
       "regime": "trending",
-      "date": "2026-02-26",
+      "date": "2026-02-27",
       "trend_avg": 62,
       "meanrev_avg": 35,
       "indicators": {
@@ -64,7 +64,7 @@
     {
       "ticker": "FN",
       "regime": "chop",
-      "date": "2026-02-26",
+      "date": "2026-02-27",
       "trend_avg": 35,
       "meanrev_avg": 79,
       "indicators": {
@@ -79,7 +79,7 @@
     {
       "ticker": "GLW",
       "regime": "trending",
-      "date": "2026-02-26",
+      "date": "2026-02-27",
       "trend_avg": 85,
       "meanrev_avg": 24,
       "indicators": {
@@ -94,7 +94,7 @@
     {
       "ticker": "LITE",
       "regime": "trending",
-      "date": "2026-02-26",
+      "date": "2026-02-27",
       "trend_avg": 91,
       "meanrev_avg": 33,
       "indicators": {
@@ -109,7 +109,7 @@
     {
       "ticker": "NVT",
       "regime": "chop",
-      "date": "2026-02-26",
+      "date": "2026-02-27",
       "trend_avg": 42,
       "meanrev_avg": 85,
       "indicators": {
@@ -124,7 +124,7 @@
     {
       "ticker": "PWR",
       "regime": "trending",
-      "date": "2026-02-26",
+      "date": "2026-02-27",
       "trend_avg": 93,
       "meanrev_avg": 31,
       "indicators": {
@@ -139,7 +139,7 @@
     {
       "ticker": "TSEM",
       "regime": "mixed",
-      "date": "2026-02-26",
+      "date": "2026-02-27",
       "trend_avg": 53,
       "meanrev_avg": 48,
       "indicators": {
@@ -154,7 +154,7 @@
     {
       "ticker": "VRT",
       "regime": "trending",
-      "date": "2026-02-26",
+      "date": "2026-02-27",
       "trend_avg": 71,
       "meanrev_avg": 44,
       "indicators": {
@@ -169,24 +169,16 @@
   ],
   "macro": {
     "current": {
-      "date": "2026-02-26",
+      "date": "2026-02-27",
       "monetary": "neutral",
-      "sentiment": "neutral",
+      "sentiment": "risk-off",
       "regime": "neutral",
       "monetary_score": 0,
-      "sentiment_score": 20,
-      "vix": 19.4,
-      "tnx": 4.03
+      "sentiment_score": -40,
+      "vix": 20.5,
+      "tnx": 3.98
     },
     "history": [
-      {
-        "date": "2026-01-29",
-        "monetary": "loose",
-        "sentiment": "neutral",
-        "macro": "neutral",
-        "vix": 16.9,
-        "tnx": 4.23
-      },
       {
         "date": "2026-01-30",
         "monetary": "loose",
@@ -338,6 +330,14 @@
         "macro": "neutral",
         "vix": 19.4,
         "tnx": 4.03
+      },
+      {
+        "date": "2026-02-27",
+        "monetary": "neutral",
+        "sentiment": "risk-off",
+        "macro": "neutral",
+        "vix": 20.5,
+        "tnx": 3.98
       }
     ]
   }
