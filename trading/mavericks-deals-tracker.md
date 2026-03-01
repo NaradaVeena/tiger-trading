@@ -1,5 +1,5 @@
 # MAVericks Deal Tracker
-> Last Scanned: Feb 27, 2026 (9:30 AM ET) — No new deals matching our criteria found.
+> Last Scanned: Feb 28, 2026 (3:02 PM ET) — No new *confirmed* deals matching our criteria found. Pipeline unchanged.
 
 ## Deals Already Surfaced (don't repeat these)
 
@@ -37,3 +37,9 @@
 - Anirudh requested info on NOVA Dry Cleaner (#8)
 - Anirudh signed NDA for HVAC company, broker responded, Monty CC'd
 - Anirudh requesting info on HVAC/Duct Cleaning (#11) and Pest Control (#9)
+
+## Scan Log
+- **Feb 28, 2026 (9:00 AM ET):** Checked CRM + tracker for dedup. Searched BusinessBroker.net, DealStream, SynergyBB, and BizBuySell indexed results. No new listings met all filters (within ~50mi Herndon, <$3M, >$200K EBITDA/cash flow, target verticals, and exclusions).
+- **Feb 28, 2026 (1:00 PM ET):** Re-checked CRM + tracker for dedup. Searched BusinessBroker.net, DealStream, SynergyBB, and BizBuySell indexed/accessible pages. No new listings met all filters (within ~50mi Herndon, <$3M, >$200K EBITDA/cash flow, target verticals, excluding coworking & concierge medicine).
+- **Feb 28, 2026 (2:36 PM ET):** Re-checked CRM (`/api/deals`) + tracker for dedup. Searched BusinessBroker.net, DealStream, SynergyBB, and BizBuySell indexed results. No new *confirmed* listings met all filters. One BizBuySell HVAC candidate (#2445646) appeared in search index, but listing detail pages were blocked (403), so EBITDA/location fit could not be verified and it was not added to CRM.
+- **Feb 28, 2026 (3:02 PM ET):** Re-checked CRM (`/api/deals`) + tracker for dedup. Searched BusinessBroker.net, DealStream, SynergyBB, BizBuySell indexed pages, and BusinessesForSale indexed results. No new *confirmed* listings met all filters (<$3M, >$200K EBITDA/CF, within ~50mi Herndon, target verticals, excluding coworking/concierge medicine). A BusinessesForSale commercial cleaning candidate surfaced in search, but listing detail page was blocked (403/Cloudflare), so it was not added.
