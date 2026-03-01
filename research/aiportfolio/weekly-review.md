@@ -1,27 +1,38 @@
 # 🐯 TIGER WEEKLY REVIEW
-**Date:** Sunday, February 22nd, 2026
+**Date:** Sunday, March 1st, 2026
 
-## 📊 Portfolio Summary
-*   **Current Value:** $99,641.57 (-0.36% since inception)
-*   **Cash:** $87,154.42 (87.5%)
-*   **Heat (Invested):** 12.53%
-*   **Alpha vs SMH:** -0.97% (SMH is +0.61%)
-*   **Positions:** ANET (4.6%), COHR (4.0%), PWR (3.9%)
-*   **Macro Regime:** NEUTRAL (Monetary: Loose / Sentiment: Neutral)
+## 📊 Portfolio Snapshot
+- **Current Value:** **$100,277.47** (**+0.28%** since inception)
+- **Cash:** **$76,742.73** (**76.5%**)
+- **Heat (Invested):** **23.47%**
+- **Benchmark (SMH):** **-0.33%** since inception
+- **Alpha vs SMH:** **+0.61%** ✅
+- **Positions:** COHR $8,026.83, ANET $7,743.00, PWR $3,941.56, VRT $3,823.35
 
-## 🔍 Watchlist & Pipeline Updates
+## 🧭 Regime Map (Latest DB Read)
+- **Trending:** CRDO, GLW, LITE, PWR, VRT
+- **Chop:** ANET, FN, NVT
+- **Mixed:** ALAB, COHR, TSEM
 
-**Thesis-Strengthening (The Good):**
-*   **FN (Fabrinet):** Outstanding earnings beat and massive AI data center growth guidance. Upgraded by Wolfe Research. Blue skies above Value Area High ($546.13). High momentum.
-*   **NVT (nVent):** Strong beat/raise. Raised full-year EPS ($4.00–$4.15). Breaking out above Value Area High ($116.87).
-*   **COHR & PWR:** Both delivered strong earnings and received widespread analyst upgrades (PWR to $646 at UBS; COHR seeing strong AI materials demand). Both exhibiting steep uptrends above all SMAs in Goldilocks regimes.
-*   **TSEM:** Record revenue and aggressive CapEx expansion announced. Consolidating under POC, but fundamental conviction strengthened.
-*   **GLW & VRT (Pipeline):** Both reached new highs with strong analyst target bumps (UBS raised GLW to $160; BofA raised VRT to $277). Clean, persistent uptrends.
-*   **LITE (Pipeline):** Massive 65.5% YoY revenue leap driven by AI network traffic. Overbought (RSI 80) but fundamentally firing on all cylinders.
+## ✅ Thesis-Strengthening Developments
+- **LITE:** Very strong tape (Last $700.91, RSI 73.7, MACD hist +7.61). Last-week flow remains earnings/margin beat + AI optics demand narrative; conviction **up**.
+- **GLW:** Trend regime with clean momentum (Last $150.38, RSI 70.5). Analyst PT bumps (incl. Citi raise) continue to reinforce optical AI upside; conviction **up**.
+- **VRT:** Trend intact (Last $254.89, RSI 70.8). Post-earnings momentum plus bullish analyst revisions continue; conviction **up**.
+- **PWR:** Strong uptrend and multi-firm PT upgrades after earnings strength; conviction **up**, but RSI 70.7 = extension risk.
+- **COHR:** Price above SMA20/50 with positive MACD histogram. Street tone constructive; conviction **unchanged-to-up**.
+- **TSEM:** Fundamental newsflow improved (record Q4/FY commentary + AI photonics partnership signals), though chart still below SMA20/50; conviction **unchanged** pending technical repair.
 
-**Thesis-Weakening / Watch Items (The Bad):**
-*   **ALAB:** Plunged ~24% (to ~$129) following earnings reset. Broken below 50-day SMA, VWAP, and Value Area Low ($139.23). While 2026 long-term targets were upgraded, the technical structure is broken (Stage 4). *Action: Hold off on entries until it reclaims support or establishes a Stage 1 base.*
-*   **ANET:** Mild dip to $132.79 on insider selling, falling below its recent 20-day SMA and high-volume node. Testing 50-day SMA.
+## ⚠️ Thesis-Weakening / Risk Flags
+- **ALAB:** Chart remains broken (Last $118.83; below SMA20/50 and below VP VAL $139.23). Negative catalyst framing from Citi outweighed “beat but reset” narrative; conviction **down**.
+- **ANET:** Chop regime with weak momentum (Last $133.50, MACD hist -1.06, under SMA20). Mixed analyst support vs insider/institutional trimming noise; conviction **unchanged**.
+- **CRDO:** Regime says trending, but price is below SMA20/50 and VP VAL ($124.09). Setup is conflicted; conviction **unchanged** until reclaim.
+- **FN:** Still strong trend structure above SMA20/50, but in chop regime and stretched above VP value area; conviction **unchanged** (no fresh thesis catalyst this week).
 
-**Conclusion:**
-Fundamentals across the AI infrastructure stack remain exceptional, evidenced by beats from FN, NVT, COHR, and PWR. ALAB is the notable outlier facing technical damage, but long-term estimates suggest it’s a valuation reset, not a thesis invalidation. Cash remains high; deploy selectively focusing on names with strong fundamentals aligning with supportive technicals.
+## 🎯 Actionable Read-Through (This Week)
+1. **Do not chase extended winners** (LITE/GLW/VRT/PWR): all are >70 RSI territory.
+2. **ALAB remains “watch, not buy”** until reclaim of VP VAL/POC zone (~$139–$143) with base formation.
+3. **ANET/CRDO/TSEM need technical confirmation** (SMA20/50 reclaim + volume) before any size adds.
+4. **Cash remains a position**: we're OUTPERFORMING SMH by 61 bps despite high cash drag.
+
+## Bottom Line
+Portfolio is green since inception and **BEATING SMH by 61 bps** — with 76% cash drag. Conviction improved in the optics/power-cooling complex (LITE/GLW/VRT/PWR), while **ALAB remains the primary conviction drag** due to unresolved technical damage. Process stance stays the same: fundamentals decide *what* to own; technicals decide *when* to deploy cash. Conviction improved in the optics/power-cooling complex (LITE/GLW/VRT/PWR), while **ALAB remains the primary conviction drag** due to unresolved technical damage. Process stance stays the same: fundamentals decide *what* to own; technicals decide *when* to deploy cash.

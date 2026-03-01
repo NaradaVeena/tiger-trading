@@ -1,5 +1,5 @@
 # Tiger Portfolio — Execution Context
-**Last updated:** Feb 19, 2026, 2:15 PM EST
+**Last updated:** Mar 1, 2026, 6:00 PM EST
 
 ## Objective
 Beat SMH (VanEck Semiconductor ETF) over 3-5 years through concentrated, high-conviction AI infrastructure picks. $100K starting capital. Inception: Feb 14, 2026.
@@ -9,11 +9,11 @@ Beat SMH (VanEck Semiconductor ETF) over 3-5 years through concentrated, high-co
 - Track only. Do NOT chase benchmark components or rush to deploy cash. Cash is a position.
 
 ## Current Portfolio State
-- **Total Value:** $99,357.92 (-0.64%)
-- **Cash:** $79,756.42 (80.3%)
-- **Positions:** COHR (7.7%), ANET (4.5%), PWR (3.8%), VRT (3.7%)
-- **Heat:** 19.7%
-- **Alpha vs SMH:** -2.43%
+- **Total Value:** $100,277.47 (+0.28%)
+- **Cash:** $76,742.73 (76.5%)
+- **Positions:** COHR (8.0%), ANET (7.7%), PWR (3.9%), VRT (3.8%)
+- **Heat:** 23.47%
+- **Alpha vs SMH:** -0.77% (SMH +1.05%)
 - **Pending Proformas:** None
 
 ## Watchlist
@@ -82,19 +82,17 @@ Every proforma includes a scorecard. No surprises.
 ## Signal Group
 - **Tigerrr** — can't send directly from cron (base64 ID bug). Write updates to portal + announce to main session.
 
-## Current Technical Snapshot (Feb 22, 2026)
+## Current Technical Snapshot (Mar 1, 2026)
 | Ticker | Price | Regime | Actionable Context |
 |--------|-------|--------|--------------------|
-| ALAB | $129.68 | Mixed | Broken below SMA50/VWAP/VAL. Stage 4. Watch for base. |
-| NVT | $116.87 | Chop 🔄 | Strong breakout above VAH. Solid uptrend. |
-| FN | $546.13 | Chop 🔄 | High momentum. Blue skies above VAH. |
-| CRDO | $124.06 | Mixed | Consolidating, defending VAL. MACD curling. |
-| COHR | $248.18 | Goldilocks 🎯 | Steep uptrend, strong RSI (66.2). Catalyst May 28. |
-| PWR | $552.66 | Goldilocks 🎯 | Powerful momentum, perfectly stacked MAs. |
-| TSEM | $128.47 | Mixed | Consolidating under POC. MAs flattening. |
-| ANET | $132.79 | Chop 🔄 | Pullback below POC, testing SMA50 support. |
-| LITE | $667.77 | Mixed | Overbought (RSI 79.9), trading at ATHs. |
-| GLW | $139.51 | Trending ✅ | Clean uptrend above SMA20/50. RSI 75.2. |
-| VRT | $243.75 | Trending ✅ | Persistent uptrend toward target. RSI 71.7. |
-
-Markets closed Mon Feb 16. Trading week shortened.
+| ALAB | $118.83 | Mixed | Still below SMA20/50 and below VP VAL ($139.23). Broken structure; wait for base + reclaim. |
+| NVT | $118.36 | Chop 🔄 | Above SMA20/50 with positive MACD. In chop, prefer pullbacks to support over breakout chase. |
+| FN | $545.63 | Chop 🔄 | Price above SMA20/50 with strong momentum, but chop regime raises false-breakout risk. |
+| CRDO | $112.27 | Trending ✅ | Regime trending but chart weak (below SMA20/50 and below VP VAL). Needs reclaim confirmation. |
+| COHR | $258.93 | Mixed | Above SMA20/50 with constructive momentum; mixed regime argues for starter sizing only. |
+| PWR | $563.08 | Trending ✅ | Strong trend continuation, but RSI 70.7 = extension risk; avoid oversized adds. |
+| TSEM | $124.87 | Mixed | Below SMA20/50 with negative MACD histogram; fundamentals improving, chart not there yet. |
+| ANET | $133.50 | Chop 🔄 | Under SMA20 with soft momentum; watch $130 VP POC and $127 VAL support behavior. |
+| LITE | $700.91 | Trending ✅ | Extremely strong trend, but overbought (RSI 73.7). Wait for better R/R entry zone. |
+| GLW | $150.38 | Trending ✅ | Clean uptrend with analyst support; overbought (RSI 70.5), manage extension risk. |
+| VRT | $254.89 | Trending ✅ | Persistent uptrend and positive revisions; overbought (RSI 70.8), do not chase highs. |
