@@ -524,10 +524,10 @@
                 <span>Heat: <span class="status-value">23.47%</span></span>
             </div>
             <div class="status-item">
-                <span>SMH: <span class="status-change positive">+1.05%</span></span>
+                <span>SMH: <span class="status-change negative">-0.33%</span></span>
             </div>
             <div class="status-item">
-                <span>α: <span class="status-change negative">-0.77%</span></span>
+                <span>α: <span class="status-change positive">+0.61%</span></span>
             </div>
             <div class="nav-links">
                 <a href="/aiportfolio/" class="active">📊 Dashboard</a>
@@ -577,15 +577,15 @@
             </div>
             <div class="summary-metric">
                 <div class="label">SMH Return</div>
-                <div class="value positive">
-                    +1.05%
+                <div class="value negative">
+                    -0.33%
                 </div>
-                <div class="change neutral">$412.01</div>
+                <div class="change neutral">$406.37</div>
             </div>
             <div class="summary-metric">
                 <div class="label">Alpha (α)</div>
-                <div class="value negative">
-                    -0.77%
+                <div class="value positive">
+                    +0.61%
                 </div>
                 <div class="change neutral">vs SMH</div>
             </div>
@@ -1206,7 +1206,7 @@
 
     <div class="terminal-footer">
         <div>🐯 Tiger Portfolio Management System</div>
-        <div>Generated Mar 1, 2026, 06:04 PM • <a href="/aiportfolio-process/" style="color: var(--text-muted);">Rules & Process</a></div>
+        <div>Generated Mar 1, 2026, 06:18 PM • <a href="/aiportfolio-process/" style="color: var(--text-muted);">Rules & Process</a></div>
         <div style="margin-top: 8px; font-size: 11px;">
             For educational purposes only • Not investment advice
         </div>
@@ -1249,7 +1249,7 @@
         const canvas = document.getElementById('performanceChart');
         if (canvas) {
             const ctx = canvas.getContext('2d');
-            const data = [{"x":0,"y":100000,"portfolioReturn":0,"benchmarkReturn":0,"date":"Feb 14, 2026"},{"x":1,"y":100000,"portfolioReturn":0,"benchmarkReturn":0,"date":"Feb 16, 2026"},{"x":2,"y":99965,"portfolioReturn":-0.034999999999999996,"benchmarkReturn":-0.05150593544590316,"date":"Feb 17, 2026"},{"x":3,"y":99858.59999999999,"portfolioReturn":-0.14140000000000874,"benchmarkReturn":1.1846365152555636,"date":"Feb 18, 2026"},{"x":4,"y":99777.75,"portfolioReturn":-0.22225,"benchmarkReturn":0.6082605709800748,"date":"Feb 19, 2026"},{"x":5,"y":99641.56999999999,"portfolioReturn":-0.3584300000000076,"benchmarkReturn":1.7928970862356384,"date":"Feb 20, 2026"},{"x":6,"y":99457.13,"portfolioReturn":-0.5428699999999953,"benchmarkReturn":1.2655744138133935,"date":"Feb 23, 2026"},{"x":7,"y":100584.70999999999,"portfolioReturn":0.5847099999999918,"benchmarkReturn":4.522711664868046,"date":"Feb 25, 2026"},{"x":8,"y":99913.31,"portfolioReturn":-0.08669000000000233,"benchmarkReturn":1.0521926812518305,"date":"Feb 26, 2026"},{"x":9,"y":100277.47,"portfolioReturn":0.27747000000000116,"benchmarkReturn":-0.3311095850093257,"date":"Feb 27, 2026"}];
+            const data = [{"x":0,"y":100000,"portfolioReturn":0,"benchmarkReturn":0,"date":"Feb 14, 2026"},{"x":1,"y":100000,"portfolioReturn":0,"benchmarkReturn":0,"date":"Feb 16, 2026"},{"x":2,"y":99965,"portfolioReturn":-0.034999999999999996,"benchmarkReturn":-0.05150593544590316,"date":"Feb 17, 2026"},{"x":3,"y":99858.59999999999,"portfolioReturn":-0.14140000000000874,"benchmarkReturn":1.1846365152555636,"date":"Feb 18, 2026"},{"x":4,"y":99777.75,"portfolioReturn":-0.22225,"benchmarkReturn":0.6082605709800748,"date":"Feb 19, 2026"},{"x":5,"y":99641.56999999999,"portfolioReturn":-0.3584300000000076,"benchmarkReturn":1.7928970862356384,"date":"Feb 20, 2026"},{"x":6,"y":99457.13,"portfolioReturn":-0.5428699999999953,"benchmarkReturn":1.2655744138133935,"date":"Feb 23, 2026"},{"x":7,"y":100584.70999999999,"portfolioReturn":0.5847099999999918,"benchmarkReturn":4.522711664868046,"date":"Feb 25, 2026"},{"x":8,"y":99913.31,"portfolioReturn":-0.08669000000000233,"benchmarkReturn":1.0521926812518305,"date":"Feb 26, 2026"},{"x":9,"y":100277.47,"portfolioReturn":0.27747000000000116,"benchmarkReturn":-0.3311095850093257,"date":"Feb 27, 2026"},{"x":10,"y":100277.47,"portfolioReturn":0.27747000000000116,"benchmarkReturn":-0.3311095850093257,"date":"Mar 1, 2026"}];
             
             const rect = canvas.getBoundingClientRect();
             canvas.width = rect.width * window.devicePixelRatio;
