@@ -1,5 +1,5 @@
 # MAVericks Deal Tracker
-> Last Scanned: Mar 1, 2026 (9:00 AM ET) — No new *confirmed* deals matching our criteria found. Pipeline unchanged.
+> Last Scanned: Mar 2, 2026 (9:00 AM ET) — No new *confirmed* deals matching our criteria found. Pipeline unchanged.
 
 ## Deals Already Surfaced (don't repeat these)
 
@@ -44,3 +44,4 @@
 - **Feb 28, 2026 (2:36 PM ET):** Re-checked CRM (`/api/deals`) + tracker for dedup. Searched BusinessBroker.net, DealStream, SynergyBB, and BizBuySell indexed results. No new *confirmed* listings met all filters. One BizBuySell HVAC candidate (#2445646) appeared in search index, but listing detail pages were blocked (403), so EBITDA/location fit could not be verified and it was not added to CRM.
 - **Feb 28, 2026 (3:02 PM ET):** Re-checked CRM (`/api/deals`) + tracker for dedup. Searched BusinessBroker.net, DealStream, SynergyBB, BizBuySell indexed pages, and BusinessesForSale indexed results. No new *confirmed* listings met all filters (<$3M, >$200K EBITDA/CF, within ~50mi Herndon, target verticals, excluding coworking/concierge medicine). A BusinessesForSale commercial cleaning candidate surfaced in search, but listing detail page was blocked (403/Cloudflare), so it was not added.
 - **Mar 1, 2026 (9:00 AM ET):** Re-checked CRM (`/api/deals`) + tracker for dedup. Reviewed BusinessBroker city listings (Fairfax/Herndon/Chantilly), DealStream Virginia vertical pages (HVAC, pest, landscaping, IT services, commercial cleaning), and SynergyBB indexed listings; BizBuySell detail/index pages remained blocked (403) from this environment. No new *confirmed* listings met all filters (<$3M, >$200K EBITDA/CF, within ~50mi Herndon, target verticals, excluding coworking/concierge medicine).
+- **Mar 2, 2026 (9:00 AM ET):** Re-checked CRM (`/api/deals`) + tracker for dedup. Searched DealStream Virginia pages (statewide + HVAC/pest/software verticals), SynergyBB Virginia listings, and BusinessBroker accessible listing/search pages. No new *confirmed* listings met all required filters (<$3M, >$200K EBITDA/CF, within ~50mi Herndon, target verticals, excluding coworking/concierge medicine). Notable candidates surfaced but were excluded for missing/unknown price, below EBITDA/cash flow threshold, wrong vertical, or excluded category.
