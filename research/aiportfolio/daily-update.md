@@ -1,40 +1,42 @@
-# Tiger Portfolio Daily Update
-**Date:** Tuesday, March 3rd, 2026 (2:00 PM EST lock)
+# Tiger Portfolio Daily Update — 2026-03-04 (2 PM Lock)
 
-## Executive Summary
-- **Portfolio Value:** $100,612.78 (**+0.61%**)
-- **Cash Position:** $76,742.73 (76.3%)
-- **Invested Capital:** $23,870.05 (23.7%)
-- **Alpha vs SMH:** +4.16% (Portfolio +0.61% vs SMH -3.55%)
+## Trade Lock Actions
+- Locked 1 pending proforma trade:
+  - **BUY 30 ANET @ $133.42** (proforma was $132.91)
+- Refreshed all open position prices
+- Captured daily snapshot
+- Regenerated dashboard
+
+## Portfolio Snapshot
+- **Total Value:** $100,540.04
+- **Cash:** $72,740.13 (72.35%)
+- **Invested:** $27,799.91 (27.65%)
 - **Open Positions:** 4 (ANET, COHR, PWR, VRT)
+- **Unrealized P&L:** +$540.04 (+0.54%)
+- **Benchmark (SMH):** $400.61 (-1.74%)
+- **Alpha vs SMH:** +2.28%
 
-## 2 PM Lock Workflow Completion
-1. Pending proformas checked — **none found**.
-2. Trade lock step skipped (no pending proformas).
-3. Position prices refreshed (ANET $125.84, COHR $287.12, PWR $567.18, VRT $246.69).
-4. Daily snapshot recorded for 2026-03-03.
-5. Review journal entry added.
-6. Dashboard regenerated.
+## Regime Scoring Update (11 active/watchlist tickers)
+- Completed daily indicator scoring for all six signals:
+  - `ma_trend`, `rsi_reversion`, `macd_momentum`, `volume_confirm`, `sr_hold`, `breakout`
+- Inserted today’s indicator rows in `indicator_scores`
+- Recomputed rolling 20-day `regime_summary`
 
-## Regime Scoring Update
-Scored all 6 indicators (`ma_trend`, `rsi_reversion`, `macd_momentum`, `volume_confirm`, `sr_hold`, `breakout`) for all active/weakened thesis tickers, upserted `indicator_scores`, recomputed rolling 20-outcome `regime_summary`, and compared vs prior session.
+### Regime Changes vs Prior Day
+- **COHR:** `mixed → goldilocks`
+- **TSEM:** `mixed → transition`
 
-**Current regimes (2026-03-03):**
-- ALAB: mixed (trend 0.42, mean-rev 0.56)
-- ANET: chop (trend 0.35, mean-rev 0.79)
-- COHR: mixed (trend 0.55, mean-rev 0.70)
-- CRDO: trending (trend 0.61, mean-rev 0.34)
-- FN: chop (trend 0.35, mean-rev 0.79)
-- GLW: trending (trend 0.85, mean-rev 0.24)
-- LITE: trending (trend 0.92, mean-rev 0.33)
-- NVT: chop (trend 0.42, mean-rev 0.85)
-- PWR: trending (trend 0.93, mean-rev 0.31)
-- TSEM: mixed (trend 0.50, mean-rev 0.45)
-- VRT: trending (trend 0.72, mean-rev 0.44)
-
-**Regime changes vs prior day:** none.
+### Current Regime Distribution
+- **Trending:** CRDO, PWR, LITE, GLW, VRT (5)
+- **Chop:** NVT, FN, ANET (3)
+- **Mixed:** ALAB (1)
+- **Goldilocks:** COHR (1)
+- **Transition:** TSEM (1)
 
 ## Exit Rules Check
-- **Down 15%+ with weakening thesis:** none (worst open drawdown: ANET -9.21%)
-- **Up 50%+ with RSI > 70:** none
-- **Action required:** none
+- **Down 15%+ with weakening thesis:** None flagged
+- **Up 50%+ and RSI > 70:** None flagged
+
+## Notes
+- Portfolio remains underinvested by design with high cash optionality.
+- ANET add increases exposure while staying within starter/add discipline and concentration limits.
