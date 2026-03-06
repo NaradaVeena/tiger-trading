@@ -1,35 +1,34 @@
-# Tiger Portfolio Daily Update — 2026-03-04 (2 PM Lock)
+# Tiger Portfolio Daily Update — 2026-03-05 (2 PM Lock)
 
 ## Trade Lock Actions
-- Locked 1 pending proforma trade:
-  - **BUY 30 ANET @ $133.42** (proforma was $132.91)
+- Pending proformas at lock: **none**
 - Refreshed all open position prices
 - Captured daily snapshot
+- Added journal review entry
 - Regenerated dashboard
 
 ## Portfolio Snapshot
-- **Total Value:** $100,540.04
-- **Cash:** $72,740.13 (72.35%)
-- **Invested:** $27,799.91 (27.65%)
+- **Total Value:** $99,926.31
+- **Cash:** $72,740.13 (72.79%)
+- **Invested:** $27,186.18 (27.21%)
 - **Open Positions:** 4 (ANET, COHR, PWR, VRT)
-- **Unrealized P&L:** +$540.04 (+0.54%)
-- **Benchmark (SMH):** $400.61 (-1.74%)
-- **Alpha vs SMH:** +2.28%
+- **Unrealized P&L:** -$73.69 (-0.07%)
+- **Benchmark (SMH):** $388.87 (-4.62%)
+- **Alpha vs SMH:** +4.55%
 
 ## Regime Scoring Update (11 active/watchlist tickers)
-- Completed daily indicator scoring for all six signals:
-  - `ma_trend`, `rsi_reversion`, `macd_momentum`, `volume_confirm`, `sr_hold`, `breakout`
-- Inserted today’s indicator rows in `indicator_scores`
-- Recomputed rolling 20-day `regime_summary`
+- Scored all six indicators for today: `ma_trend`, `rsi_reversion`, `macd_momentum`, `volume_confirm`, `sr_hold`, `breakout`
+- Upserted today’s rows into `indicator_scores`
+- Recomputed rolling 20-outcome accuracy and updated `regime_summary`
 
 ### Regime Changes vs Prior Day
-- **COHR:** `mixed → goldilocks`
-- **TSEM:** `mixed → transition`
+- **CRDO:** `trending → mixed`
+- **LITE:** `trending → mixed`
 
 ### Current Regime Distribution
-- **Trending:** CRDO, PWR, LITE, GLW, VRT (5)
-- **Chop:** NVT, FN, ANET (3)
-- **Mixed:** ALAB (1)
+- **Trending:** GLW, PWR, VRT (3)
+- **Chop:** ANET, FN, NVT (3)
+- **Mixed:** ALAB, CRDO, LITE (3)
 - **Goldilocks:** COHR (1)
 - **Transition:** TSEM (1)
 
@@ -38,5 +37,5 @@
 - **Up 50%+ and RSI > 70:** None flagged
 
 ## Notes
-- Portfolio remains underinvested by design with high cash optionality.
-- ANET add increases exposure while staying within starter/add discipline and concentration limits.
+- No execution at 2 PM due to no pending proformas.
+- Portfolio drawdown on the day remained minimal while SMH sold off sharply, preserving positive relative performance.
