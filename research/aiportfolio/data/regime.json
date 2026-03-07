@@ -1,10 +1,10 @@
 {
-  "updated": "2026-03-06T12:00:15.851Z",
+  "updated": "2026-03-07T12:00:23.631Z",
   "regimes": [
     {
       "ticker": "ALAB",
       "regime": "mixed",
-      "date": "2026-03-05",
+      "date": "2026-03-06",
       "trend_avg": 42,
       "meanrev_avg": 59,
       "indicators": {
@@ -19,7 +19,7 @@
     {
       "ticker": "ANET",
       "regime": "chop",
-      "date": "2026-03-05",
+      "date": "2026-03-06",
       "trend_avg": 35,
       "meanrev_avg": 81,
       "indicators": {
@@ -34,7 +34,7 @@
     {
       "ticker": "COHR",
       "regime": "goldilocks",
-      "date": "2026-03-05",
+      "date": "2026-03-06",
       "trend_avg": 57,
       "meanrev_avg": 74,
       "indicators": {
@@ -49,7 +49,7 @@
     {
       "ticker": "CRDO",
       "regime": "mixed",
-      "date": "2026-03-05",
+      "date": "2026-03-06",
       "trend_avg": 61,
       "meanrev_avg": 51,
       "indicators": {
@@ -64,7 +64,7 @@
     {
       "ticker": "FN",
       "regime": "chop",
-      "date": "2026-03-05",
+      "date": "2026-03-06",
       "trend_avg": 32,
       "meanrev_avg": 70,
       "indicators": {
@@ -79,7 +79,7 @@
     {
       "ticker": "GLW",
       "regime": "trending",
-      "date": "2026-03-05",
+      "date": "2026-03-06",
       "trend_avg": 83,
       "meanrev_avg": 38,
       "indicators": {
@@ -94,7 +94,7 @@
     {
       "ticker": "LITE",
       "regime": "mixed",
-      "date": "2026-03-05",
+      "date": "2026-03-06",
       "trend_avg": 88,
       "meanrev_avg": 53,
       "indicators": {
@@ -109,7 +109,7 @@
     {
       "ticker": "NVT",
       "regime": "chop",
-      "date": "2026-03-05",
+      "date": "2026-03-06",
       "trend_avg": 38,
       "meanrev_avg": 78,
       "indicators": {
@@ -124,7 +124,7 @@
     {
       "ticker": "PWR",
       "regime": "trending",
-      "date": "2026-03-05",
+      "date": "2026-03-06",
       "trend_avg": 93,
       "meanrev_avg": 46,
       "indicators": {
@@ -139,7 +139,7 @@
     {
       "ticker": "TSEM",
       "regime": "transition",
-      "date": "2026-03-05",
+      "date": "2026-03-06",
       "trend_avg": 48,
       "meanrev_avg": 39,
       "indicators": {
@@ -154,7 +154,7 @@
     {
       "ticker": "VRT",
       "regime": "trending",
-      "date": "2026-03-05",
+      "date": "2026-03-06",
       "trend_avg": 68,
       "meanrev_avg": 44,
       "indicators": {
@@ -169,24 +169,16 @@
   ],
   "macro": {
     "current": {
-      "date": "2026-03-05",
+      "date": "2026-03-06",
       "monetary": "neutral",
-      "sentiment": "neutral",
+      "sentiment": "risk-off",
       "regime": "neutral",
-      "monetary_score": 25,
-      "sentiment_score": 0,
-      "vix": 21.6,
-      "tnx": 4.13
+      "monetary_score": 0,
+      "sentiment_score": -40,
+      "vix": 26.5,
+      "tnx": 4.17
     },
     "history": [
-      {
-        "date": "2026-02-05",
-        "monetary": "neutral",
-        "sentiment": "risk-off",
-        "macro": "neutral",
-        "vix": 21.8,
-        "tnx": 4.21
-      },
       {
         "date": "2026-02-06",
         "monetary": "neutral",
@@ -338,6 +330,14 @@
         "macro": "neutral",
         "vix": 21.6,
         "tnx": 4.13
+      },
+      {
+        "date": "2026-03-06",
+        "monetary": "neutral",
+        "sentiment": "risk-off",
+        "macro": "neutral",
+        "vix": 26.5,
+        "tnx": 4.17
       }
     ]
   }

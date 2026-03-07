@@ -1,41 +1,46 @@
-# Tiger Portfolio Daily Update — 2026-03-05 (2 PM Lock)
+# Tiger Portfolio Daily Update — 2026-03-06 (2:00 PM Lock)
 
 ## Trade Lock Actions
-- Pending proformas at lock: **none**
-- Refreshed all open position prices
-- Captured daily snapshot
-- Added journal review entry
-- Regenerated dashboard
+- Pending proformas: **0** (`node portfolio/cli.js proformas`)
+- Lock action: **No trades locked**
+- Prices refreshed for open positions: **ANET, COHR, PWR, VRT**
+- Snapshot captured and dashboard regenerated
 
 ## Portfolio Snapshot
-- **Total Value:** $99,926.31
-- **Cash:** $72,740.13 (72.79%)
-- **Invested:** $27,186.18 (27.21%)
-- **Open Positions:** 4 (ANET, COHR, PWR, VRT)
-- **Unrealized P&L:** -$73.69 (-0.07%)
-- **Benchmark (SMH):** $388.87 (-4.62%)
-- **Alpha vs SMH:** +4.55%
+- **Total Value:** $99,779.78
+- **Cash:** $72,740.13 (72.90%)
+- **Invested:** $27,039.66 (27.10%)
+- **Unrealized P&L:** -$220.21 (-0.22%)
+- **Benchmark (SMH):** $387.97 (-4.84%)
+- **Alpha vs SMH:** +4.62%
 
-## Regime Scoring Update (11 active/watchlist tickers)
-- Scored all six indicators for today: `ma_trend`, `rsi_reversion`, `macd_momentum`, `volume_confirm`, `sr_hold`, `breakout`
-- Upserted today’s rows into `indicator_scores`
-- Recomputed rolling 20-outcome accuracy and updated `regime_summary`
+## Open Positions
+- **ANET:** 88 sh @ $136.46 | P&L -0.27% | Thesis: active
+- **COHR:** 31 sh @ $241.33 | P&L -2.29% | Thesis: weakened
+- **PWR:** 7 sh @ $548.70 | P&L -1.21% | Thesis: weakened
+- **VRT:** 15 sh @ $247.28 | P&L +0.96% | Thesis: active
 
-### Regime Changes vs Prior Day
-- **CRDO:** `trending → mixed`
-- **LITE:** `trending → mixed`
+## Regime Scoring Update (2026-03-06)
+Scored all active/weakened watchlist names and upserted all 6 indicators into `indicator_scores`, then recomputed rolling `regime_summary`.
 
-### Current Regime Distribution
-- **Trending:** GLW, PWR, VRT (3)
-- **Chop:** ANET, FN, NVT (3)
-- **Mixed:** ALAB, CRDO, LITE (3)
-- **Goldilocks:** COHR (1)
-- **Transition:** TSEM (1)
+### Current regimes
+- **Trending:** GLW, PWR, VRT
+- **Chop:** ANET, FN, NVT
+- **Transition:** TSEM
+- **Mixed:** ALAB, CRDO, LITE
+- **Goldilocks:** COHR
 
-## Exit Rules Check
-- **Down 15%+ with weakening thesis:** None flagged
-- **Up 50%+ and RSI > 70:** None flagged
+### Regime change check
+- **No ticker changed regime vs prior day.**
+
+## Macro Regime
+- **Monetary:** neutral
+- **Sentiment:** risk-off
+- **Combined:** neutral
+
+## Exit Rule Check
+- Down 15%+ with weakening thesis: **None**
+- Up 50%+ with RSI > 70: **None**
 
 ## Notes
-- No execution at 2 PM due to no pending proformas.
-- Portfolio drawdown on the day remained minimal while SMH sold off sharply, preserving positive relative performance.
+- Trade lock process executed end-to-end; no discretionary overrides required.
