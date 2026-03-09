@@ -3,36 +3,38 @@
 ## Objective
 Concentrated, high-conviction portfolio focused on AI hardware infrastructure with physical moats. Tiger cub approach: fewer names, deeper conviction, patient deployment.
 
-## Current Portfolio State (Updated Mar 6, 2026 — 2:00 PM)
-- **Total Value:** $99,779.78
+## Current Portfolio State (Updated Mar 8, 2026 — Weekly Review)
+- **Total Value:** $99,149.80
 - **Cash:** $72,740.13 (72.90%)
-- **Invested:** $27,039.66 (27.10%)
+- **Invested:** $26,409.67 (27.10%)
 - **Open Positions:** 4 (ANET, COHR, PWR, VRT)
-- **Unrealized P&L:** -$220.21 (-0.22%)
-- **Benchmark:** SMH $387.97 (-4.84%)
-- **Portfolio Return:** -0.22%
-- **Alpha vs SMH:** +4.62% (since inception)
+- **Unrealized P&L:** -$850.20 (-0.85%)
+- **Benchmark Snapshot (SMH):** $380.56 (-6.66% since inception)
+- **Portfolio Return:** -0.85%
+- **Alpha vs Benchmark:** +5.81%
 
-## Watchlist (Active Theses)
-| Ticker | Category | Status | Price (Feb 18) | Entry Zone | Regime |
-|--------|----------|--------|----------------|------------|--------|
-| ALAB | Core | Active | $129.54 | $120-135 | Transition ⚠️ |
-| NVT | Core | Active | $116.23 | $100-115 / $121 breakout | Chop |
-| FN | Core | Active | $515.41 | $440-470 | Goldilocks |
-| CRDO | Growth | Active | $132.20 | $100-125 | Goldilocks |
-| ANET | Growth | Active | $140.10 | HELD (35 sh @ $143.58) | Mixed |
-| TSEM | Growth | Active | $128.82 | $121 POC | Goldilocks |
-| COHR | Watch | Weakened | $225.77 | $150-200 | Goldilocks |
-| PWR | Watch | Weakened | $527.35 | $430-470 | Trending |
+## Watchlist (Single Source: thesis DB)
+| Ticker | Category | Status | Regime |
+|--------|----------|--------|--------|
+| ALAB | core | active | mixed |
+| NVT | core | active | chop |
+| FN | core | active | chop |
+| CRDO | growth | active | mixed |
+| COHR | watch | weakened | goldilocks |
+| PWR | watch | weakened | trending |
+| TSEM | growth | active | transition |
+| ANET | growth | active | chop |
+| LITE | growth | active | mixed |
+| GLW | core | active | trending |
+| VRT | core | active | trending |
 
-## Macro Regime
-- **Monetary:** Loose (+0.50) (yields falling, dollar weakening)
-- **Sentiment:** Risk-on (+0.40) (tech outperforming, small caps improving)
-- **Combined:** BULLISH 🟢 (upgraded from CAUTIOUS)
+## Macro Regime (latest DB read)
+- **Monetary:** neutral (0.00)
+- **Sentiment:** risk-off (-0.40)
+- **Combined:** NEUTRAL
 
 ## Key Decisions
-- Portfolio launched Feb 13, 2026 with $100K cash
-- Feb 17: First position entered — ANET 35 shares @ $143.58 (starter, 4.9%)
-- ALAB in transition regime — weakest of the watchlist, watching for base
-- CRDO improved to Goldilocks — potential next entry candidate
-- Macro upgraded to BULLISH — favorable deployment backdrop
+- Maintain high cash until technical entries align with thesis quality.
+- Prioritize trending-regime names for adds only on favorable pullbacks.
+- Treat S&P 500 inclusion flows (VRT/COHR/LITE) as supportive but not thesis-sufficient on their own.
+- ALAB remains on watch for technical repair before conviction is increased.

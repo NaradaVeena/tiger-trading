@@ -1,38 +1,68 @@
 # 🐯 TIGER WEEKLY REVIEW
-**Date:** Sunday, March 1st, 2026
+**Date:** Sunday, March 8, 2026
 
-## 📊 Portfolio Snapshot
-- **Current Value:** **$100,277.47** (**+0.28%** since inception)
-- **Cash:** **$76,742.73** (**76.5%**)
-- **Heat (Invested):** **23.47%**
-- **Benchmark (SMH):** **-0.33%** since inception
-- **Alpha vs SMH:** **+0.61%** ✅
-- **Positions:** COHR $8,026.83, ANET $7,743.00, PWR $3,941.56, VRT $3,823.35
+## 📊 Portfolio Snapshot (authoritative)
+- **Current Value:** **$99,149.80**
+- **Portfolio Return (latest snapshot):** **-0.85%**
+- **Benchmark Return (latest snapshot):** **-6.66%**
+- **Benchmark Price (snapshot):** **$380.56**
+- **Alpha vs Benchmark (snapshot):** **+5.81%** ✅
+- **Cash:** **$72,740.13 (72.9%)**
+- **Invested:** **$26,409.67 (27.1%)**
+- **Open Positions:** 4 (ANET, COHR, PWR, VRT)
 
-## 🧭 Regime Map (Latest DB Read)
-- **Trending:** CRDO, GLW, LITE, PWR, VRT
+## 🧭 Regime Map (latest regime_summary)
+- **Trending:** GLW, PWR, VRT
 - **Chop:** ANET, FN, NVT
-- **Mixed:** ALAB, COHR, TSEM
+- **Mixed:** ALAB, CRDO, LITE
+- **Transition:** TSEM
+- **Goldilocks:** COHR
 
-## ✅ Thesis-Strengthening Developments
-- **LITE:** Very strong tape (Last $700.91, RSI 73.7, MACD hist +7.61). Last-week flow remains earnings/margin beat + AI optics demand narrative; conviction **up**.
-- **GLW:** Trend regime with clean momentum (Last $150.38, RSI 70.5). Analyst PT bumps (incl. Citi raise) continue to reinforce optical AI upside; conviction **up**.
-- **VRT:** Trend intact (Last $254.89, RSI 70.8). Post-earnings momentum plus bullish analyst revisions continue; conviction **up**.
-- **PWR:** Strong uptrend and multi-firm PT upgrades after earnings strength; conviction **up**, but RSI 70.7 = extension risk.
-- **COHR:** Price above SMA20/50 with positive MACD histogram. Street tone constructive; conviction **unchanged-to-up**.
-- **TSEM:** Fundamental newsflow improved (record Q4/FY commentary + AI photonics partnership signals), though chart still below SMA20/50; conviction **unchanged** pending technical repair.
+## Weekly Thesis Changes (news + chart)
 
-## ⚠️ Thesis-Weakening / Risk Flags
-- **ALAB:** Chart remains broken (Last $118.83; below SMA20/50 and below VP VAL $139.23). Negative catalyst framing from Citi outweighed “beat but reset” narrative; conviction **down**.
-- **ANET:** Chop regime with weak momentum (Last $133.50, MACD hist -1.06, under SMA20). Mixed analyst support vs insider/institutional trimming noise; conviction **unchanged**.
-- **CRDO:** Regime says trending, but price is below SMA20/50 and VP VAL ($124.09). Setup is conflicted; conviction **unchanged** until reclaim.
-- **FN:** Still strong trend structure above SMA20/50, but in chop regime and stretched above VP value area; conviction **unchanged** (no fresh thesis catalyst this week).
+### Conviction Up / Strengthening
+- **VRT (trending, held):** Added to S&P 500; completed refinancing/repricing via 8-K. Chart still constructive (above SMA20/50, RSI ~57).
+  - Reuters: <https://www.reuters.com/business/media-telecom/vertiv-lumentum-coherent-echostar-set-join-sp-500-2026-03-06/>
+  - 8-K: <https://www.stocktitan.net/sec-filings/VRT/8-k-vertiv-holdings-co-reports-material-event-2a3e3ab55686.html>
+- **COHR (goldilocks, held):** Added to S&P 500 and announced dual-laser QSFP28-DCO product availability. Chart cooled but remains above SMA50.
+  - Reuters: <https://www.reuters.com/business/media-telecom/vertiv-lumentum-coherent-echostar-set-join-sp-500-2026-03-06/>
+  - Product PR: <https://www.stocktitan.net/news/COHR/coherent-announces-general-availability-of-industry-s-first-dual-zrmt47vqz9yz.html>
+- **LITE (mixed):** Added to S&P 500 and disclosed NVIDIA strategic investment/partnership (8-K). Fundamental narrative improves; chart remains very high-vol and off peak.
+  - Reuters: <https://www.reuters.com/business/media-telecom/vertiv-lumentum-coherent-echostar-set-join-sp-500-2026-03-06/>
+  - 8-K: <https://www.stocktitan.net/sec-filings/LITE/8-k-lumentum-holdings-inc-reports-material-event-c842dcf0e631.html>
+- **CRDO (mixed):** Q3 FY26 print (reported Mar 2) showed strong growth/margins; thesis intact despite technical damage.
+  - 8-K earnings: <https://www.stocktitan.net/sec-filings/CRDO/8-k-credo-technology-group-holding-ltd-reports-material-event-5c2417c12ab2.html>
 
-## 🎯 Actionable Read-Through (This Week)
-1. **Do not chase extended winners** (LITE/GLW/VRT/PWR): all are >70 RSI territory.
-2. **ALAB remains “watch, not buy”** until reclaim of VP VAL/POC zone (~$139–$143) with base formation.
-3. **ANET/CRDO/TSEM need technical confirmation** (SMA20/50 reclaim + volume) before any size adds.
-4. **Cash remains a position**: we're OUTPERFORMING SMH by 61 bps despite high cash drag.
+### Conviction Unchanged / Watch
+- **PWR (trending, held):** No high-signal operating catalyst this week; filings mostly equity-comp/holder flow. Trend still strong but momentum decelerating.
+  - Form 4: <https://www.stocktitan.net/sec-filings/PWR/form-4-quanta-services-inc-insider-trading-activity-86348d574e04.html>
+- **ANET (chop, held):** No thesis-breaking operating change; insider sale filing and mixed tape keep this in chop discipline mode.
+  - Form 4: <https://www.stocktitan.net/sec-filings/ANET/form-4-arista-networks-inc-insider-trading-activity-e17a044682c6.html>
+- **NVT (chop):** Week was mostly compensation-related Form 4 activity; no major thesis-changing operating update.
+  - Form 4: <https://www.stocktitan.net/sec-filings/NVT/form-4-n-vent-electric-plc-insider-trading-activity-24818da208eb.html>
+- **FN (chop):** No clear high-signal company catalyst in the past week (headline set dominated by recycled 13F/aggregator posts).
+- **GLW (trending):** No material new company-specific catalyst found this week; technical trend still positive but cooling from highs.
+- **TSEM (transition):** OFC 2026 participation (6-K) supports strategic positioning in silicon photonics, but not a hard demand/order catalyst by itself.
+  - 6-K: <https://www.stocktitan.net/sec-filings/TSEM/6-k-tower-semiconductor-ltd-current-report-foreign-issuer-0e3f71e9124a.html>
 
-## Bottom Line
-Portfolio is green since inception and **BEATING SMH by 61 bps** — with 76% cash drag. Conviction improved in the optics/power-cooling complex (LITE/GLW/VRT/PWR), while **ALAB remains the primary conviction drag** due to unresolved technical damage. Process stance stays the same: fundamentals decide *what* to own; technicals decide *when* to deploy cash. Conviction improved in the optics/power-cooling complex (LITE/GLW/VRT/PWR), while **ALAB remains the primary conviction drag** due to unresolved technical damage. Process stance stays the same: fundamentals decide *what* to own; technicals decide *when* to deploy cash.
+### Conviction Down / Weakening
+- **ALAB (mixed):** Insider sale filing (Form 4) plus weak tape (below SMA20/SMA50, RSI ~40) keeps conviction capped until technical repair.
+  - Form 4: <https://www.stocktitan.net/sec-filings/ALAB/form-4-astera-labs-inc-insider-trading-activity-a352aa92aad4.html>
+
+## Technical Snapshot (1d / 6mo)
+- **Strongest structures now:** **PWR, VRT** (trend intact; above SMA50 with supportive regimes)
+- **Constructive but cooling:** **COHR**
+- **Chop / low signal quality:** **ANET, NVT, FN**
+- **Repair needed / below key MAs:** **ALAB, CRDO, TSEM**
+- **High-vol runners pulling back:** **LITE, GLW**
+
+## Portfolio-Level Read
+1. **Process win:** high cash + regime discipline preserved relative performance (**+5.81% alpha**).
+2. **No thesis invalidations this week.**
+3. **Index inclusion (VRT/COHR/LITE) is supportive flow, not core thesis proof.**
+4. **Highest near-term concern remains ALAB technical damage + insider-sale overhang.**
+
+## Bias for Next Week
+- Keep adds focused on **trending names** on pullbacks to support (**PWR, VRT**).
+- Keep **starter-only / wait-for-reclaim** posture on damaged charts (**ALAB, CRDO, TSEM**).
+- Treat **S&P inclusion flows** as tactical tailwind, not reason to chase extended moves.

@@ -29,3 +29,7 @@
 - **Kedar: daily channel break, not intraday.** Don't react to intraday wicks. Wait for daily close below channel to confirm break. Discipline > speed.
 - **After substantive group discussions, prompt for thesis evolution updates.** Don't let conversation insights evaporate — persist to thesis DB + evolution log.
 - **"Dancing with elephants" (Poorna):** Every watchlist name sells to hyperscalers/NVIDIA. Any elephant can decide to make its own shovels. Elephant risk must be a standing section in every thesis — who could vertically integrate, and what's the moat against it? Added to Gate 1 in TRADE-SELECTION.md.
+
+## 2026-03-08
+- **Index inclusion is flow, not thesis.** S&P 500 adds (VRT/COHR/LITE) can support near-term price via passive demand, but they are not substitutes for fundamental moat/profitability evidence.
+- **Regime-aware conviction avoided overtrading.** Keeping high cash while benchmark fell harder preserved relative performance (+alpha) without forcing low-quality entries.
