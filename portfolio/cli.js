@@ -474,9 +474,10 @@ async function takeSnapshot() {
         benchmarkPrice = quote.price;
         benchmarkReturnPct = (benchmarkPrice - benchmarkInceptionPrice) / benchmarkInceptionPrice;
         
-        // Store benchmark data point (last write wins — run snapshot after market close for accurate data)
+        // Store one benchmark row per day/ticker (replace prior intraday write for the same day)
+        db.prepare('DELETE FROM benchmark WHERE date = ? AND ticker = ?').run(getCurrentDate(), benchmarkTicker);
         db.prepare(`
-          INSERT OR REPLACE INTO benchmark (date, ticker, price, return_pct)
+          INSERT INTO benchmark (date, ticker, price, return_pct)
           VALUES (?, ?, ?, ?)
         `).run(getCurrentDate(), benchmarkTicker, benchmarkPrice, benchmarkReturnPct);
       }

@@ -90,7 +90,7 @@ function generateHTML() {
   // Get benchmark data
   const benchmarkTicker = db.prepare("SELECT value FROM config WHERE key = 'benchmark_ticker'").get()?.value || 'SMH';
   const benchmarkInceptionPrice = parseFloat(db.prepare("SELECT value FROM config WHERE key = 'benchmark_inception_price'").get()?.value || '0');
-  const latestBenchmark = db.prepare('SELECT * FROM benchmark WHERE ticker = ? ORDER BY date DESC LIMIT 1').get(benchmarkTicker);
+  const latestBenchmark = db.prepare('SELECT * FROM benchmark WHERE ticker = ? ORDER BY date DESC, created_at DESC, id DESC LIMIT 1').get(benchmarkTicker);
   
   // Get macro regime
   const macro = db.prepare('SELECT * FROM macro_regime ORDER BY date DESC LIMIT 1').get();
