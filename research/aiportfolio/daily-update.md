@@ -1,47 +1,32 @@
-# Tiger Portfolio Daily Update — 2026-03-09 (2:00 PM Lock)
+# Tiger Daily Update — 2026-03-10
 
-## Trade Lock Actions
-- Pending proformas: **0** (`node portfolio/cli.js proformas`)
-- Lock action: **No trades locked**
-- Prices refreshed for open positions: **ANET, COHR, PWR, VRT**
-- Snapshot captured, journal updated, dashboard regenerated
-
-## Portfolio Snapshot
-- **Total Value:** $99,758.45
-- **Cash:** $72,740.13 (72.90%)
-- **Invested:** $27,018.32 (27.10%)
-- **Unrealized P&L:** -$241.55 (-0.24%)
-- **Benchmark (SMH):** $385.51 (-5.45% since inception)
-- **Alpha vs SMH:** +5.21%
+## 2 PM Lock
+- No pending proformas at lock; no trades executed.
+- Position prices refreshed: ANET $140.86, COHR $270.98, PWR $571.00, VRT $274.50.
+- Snapshot taken: portfolio value **$101,650.25** (**+1.65%** since inception).
+- Benchmark snapshot: **SMH $403.15** (**-1.12%** since inception).
+- Alpha vs benchmark: **+2.77%**.
+- Cash remains high at **$72,740.13 (72.90%)**; invested capital **$28,910.12 (27.10%)**.
 
 ## Open Positions
-- **ANET:** 88 sh @ $133.95 | P&L -2.11% | Thesis: active
-- **COHR:** 31 sh @ $240.17 | P&L -2.76% | Thesis: weakened
-- **PWR:** 7 sh @ $553.04 | P&L -0.42% | Thesis: weakened
-- **VRT:** 15 sh @ $260.95 | P&L +6.54% | Thesis: active
+- **ANET:** $12,395.24 market value, **+2.94%** unrealized.
+- **COHR:** $8,400.38 market value, **+9.72%** unrealized.
+- **VRT:** $4,117.50 market value, **+12.07%** unrealized.
+- **PWR:** $3,997.00 market value, **+2.81%** unrealized.
 
-## Regime Scoring Update (2026-03-09)
-Scored all active/weakened watchlist names, upserted all 6 indicators into `indicator_scores`, and recomputed rolling `regime_summary`.
+## Regime Update
+- Regime scoring refreshed for all 11 active/weakened watchlist names.
+- **No ticker changed regime** versus the prior session.
+- Current regimes remain:
+  - Trending: CRDO, GLW, LITE, PWR, VRT
+  - Chop: ANET, FN, NVT
+  - Mixed: ALAB, COHR
+  - Transition: TSEM
 
-### Current regimes
-- **Trending:** CRDO, GLW, LITE, PWR, VRT
-- **Chop:** ANET, FN, NVT
-- **Transition:** TSEM
-- **Mixed:** ALAB, COHR
-- **Goldilocks:** None
+## Risk / Exit Check
+- No open position is down **15%+** with a weakening thesis.
+- No open position is up **50%+** with RSI above **70**.
+- Highest current RSIs among holdings are **PWR 67.6** and **VRT 66.9** — elevated but below trim threshold.
 
-### Regime change check
-- **Changed vs prior day:** CRDO (mixed → trending), COHR (goldilocks → mixed), LITE (mixed → trending)
-
-## Macro Regime
-- **Monetary:** tight (-0.50)
-- **Sentiment:** risk-off (-0.60)
-- **Combined:** bearish
-
-## Exit Rule Check
-- Down 15%+ with weakening thesis: **None**
-- Up 50%+ with RSI > 70: **None**
-
-## Notes
-- Process executed end-to-end with no discretionary overrides.
-- Cash remains the dominant position while only 27.1% of capital is deployed.
+## Readthrough
+High cash plus stable regime map continues to argue for patience over forcing entries. Relative performance improved, but nothing in today’s lock changed the portfolio posture: preserve capital, let current winners work, and wait for cleaner technical alignment before deploying cash.
