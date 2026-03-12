@@ -10,3 +10,9 @@
 - 2026-03-10 03:00 PM EDT / 2026-03-10 19:00 UTC
   - GLD: $476.855 — above breakout level $469.51 (+1.57%, breakout confirmed)
   - SLV: $79.609 — above reclaim level $72.00 (+10.57%, breakout confirmed)
+- 2026-03-11 10:00 AM EDT / 2026-03-11 14:00 UTC
+  - GLD: $475.5392 — above breakout level $469.51 (+1.28%, breakout confirmed)
+  - SLV: $77.1893 — above reclaim level $72.00 (+7.21%, breakout confirmed)
+- 2026-03-11 03:00 PM EDT / 2026-03-11 19:00 UTC
+  - GLD: $475.21 — above breakout level $469.51 (+1.21%, breakout confirmed)
+  - SLV: $77.4201 — above reclaim level $72.00 (+7.53%, breakout confirmed)

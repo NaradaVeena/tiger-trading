@@ -3,24 +3,24 @@
 ## Objective
 Concentrated, high-conviction portfolio focused on AI hardware infrastructure with physical moats. Tiger cub approach: fewer names, deeper conviction, patient deployment.
 
-## Current Portfolio State (Updated Mar 10, 2026 — 2 PM Lock)
-- **Total Value:** $101,650.25
-- **Cash:** $72,740.13 (72.90%)
-- **Invested:** $28,910.12 (27.10%)
+## Current Portfolio State (Updated Mar 11, 2026 — 2 PM Lock)
+- **Total Value:** $100,761.43
+- **Cash:** $72,740.13 (72.19%)
+- **Invested:** $28,021.30 (27.81%)
 - **Open Positions:** 4 (ANET, COHR, PWR, VRT)
-- **Unrealized P&L:** +$1,650.25 (+1.65%)
-- **Benchmark Snapshot (SMH):** $403.15 (-1.12% since inception)
-- **Portfolio Return:** +1.65%
-- **Alpha vs Benchmark:** +2.77%
+- **Unrealized P&L:** +$761.43 (+0.76%)
+- **Benchmark Snapshot (SMH):** $400.55 (-1.76% since inception)
+- **Portfolio Return:** +0.76%
+- **Alpha vs Benchmark:** +2.52%
 
 ## Watchlist (Single Source: thesis DB)
 | Ticker | Category | Status | Regime |
 |--------|----------|--------|--------|
-| ALAB | core | active | mixed |
+| ALAB | core | active | chop |
 | NVT | core | active | chop |
 | FN | core | active | chop |
-| CRDO | growth | active | trending |
-| COHR | watch | weakened | mixed |
+| CRDO | growth | active | mixed |
+| COHR | watch | weakened | chop |
 | PWR | watch | weakened | trending |
 | TSEM | growth | active | transition |
 | ANET | growth | active | chop |
@@ -29,9 +29,9 @@ Concentrated, high-conviction portfolio focused on AI hardware infrastructure wi
 | VRT | core | active | trending |
 
 ## Macro Regime (latest DB read)
-- **Monetary:** tight (-0.50)
-- **Sentiment:** risk-off (-0.60)
-- **Combined:** BEARISH
+- **Monetary:** neutral (-0.25)
+- **Sentiment:** neutral (-0.20)
+- **Combined:** NEUTRAL
 
 ## Key Decisions
 - Maintain high cash until technical entries align with thesis quality.
