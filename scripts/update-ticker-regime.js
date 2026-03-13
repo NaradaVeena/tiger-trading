@@ -8,6 +8,11 @@ const db = new Database('portfolio/data/portfolio.db');
 // --- Configuration ---
 const FUTURE_DAYS = 5; 
 const ACCURACY_WINDOW = 20; 
+const FETCH_TIMEOUT_MS = Number(process.env.FETCH_TIMEOUT_MS || 20000);
+const TICKER_FILTER = (process.env.TICKERS || '')
+  .split(',')
+  .map(s => s.trim().toUpperCase())
+  .filter(Boolean);
 
 // --- Helper Functions ---
 
@@ -46,10 +51,13 @@ async function processTicker(ticker) {
     startDate.setFullYear(startDate.getFullYear() - 2); // 2 years back
     
     // chart() returns { meta, quotes }
-    result = await yahooFinance.chart(ticker, { 
+    result = await Promise.race([
+      yahooFinance.chart(ticker, { 
         interval: '1d', 
         period1: startDate.toISOString().split('T')[0]
-    });
+      }),
+      new Promise((_, reject) => setTimeout(() => reject(new Error(`fetch timeout after ${FETCH_TIMEOUT_MS}ms`)), FETCH_TIMEOUT_MS))
+    ]);
   } catch (e) {
     console.error(`Error fetching data for ${ticker}: ${e.message}`);
     return null;
@@ -252,8 +260,11 @@ async function processTicker(ticker) {
 
 (async () => {
   try {
-    const tickers = db.prepare("SELECT ticker FROM thesis WHERE status IN ('active', 'weakened')").all().map(r => r.ticker);
-    
+    const allTickers = db.prepare("SELECT ticker FROM thesis WHERE status IN ('active', 'weakened') ORDER BY ticker").all().map(r => r.ticker);
+    const tickers = TICKER_FILTER.length > 0
+      ? allTickers.filter(t => TICKER_FILTER.includes(t.toUpperCase()))
+      : allTickers;
+
     if (tickers.length === 0) {
       console.log('No active tickers found.');
       return;

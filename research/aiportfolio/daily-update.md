@@ -1,24 +1,22 @@
-# Daily Update — 2026-03-11 2 PM Lock
+# Daily Update — 2026-03-12 2 PM Lock
 
 ## Portfolio
 - No pending proformas at 2 PM; no trades were locked.
-- Portfolio value: **$100,761.43** (**+0.76%** since inception).
-- Cash: **$72,740.13** (**72.19%**); invested: **$28,021.30** (**27.81%**).
-- Benchmark: **SMH $400.55** (**-1.76%** since inception); alpha remains **+2.52%**.
+- Portfolio value: **$100,340.11** (**+0.34%** since inception).
+- Cash: **$72,740.13** (**72.49%**); invested: **$27,599.98** (**27.51%**).
+- Benchmark: **SMH $389.90** (**-4.37%** since inception); alpha widened to **+4.71%**.
 
 ## Open Positions
-- **ANET:** $138.54, unrealized **+1.25%**
-- **COHR:** $252.47, unrealized **+2.22%**
-- **PWR:** $568.80, unrealized **+2.41%**
-- **VRT:** $268.11, unrealized **+9.46%**
+- **ANET:** $135.67, unrealized **-0.85%**
+- **COHR:** $245.79, unrealized **-0.48%**
+- **PWR:** $569.06, unrealized **+2.46%**
+- **VRT:** $270.54, unrealized **+10.46%**
 
 ## Regime Refresh
-All 11 active/watch tickers were rescored for today with all six indicators inserted into `indicator_scores`, and `regime_summary` was recomputed.
+All 11 active/watch tickers were rescored for today across the six documented indicators, `indicator_scores` was refreshed for the latest day, and `regime_summary` was recomputed.
 
 **Regime changes vs yesterday:**
-- **ALAB:** mixed → **chop**
-- **CRDO:** trending → **mixed**
-- **COHR:** mixed → **chop**
+- None.
 
 **Current regime map:**
 - **Trending:** PWR, LITE, GLW, VRT
@@ -29,7 +27,7 @@ All 11 active/watch tickers were rescored for today with all six indicators inse
 ## Exit Rules Check
 - No position is down **15%+** with a weakening thesis.
 - No position is up **50%+** with **RSI > 70**.
-- Closest extension watch: **VRT RSI 67.61**, but gain is well below trim threshold.
+- Closest extension watch: **VRT RSI 67.97**, but gain is well below the trim threshold.
 
 ## Takeaway
-Portfolio is still mostly cash and continues to preserve relative performance. Regime drift softened in **CRDO** and worsened into **chop** for **ALAB** and **COHR**, while the clean trend cohort remains **PWR / LITE / GLW / VRT**.
+The portfolio stayed disciplined and mostly in cash, which continues to preserve relative performance while the benchmark remains weaker. Trend leadership is still concentrated in **PWR / LITE / GLW / VRT**, but there was no fresh regime improvement broad enough to justify forcing deployment today.

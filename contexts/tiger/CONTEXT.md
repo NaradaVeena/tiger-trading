@@ -3,15 +3,15 @@
 ## Objective
 Concentrated, high-conviction portfolio focused on AI hardware infrastructure with physical moats. Tiger cub approach: fewer names, deeper conviction, patient deployment.
 
-## Current Portfolio State (Updated Mar 11, 2026 — 2 PM Lock)
-- **Total Value:** $100,761.43
-- **Cash:** $72,740.13 (72.19%)
-- **Invested:** $28,021.30 (27.81%)
+## Current Portfolio State (Updated Mar 12, 2026 — 2 PM Lock)
+- **Total Value:** $100,340.11
+- **Cash:** $72,740.13 (72.49%)
+- **Invested:** $27,599.98 (27.51%)
 - **Open Positions:** 4 (ANET, COHR, PWR, VRT)
-- **Unrealized P&L:** +$761.43 (+0.76%)
-- **Benchmark Snapshot (SMH):** $400.55 (-1.76% since inception)
-- **Portfolio Return:** +0.76%
-- **Alpha vs Benchmark:** +2.52%
+- **Unrealized P&L:** +$340.11 (+0.34%)
+- **Benchmark Snapshot (SMH):** $389.90 (-4.37% since inception)
+- **Portfolio Return:** +0.34%
+- **Alpha vs Benchmark:** +4.71%
 
 ## Watchlist (Single Source: thesis DB)
 | Ticker | Category | Status | Regime |
