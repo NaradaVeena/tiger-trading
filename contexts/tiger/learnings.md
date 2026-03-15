@@ -33,3 +33,7 @@
 ## 2026-03-08
 - **Index inclusion is flow, not thesis.** S&P 500 adds (VRT/COHR/LITE) can support near-term price via passive demand, but they are not substitutes for fundamental moat/profitability evidence.
 - **Regime-aware conviction avoided overtrading.** Keeping high cash while benchmark fell harder preserved relative performance (+alpha) without forcing low-quality entries.
+
+## 2026-03-15
+- **Good story + bad chart is still a wait.** This week reinforced that several AI-infra names can have constructive narratives while remaining technically unready (ALAB, CRDO, TSEM, NVT).
+- **Relative performance came from selectivity, not activity.** Only VRT and PWR clearly justified aggressive posture; holding high cash preserved alpha without sacrificing optionality.
