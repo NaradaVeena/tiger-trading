@@ -37,3 +37,4 @@
 ## 2026-03-15
 - **Good story + bad chart is still a wait.** This week reinforced that several AI-infra names can have constructive narratives while remaining technically unready (ALAB, CRDO, TSEM, NVT).
 - **Relative performance came from selectivity, not activity.** Only VRT and PWR clearly justified aggressive posture; holding high cash preserved alpha without sacrificing optionality.
+- **Conference/demo weeks create headline volume, not necessarily thesis change.** OFC and investor-event updates are useful for confirming ecosystem relevance, but they should not be mistaken for real conviction upgrades unless they change demand, moat, or tape.

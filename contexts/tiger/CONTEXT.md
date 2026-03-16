@@ -34,11 +34,11 @@ Concentrated, high-conviction portfolio focused on AI hardware infrastructure wi
 - **Combined:** NEUTRAL
 
 ## Current Read
-- Portfolio remains underinvested by design; only **VRT** and **PWR** currently combine strong business narrative with strong trend structure.
-- **ANET** is still ownable but trapped in chop, so adds should be selective.
-- **COHR** remains weakened: decent story, weaker tape.
-- **ALAB** still needs technical repair before conviction can rise.
-- **GLW** and **LITE** have attractive narratives but are cooling after large advances; better to wait for cleaner entries than chase.
+- **PWR** and **VRT** remain the only names clearly combining business narrative and strong trend structure.
+- **GLW** and **LITE** still have favorable AI / optics narratives, but both are cooling after major advances and look less attractive as immediate entries.
+- **ANET** had a constructive optics / AI-networking product update, but the stock remains trapped in chop; keep as a hold, not an aggressor.
+- **COHR** remains weakened: product/news flow is decent, but the tape has lost leadership quality.
+- **ALAB** still needs major technical repair despite ongoing operating progress.
 - **CRDO, TSEM, FN, NVT** remain watchlist names until chart quality improves.
 
 ## Key Decisions
@@ -46,3 +46,4 @@ Concentrated, high-conviction portfolio focused on AI hardware infrastructure wi
 - Prioritize **trending-regime names** for adds only on favorable pullbacks.
 - Do **not** upgrade names on narrative alone; require tape confirmation.
 - Treat benchmark outperformance as evidence that selectivity is working, not a reason to force deployment.
+- During conference-heavy weeks (OFC, investor events), distinguish **visibility/newsflow** from true **thesis-changing developments**.
