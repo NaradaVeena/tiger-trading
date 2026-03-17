@@ -1,38 +1,36 @@
-# Daily Update — 2026-03-13 2 PM Lock
+# Daily Update — 2026-03-16
 
-## Portfolio
-- Locked **1** pending proforma: **BUY 30 ANET @ $133.38** (vs. $131.89 proforma).
-- Portfolio value: **$99,890.31** (**-0.11%** since inception).
-- Cash: **$68,738.73** (**68.81%**); invested: **$31,151.58** (**31.19%**).
-- Benchmark: **SMH $386.48** (**-5.21%** since inception); alpha remains **+5.10%**.
+## 2 PM Tiger Lock
+- No pending proformas; no trades executed.
+- Portfolio value: **$100,356.77** (**+0.36%** since inception)
+- Cash: **$68,738.73** (**68.49%**)
+- Invested: **$31,618.04** (**31.51%**)
+- Unrealized P&L: **+$356.77**
+- Benchmark (SMH): **$396.83** (**-2.67%** since inception)
+- Alpha vs SMH: **+3.03%**
 
 ## Open Positions
-- **ANET:** $132.94, unrealized **-2.22%**
-- **COHR:** $244.21, unrealized **-1.12%**
-- **PWR:** $567.70, unrealized **+2.21%**
-- **VRT:** $261.35, unrealized **+6.70%**
+- **ANET** — 118 shares @ $134.29 vs $135.96 cost, **-1.23%**
+- **COHR** — 31 shares @ $251.54 vs $246.98 cost, **+1.84%**
+- **PWR** — 7 shares @ $571.04 vs $555.40 cost, **+2.82%**
+- **VRT** — 15 shares @ $265.12 vs $244.93 cost, **+8.24%**
 
-## Regime Refresh
-All 11 active/weakened thesis tickers were rescored for today across the six documented indicators, `indicator_scores` was refreshed, and `regime_summary` was recomputed.
-
-**Regime changes vs yesterday:**
-- None.
-
-**Current regime map:**
+## Regime Update
+- All 11 watchlist tickers rescored across the 6-indicator framework.
+- **No ticker changed regime vs yesterday.**
 - **Trending:** GLW, LITE, PWR, VRT
 - **Chop:** ALAB, ANET, COHR, FN, NVT
-- **Transition:** TSEM
 - **Mixed:** CRDO
+- **Transition:** TSEM
 
 ## Macro Regime
-- **Monetary:** tight (**-0.75**)
-- **Sentiment:** neutral (**-0.20**)
-- **Combined:** **NEUTRAL**
+- **Neutral**
+- Monetary: **tight** (-0.75)
+- Sentiment: **neutral** (0.00)
+- VIX: **23.79**
+- 10Y yield: **4.226**
 
 ## Exit Rules Check
 - No position is down **15%+** with a weakening thesis.
 - No position is up **50%+** with **RSI > 70**.
-- Closest extension watch among open positions remains **PWR / VRT** on mid-60s RSI, still well below trim territory.
-
-## Takeaway
-The main action today was the ANET add, which raised invested capital to just over **31%** while keeping the portfolio mostly in cash. Regime leadership stayed narrow — **GLW / LITE / PWR / VRT** remain the trend names — and there was no regime improvement broad enough to justify more aggressive deployment into a macro backdrop that is still **neutral overall but tight on monetary conditions**.
+- **No exit-rule action required.**
