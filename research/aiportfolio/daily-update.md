@@ -1,36 +1,64 @@
-# Daily Update — 2026-03-16
+# Daily Update — 2026-03-17 (2 PM Lock)
 
-## 2 PM Tiger Lock
-- No pending proformas; no trades executed.
-- Portfolio value: **$100,356.77** (**+0.36%** since inception)
-- Cash: **$68,738.73** (**68.49%**)
-- Invested: **$31,618.04** (**31.51%**)
-- Unrealized P&L: **+$356.77**
-- Benchmark (SMH): **$396.83** (**-2.67%** since inception)
-- Alpha vs SMH: **+3.03%**
+## Portfolio Snapshot
 
-## Open Positions
-- **ANET** — 118 shares @ $134.29 vs $135.96 cost, **-1.23%**
-- **COHR** — 31 shares @ $251.54 vs $246.98 cost, **+1.84%**
-- **PWR** — 7 shares @ $571.04 vs $555.40 cost, **+2.82%**
-- **VRT** — 15 shares @ $265.12 vs $244.93 cost, **+8.24%**
+| Metric | Value |
+|--------|-------|
+| Total Value | $100,249.14 |
+| Cash | $68,738.73 (68.6%) |
+| Invested | $31,510.41 (31.4%) |
+| Unrealized PnL | +$249.14 (+0.25%) |
+| Benchmark (SMH) | -2.81% |
+| Alpha | +3.06% |
 
-## Regime Update
-- All 11 watchlist tickers rescored across the 6-indicator framework.
-- **No ticker changed regime vs yesterday.**
-- **Trending:** GLW, LITE, PWR, VRT
-- **Chop:** ALAB, ANET, COHR, FN, NVT
-- **Mixed:** CRDO
-- **Transition:** TSEM
+## Positions
 
-## Macro Regime
-- **Neutral**
-- Monetary: **tight** (-0.75)
-- Sentiment: **neutral** (0.00)
-- VIX: **23.79**
-- 10Y yield: **4.226**
+| Ticker | Shares | Cost Basis | Current | PnL $ | PnL % |
+|--------|--------|------------|---------|-------|-------|
+| ANET | 118 | $135.96 | $133.14 | -$332.47 | -2.07% |
+| COHR | 31 | $246.98 | $250.65 | +$113.62 | +1.48% |
+| PWR | 7 | $555.40 | $569.24 | +$96.89 | +2.49% |
+| VRT | 15 | $244.93 | $269.67 | +$371.10 | +10.10% |
+
+## Regime Updates
+
+**Changed since yesterday:**
+- TSEM: mixed → transition
+- VRT: trending → mixed
+
+**Full watchlist regimes (2026-03-17):**
+- ALAB: transition
+- ANET: transition
+- COHR: mixed
+- CRDO: transition
+- FN: transition
+- GLW: chop
+- LITE: chop
+- NVT: mixed
+- PWR: trending
+- TSEM: transition (changed)
+- VRT: mixed (changed)
+
+## Actions Taken
+
+1. ✅ Checked proformas: none pending
+2. ✅ Refreshed position prices
+3. ✅ Took daily snapshot (ID: 23)
+4. ✅ Added journal entry (review category)
+5. ✅ Regenerated dashboard
+6. ✅ Scored regime indicators for all 11 tickers
+7. ✅ Updated indicator_scores and regime_summary tables
+8. ✅ Exported regime data
+9. ✅ Synced docs
 
 ## Exit Rules Check
-- No position is down **15%+** with a weakening thesis.
-- No position is up **50%+** with **RSI > 70**.
-- **No exit-rule action required.**
+
+- **Stop-loss (15% down with weakening thesis):** None triggered
+- **Take-profit (50% up with RSI > 70):** None triggered
+
+## Notes
+
+- Portfolio flat +0.25%, outperforming SMH (-2.81%) by +3.06%
+- VRT remains best performer (+10.10%) but regime shifted from trending to mixed
+- TSEM regime improved from mixed to transition (watch for entry opportunity)
+- High cash position (68.6%) provides dry powder for new entries

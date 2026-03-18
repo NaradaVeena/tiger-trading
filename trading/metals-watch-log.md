@@ -30,3 +30,5 @@
   - SLV: $73.48 — above reclaim level $72.00 (+2.06%, breakout confirmed)
 - 2026-03-16 03:00 PM EDT / 2026-03-16 19:00 UTC
   - SLV: $73.526 — above reclaim level $72.00 (+2.12%, breakout confirmed)
+- 2026-03-17 10:00 AM EDT / 2026-03-17 14:00 UTC
+  - SLV: $73.605 — above reclaim level $72.00 (+2.23%, breakout confirmed)
