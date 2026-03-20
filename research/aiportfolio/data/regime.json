@@ -1,16 +1,16 @@
 {
-  "updated": "2026-03-19T11:00:15.067Z",
+  "updated": "2026-03-20T11:00:19.763Z",
   "regimes": [
     {
       "ticker": "ALAB",
       "regime": "chop",
-      "date": "2026-03-18",
-      "trend_avg": 37,
+      "date": "2026-03-19",
+      "trend_avg": 39,
       "meanrev_avg": 67,
       "indicators": {
         "ma_trend": null,
         "rsi_reversion": 100,
-        "macd_momentum": 60,
+        "macd_momentum": 67,
         "volume_confirm": 40,
         "sr_hold": 50,
         "breakout": 50
@@ -19,44 +19,44 @@
     {
       "ticker": "ANET",
       "regime": "transition",
-      "date": "2026-03-18",
-      "trend_avg": 42,
+      "date": "2026-03-19",
+      "trend_avg": 40,
       "meanrev_avg": 37,
       "indicators": {
-        "ma_trend": 53,
+        "ma_trend": 57,
         "rsi_reversion": 50,
-        "macd_momentum": 22,
-        "volume_confirm": 67,
-        "sr_hold": 11,
+        "macd_momentum": 13,
+        "volume_confirm": 73,
+        "sr_hold": 10,
         "breakout": 50
       }
     },
     {
       "ticker": "COHR",
       "regime": "mixed",
-      "date": "2026-03-18",
-      "trend_avg": 61,
+      "date": "2026-03-19",
+      "trend_avg": 59,
       "meanrev_avg": 50,
       "indicators": {
         "ma_trend": 53,
         "rsi_reversion": 67,
-        "macd_momentum": 63,
-        "volume_confirm": 40,
+        "macd_momentum": 56,
+        "volume_confirm": 47,
         "sr_hold": 50,
         "breakout": 67
       }
     },
     {
       "ticker": "CRDO",
-      "regime": "chop",
-      "date": "2026-03-18",
-      "trend_avg": 38,
+      "regime": "goldilocks",
+      "date": "2026-03-19",
+      "trend_avg": 56,
       "meanrev_avg": 61,
       "indicators": {
-        "ma_trend": 50,
+        "ma_trend": 100,
         "rsi_reversion": 100,
-        "macd_momentum": 14,
-        "volume_confirm": 47,
+        "macd_momentum": 17,
+        "volume_confirm": 40,
         "sr_hold": 33,
         "breakout": 50
       }
@@ -64,29 +64,29 @@
     {
       "ticker": "FN",
       "regime": "transition",
-      "date": "2026-03-18",
-      "trend_avg": 46,
+      "date": "2026-03-19",
+      "trend_avg": 41,
       "meanrev_avg": 44,
       "indicators": {
         "ma_trend": 20,
         "rsi_reversion": 100,
-        "macd_momentum": 50,
-        "volume_confirm": 47,
+        "macd_momentum": 38,
+        "volume_confirm": 53,
         "sr_hold": null,
         "breakout": 67
       }
     },
     {
       "ticker": "GLW",
-      "regime": "mixed",
-      "date": "2026-03-18",
+      "regime": "chop",
+      "date": "2026-03-19",
       "trend_avg": 39,
-      "meanrev_avg": 60,
+      "meanrev_avg": 63,
       "indicators": {
-        "ma_trend": 40,
-        "rsi_reversion": 63,
-        "macd_momentum": 44,
-        "volume_confirm": 47,
+        "ma_trend": 33,
+        "rsi_reversion": 71,
+        "macd_momentum": 50,
+        "volume_confirm": 40,
         "sr_hold": 50,
         "breakout": 33
       }
@@ -94,14 +94,14 @@
     {
       "ticker": "LITE",
       "regime": "chop",
-      "date": "2026-03-18",
-      "trend_avg": 32,
-      "meanrev_avg": 71,
+      "date": "2026-03-19",
+      "trend_avg": 28,
+      "meanrev_avg": 74,
       "indicators": {
         "ma_trend": 40,
-        "rsi_reversion": 63,
-        "macd_momentum": 57,
-        "volume_confirm": 29,
+        "rsi_reversion": 71,
+        "macd_momentum": 43,
+        "volume_confirm": 36,
         "sr_hold": 50,
         "breakout": null
       }
@@ -109,28 +109,28 @@
     {
       "ticker": "NVT",
       "regime": "chop",
-      "date": "2026-03-18",
-      "trend_avg": 27,
+      "date": "2026-03-19",
+      "trend_avg": 26,
       "meanrev_avg": 75,
       "indicators": {
         "ma_trend": 47,
         "rsi_reversion": 100,
-        "macd_momentum": 33,
-        "volume_confirm": 60,
+        "macd_momentum": 30,
+        "volume_confirm": 67,
         "sr_hold": 25,
         "breakout": null
       }
     },
     {
       "ticker": "PWR",
-      "regime": "trending",
-      "date": "2026-03-18",
-      "trend_avg": 64,
+      "regime": "mixed",
+      "date": "2026-03-19",
+      "trend_avg": 59,
       "meanrev_avg": 43,
       "indicators": {
         "ma_trend": 60,
-        "rsi_reversion": 80,
-        "macd_momentum": 33,
+        "rsi_reversion": 78,
+        "macd_momentum": 17,
         "volume_confirm": 80,
         "sr_hold": 50,
         "breakout": 100
@@ -139,29 +139,29 @@
     {
       "ticker": "TSEM",
       "regime": "transition",
-      "date": "2026-03-18",
+      "date": "2026-03-19",
       "trend_avg": 49,
-      "meanrev_avg": 41,
+      "meanrev_avg": 42,
       "indicators": {
-        "ma_trend": 23,
+        "ma_trend": 25,
         "rsi_reversion": 50,
-        "macd_momentum": 75,
+        "macd_momentum": 71,
         "volume_confirm": 33,
-        "sr_hold": 22,
+        "sr_hold": 25,
         "breakout": 50
       }
     },
     {
       "ticker": "VRT",
       "regime": "mixed",
-      "date": "2026-03-18",
-      "trend_avg": 56,
-      "meanrev_avg": 41,
+      "date": "2026-03-19",
+      "trend_avg": 53,
+      "meanrev_avg": 44,
       "indicators": {
-        "ma_trend": 67,
-        "rsi_reversion": 73,
+        "ma_trend": 60,
+        "rsi_reversion": 82,
         "macd_momentum": null,
-        "volume_confirm": 60,
+        "volume_confirm": 53,
         "sr_hold": 50,
         "breakout": 100
       }
@@ -169,24 +169,16 @@
   ],
   "macro": {
     "current": {
-      "date": "2026-03-18",
+      "date": "2026-03-19",
       "monetary": "tight",
       "sentiment": "neutral",
       "regime": "neutral",
       "monetary_score": -75,
-      "sentiment_score": 0,
-      "vix": 23.1,
-      "tnx": 4.23
+      "sentiment_score": -20,
+      "vix": 25.7,
+      "tnx": 4.26
     },
     "history": [
-      {
-        "date": "2026-02-18",
-        "monetary": "loose",
-        "sentiment": "risk-on",
-        "macro": "bullish",
-        "vix": 19.2,
-        "tnx": 4.09
-      },
       {
         "date": "2026-02-19",
         "monetary": "loose",
@@ -338,6 +330,14 @@
         "macro": "neutral",
         "vix": 23.1,
         "tnx": 4.23
+      },
+      {
+        "date": "2026-03-19",
+        "monetary": "tight",
+        "sentiment": "neutral",
+        "macro": "neutral",
+        "vix": 25.7,
+        "tnx": 4.26
       }
     ]
   }
