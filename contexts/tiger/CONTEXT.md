@@ -3,15 +3,15 @@
 ## Objective
 Concentrated, high-conviction portfolio focused on AI hardware infrastructure with physical moats. Tiger cub approach: fewer names, deeper conviction, patient deployment.
 
-## Current Portfolio State (Updated Mar 18, 2026 — 2 PM Lock)
-- **Total Value:** $101,134.82
-- **Cash:** $68,738.73 (68.0%)
-- **Invested:** $32,396.09 (32.0%)
+## Current Portfolio State (Updated Mar 20, 2026 — 2 PM Lock)
+- **Total Value:** $99,787.13
+- **Cash:** $68,738.73 (68.9%)
+- **Invested:** $31,048.40 (31.1%)
 - **Open Positions:** 4 (ANET, COHR, PWR, VRT)
-- **Unrealized P&L:** +$1,134.82 (+1.13%)
-- **Benchmark Snapshot (SMH):** $399.41 (-2.04% since inception)
-- **Portfolio Return:** +1.13%
-- **Alpha vs Benchmark:** +3.17%
+- **Unrealized P&L:** -$212.87 (-0.21%)
+- **Benchmark Snapshot (SMH):** $385.61 (-5.42% since inception)
+- **Portfolio Return:** -0.21%
+- **Alpha vs Benchmark:** +5.21%
 
 ## Watchlist (Single Source: thesis DB)
 | Ticker | Category | Status | Regime |
@@ -19,28 +19,31 @@ Concentrated, high-conviction portfolio focused on AI hardware infrastructure wi
 | ALAB | core | active | chop |
 | ANET | growth | active | transition |
 | COHR | watch | weakened | mixed |
-| CRDO | growth | active | chop ↓ |
-| FN | core | active | transition |
-| GLW | Core | active | mixed ↑ |
+| CRDO | growth | active | mixed ↑ |
+| FN | core | active | mixed ↑ |
+| GLW | Core | active | chop |
 | LITE | Growth | active | chop |
 | NVT | core | active | chop |
-| PWR | watch | weakened | trending |
+| PWR | watch | weakened | mixed ↓ |
 | TSEM | growth | active | transition |
 | VRT | Core | active | mixed |
 
 ## Macro Regime (latest DB read)
-- **Monetary:** tight (-0.75)
+- **Monetary:** tight (-0.50)
 - **Sentiment:** neutral (-0.20)
 - **Combined:** NEUTRAL
+- **VIX:** 26.41 | **10Y:** 4.372 | **DXY:** 99.54
 
 ## Current Read
-- **PWR** remains the only position in a clear trending regime; strongest tape quality.
-- **VRT** regime stabilized in mixed (prior degradation halted); +10.56% performer.
-- **COHR** showing strong tape (+6.08%) despite weakened thesis; mixed regime.
-- **GLW** shifted from chop to mixed; watch for potential improvement.
-- **CRDO** shifted from mixed to chop; mean-reversion plays more reliable here.
-- **ALAB, LITE, NVT** all in chop; cooling after major advances, less attractive as immediate entries.
-- **ANET, FN, TSEM** in transition; constructive but not clear aggressors yet.
+- **Market:** Sharp selloff (SMH -5.42%); portfolio resilient (-0.21%), alpha +5.21%
+- **PWR** regime cooled from trending to mixed; still constructive but tape softening
+- **FN** improved from transition to mixed; watch for entry setup
+- **CRDO** shifted from chop to mixed; improving setup
+- **VRT** stable in mixed; best performer (+6.72%)
+- **COHR** flat in mixed; weakened thesis but tape holding
+- **ALAB, GLW, LITE, NVT** all in chop; mean-reversion regime, not attractive for new entries
+- **ANET, TSEM** in transition; constructive but not clear aggressors
+- **Cash:** 68.9% — dry powder preserved during volatility; no rush to deploy
 
 ## Key Decisions
 - Maintain high cash until technicals and regime align with thesis quality.
