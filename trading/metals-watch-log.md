@@ -38,3 +38,6 @@
 - 2026-03-22 06:28 AM EDT / 2026-03-22 10:28 UTC
   - GLD: $413.38 — below breakdown level $435.00 (-4.97%, breakdown deepening)
   - SLV: $61.52 — below breakdown level $64.00 (-3.88%, breakdown confirmed)
+- 2026-03-24 03:00 PM EDT / 2026-03-24 19:00 UTC
+  - GLD: $403.58 — below breakdown level $435.00 (-7.22%, breakdown deepening)
+  - SLV: $62.92 — below breakdown level $64.00 (-1.69%, breakdown confirmed)

@@ -1,100 +1,96 @@
 # 🐯 Tiger Portfolio — Daily Update
-## Friday, March 20, 2026 — 2 PM Lock
+## 2026-03-24 (Tuesday) — 2 PM Lock
 
 ---
 
 ## Portfolio Summary
 
-| Metric | Value |
-|--------|-------|
-| **Total Value** | $99,787.13 |
-| **Cash** | $68,738.73 (68.9%) |
-| **Invested** | $31,048.40 (31.1%) |
-| **Day P&L** | -$212.87 (-0.21%) |
-| **Unrealized P&L** | -$212.87 |
-| **Open Positions** | 4 |
-
-### Benchmark Comparison
-| Metric | Portfolio | SMH | Alpha |
-|--------|-----------|-----|-------|
-| **Return (session)** | -0.21% | -5.42% | +5.21% |
+| Metric | Value | Change |
+|--------|-------|--------|
+| **Total Value** | $97,344.27 | -2.66% |
+| **Cash** | $65,619.73 | 67.4% |
+| **Invested** | $31,724.54 | 32.6% |
+| **Unrealized P&L** | +$463.27 | +0.48% |
+| **Benchmark (SMH)** | $393.81 | -3.41% |
+| **Alpha vs SMH** | +0.76% | ✅ |
 
 ---
 
-## Position Performance
+## Positions
 
-| Ticker | Shares | Avg Cost | Current | P&L | P&L% |
-|--------|--------|----------|---------|-----|------|
-| ANET | 118 | $135.96 | $131.78 | -$493.54 | -3.08% |
-| COHR | 31 | $246.98 | $247.42 | +$13.45 | +0.18% |
-| PWR | 7 | $555.40 | $558.33 | +$20.48 | +0.53% |
-| VRT | 15 | $244.93 | $261.38 | +$246.75 | +6.72% |
+| Ticker | Shares | Avg Cost | Current | Mkt Value | Unrealized | % |
+|--------|--------|----------|---------|-----------|------------|---|
+| ANET | 118 | $135.96 | $130.75 | $15,428.50 | -$614.49 | -3.83% |
+| COHR | 31 | $246.98 | $268.38 | $8,319.78 | +$663.25 | +8.66% |
+| PWR | 7 | $555.40 | $570.13 | $3,990.91 | +$103.11 | +2.65% |
+| VRT | 15 | $244.93 | $265.69 | $3,985.35 | +$311.40 | +8.48% |
+| NVT | 25 | $124.76 | $125.27 | $3,131.75 | +$12.75 | +0.41% |
 
-**Best performer:** VRT (+6.72%)
-**Worst performer:** ANET (-3.08%)
+**Today's Action:**
+- ✅ **NVT**: Opened starter position (25 shares @ $124.76) — core AI thermal management thesis
 
 ---
 
-## Regime Summary (2026-03-20)
-
-**Macro Regime:** NEUTRAL
-- Monetary: tight (-0.50)
-- Sentiment: neutral (-0.20)
-- VIX: 26.41 | 10Y: 4.372 | DXY: 99.54
-
-### Per-Ticker Regimes
+## Regime Summary (20-Day Rolling)
 
 | Ticker | Regime | Trend Avg | Mean-Rev Avg | Changed |
 |--------|--------|-----------|--------------|---------|
-| ALAB | chop | 0.42 | 0.67 | — |
-| ANET | transition | 0.39 | 0.33 | — |
-| COHR | mixed | 0.49 | 0.60 | — |
-| CRDO | mixed | 0.55 | 0.67 | — |
-| FN | mixed | 0.38 | 0.50 | ⚠️ transition→mixed |
-| GLW | chop | 0.35 | 0.67 | — |
-| LITE | chop | 0.23 | 0.78 | — |
-| NVT | chop | 0.26 | 0.75 | — |
-| PWR | mixed | 0.57 | 0.42 | ⚠️ trending→mixed |
-| TSEM | transition | 0.50 | 0.42 | — |
-| VRT | mixed | 0.53 | 0.47 | — |
+| ALAB | chop | 0.46 | 0.67 | — |
+| NVT | chop | 0.30 | 0.75 | — |
+| FN | chop | 0.21 | 0.67 | — |
+| CRDO | mixed | 0.54 | 0.67 | — |
+| COHR | chop | 0.44 | 0.67 | — |
+| PWR | chop | 0.39 | 0.61 | ⚠️ mixed→chop |
+| TSEM | transition | 0.49 | 0.44 | — |
+| ANET | transition | 0.35 | 0.33 | — |
+| LITE | chop | 0.22 | 0.83 | — |
+| GLW | chop | 0.23 | 0.83 | — |
+| VRT | mixed | 0.57 | 0.50 | — |
 
-**Regime changes today:**
-- **FN:** transition → mixed (improving)
-- **PWR:** trending → mixed (cooling off)
+**Regime Notes:**
+- **PWR** cooled from mixed to chop — mean-reversion signals gaining accuracy, trend signals weakening. Tape softening confirmed.
+- **8 of 11 tickers in chop** — market-wide mean-reversion environment. Avoid chasing breakouts; wait for pullbacks to support.
+- **CRDO, VRT in mixed** — both indicator groups working moderately well. Goldilocks-adjacent.
+- **ANET, TSEM in transition** — low confidence across all indicators. Reduce size, require 4:1 R/R.
 
 ---
 
-## Activity Log
+## Market Context
 
-- **Proformas:** None pending
-- **Trades locked:** None
-- **Journal:** Review entry added
-- **Dashboard:** Regenerated
+- **SMH** -3.41% today — semiconductor selloff continues
+- **Portfolio** -2.66% — outperforming benchmark by 75 bps
+- **Cash at 67%** — dry powder preserved; no rush to deploy in chop regime
+- **Alpha YTD**: +0.76% — selectivity paying off
 
 ---
 
 ## Exit Rules Check
 
-| Ticker | P&L% | RSI | Thesis | Action |
-|--------|------|-----|--------|--------|
-| ANET | -3.08% | — | active | Hold |
-| COHR | +0.18% | — | weakened | Hold |
-| PWR | +0.53% | — | weakened | Hold |
-| VRT | +6.72% | — | active | Hold |
+| Rule | Trigger | Status |
+|------|---------|--------|
+| Down 15%+ w/ weakening thesis | None | ✅ Clear |
+| Up 50%+ w/ RSI > 70 | None | ✅ Clear |
 
-**No exit triggers:** No positions down 15%+ with weakening thesis. No positions up 50%+ with RSI > 70.
+**No positions flagged for exit.**
 
 ---
 
-## Notes
+## Key Decisions
 
-- Market sold off sharply today (SMH -5.42%), portfolio held up well (-0.21%)
-- Alpha vs benchmark: +5.21% — selectivity paying off
-- High cash position (68.9%) provided cushion; no rush to deploy
-- PWR regime shifted from trending to mixed — tape cooling but still constructive
-- FN regime improved from transition to mixed — watch for entry setup
-- Maintain discipline: wait for technicals to align with thesis before new entries
+1. **NVT entry executed** — core thermal thesis, starter size appropriate for chop regime
+2. **Cash preserved at 67%** — regime awareness prevents overtrading in mean-reversion environment
+3. **PWR regime cooling noted** — monitor for further deterioration; no action needed yet
+4. **Continue patience on FN, CRDO** — both improving but still in suboptimal regimes for aggressive entry
 
 ---
 
-*Generated: 2026-03-20 14:02 EST*
+## Tomorrow's Watch
+
+- **NVT** — monitor entry follow-through; +15% extension acceptable in chop if near support
+- **PWR** — watch for regime stabilization or further cooling
+- **FN, CRDO** — both shifted toward mixed; watch for technical entry setups
+- **Market breadth** — SMH selloff severity; watch for capitulation or continuation
+
+---
+
+*Lock completed: 2026-03-24 14:01 EST*
