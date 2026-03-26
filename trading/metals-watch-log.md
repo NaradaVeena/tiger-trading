@@ -41,3 +41,9 @@
 - 2026-03-24 03:00 PM EDT / 2026-03-24 19:00 UTC
   - GLD: $403.58 — below breakdown level $435.00 (-7.22%, breakdown deepening)
   - SLV: $62.92 — below breakdown level $64.00 (-1.69%, breakdown confirmed)
+- 2026-03-25 10:00 AM EDT / 2026-03-25 14:00 UTC
+  - GLD: $416.98 — below breakdown level $435.00 (-4.14%, breakdown confirmed, slight recovery from prior close)
+  - SLV: $65.21 — above breakdown level $64.00 (+1.89%, monitoring for reclaim of $72)
+- 2026-03-25 03:00 PM EDT / 2026-03-25 19:00 UTC
+  - GLD: $416.90 — below breakdown level $435.00 (-4.16%, breakdown confirmed, holding below key support)
+  - SLV: $65.15 — above breakdown level $64.00 (+1.80%, monitoring for reclaim of $72)
