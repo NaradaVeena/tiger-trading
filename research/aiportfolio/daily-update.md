@@ -1,5 +1,5 @@
 # 🐯 Tiger Portfolio — Daily Update
-## 2026-03-24 (Tuesday) — 2 PM Lock
+## 2026-03-26 (Thursday) — 2 PM Lock
 
 ---
 
@@ -7,12 +7,12 @@
 
 | Metric | Value | Change |
 |--------|-------|--------|
-| **Total Value** | $97,344.27 | -2.66% |
-| **Cash** | $65,619.73 | 67.4% |
-| **Invested** | $31,724.54 | 32.6% |
-| **Unrealized P&L** | +$463.27 | +0.48% |
-| **Benchmark (SMH)** | $393.81 | -3.41% |
-| **Alpha vs SMH** | +0.76% | ✅ |
+| **Total Value** | $98,669.19 | -1.33% |
+| **Cash** | $65,619.73 | 66.5% |
+| **Invested** | $33,049.46 | 33.5% |
+| **Unrealized P&L** | -$1,330.81 | -1.33% |
+| **Benchmark (SMH)** | $382.98 | -6.07% |
+| **Alpha vs SMH** | +4.74% | ✅ |
 
 ---
 
@@ -20,14 +20,15 @@
 
 | Ticker | Shares | Avg Cost | Current | Mkt Value | Unrealized | % |
 |--------|--------|----------|---------|-----------|------------|---|
-| ANET | 118 | $135.96 | $130.75 | $15,428.50 | -$614.49 | -3.83% |
-| COHR | 31 | $246.98 | $268.38 | $8,319.78 | +$663.25 | +8.66% |
-| PWR | 7 | $555.40 | $570.13 | $3,990.91 | +$103.11 | +2.65% |
-| VRT | 15 | $244.93 | $265.69 | $3,985.35 | +$311.40 | +8.48% |
-| NVT | 25 | $124.76 | $125.27 | $3,131.75 | +$12.75 | +0.41% |
+| ANET | 118 | $135.96 | $124.76 | $14,721.68 | -$1,321.31 | -8.24% |
+| COHR | 31 | $246.98 | $246.66 | $7,646.46 | -$10.07 | -0.13% |
+| PWR | 7 | $555.40 | $553.56 | $3,874.92 | -$12.88 | -0.33% |
+| VRT | 15 | $244.93 | $253.96 | $3,809.40 | +$135.45 | +3.69% |
+| NVT | 25 | $124.76 | $119.88 | $2,997.00 | -$122.00 | -3.91% |
 
 **Today's Action:**
-- ✅ **NVT**: Opened starter position (25 shares @ $124.76) — core AI thermal management thesis
+- ✅ No proforma trades proposed — chop regime dominates, preserving cash
+- ✅ All positions refreshed at prevailing prices
 
 ---
 
@@ -35,32 +36,40 @@
 
 | Ticker | Regime | Trend Avg | Mean-Rev Avg | Changed |
 |--------|--------|-----------|--------------|---------|
-| ALAB | chop | 0.46 | 0.67 | — |
-| NVT | chop | 0.30 | 0.75 | — |
-| FN | chop | 0.21 | 0.67 | — |
-| CRDO | mixed | 0.54 | 0.67 | — |
-| COHR | chop | 0.44 | 0.67 | — |
-| PWR | chop | 0.39 | 0.61 | ⚠️ mixed→chop |
-| TSEM | transition | 0.49 | 0.44 | — |
-| ANET | transition | 0.35 | 0.33 | — |
-| LITE | chop | 0.22 | 0.83 | — |
-| GLW | chop | 0.23 | 0.83 | — |
-| VRT | mixed | 0.57 | 0.50 | — |
+| ALAB | mixed | 0.54 | 0.43 | ⚠️ chop→mixed |
+| ANET | chop | 0.20 | 0.72 | ⚠️ transition→chop |
+| COHR | chop | 0.47 | 0.69 | — |
+| CRDO | mixed | 0.55 | 0.28 | — |
+| FN | transition | 0.47 | 0.37 | ⚠️ chop→transition |
+| GLW | mixed | 0.57 | 0.39 | ⚠️ chop→mixed |
+| LITE | goldilocks | 0.62 | 0.58 | ⚠️ chop→goldilocks |
+| NVT | transition | 0.47 | 0.40 | ⚠️ chop→transition |
+| PWR | mixed | 0.75 | 0.50 | ⚠️ chop→mixed |
+| TSEM | mixed | 0.50 | 0.40 | ⚠️ transition→mixed |
+| VRT | mixed | 0.52 | 0.51 | — |
 
 **Regime Notes:**
-- **PWR** cooled from mixed to chop — mean-reversion signals gaining accuracy, trend signals weakening. Tape softening confirmed.
-- **8 of 11 tickers in chop** — market-wide mean-reversion environment. Avoid chasing breakouts; wait for pullbacks to support.
-- **CRDO, VRT in mixed** — both indicator groups working moderately well. Goldilocks-adjacent.
-- **ANET, TSEM in transition** — low confidence across all indicators. Reduce size, require 4:1 R/R.
+- **8 regime changes today** — significant market rotation detected
+- **LITE upgraded to goldilocks** — both trend (0.62) and mean-reversion (0.58) indicators working; highest-conviction regime
+- **ANET cooled to chop** — trend signals at 0.20 accuracy, mean-reversion at 0.72; tape weakening
+- **PWR improved to mixed** — trend signals strengthened to 0.75; regime stabilization after prior cooling
+- **FN, NVT in transition** — low confidence across all indicators (<0.50); require 4:1 R/R, starter sizes only
+- **Market-wide shift** — only 2 tickers remain in pure chop (ANET, COHR); diversification of regimes suggests sector rotation
 
 ---
 
-## Market Context
+## Macro Regime
 
-- **SMH** -3.41% today — semiconductor selloff continues
-- **Portfolio** -2.66% — outperforming benchmark by 75 bps
-- **Cash at 67%** — dry powder preserved; no rush to deploy in chop regime
-- **Alpha YTD**: +0.76% — selectivity paying off
+| Dimension | Score | Classification |
+|-----------|-------|----------------|
+| **Monetary** | -0.75 | Tight |
+| **Sentiment** | -0.20 | Neutral |
+| **Combined** | — | **NEUTRAL** |
+
+**Market Context:**
+- **VIX:** 27.99 (elevated)
+- **10Y Yield:** 4.416%
+- **DXY:** 99.94
 
 ---
 
@@ -71,26 +80,41 @@
 | Down 15%+ w/ weakening thesis | None | ✅ Clear |
 | Up 50%+ w/ RSI > 70 | None | ✅ Clear |
 
+**Position Watch:**
+- **ANET:** -8.24% but thesis active; monitor for -15% breach
+- **NVT:** -3.91% from recent entry; within normal chop-range fluctuation
+
 **No positions flagged for exit.**
+
+---
+
+## Market Context
+
+- **SMH** -6.07% today — significant semiconductor selloff
+- **Portfolio** -1.33% — outperforming benchmark by 474 bps
+- **Cash at 66.5%** — regime-aware positioning preserved capital
+- **Alpha YTD**: Strong relative performance continues; selectivity validated
 
 ---
 
 ## Key Decisions
 
-1. **NVT entry executed** — core thermal thesis, starter size appropriate for chop regime
-2. **Cash preserved at 67%** — regime awareness prevents overtrading in mean-reversion environment
-3. **PWR regime cooling noted** — monitor for further deterioration; no action needed yet
-4. **Continue patience on FN, CRDO** — both improving but still in suboptimal regimes for aggressive entry
+1. **No new entries** — chop/transition regimes dominate; cash preservation optimal
+2. **LITE regime upgrade noted** — goldilocks regime (both indicators >55%); add to watchlist for technical setup
+3. **ANET regime cooling** — trend signals at 20% accuracy; avoid adding until regime stabilizes
+4. **PWR stabilization** — improved from chop to mixed; monitor for continued improvement
+5. **High cash maintained** — 66.5% dry powder; deploy only when regime + technicals align
 
 ---
 
 ## Tomorrow's Watch
 
-- **NVT** — monitor entry follow-through; +15% extension acceptable in chop if near support
-- **PWR** — watch for regime stabilization or further cooling
-- **FN, CRDO** — both shifted toward mixed; watch for technical entry setups
-- **Market breadth** — SMH selloff severity; watch for capitulation or continuation
+- **LITE** — goldilocks regime; scan for Gate 2 technical entry (Stage 2, MA alignment, R/R ≥3:1)
+- **ANET** — monitor for regime stabilization; -8% from cost, approaching key support levels
+- **NVT** — watch for bounce from current levels; entry thesis intact despite near-term weakness
+- **Market breadth** — SMH selloff severity; watch for capitulation signal or continuation
+- **VIX 27.99** — elevated volatility; expect continued chop until VIX <20
 
 ---
 
-*Lock completed: 2026-03-24 14:01 EST*
+*Lock completed: 2026-03-26 14:05 EST*

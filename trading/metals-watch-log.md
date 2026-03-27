@@ -47,3 +47,16 @@
 - 2026-03-25 03:00 PM EDT / 2026-03-25 19:00 UTC
   - GLD: $416.90 — below breakdown level $435.00 (-4.16%, breakdown confirmed, holding below key support)
   - SLV: $65.15 — above breakdown level $64.00 (+1.80%, monitoring for reclaim of $72)
+
+## 2026-03-26 10:00 AM EDT - BREAKDOWN ALERT
+
+**GLD:** $408.99 🔴 **BREAKDOWN** (below $435.00 by 5.98%)
+
+**SLV:** $62.63 🔴 **BREAKDOWN** (below $64.00 by 2.13%)
+
+Both metals showing significant weakness. GLD well below key support, SLV approaching deeper breakdown territory.
+
+
+### 2026-03-26 15:00:54 EST
+🚨 GLD BREAKDOWN: $403.72 (below $435.00)
+🚨 SLV BREAKDOWN: $61.29 (below $64.00)
