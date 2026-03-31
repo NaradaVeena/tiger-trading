@@ -76,3 +76,11 @@ Both metals remain in confirmed breakdown territory. GLD holding ~6% below key s
 **SLV:** $63.61 🟡 **WITHIN 1% OF BREAKDOWN** (below $64.00 by 0.61%)
 
 GLD remains in confirmed breakdown territory (~4.6% below support). SLV hovering just below the $64 breakdown level — watch for either reclaim or further breakdown.
+
+### 2026-03-30 10:00 AM EDT - BREAKDOWN ALERT
+
+**GLD:** $415.74 🔴 **BREAKDOWN** (below $435.00 by 4.43%)
+
+**SLV:** $63.76 🟡 **WITHIN 1% OF BREAKDOWN** (below $64.00 by 0.38%)
+
+GLD holding ~4.4% below key support $435. SLV at $63.76 is just 0.38% below the $64 breakdown level — critical juncture. Watch for either reclaim of $64 (first step toward $72) or deeper breakdown confirmation.

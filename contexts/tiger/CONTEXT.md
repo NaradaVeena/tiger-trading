@@ -3,15 +3,15 @@
 ## Objective
 Concentrated, high-conviction portfolio focused on AI hardware infrastructure with physical moats. Tiger cub approach: fewer names, deeper conviction, patient deployment.
 
-## Current Portfolio State (Updated Mar 27, 2026 — 2 PM Lock)
-- **Total Value:** $97,798.53
-- **Cash:** $65,619.73 (67.1%)
-- **Invested:** $32,178.80 (32.9%)
+## Current Portfolio State (Updated Mar 30, 2026 — 2 PM Lock)
+- **Total Value:** $96,222.32
+- **Cash:** $65,619.73 (68.2%)
+- **Invested:** $30,602.59 (31.8%)
 - **Open Positions:** 5 (ANET, COHR, PWR, VRT, NVT)
-- **Unrealized P&L:** -$2,201.48 (-2.20%)
-- **Benchmark Snapshot (SMH):** $374.61 (-8.12%)
-- **Portfolio Return:** -2.20%
-- **Alpha vs Benchmark:** +5.92%
+- **Unrealized P&L:** -$3,777.68 (-3.78%)
+- **Benchmark Snapshot (SMH):** $363.72 (-10.81%)
+- **Portfolio Return:** -3.78%
+- **Alpha vs Benchmark:** +7.03%
 
 ## Watchlist (Single Source: thesis DB)
 | Ticker | Category | Status | Regime |
@@ -21,7 +21,7 @@ Concentrated, high-conviction portfolio focused on AI hardware infrastructure wi
 | COHR | watch | weakened | chop |
 | CRDO | growth | active | mixed |
 | FN | core | active | transition |
-| GLW | Core | active | chop |
+| GLW | Core | active | mixed |
 | LITE | Growth | active | chop |
 | NVT | core | active | mixed |
 | PWR | watch | weakened | chop |
@@ -29,18 +29,18 @@ Concentrated, high-conviction portfolio focused on AI hardware infrastructure wi
 | VRT | Core | active | mixed |
 
 ## Macro Regime (latest DB read)
-- **Monetary:** loose (yields falling, dollar weakening)
-- **Sentiment:** risk-off (defensive sectors leading)
-- **Combined:** CAUTIOUS
-- **VIX:** elevated | **10Y:** falling | **DXY:** weakening
+- **Monetary:** tight (yields elevated, dollar strong)
+- **Sentiment:** risk-off (defensive sectors leading, VIX elevated)
+- **Combined:** BEARISH
+- **VIX:** 30.64 | **10Y:** 4.344 | **DXY:** 100.49
 
 ## Current Read
-- **Market:** SMH -8.12%; portfolio -2.20%, alpha +5.92% — continued outperformance in selloff
-- **No regime changes** — all regimes stable vs prior day
-- **TSEM** only ticker in trending regime (trend_avg 71%) — MACD/breakout signals working
-- **ANET in transition** — trend signals 38% accuracy; low confidence, avoid adding
-- **COHR, PWR, GLW, LITE in chop** — RSI reversion 100% accurate; mean-reversion plays only
-- **Cash:** 67.1% — dry powder preserved; CAUTIOUS macro regime favors patience
+- **Market:** SMH -10.81%; portfolio -3.78%, alpha +7.03% — selectivity continues to protect capital
+- **Regime changes:** GLW chop → mixed (only change)
+- **TSEM** only ticker in trending regime (trend_avg 69%) — MACD (73%) and breakout (100%) signals working
+- **ANET, FN in transition** — trend signals <50% accuracy; low confidence, avoid adding
+- **COHR, PWR, LITE in chop** — RSI reversion 100% accurate; mean-reversion plays only
+- **Cash:** 68.2% — dry powder preserved; BEARISH macro regime favors patience
 
 ## Key Decisions
 - Maintain high cash until technicals and regime align with thesis quality.
@@ -49,6 +49,7 @@ Concentrated, high-conviction portfolio focused on AI hardware infrastructure wi
 - Treat benchmark outperformance as evidence that selectivity is working, not a reason to force deployment.
 - During conference-heavy weeks (OFC, investor events), distinguish **visibility/newsflow** from true **thesis-changing developments**.
 - **TSEM trending** — only name with reliable trend signals; scan for entry setup
-- **ANET transition** — monitor for stabilization; -11% from cost, approaching support
-- **Chop regimes (COHR, PWR, GLW, LITE)** — RSI extremes only, no breakout chasing
-- **Patience on FN, NVT** — both in transition/low confidence; wait for clearer signals
+- **ANET transition** — monitor for stabilization; -14% from cost, approaching support
+- **Chop regimes (COHR, PWR, LITE)** — RSI extremes only, no breakout chasing
+- **Patience on FN, NVT, GLW** — transition/mixed regimes; wait for clearer signals
+- **BEARISH macro** — tight monetary + risk-off sentiment; preserve capital, only highest-conviction entries
