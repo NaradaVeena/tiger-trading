@@ -84,3 +84,11 @@ GLD remains in confirmed breakdown territory (~4.6% below support). SLV hovering
 **SLV:** $63.76 🟡 **WITHIN 1% OF BREAKDOWN** (below $64.00 by 0.38%)
 
 GLD holding ~4.4% below key support $435. SLV at $63.76 is just 0.38% below the $64 breakdown level — critical juncture. Watch for either reclaim of $64 (first step toward $72) or deeper breakdown confirmation.
+## 2026-03-31 10:00:58 EST
+
+🔴 GLD BREAKDOWN: $423.99 <= $435.00
+
+---
+[2026-03-31 15:01:11 EDT]
+🚨 GLD BREAKDOWN: $429.15 (below $435.00)
+--------------------------------------------------
