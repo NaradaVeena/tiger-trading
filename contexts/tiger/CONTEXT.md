@@ -3,15 +3,15 @@
 ## Objective
 Concentrated, high-conviction portfolio focused on AI hardware infrastructure with physical moats. Tiger cub approach: fewer names, deeper conviction, patient deployment.
 
-## Current Portfolio State (Updated Mar 31, 2026 — 2 PM Lock)
-- **Total Value:** $97,734.71
-- **Cash:** $65,619.73 (67.2%)
-- **Invested:** $32,114.98 (32.8%)
+## Current Portfolio State (Updated Apr 1, 2026 — 2 PM Lock)
+- **Total Value:** $99,274.27
+- **Cash:** $65,619.73 (66.1%)
+- **Invested:** $33,654.54 (33.9%)
 - **Open Positions:** 5 (ANET, COHR, PWR, VRT, NVT)
-- **Unrealized P&L:** -$2,265.29 (-2.27%)
-- **Benchmark Snapshot (SMH):** $379.17 (-7.00%)
-- **Portfolio Return:** -2.27%
-- **Alpha vs Benchmark:** +4.74%
+- **Unrealized P&L:** -$725.74 (-0.73%)
+- **Benchmark Snapshot (SMH):** $393.34 (-3.53%)
+- **Portfolio Return:** -0.73%
+- **Alpha vs Benchmark:** +2.80%
 
 ## Watchlist (Single Source: thesis DB)
 | Ticker | Category | Status | Regime |
@@ -24,7 +24,7 @@ Concentrated, high-conviction portfolio focused on AI hardware infrastructure wi
 | GLW | Core | active | mixed |
 | LITE | Growth | active | chop |
 | NVT | core | active | mixed |
-| PWR | watch | weakened | chop |
+| PWR | watch | weakened | mixed |
 | TSEM | growth | active | trending |
 | VRT | Core | active | mixed |
 
@@ -32,15 +32,15 @@ Concentrated, high-conviction portfolio focused on AI hardware infrastructure wi
 - **Monetary:** tight (yields elevated, dollar stable)
 - **Sentiment:** neutral (VIX eased, mixed sector rotation)
 - **Combined:** NEUTRAL
-- **VIX:** 26.26 | **10Y:** 4.311 | **DXY:** 99.94
+- **VIX:** 23.66 | **10Y:** 4.317 | **DXY:** 99.49
 
 ## Current Read
-- **Market:** SMH -7.00%; portfolio -2.27%, alpha +4.74% — selectivity continues to protect capital
-- **Regime changes:** CRDO goldilocks → mixed, COHR chop → mixed
-- **TSEM** only ticker in trending regime (trend_avg 66%) — breakout (100%) and MACD (64%) signals working
+- **Market:** SMH -3.53%; portfolio -0.73%, alpha +2.80% — selectivity continues to protect capital
+- **Regime changes:** NVT transition → mixed, PWR chop → mixed
+- **TSEM** only ticker in trending regime (trend_avg 62.6%) — breakout (100%) and MACD (54.5%) signals working
 - **ANET, FN in transition** — trend signals <50% accuracy; low confidence, avoid adding
-- **PWR, LITE in chop** — RSI reversion 100% accurate; mean-reversion plays only
-- **Cash:** 67.2% — dry powder preserved; NEUTRAL macro regime allows standard criteria
+- **LITE in chop** — RSI reversion 100% accurate; mean-reversion plays only
+- **Cash:** 66.1% — dry powder preserved; NEUTRAL macro regime allows standard criteria
 
 ## Key Decisions
 - Maintain high cash until technicals and regime align with thesis quality.
@@ -49,7 +49,7 @@ Concentrated, high-conviction portfolio focused on AI hardware infrastructure wi
 - Treat benchmark outperformance as evidence that selectivity is working, not a reason to force deployment.
 - During conference-heavy weeks (OFC, investor events), distinguish **visibility/newsflow** from true **thesis-changing developments**.
 - **TSEM trending** — only name with reliable trend signals; scan for entry setup
-- **ANET transition** — monitor for stabilization; -10% from cost, thesis intact
-- **Chop regimes (PWR, LITE)** — RSI extremes only, no breakout chasing
-- **Patience on FN, NVT, GLW, ALAB, CRDO, COHR, VRT** — mixed/transition regimes; wait for clearer signals
+- **ANET transition** — monitor for stabilization; -7% from cost, thesis intact
+- **Chop regimes (LITE)** — RSI extremes only, no breakout chasing
+- **Patience on FN, NVT, GLW, ALAB, CRDO, COHR, VRT, PWR** — mixed/transition regimes; wait for clearer signals
 - **NEUTRAL macro** — tight monetary but sentiment stabilized; standard criteria apply, cash still favored
