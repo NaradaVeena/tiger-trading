@@ -1,0 +1,25 @@
+🐯 MACRO REGIME UPDATE — 2026-04-02
+
+OVERALL: NEUTRAL (unchanged)
+• Monetary: tight (-0.50)
+• Sentiment: neutral (-0.20)
+
+KEY INDICATORS:
+• VIX: 26.25 (elevated)
+• 10Y Yield: 4.311%
+• DXY: 100.05
+
+PER-TICKER REGIMES:
+• CRDO: trending
+• LITE: goldilocks
+• ALAB, GLW, PWR, TSEM, VRT: mixed
+• ANET, COHR: chop
+• FN, NVT: transition
+
+⚠️ No regime changes from prior day.
+
+Market in wait-and-see mode with tight monetary conditions and elevated volatility.
+
+---
+Generated: 2026-04-02 10:30 AM ET
+Cron Job: tiger-macro-regime-1030am

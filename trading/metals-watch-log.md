@@ -98,3 +98,9 @@ GLD holding ~4.4% below key support $435. SLV at $63.76 is just 0.38% below the 
 
 GLD has broken down below key support $435. SLV holding mid-range between $64 and $72 levels.
 --------------------------------------------------
+
+## 2026-04-02 07:49:49 
+- GLD: $437.82
+- SLV: $68.14
+
+- ⚠️ GLD near breakdown: $437.82 (level: $435.00)
