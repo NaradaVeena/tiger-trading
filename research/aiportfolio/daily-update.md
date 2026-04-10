@@ -1,5 +1,64 @@
 # 🐯 Tiger Portfolio — Daily Update
 
+## 2026-04-03 — 2 PM Trade Lock
+
+### Portfolio Summary
+| Metric | Value |
+|--------|-------|
+| Total Value | $99,363.69 |
+| Cash | $65,619.73 (66.1%) |
+| Invested | $33,743.96 (33.9%) |
+| Daily P&L | -$636.31 (-0.64%) |
+| Benchmark (SMH) | $392.32 (-3.78%) |
+| **Alpha** | **+3.14%** |
+
+### Position Performance
+| Ticker | Shares | Cost | Current | P&L % |
+|--------|--------|------|---------|-------|
+| ANET | 118 | $135.96 | $126.68 | -6.82% |
+| COHR | 31 | $246.98 | $258.16 | +4.52% |
+| PWR | 7 | $555.40 | $560.63 | +0.94% |
+| VRT | 15 | $244.93 | $261.29 | +6.68% |
+| NVT | 25 | $124.76 | $117.96 | -5.45% |
+
+### Regime Scan — Key Changes
+**0 regime changes detected** — all tickers maintained prior regime
+
+### Regime Summary
+- **Trending:** CRDO (62% trend accuracy)
+- **Goldilocks:** LITE (58% trend, 58% mean-reversion)
+- **Mixed:** ALAB, GLW, PWR, TSEM, VRT
+- **Chop:** ANET (70% mean-rev), COHR (69% mean-rev)
+- **Transition:** FN, NVT
+
+### Actions Taken
+- ✅ No proformas pending — no trades locked
+- ✅ Prices refreshed for all positions
+- ✅ Daily snapshot captured
+- ✅ Regime indicators scored for all 11 watchlist tickers
+- ✅ Dashboard regenerated
+- ✅ CONTEXT.md updated
+- ✅ Regime data exported
+
+### Exit Rules Check
+- **No triggers** — No position down 15%+ (ANET -6.82%, NVT -5.45% are within tolerance); No position up 50%+ with RSI > 70 (VRT +6.68% RSI 54, TSEM RSI 70 but not held)
+
+### Key Takeaways
+1. **Selectivity working:** Portfolio -0.64% vs SMH -3.78% = +3.14% alpha
+2. **Regime stability** — No changes; CRDO remains primary trending candidate
+3. **CRDO trending** — 62% trend accuracy; MA/MACD/breakout signals reliable
+4. **LITE goldilocks** — Both indicators ~58% accurate; standard 3:1 criteria applies
+5. **ANET/COHR chop** — Mean-reversion regimes; wait for RSI extremes (ANET RSI 47, COHR RSI 53)
+6. **Cash preserved at 66%** — Dry powder ready for high-conviction entries
+
+### Tomorrow's Focus
+- Scan CRDO for entry setup (trending regime, 62% trend accuracy)
+- Monitor LITE goldilocks opportunity
+- Watch ANET/COHR for RSI <40 pullback entries (chop regime)
+- Track FN/NVT for regime stabilization (transition → mixed/trending)
+
+---
+
 ## 2026-04-02 — 2 PM Trade Lock
 
 ### Portfolio Summary
